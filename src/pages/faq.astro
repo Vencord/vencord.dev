@@ -2,13 +2,27 @@
 export const prerender = true;
 
 import Layout from "../layouts/Layout.astro";
+
+const faqItems = {
+    "Am I cute?": "Yeah",
+};
 ---
 
 <Layout
     title="Faq"
     description="Answers to frequently asked questions about Vencord"
 >
-    <main>hi</main>
+    <main>
+        {
+            Object.entries(faqItems).map(([question, answer]) => (
+                <details>
+                    <summary>{question}</summary>
+
+                    {answer}
+                </details>
+            ))
+        }
+    </main>
 </Layout>
 
 <style></style>
