@@ -24,6 +24,8 @@ const { title, description } = Astro.props;
         <meta name="og:description" content={description} />
         <meta name="og:url" content={Astro.url} />
         {/* <meta name="og:image" content={ICON} />*/}
+
+        <link rel="sitemap" href="/sitemap-index.xml" />
     </head>
     <body>
         <slot />
