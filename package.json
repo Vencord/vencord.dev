@@ -1,0 +1,19 @@
+{
+  "name": "vencord-site",
+  "type": "module",
+  "private": true,
+  "license": "AGPL-3.0",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^0.18.1",
+    "@astrojs/node": "^5.1.0",
+    "astro": "^2.1.3"
+  }
+}

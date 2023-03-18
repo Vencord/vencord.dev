@@ -1,0 +1,46 @@
+---
+export interface Props {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {/* <link rel="icon" href={ICON} /> */}
+
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="author" content="Vencord Contributors" />
+        <meta name="theme-color" content="#dd7878" />
+
+        <meta name="og:type" content="website" />
+        <meta name="og:title" content={title} />
+        <meta name="og:description" content={description} />
+        <meta name="og:url" content={Astro.url} />
+        {/* <meta name="og:image" content={ICON} />*/}
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>
+
+<style is:global>
+    @font-face {
+        font-family: "Inter";
+        src: url("/fonts/Inter.var-subset.woff2") format("woff2");
+        font-weight: 100 900;
+        font-display: swap;
+        font-style: normal;
+        font-named-instance: "Regular";
+    }
+
+    html {
+        font-family: Inter, system-ui, sans-serif;
+    }
+</style>
