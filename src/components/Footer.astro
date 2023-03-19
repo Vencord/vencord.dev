@@ -1,0 +1,73 @@
+---
+import {
+    DISCORD_INVITE,
+    GITHUB_URL,
+    SOURCE_CODE,
+    SPONSOR_URL,
+} from "../scripts/constants";
+import Link from "./Link.astro";
+import { Icon } from "astro-icon";
+---
+
+<footer>
+    <div class="content">
+        <div class="source-and-disclaimer">
+            <Link href={SOURCE_CODE}>source code</Link>
+            <span>&nbsp;•&nbsp;</span>
+            <span>
+                Discord is trademark of Discord Inc. Vencord is not affiliated
+                or endorsed by Discord Inc.
+            </span>
+        </div>
+
+        <div class="socials">
+            <a href="/discord" title="Join Vencord's Discord Server">
+                <Icon name="fa-brands:discord" />
+            </a>
+            <a href="/github" title="Vencord Source Code">
+                <Icon name="fa-brands:github" />
+            </a>
+            <a href="/support" title="Support Vencord's Development">
+                <Icon name="fa-regular:heart" />
+            </a>
+        </div>
+    </div>
+</footer>
+
+<style>
+    footer {
+        margin-top: auto;
+        background-color: var(--surface);
+        padding: 1rem;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 1em;
+    }
+
+    .source-and-disclaimer {
+        font-weight: 300;
+        filter: brightness(80%);
+        font-size: 90%;
+    }
+
+    .socials {
+        display: flex;
+        gap: 1em;
+    }
+
+    svg {
+        width: 1.5em;
+        height: 1.5em;
+        shape-rendering: auto;
+        color: var(--color);
+    }
+
+    a:hover svg {
+        color: var(--accent);
+    }
+</style>
