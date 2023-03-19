@@ -15,4 +15,11 @@ export type Props = HTMLAttributes<"div">;
         grid-template-columns: 1fr;
         gap: 1rem;
     }
+
+    @media screen and (max-width: 800px) {
+        div {
+            grid-auto-flow: row;
+            grid-template-rows: 1fr;
+        }
+    }
 </style>
