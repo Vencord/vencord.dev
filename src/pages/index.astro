@@ -5,6 +5,7 @@ import Layout from "../layouts/Layout.astro";
 
 import { Icon } from "astro-icon";
 import LinkButton from "../components/LinkButton.astro";
+import AutoSizeGrid from "../components/AutoSizeGrid.astro";
 
 const features = [
     {
@@ -53,15 +54,17 @@ if (features.length % 3 !== 0)
     </section>
 
     <section class="buttons">
-        <LinkButton href="/download" class="main-btn">
-            Download Vencord
-        </LinkButton>
-        <LinkButton href="/discord" class="main-btn surface">
-            Join our Support Server
-        </LinkButton>
-        <LinkButton href="/github" class="main-btn surface">
-            View on GitHub
-        </LinkButton>
+        <AutoSizeGrid>
+            <LinkButton href="/download" class="main-btn">
+                Download Vencord
+            </LinkButton>
+            <LinkButton href="/discord" class="main-btn surface">
+                Join our Support Server
+            </LinkButton>
+            <LinkButton href="/github" class="main-btn surface">
+                View on GitHub
+            </LinkButton>
+        </AutoSizeGrid>
     </section>
 
     <!-- Heavily inspired by Vite's homepage https://vitejs.dev/ (or if they changed it, https://archive.ph/o6Lmn) -->
@@ -85,6 +88,7 @@ if (features.length % 3 !== 0)
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         margin-top: 4em;
     }
 
@@ -112,15 +116,9 @@ if (features.length % 3 !== 0)
     .buttons {
         display: flex;
         justify-content: center;
-        flex-direction: row;
-        gap: 1em;
     }
 
     .main-btn {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 0.8em;
         padding: 0.8em 2em;
         border-radius: 9999px;
     }
@@ -140,6 +138,12 @@ if (features.length % 3 !== 0)
     @media screen and (max-width: 1000px) {
         .features {
             grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        .buttons {
+            grid-template-columns: 1fr;
         }
     }
 
