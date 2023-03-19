@@ -59,7 +59,7 @@ if (features.length % 3 !== 0)
         <LinkButton href="/discord" class="main-btn surface">
             Join our Support Server
         </LinkButton>
-        <LinkButton href="/discord" class="main-btn surface">
+        <LinkButton href="/github" class="main-btn surface">
             View on GitHub
         </LinkButton>
     </section>
@@ -135,6 +135,18 @@ if (features.length % 3 !== 0)
         display: grid;
         gap: 1em;
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 1000px) {
+        .features {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .features {
+            grid-template-columns: 1fr;
+        }
     }
 
     .feature-card {
