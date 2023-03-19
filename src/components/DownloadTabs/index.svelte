@@ -1,28 +1,35 @@
 <script lang="ts">
+    import { writable } from "svelte/store";
     import { fade } from "svelte/transition";
 
     import { IS_SERVER } from "../../scripts/constants";
 
-    const options = ["Windows", "Linux", "Mac"] as const;
+    const options = ["Windows", "Linux", "Mac", "Browser"] as const;
 
-    let selected = IS_SERVER
+    const initialValue = IS_SERVER
         ? "windows"
         : (() => {
+              const stored = localStorage.platform;
+              if (stored && options.includes(stored)) return stored;
+
               const platform = navigator.platform.toLowerCase();
               if (platform.includes("linux")) return "Linux";
               if (platform.includes("mac")) return "Mac";
               return "Windows";
           })();
+
+    const selected = writable(initialValue);
+    if (!IS_SERVER) selected.subscribe(v => (localStorage.platform = v));
 </script>
 
 <div class="container">
     <nav>
         {#each options as option}
-            <label class={selected === option ? "selected" : ""}>
+            <label class={$selected === option ? "selected" : ""}>
                 <input
                     type="radio"
                     name="os"
-                    bind:group={selected}
+                    bind:group={$selected}
                     value={option}
                 />
                 {option}
@@ -32,17 +39,21 @@
 
     <section>
         <!-- grrr <slot> name cannot be dynamic -->
-        {#if selected === "Windows"}
+        {#if $selected === "Windows"}
             <div in:fade={{ duration: 150 }}>
                 <slot name="windowsTab" />
             </div>
-        {:else if selected === "Linux"}
+        {:else if $selected === "Linux"}
             <div in:fade={{ duration: 150 }}>
                 <slot name="linuxTab" />
             </div>
-        {:else if selected === "Mac"}
+        {:else if $selected === "Mac"}
             <div in:fade={{ duration: 150 }}>
                 <slot name="macTab" />
+            </div>
+        {:else if $selected === "Browser"}
+            <div in:fade={{ duration: 150 }}>
+                <slot name="browserTab" />
             </div>
         {/if}
     </section>
@@ -58,7 +69,7 @@
     nav {
         display: grid;
         width: 100%;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 
     section {

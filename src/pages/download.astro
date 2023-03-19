@@ -7,13 +7,15 @@ import DownloadTabs from "../components/DownloadTabs/index.svelte";
 import LinuxTab from "../components/DownloadTabs/LinuxTab.astro";
 import MacTab from "../components/DownloadTabs/MacTab.astro";
 import WindowsTab from "../components/DownloadTabs/WindowsTab.astro";
+import BrowserTab from "../components/DownloadTabs/BrowserTab.astro";
 ---
 
 <Layout title="Download Vencord" description="Download Vencord now!!!!!!">
     <h1>Download Vencord</h1>
     <DownloadTabs client:load>
+        <WindowsTab slot="windowsTab" />
         <LinuxTab slot="linuxTab" />
         <MacTab slot="macTab" />
-        <WindowsTab slot="windowsTab" />
+        <BrowserTab slot="browserTab" />
     </DownloadTabs>
 </Layout>
