@@ -4,7 +4,6 @@ import {
     FIREFOX_WEBSTORE_URL,
     USERSCRIPT_URL,
 } from "../../scripts/constants";
-import AutoSizeGrid from "../AutoSizeGrid.astro";
 import Card, { Kind } from "../Card.astro";
 import LinkButton from "../LinkButton.astro";
 import Tab from "./Tab.astro";
@@ -17,20 +16,20 @@ import Tab from "./Tab.astro";
             the UserScript
         </p>
         <div class="buttons">
-            <a href={FIREFOX_WEBSTORE_URL}
-                ><img
+            <a href={FIREFOX_WEBSTORE_URL}>
+                <img
                     src="/assets/firefox-button.webp"
                     alt="Get Vencord on the Firefox Webstore"
                     title="Get Vencord on the Firefox Webstore"
-                /></a
-            >
-            <a href={CHROME_WEBSTORE_URL}
-                ><img
+                />
+            </a>
+            <a href={CHROME_WEBSTORE_URL}>
+                <img
                     src="/assets/chrome-button.png"
                     alt="Get Vencord on the Chrome Webstore"
                     title="Get Vencord on the Chrome Webstore"
-                /></a
-            >
+                />
+            </a>
             <LinkButton href={USERSCRIPT_URL}>
                 Download Vencord.user.js
             </LinkButton>
@@ -39,8 +38,8 @@ import Tab from "./Tab.astro";
 
     <Card slot="footer" kind={Kind.Warning}>
         <p>
-            Please note that due to Discord's <a
-                href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP"
+            Please note that due to Discord's
+            <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP"
                 >content security policy</a
             >, the CSS Editor, custom themes and plugins making use of external
             scripts will not work with the UserScript
@@ -48,7 +47,7 @@ import Tab from "./Tab.astro";
         <p>
             The same is true for Firefox due to <a
                 href="https://github.com/Vendicated/Vencord/issues/548">a bug</a
-            > we haven't managed to fix :<nobr></nobr>(
+            > we haven't managed to fix <span class="no-wrap">:(</span>
         </p>
     </Card>
 </Tab>

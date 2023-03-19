@@ -23,6 +23,7 @@
 </script>
 
 <div class="container">
+    <slot name="title" />
     <nav>
         {#each options as option}
             <label class={$selected === option ? "selected" : ""}>

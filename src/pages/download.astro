@@ -11,8 +11,8 @@ import BrowserTab from "../components/DownloadTabs/BrowserTab.astro";
 ---
 
 <Layout title="Download Vencord" description="Download Vencord now!!!!!!">
-    <h1>Download Vencord</h1>
     <DownloadTabs client:load>
+        <h1 slot="title">Download Vencord</h1>
         <WindowsTab slot="windowsTab" />
         <LinuxTab slot="linuxTab" />
         <MacTab slot="macTab" />
