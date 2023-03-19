@@ -1,0 +1,82 @@
+<script lang="ts">
+    import { IS_SERVER } from "../../scripts/constants";
+
+    const options = ["Windows", "Linux", "Mac"] as const;
+
+    let selected = IS_SERVER
+        ? "windows"
+        : (() => {
+              const platform = navigator.platform.toLowerCase();
+              if (platform.includes("linux")) return "Linux";
+              if (platform.includes("mac")) return "Mac";
+              return "Windows";
+          })();
+</script>
+
+<div class="container">
+    <nav>
+        {#each options as option}
+            <label class={selected === option ? "selected" : ""}>
+                <input
+                    type="radio"
+                    name="os"
+                    bind:group={selected}
+                    value={option}
+                />
+                {option}
+            </label>
+        {/each}
+    </nav>
+
+    <section>
+        <!-- grrr <slot> name cannot be dynamic -->
+        {#if selected === "Windows"}
+            <slot name="windowsTab" />
+        {:else if selected === "Linux"}
+            <slot name="linuxTab" />
+        {:else if selected === "Mac"}
+            <slot name="macTab" />
+        {/if}
+    </section>
+</div>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    section {
+        width: 100%;
+        box-sizing: border-box;
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-top: none;
+        padding: 1rem;
+    }
+
+    label {
+        padding: 0.7rem 0rem;
+        text-align: center;
+        cursor: pointer;
+
+        background-color: black;
+        color: white;
+    }
+
+    label.selected {
+        background-color: lightpink;
+        color: black;
+    }
+
+    input {
+        display: none;
+    }
+</style>

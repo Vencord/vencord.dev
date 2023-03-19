@@ -1,0 +1,36 @@
+---
+import Card, { Kind } from "../Card.astro";
+import Code from "../Code.astro";
+import Tab from "./Tab.astro";
+---
+
+<Tab
+    fileNames={[
+        "VencordInstaller-wayland",
+        "VencordInstaller-x11",
+        "VencordInstallerCli-linux",
+    ]}
+>
+    <div slot="header">
+        <p>
+            Most of the time, you can just use our automatic launcher script and
+            it will figure everything out for you! To do so, just run the below
+            command. If you're using fish, switch to bash first
+            <!-- grr prettier do not format, Code is an inline element -->
+            (by running <Code>bash</Code>)
+        </p>
+        <Card kind={Kind.Blank}>
+            <code>
+                sh -c "$(curl -sS
+                https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"
+            </code>
+        </Card>
+
+        <p>
+            Alternatively, download the correct installer manually and make it
+            executable, then just run it. Make sure to use
+            <Code>sudo</Code>/<Code>doas</Code> to elevate, running as root user
+            is not supported
+        </p>
+    </div>
+</Tab>

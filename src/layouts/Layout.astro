@@ -1,4 +1,6 @@
 ---
+import "normalize.css";
+
 export interface Props {
     title: string;
     description: string;
@@ -28,11 +30,13 @@ const { title, description } = Astro.props;
         <link rel="sitemap" href="/sitemap-index.xml" />
     </head>
     <body>
-        <slot />
+        <div>
+            <slot />
+        </div>
     </body>
 </html>
 
-<style is:global>
+<style>
     @font-face {
         font-family: "Inter";
         src: url("/fonts/Inter.var-subset.woff2") format("woff2");
@@ -44,5 +48,31 @@ const { title, description } = Astro.props;
 
     html {
         font-family: Inter, system-ui, sans-serif;
+        line-height: 1.5;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        min-height: 100vh;
+        width: 100vw;
+    }
+
+    div {
+        margin: 2em 20%;
+    }
+
+    @media screen and (max-width: 800px) {
+        div {
+            margin: 2em 5%;
+        }
+    }
+</style>
+
+<style is:global>
+    .no-wrap {
+        white-space: nowrap;
     }
 </style>

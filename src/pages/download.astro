@@ -2,8 +2,18 @@
 export const prerender = true;
 
 import Layout from "../layouts/Layout.astro";
+
+import DownloadTabs from "../components/DownloadTabs/index.svelte";
+import LinuxTab from "../components/DownloadTabs/LinuxTab.astro";
+import MacTab from "../components/DownloadTabs/MacTab.astro";
+import WindowsTab from "../components/DownloadTabs/WindowsTab.astro";
 ---
 
 <Layout title="Download Vencord" description="Download Vencord now!!!!!!">
-    Basic instructions here
+    <h1>Download Vencord</h1>
+    <DownloadTabs client:load>
+        <LinuxTab slot="linuxTab" />
+        <MacTab slot="macTab" />
+        <WindowsTab slot="windowsTab" />
+    </DownloadTabs>
 </Layout>

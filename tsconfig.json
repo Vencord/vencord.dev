@@ -1,3 +1,8 @@
 {
-  "extends": "astro/tsconfigs/base"
+    "extends": "astro/tsconfigs/base",
+    "include": ["src/**/*"],
+    "compilerOptions": {
+        // astro considers stuff only used in frontmatter unused, so disable for now
+        // "importsNotUsedAsValues": "error"
+    }
 }

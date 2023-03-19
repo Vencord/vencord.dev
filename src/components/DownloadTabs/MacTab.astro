@@ -1,0 +1,23 @@
+---
+import Card, { Kind } from "../Card.astro";
+import Code from "../Code.astro";
+import Tab from "./Tab.astro";
+---
+
+<Tab fileNames={["VencordInstaller.MacOs.zip"]}>
+    <p slot="header">
+        Download the zip, unzip it and run <Code>VencordInstaller.app</Code>!
+    </p>
+
+    <Card slot="footer" kind={Kind.Warning}>
+        <p>
+            If you get a VencordInstaller can't be opened warning, right-click
+            VencordInstaller.app and click open
+        </p>
+        <p>
+            This warning shows due the app not being signed. Doing so would cost
+            us 100€ a year for an Apple Developer license
+            <span class="no-wrap">:(</span>
+        </p>
+    </Card>
+</Tab>

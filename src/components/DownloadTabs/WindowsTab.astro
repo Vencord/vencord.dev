@@ -1,0 +1,27 @@
+---
+import Card, { Kind } from "../Card.astro";
+import Code from "../Code.astro";
+import Tab from "./Tab.astro";
+---
+
+<Tab fileNames={["VencordInstaller.exe", "VencordInstallerCli-i386.exe"]}>
+    <div slot="header">
+        <p>Download and run <Code>VencordInstaller.exe</Code></p>
+        <p>
+            If you're using Windows 7 or earlier or a 32-bit version of Windows,
+            or if the normal installer for some reason won't open, download <Code
+            >
+                VencordInstallerCli-i386.exe
+            </Code> instead. You will need to run it from the command line (cmd or
+            powershell)
+        </p>
+    </div>
+
+    <Card slot="footer" kind={Kind.Warning}>
+        <p>Do not run the installer as an Administrator!</p>
+        <p>
+            If you get a warning that the app cannot be opened, click "Run
+            Anyways". You may need to click "more info" to see this option.
+        </p>
+    </Card>
+</Tab>

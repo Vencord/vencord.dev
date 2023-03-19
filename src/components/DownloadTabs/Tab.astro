@@ -1,0 +1,41 @@
+---
+import { DOWNLOAD_BASE } from "../../scripts/constants";
+import AutoSizeGrid from "../AutoSizeGrid.astro";
+import LinkButton from "../LinkButton.astro";
+
+export interface Props {
+    fileNames?: string[];
+}
+
+const { fileNames } = Astro.props as Props;
+---
+
+<div class="tab">
+    <slot name="header" />
+
+    {
+        fileNames?.length > 0 && (
+            <AutoSizeGrid class="os-downloads">
+                {fileNames.map(f => (
+                    <LinkButton href={DOWNLOAD_BASE + f}>
+                        Download {f}
+                    </LinkButton>
+                ))}
+            </AutoSizeGrid>
+        )
+    }
+
+    <slot name="footer" />
+</div>
+
+<style>
+    .tab {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .os-downloads {
+        margin-bottom: 1rem;
+    }
+</style>
