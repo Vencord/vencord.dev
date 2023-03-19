@@ -3,7 +3,6 @@ export const prerender = true;
 
 import Layout from "../layouts/Layout.astro";
 
-import { Icon } from "astro-icon";
 import LinkButton from "../components/LinkButton.astro";
 import AutoSizeGrid from "../components/AutoSizeGrid.astro";
 
@@ -72,7 +71,7 @@ if (features.length % 3 !== 0)
         {
             features.map(({ icon, title, description }) => (
                 <div class="feature-card">
-                    <div class="feature-icon" aria-hidden>
+                    <div class="feature-icon" aria-hidden="true">
                         <img src={`/assets/${icon}.png`} alt="" />
                     </div>
                     <h3 class="feature-title">{title}</h3>

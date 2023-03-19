@@ -1,28 +1,86 @@
 ---
 export const prerender = true;
 
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 
-const faqItems = {
-    "Am I cute?": "Yeah",
-};
+const faq = await getCollection("faq");
+
+// uses the fact that parseInt("11_some_title.md") => 11
+faq.sort((a, b) => parseInt(a.id) - parseInt(b.id));
 ---
 
 <Layout
-    title="Faq"
+    title="Frequently asked Questions"
     description="Answers to frequently asked questions about Vencord"
 >
-    <main>
-        {
-            Object.entries(faqItems).map(([question, answer]) => (
-                <details>
-                    <summary>{question}</summary>
+    <h1>Frequently asked Questions</h1>
 
-                    {answer}
-                </details>
-            ))
+    <div class="questions">
+        {
+            faq.map(async f => {
+                const { Content } = await f.render();
+                return (
+                    <details>
+                        <summary>{f.data.title}</summary>
+
+                        <Content />
+                    </details>
+                );
+            })
         }
-    </main>
+    </div>
 </Layout>
 
-<style></style>
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    .questions {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    details {
+        border: 1px solid var(--color-semi-trans);
+        padding: 0.5em 1em 0;
+        border-radius: 6px;
+    }
+
+    summary {
+        font-weight: bold;
+        margin: -0.5em -1em 0;
+        padding: 0.5em 1em;
+    }
+
+    details[open] {
+        padding: 0.5em 1em;
+    }
+
+    details[open] summary {
+        border-bottom: 1px solid var(--color-semi-trans);
+        margin-bottom: 0.5em;
+    }
+
+    .questions :global(a) {
+        color: var(--color);
+    }
+
+    .questions :global(a):hover {
+        color: var(--accent);
+    }
+
+    .questions :global(code:not(pre > code)) {
+        background-color: var(--surface2);
+        border-radius: 5px;
+        text-align: center;
+        padding: 0 4px;
+        margin: 0 2px;
+    }
+
+    .questions :global(.astro-code) {
+        padding: 1em;
+    }
+</style>
