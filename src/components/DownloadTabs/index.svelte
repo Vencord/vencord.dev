@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { fade } from "svelte/transition";
+
     import { IS_SERVER } from "../../scripts/constants";
 
     const options = ["Windows", "Linux", "Mac"] as const;
@@ -31,11 +33,17 @@
     <section>
         <!-- grrr <slot> name cannot be dynamic -->
         {#if selected === "Windows"}
-            <slot name="windowsTab" />
+            <div in:fade={{ duration: 150 }}>
+                <slot name="windowsTab" />
+            </div>
         {:else if selected === "Linux"}
-            <slot name="linuxTab" />
+            <div in:fade={{ duration: 150 }}>
+                <slot name="linuxTab" />
+            </div>
         {:else if selected === "Mac"}
-            <slot name="macTab" />
+            <div in:fade={{ duration: 150 }}>
+                <slot name="macTab" />
+            </div>
         {/if}
     </section>
 </div>
