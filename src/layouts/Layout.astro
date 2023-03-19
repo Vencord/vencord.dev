@@ -63,7 +63,6 @@ const { title, description } = Astro.props;
         justify-content: flex-start;
 
         min-height: 100vh;
-        width: 100vw;
 
         --background-color: white;
         --surface: #f6f6f7;
@@ -76,7 +75,7 @@ const { title, description } = Astro.props;
         color: var(--color);
     }
 
-    @media (prefers-color-scheme: dark) {
+    @media (prefers-color-scheme: light) {
         body {
             --background-color: #202021;
             --surface: #1e1e1f;

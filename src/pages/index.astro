@@ -2,10 +2,179 @@
 export const prerender = true;
 
 import Layout from "../layouts/Layout.astro";
+
+import { Icon } from "astro-icon";
+import LinkButton from "../components/LinkButton.astro";
+
+const features = [
+    {
+        icon: "light-bulb",
+        title: "Easy Install",
+        description: "Super easy to install thanks to our graphical installer",
+    },
+    {
+        icon: "rocket",
+        title: "Great Performance",
+        description:
+            "Built with performance in mind. No more sluggish Discord!",
+    },
+    {
+        icon: "globe",
+        title: "Excellent Browser Support",
+        description: "Works just as well inside your favourite Browser!",
+    },
+    {
+        icon: "locked",
+        title: "Privacy Friendly",
+        description: "Blocks Discord analytics & crash reports out of the box",
+    },
+    {
+        icon: "package",
+        title: "Maintained Actively",
+        description:
+            "No more broken plugins! Bugs are usually fixed within a day",
+    },
+    {
+        icon: "hammer-and-wrench",
+        title: "Developer Friendly",
+        description:
+            "Flexible and robust plugin system with many APIs empowering you",
+    },
+];
+
+if (features.length % 3 !== 0)
+    throw new Error("Feature amount must be multiple of 3");
 ---
 
 <Layout title="Vencord" description="read if cute">
-    <main>hi</main>
+    <section class="tagline">
+        <h1>Vencord</h1>
+        <h2>The cutest Discord client mod</h2>
+    </section>
+
+    <section class="buttons">
+        <LinkButton href="/download" class="main-btn">
+            Download Vencord
+        </LinkButton>
+        <LinkButton href="/discord" class="main-btn surface">
+            Join our Support Server
+        </LinkButton>
+        <LinkButton href="/discord" class="main-btn surface">
+            View on GitHub
+        </LinkButton>
+    </section>
+
+    <!-- Heavily inspired by Vite's homepage https://vitejs.dev/ (or if they changed it, https://archive.ph/o6Lmn) -->
+    <section class="features">
+        {
+            features.map(({ icon, title, description }) => (
+                <div class="feature-card">
+                    <div class="feature-icon" aria-hidden>
+                        <img src={`/assets/${icon}.png`} alt="" />
+                    </div>
+                    <h3 class="feature-title">{title}</h3>
+                    <p class="feature-desc">{description}</p>
+                </div>
+            ))
+        }
+    </section>
 </Layout>
 
-<style></style>
+<style>
+    .tagline {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 4em;
+    }
+
+    section {
+        margin-bottom: 2em;
+    }
+
+    h1,
+    h2 {
+        line-height: 1;
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 4em;
+        font-weight: 700;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        font-weight: 300;
+        filter: brightness(80%);
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap: 1em;
+    }
+
+    .main-btn {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.8em;
+        padding: 0.8em 2em;
+        border-radius: 9999px;
+    }
+
+    .surface {
+        background-color: var(--surface2);
+        color: var(--color);
+        border: 1px solid var(--color-semi-trans);
+    }
+
+    .features {
+        display: grid;
+        gap: 1em;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .feature-card {
+        background-color: var(--surface2);
+        padding: 1.6em;
+        border-radius: 12px;
+
+        transition: 200ms box-shadow cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .feature-card:hover {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    .feature-icon {
+        padding: 0.7em;
+        width: 1.5em;
+        height: 1.5em;
+        background-color: var(--surface);
+        border-radius: 6px;
+    }
+
+    .feature-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .feature-title {
+        font-size: 1em;
+    }
+
+    .feature-desc {
+        font-size: 0.9em;
+        filter: brightness(90%);
+        margin: 0;
+    }
+
+    svg {
+        width: 1.5em;
+        height: 1.5em;
+    }
+</style>
