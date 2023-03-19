@@ -1,0 +1,467 @@
+[
+    {
+        "name": "AlwaysTrust",
+        "authors": ["zt"],
+        "description": "Removes the annoying untrusted domain and suspicious file popup"
+    },
+    {
+        "name": "AnonymiseFileNames",
+        "authors": ["obscurity"],
+        "description": "Anonymise uploaded file names"
+    },
+    {
+        "name": "BANger",
+        "authors": ["Xinto", "Glitchy"],
+        "description": "Replaces the GIF in the ban dialogue with a custom one."
+    },
+    {
+        "name": "BetterGifAltText",
+        "authors": ["Vendicated"],
+        "description": "Change GIF alt text from simply being 'GIF' to containing the gif tags / filename"
+    },
+    {
+        "name": "BetterNotesBox",
+        "authors": ["Vendicated"],
+        "description": "Hide notes or disable spellcheck (Configure in settings!!)"
+    },
+    {
+        "name": "BetterRoleDot",
+        "authors": ["Vendicated"],
+        "description": "Copy role colour on RoleDot (accessibility setting) click. Also allows using both RoleDot and coloured names simultaneously"
+    },
+    {
+        "name": "BetterUploadButton",
+        "authors": ["obscurity", "Vendicated"],
+        "description": "Upload with a single click, open menu with right click"
+    },
+    {
+        "name": "BlurNSFW",
+        "authors": ["Vendicated"],
+        "description": "Blur attachments in NSFW channels until hovered"
+    },
+    {
+        "name": "CallTimer",
+        "authors": ["Vendicated"],
+        "description": "Adds a timer to vcs"
+    },
+    {
+        "name": "ClearURLs",
+        "authors": ["adryd"],
+        "description": "Removes tracking garbage from URLs"
+    },
+    {
+        "name": "ColorSighted",
+        "authors": ["lewisakura"],
+        "description": "Removes the colorblind-friendly icons from statuses, just like 2015-2017 Discord"
+    },
+    {
+        "name": "ConsoleShortcuts",
+        "authors": ["Vendicated"],
+        "description": "Adds shorter Aliases for many things on the window. Run `shortcutList` for a list."
+    },
+    {
+        "name": "CorruptMp4s",
+        "authors": ["Vendicated"],
+        "description": "Create corrupt mp4s with extremely high or negative duration"
+    },
+    {
+        "name": "CrashHandler",
+        "authors": ["Nuckyz"],
+        "description": "Utility plugin for handling and possibly recovering from Crashes without a restart"
+    },
+    {
+        "name": "CustomRPC",
+        "authors": ["Captain"],
+        "description": "Allows you to set a custom rich presence."
+    },
+    {
+        "name": "UrbanDictionary",
+        "authors": ["jewdev"],
+        "description": "Searches for a word on Urban Dictionary"
+    },
+    {
+        "name": "DisableDMCallIdle",
+        "authors": ["Nuckyz"],
+        "description": "Disables automatically getting kicked from a DM voice call after 5 minutes."
+    },
+    {
+        "name": "EmoteCloner",
+        "authors": ["Vendicated", "Nuckyz"],
+        "description": "Adds a Clone context menu item to emotes to clone them your own server"
+    },
+    {
+        "name": "Experiments",
+        "authors": ["Megumin", "Vendicated", "Nickyux", "BanTheNons", "Nuckyz"],
+        "description": "Enable Access to Experiments in Discord!"
+    },
+    {
+        "name": "F8Break",
+        "authors": ["lewisakura"],
+        "description": "Pause the client when you press F8 with DevTools (+ breakpoints) open."
+    },
+    {
+        "name": "FakeNitro",
+        "authors": [
+            "ArjixWasTaken",
+            "D3SOX",
+            "Vendicated",
+            "obscurity",
+            "Captain",
+            "Nuckyz"
+        ],
+        "description": "Allows you to stream in nitro quality, send fake emojis/stickers and use client themes."
+    },
+    {
+        "name": "Fart2",
+        "authors": ["Animal"],
+        "description": "Enable farting v2, a slash command that allows you to perform or request that someone perform a little toot."
+    },
+    {
+        "name": "FixInbox",
+        "authors": ["Megumin"],
+        "description": "Fixes the Unreads Inbox from crashing Discord when you're in lots of guilds."
+    },
+    {
+        "name": "ForceOwnerCrown",
+        "authors": ["D3SOX", "Nickyux"],
+        "description": "Force the owner crown next to usernames even if the server is large."
+    },
+    {
+        "name": "FriendInvites",
+        "authors": ["afn"],
+        "description": "Generate and manage friend invite links."
+    },
+    {
+        "name": "FxTwitter",
+        "authors": ["Samu"],
+        "description": "Uses FxTwitter to improve embeds from twitter on send"
+    },
+    {
+        "name": "HideAttachments",
+        "authors": ["Vendicated"],
+        "description": "Hide attachments and Embeds for individual messages via hover button"
+    },
+    {
+        "name": "IgnoreActivities",
+        "authors": ["Nuckyz"],
+        "description": "Ignore certain activities (like games and actual activities) from showing up on your status. You can configure which ones are ignored from the Registered Games and Activities tabs."
+    },
+    {
+        "name": "iLoveSpam",
+        "authors": ["botato", "Animal"],
+        "description": "Do not hide messages from 'likely spammers'"
+    },
+    {
+        "name": "InvisibleChat",
+        "authors": ["Samm-Cheese"],
+        "description": "Encrypt your Messages in a non-suspicious way! This plugin makes requests to >>https://embed.sammcheese.net<< to provide embeds to decrypted links!"
+    },
+    {
+        "name": "KeepCurrentChannel",
+        "authors": ["Nuckyz"],
+        "description": "Attempt to navigate to the channel you were in before switching accounts or loading Discord."
+    },
+    {
+        "name": "LastFMRichPresence",
+        "authors": ["dzshn"],
+        "description": "Little plugin for Last.fm rich presence"
+    },
+    {
+        "name": "LoadingQuotes",
+        "authors": ["Vendicated", "KraXen72"],
+        "description": "Replace Discords loading quotes"
+    },
+    {
+        "name": "MemberCount",
+        "authors": ["Vendicated", "Commandtechno"],
+        "description": "Shows the amount of online & total members in the server member list"
+    },
+    {
+        "name": "MessageClickActions",
+        "authors": ["Vendicated"],
+        "description": "Hold Delete and click to delete, double click to edit"
+    },
+    {
+        "name": "MessageLinkEmbeds",
+        "authors": ["ActuallyTheSun", "Vendicated"],
+        "description": "Adds a preview to messages that link another message"
+    },
+    {
+        "name": "MessageLogger",
+        "authors": ["rushii", "Vendicated"],
+        "description": "Temporarily logs deleted and edited messages."
+    },
+    {
+        "name": "MessageTags",
+        "authors": ["Luny"],
+        "description": "Allows you to save messages and to use them with a simple command."
+    },
+    {
+        "name": "MoreCommands",
+        "authors": ["ArjixWasTaken", "ECHO", "Samu"],
+        "description": "echo, lenny, mock"
+    },
+    {
+        "name": "MoreKaomoji",
+        "authors": ["Jacob.Tm"],
+        "description": "Adds more Kaomoji to discord. ヽ(´▽`)/"
+    },
+    {
+        "name": "Moyai",
+        "authors": ["Megumin", "Nuckyz"],
+        "description": "🗿🗿🗿🗿🗿🗿🗿🗿"
+    },
+    {
+        "name": "MuteNewGuild",
+        "authors": ["Glitchy"],
+        "description": "Mutes newly joined guilds"
+    },
+    {
+        "name": "NoBlockedMessages",
+        "authors": ["rushii", "Samu"],
+        "description": "Hides all blocked messages from chat completely."
+    },
+    {
+        "name": "NoCanaryMessageLinks",
+        "authors": ["Samu", "nea"],
+        "description": "Allows you to change/remove the subdomain of discord message and channel links"
+    },
+    {
+        "name": "NoDevtoolsWarning",
+        "authors": ["Vendicated"],
+        "description": "Disables the 'HOLD UP' banner in the console. As a side effect, also prevents Discord from hiding your token, which prevents random logouts."
+    },
+    {
+        "name": "NoF1",
+        "authors": ["Cynosphere"],
+        "description": "Disables F1 help bind."
+    },
+    {
+        "name": "NoReplyMention",
+        "authors": ["DustyAngel47", "'ax"],
+        "description": "Disables reply pings by default"
+    },
+    {
+        "name": "NoRPC",
+        "authors": ["Cynosphere"],
+        "description": "Disables Discord's RPC server."
+    },
+    {
+        "name": "NoScreensharePreview",
+        "authors": ["Nuckyz"],
+        "description": "Disables screenshare previews from being sent."
+    },
+    {
+        "name": "NoSystemBadge",
+        "authors": ["rushii"],
+        "description": "Disables the taskbar and system tray unread count badge."
+    },
+    {
+        "name": "NoTrack",
+        "authors": ["Cynosphere"],
+        "description": "Disable Discord's tracking and crash reporting"
+    },
+    {
+        "name": "NoUnblockToJump",
+        "authors": ["dzshn"],
+        "description": "Allows you to jump to messages of blocked users without unblocking them"
+    },
+    {
+        "name": "NSFWGateBypass",
+        "authors": ["Commandtechno"],
+        "description": "Allows you to access NSFW channels without setting/verifying your age"
+    },
+    {
+        "name": "oneko",
+        "authors": ["Vendicated", "adryd"],
+        "description": "cat follow mouse (real)"
+    },
+    {
+        "name": "petpet",
+        "authors": ["Vendicated"],
+        "description": "headpet a cutie"
+    },
+    {
+        "name": "PlainFolderIcon",
+        "authors": ["botato"],
+        "description": "Doesn't show the small guild icons in folders"
+    },
+    {
+        "name": "PlatformIndicators",
+        "authors": ["kemo", "ActuallyTheSun", "Nuckyz"],
+        "description": "Adds platform indicators (Desktop, Mobile, Web...) to users"
+    },
+    {
+        "name": "PronounDB",
+        "authors": ["Tyman"],
+        "description": "Adds pronouns to user messages using pronoundb"
+    },
+    {
+        "name": "QuickMention",
+        "authors": ["kemo"],
+        "description": "Adds a quick mention button to the message actions bar"
+    },
+    {
+        "name": "QuickReply",
+        "authors": ["obscurity", "Vendicated"],
+        "description": "Reply to (ctrl + up/down) and edit (ctrl + shift + up/down) messages via keybinds"
+    },
+    {
+        "name": "ReadAllNotificationsButton",
+        "authors": ["kemo"],
+        "description": "Read all server notifications with a single button click!"
+    },
+    {
+        "name": "RevealAllSpoilers",
+        "authors": ["whqwert"],
+        "description": "Reveal all spoilers in a message by Ctrl-clicking a spoiler, or in the chat with Ctrl+Shift-click"
+    },
+    {
+        "name": "ReverseImageSearch",
+        "authors": ["Vendicated", "Nuckyz"],
+        "description": "Adds ImageSearch to image context menus"
+    },
+    {
+        "name": "richerCider",
+        "authors": ["cryptofyre"],
+        "description": "Enhances Cider (More details in info button) by adding the \"Listening to\" type prefix to the user's rich presence when an applicable ID is found."
+    },
+    {
+        "name": "RoleColorEverywhere",
+        "authors": ["King Fish", "lewisakura"],
+        "description": "Adds the top role color anywhere possible"
+    },
+    {
+        "name": "ServerListIndicators",
+        "authors": ["dzshn"],
+        "description": "Add online friend count or server count in the server list"
+    },
+    {
+        "name": "Settings",
+        "authors": ["Vendicated", "Megumin"],
+        "description": "Adds Settings UI and debug info"
+    },
+    {
+        "name": "ShikiCodeblocks",
+        "authors": ["Vap0r1ze"],
+        "description": "Brings vscode-style codeblocks into Discord, powered by Shiki"
+    },
+    {
+        "name": "ShowHiddenChannels",
+        "authors": [
+            "BigDuck",
+            "Average React Enjoyer",
+            "D3SOX",
+            "Vendicated",
+            "Nuckyz",
+            "Nickyux",
+            "dzshn"
+        ],
+        "description": "Show channels that you do not have access to view."
+    },
+    {
+        "name": "SilentMessageToggle",
+        "authors": ["Nuckyz"],
+        "description": "Adds a button to the chat bar to toggle sending a silent message."
+    },
+    {
+        "name": "SilentTyping",
+        "authors": ["Vendicated", "dzshn"],
+        "description": "Hide that you are typing"
+    },
+    {
+        "name": "SortFriendRequests",
+        "authors": ["Megumin"],
+        "description": "Sorts friend requests by date of receipt"
+    },
+    {
+        "name": "SpotifyControls",
+        "authors": ["Vendicated", "afn", "KraXen72"],
+        "description": "Spotify Controls"
+    },
+    {
+        "name": "SpotifyCrack",
+        "authors": ["Cynosphere", "Nuckyz"],
+        "description": "Free listen along, no auto-pausing in voice chat, and allows activity to continue playing when idling"
+    },
+    {
+        "name": "SpotifyShareCommands",
+        "authors": ["katlyn"],
+        "description": "Share your current Spotify track, album or artist via slash command (/track, /album, /artist)"
+    },
+    {
+        "name": "StartupTimings",
+        "authors": ["Megumin"],
+        "description": "Adds Startup Timings to the Settings menu"
+    },
+    {
+        "name": "SupportHelper",
+        "authors": ["Vendicated"],
+        "description": "Helps me provide support to you"
+    },
+    {
+        "name": "TimeBarAllActivities",
+        "authors": ["obscurity"],
+        "description": "Adds the Spotify time bar to all activities if they have start and end timestamps"
+    },
+    {
+        "name": "TypingIndicator",
+        "authors": ["Nuckyz"],
+        "description": "Adds an indicator if someone is typing on a channel."
+    },
+    {
+        "name": "TypingTweaks",
+        "authors": ["zt"],
+        "description": "Show avatars and role colours in the typing indicator"
+    },
+    {
+        "name": "Unindent",
+        "authors": ["Vendicated"],
+        "description": "Trims leading indentation from codeblocks"
+    },
+    {
+        "name": "ReactErrorDecoder",
+        "authors": ["Cynosphere"],
+        "description": "Replaces \"Minifed React Error\" with the actual error."
+    },
+    {
+        "name": "UwUifier",
+        "authors": ["ECHO"],
+        "description": "Simply uwuify commands"
+    },
+    {
+        "name": "VoiceChatDoubleClick",
+        "authors": ["Vendicated", "D3SOX"],
+        "description": "Join voice chats via double click instead of single click"
+    },
+    {
+        "name": "VcNarrator",
+        "authors": ["Vendicated"],
+        "description": "Announces when users join, leave, or move voice channels via narrator"
+    },
+    {
+        "name": "ViewIcons",
+        "authors": ["Vendicated"],
+        "description": "Makes Avatars/Banners in user profiles clickable, and adds Guild Context Menu Entries to View Banner/Icon."
+    },
+    {
+        "name": "ViewRaw",
+        "authors": ["King Fish", "Vendicated"],
+        "description": "Copy and view the raw content/data of any message."
+    },
+    {
+        "name": "VolumeBooster",
+        "authors": ["Nuckyz"],
+        "description": "Allows you to set the user and stream volume above the default maximum."
+    },
+    {
+        "name": "Webhook Tags",
+        "authors": ["Cynosphere"],
+        "description": "Changes the bot tag to say webhook for webhooks"
+    },
+    {
+        "name": "WhoReacted",
+        "authors": ["Vendicated"],
+        "description": "Renders the Avatars of reactors"
+    }
+]

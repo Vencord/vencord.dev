@@ -2,8 +2,56 @@
 export const prerender = true;
 
 import Layout from "../layouts/Layout.astro";
+
+import plugins from "./plugins.json";
 ---
 
 <Layout title="Vencord Plugins" description="Vencord plugin list">
-    so so so many
+    <div class="container">
+        {plugins.map((plugin, idx) => (
+            <div class="plugin">
+                <img src="/assets/screenshot-placeholder.png" class="plugin-screenshot" />
+                <div class="plugin-card-content">
+                    <span class="title">{plugin.name}</span>
+                    <span class="author">by {plugin.authors.join(', ')}</span>
+                    <p class="description">{plugin.description}</p>
+                </div>
+            </div>
+        ))}
+    </div>
 </Layout>
+
+<style>
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 1fr;
+        grid-auto-columns: 1fr;
+        grid-gap: 1rem;
+    }
+
+    .plugin {
+        display: flex;
+        flex-direction: column;
+        background: var(--surface2);
+    }
+
+    .plugin .plugin-screenshot {
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .plugin-card-content {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .plugin-card-content .title {
+        font-weight: bold;
+    }
+
+    .plugin-card-content .description {
+        margin-bottom: 0;
+    }
+</style>
