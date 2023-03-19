@@ -76,8 +76,8 @@
     section {
         width: 100%;
         box-sizing: border-box;
-        background-color: white;
-        border: 1px solid rgba(0, 0, 0, 0.3);
+        background-color: var(--surface2);
+        border: 1px solid var(--color-semi-trans);
         border-top: none;
         padding: 1rem;
     }
@@ -87,12 +87,11 @@
         text-align: center;
         cursor: pointer;
 
-        background-color: black;
-        color: white;
+        background-color: var(--surface);
     }
 
     label.selected {
-        background-color: lightpink;
+        background-color: var(--accent);
         color: black;
     }
 

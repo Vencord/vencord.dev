@@ -6,43 +6,48 @@ const { title } = Astro.props;
 ---
 
 <nav>
-    <a href="/" id="title">
-        <h2>{title}</h2>
-    </a>
-    <div id="btns">
-        <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/download">Download</a>
-            </li>
-            <li>
-                <a href="/plugins">Plugins</a>
-            </li>
-            <li>
-                <a href="/docs">Docs</a>
-            </li>
-            <li>
-                <a href="/cloud">Cloud</a>
-            </li>
-            <li>
-                <a href="/discord">Discord</a>
-            </li>
-        </ul>
+    <div class="nav-content">
+        <a href="/" id="title">
+            <h2>{title}</h2>
+        </a>
+        <div id="btns">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/download">Download</a>
+                </li>
+                <li>
+                    <a href="/plugins">Plugins</a>
+                </li>
+                <li>
+                    <a href="/docs">Docs</a>
+                </li>
+                <li>
+                    <a href="/cloud">Cloud</a>
+                </li>
+                <li>
+                    <a href="/discord">Discord</a>
+                </li>
+            </ul>
+        </div>
+        <div id="oneko" aria-hidden="true"></div>
     </div>
-    <div id="oneko" aria-hidden="true"></div>
 </nav>
 
 <style>
     nav {
         background-color: var(--surface);
+        padding: 1em 0;
+    }
+
+    .nav-content {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin: 0 var(--horizontal-margin);
         align-items: center;
-        padding: 1em 0;
+        margin: 0 var(--horizontal-margin);
     }
 
     h2 {

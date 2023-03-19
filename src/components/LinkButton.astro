@@ -14,9 +14,13 @@ export interface Props extends HTMLAttributes<"a"> {
         display: inline-block;
         text-decoration: none;
         text-align: center;
-        background-color: black;
-        color: white;
+        background-color: var(--accent);
+        color: var(--background-color);
         padding: 0.5rem 1rem;
         border-radius: 5px;
+    }
+
+    a:hover {
+        /* TODO */
     }
 </style>
