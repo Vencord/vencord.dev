@@ -42,7 +42,8 @@
     {
         "name": "CallTimer",
         "authors": ["Vendicated"],
-        "description": "Adds a timer to vcs"
+        "description": "Adds a timer to vcs",
+        "screenshot": ""
     },
     {
         "name": "ClearURLs",

@@ -8,26 +8,47 @@ import plugins from "./plugins.json";
 
 <Layout title="Vencord Plugins" description="Vencord plugin list">
     <div class="container">
-        {plugins.map((plugin, idx) => (
-            <div class="plugin">
-                <img src="/assets/screenshot-placeholder.png" class="plugin-screenshot" />
-                <div class="plugin-card-content">
-                    <span class="title">{plugin.name}</span>
-                    <span class="author">by {plugin.authors.join(', ')}</span>
-                    <p class="description">{plugin.description}</p>
+        <p>We have {plugins.length} plugins available for you to use immediately, with more being made every day.</p>
+        <div class="plugins-grid">
+            {plugins.map((plugin, idx) => (
+                <div class="plugin">
+                    <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
+                    <div class="plugin-content">
+                        <span class="title">{plugin.name}</span>
+                        <span class="author">by {plugin.authors.join(', ')}</span>
+                        <p class="description">{plugin.description}</p>
+                    </div>
                 </div>
-            </div>
-        ))}
+            ))}
+        </div>
     </div>
 </Layout>
 
 <style>
     .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .plugins-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         grid-auto-rows: 1fr;
         grid-auto-columns: 1fr;
         grid-gap: 1rem;
+    }
+
+    @media screen and (max-width: 1200px) {
+        .plugins-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+
+    @media screen and (max-width: 800px) {
+        .plugins-grid {
+            grid-template-columns: 1fr;
+        }
     }
 
     .plugin {
@@ -41,17 +62,17 @@ import plugins from "./plugins.json";
         width: 100%;
     }
 
-    .plugin-card-content {
+    .plugin-content {
         display: flex;
         flex-direction: column;
         padding: 1rem;
     }
 
-    .plugin-card-content .title {
+    .plugin-content .title {
         font-weight: bold;
     }
 
-    .plugin-card-content .description {
+    .plugin-content .description {
         margin-bottom: 0;
     }
 </style>
