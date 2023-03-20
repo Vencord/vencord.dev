@@ -37,7 +37,7 @@ import plugins from "./plugins.json";
         grid-template-columns: repeat(3, minmax(0, 1fr));
         grid-auto-rows: 1fr;
         grid-auto-columns: 1fr;
-        grid-gap: 1rem;
+        grid-gap: 1em;
     }
 
     @media screen and (max-width: 1200px) {
@@ -59,6 +59,12 @@ import plugins from "./plugins.json";
         background: var(--surface2);
 
         border-radius: 12px;
+
+        transition: 200ms box-shadow cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .plugin:hover {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
 
     .plugin .plugin-screenshot {
