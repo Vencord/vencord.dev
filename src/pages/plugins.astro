@@ -57,24 +57,30 @@ import plugins from "./plugins.json";
         display: flex;
         flex-direction: column;
         background: var(--surface2);
+
+        border-radius: 12px;
     }
 
     .plugin .plugin-screenshot {
         object-fit: cover;
         width: 100%;
+        border-radius: 12px 12px 0 0;
     }
 
     .plugin-content {
         display: flex;
         flex-direction: column;
-        padding: 1rem;
+        padding: 1.6rem;
     }
 
     .plugin-content .title {
+        font-size: 1em;
         font-weight: bold;
     }
 
     .plugin-content .description {
+        font-size: 0.9em;
+        filter: brightness(90%);
         margin-bottom: 0;
     }
 </style>
