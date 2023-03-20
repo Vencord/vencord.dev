@@ -18,9 +18,11 @@ export interface Props extends HTMLAttributes<"a"> {
         color: var(--background-color);
         padding: 0.5rem 1rem;
         border-radius: 5px;
+
+        transition: 200ms box-shadow cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
     a:hover {
-        /* TODO */
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 7px;
     }
 </style>
