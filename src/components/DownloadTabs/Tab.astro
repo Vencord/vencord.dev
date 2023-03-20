@@ -14,7 +14,7 @@ const { fileNames } = Astro.props as Props;
     <slot name="header" />
 
     {
-        fileNames?.length > 0 && (
+        fileNames && fileNames.length > 0 && (
             <AutoSizeGrid class="os-downloads">
                 {fileNames.map(f => (
                     <LinkButton href={DOWNLOAD_BASE + f}>

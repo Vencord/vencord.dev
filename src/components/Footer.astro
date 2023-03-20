@@ -13,7 +13,7 @@ import { Icon } from "astro-icon";
     <div class="content">
         <div class="source-and-disclaimer">
             <Link href={SOURCE_CODE}>source code</Link>
-            <span>&nbsp;•&nbsp;</span>
+            <span class="divider">&nbsp;•&nbsp;</span>
             <span>
                 Discord is trademark of Discord Inc. Vencord is not affiliated
                 or endorsed by Discord Inc.
@@ -50,9 +50,21 @@ import { Icon } from "astro-icon";
     }
 
     .source-and-disclaimer {
+        display: flex;
         font-weight: 300;
         filter: brightness(80%);
         font-size: 90%;
+        margin-right: 1em;
+    }
+
+    @media screen and (max-width: 900px) {
+        .source-and-disclaimer {
+            flex-direction: column;
+        }
+
+        .divider {
+            display: none;
+        }
     }
 
     .socials {

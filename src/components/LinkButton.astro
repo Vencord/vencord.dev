@@ -25,4 +25,9 @@ export interface Props extends HTMLAttributes<"a"> {
     a:hover {
         box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 7px;
     }
+
+    a::selection {
+        background-color: var(--background-color);
+        color: var(--accent);
+    }
 </style>
