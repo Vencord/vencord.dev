@@ -92,7 +92,7 @@
 
     label.selected {
         background-color: var(--accent);
-        color: black;
+        color: var(--background-color);
     }
 
     input {
