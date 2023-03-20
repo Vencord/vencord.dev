@@ -43,6 +43,7 @@ faq.sort((a, b) => parseInt(a.id) - parseInt(b.id));
         gap: 1em;
     }
 
+    /* This is mostly copy pasted from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#try_it */
     details {
         border: 1px solid var(--color-semi-trans);
         padding: 0.5em 1em 0;
@@ -64,6 +65,8 @@ faq.sort((a, b) => parseInt(a.id) - parseInt(b.id));
         margin-bottom: 0.5em;
     }
 
+    /* style some markdown elements */
+
     .questions :global(a) {
         color: var(--color);
     }
@@ -82,5 +85,7 @@ faq.sort((a, b) => parseInt(a.id) - parseInt(b.id));
 
     .questions :global(.astro-code) {
         padding: 1em;
+        background-color: var(--surface2) !important;
+        border-radius: 6px;
     }
 </style>
