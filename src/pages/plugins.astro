@@ -12,7 +12,9 @@ import plugins from "./plugins.json";
         <div class="plugins-grid">
             {plugins.map((plugin, idx) => (
                 <div class="plugin">
-                    <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
+                    {/*
+                        <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
+                    */}
                     <div class="plugin-content">
                         <span class="title">{plugin.name}</span>
                         <span class="author">by {plugin.authors.join(', ')}</span>
