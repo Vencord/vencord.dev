@@ -2,8 +2,91 @@
 export const prerender = true;
 
 import Layout from "../layouts/Layout.astro";
+
+import plugins from "./plugins.json";
 ---
 
 <Layout title="Vencord Plugins" description="Vencord plugin list">
-    so so so many
+    <div class="container">
+        <p>We have {plugins.length} plugins available for you to use immediately, with more being made every day.</p>
+        <div class="plugins-grid">
+            {plugins.map((plugin, idx) => (
+                <div class="plugin">
+                    {/*
+                        <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
+                    */}
+                    <div class="plugin-content">
+                        <span class="title">{plugin.name}</span>
+                        <span class="author">by {plugin.authors.join(', ')}</span>
+                        <p class="description">{plugin.description}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
 </Layout>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .plugins-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-auto-rows: 1fr;
+        grid-auto-columns: 1fr;
+        grid-gap: 1em;
+    }
+
+    @media screen and (max-width: 1200px) {
+        .plugins-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+
+    @media screen and (max-width: 800px) {
+        .plugins-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .plugin {
+        display: flex;
+        flex-direction: column;
+        background: var(--surface2);
+
+        border-radius: 12px;
+
+        transition: 200ms box-shadow cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .plugin:hover {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    .plugin .plugin-screenshot {
+        object-fit: cover;
+        width: 100%;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .plugin-content {
+        display: flex;
+        flex-direction: column;
+        padding: 1.6rem;
+    }
+
+    .plugin-content .title {
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    .plugin-content .description {
+        font-size: 0.9em;
+        filter: brightness(90%);
+        margin-bottom: 0;
+    }
+</style>
