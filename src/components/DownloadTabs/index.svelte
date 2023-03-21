@@ -7,7 +7,7 @@
     const options = ["Windows", "Linux", "Mac", "Browser"] as const;
 
     const initialValue = IS_SERVER
-        ? "windows"
+        ? "Windows"
         : (() => {
               const stored = localStorage.platform;
               if (stored && options.includes(stored)) return stored;
