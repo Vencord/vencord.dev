@@ -1,13 +1,10 @@
 ---
 export const prerender = true;
 
-import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import { getSortedFaq } from "../scripts/collections";
 
-const faq = await getCollection("faq");
-
-// uses the fact that parseInt("11_some_title.md") => 11
-faq.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+const faq = await getSortedFaq();
 ---
 
 <Layout
