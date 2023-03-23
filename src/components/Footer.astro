@@ -7,17 +7,20 @@ import {
 } from "../scripts/constants";
 import Link from "./Link.astro";
 import { Icon } from "astro-icon";
+import * as Typography from "./typography";
 ---
 
 <footer>
     <div class="content">
         <div class="source-and-disclaimer">
-            <Link href={SOURCE_CODE}>source code</Link>
-            <span class="divider">&nbsp;•&nbsp;</span>
-            <span>
-                Discord is trademark of Discord Inc. Vencord is not affiliated
-                or endorsed by Discord Inc.
-            </span>
+            <Typography.OverlineSmall>
+                <Link href={SOURCE_CODE}>source code</Link>
+                <span class="divider">&nbsp;-</span>
+                <span>
+                    Discord is trademark of Discord Inc. Vencord is not affiliated
+                    or endorsed by Discord Inc.
+                </span>
+            </Typography.OverlineSmall>
         </div>
 
         <div class="socials">
@@ -35,9 +38,14 @@ import { Icon } from "astro-icon";
 </footer>
 
 <style>
+    .source-and-disclaimer a {
+        color: var(--accentPurple);
+        text-decoration: none;
+    }
+
     footer {
         margin-top: auto;
-        background-color: var(--surface);
+        background-color: var(--bg0);
         padding: 1rem;
     }
 

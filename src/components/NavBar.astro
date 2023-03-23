@@ -1,36 +1,35 @@
 ---
-export interface Props {
-    title: string;
-}
-const { title } = Astro.props;
+import * as Typography from "./typography";
 ---
 
 <nav>
     <div class="nav-content">
         <a href="/" id="title">
-            <h2>{title}</h2>
+            <Typography.Headline4>[LOGO]</Typography.Headline4>
         </a>
         <div id="btns">
-            <ul>
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/download">Download</a>
-                </li>
-                <li>
-                    <a href="/plugins">Plugins</a>
-                </li>
-                <li>
-                    <a href="/faq">FAQ</a>
-                </li>
-                <li>
-                    <a href="/docs">Docs</a>
-                </li>
-                <li>
-                    <a href="/cloud">Cloud</a>
-                </li>
-            </ul>
+            <Typography.LabelSmall>
+                <ul>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/download" style="color:var(--accentPurple)">Download</a>
+                    </li>
+                    <li>
+                        <a href="/plugins" style="color:var(--accentBlue)">Plugins</a>
+                    </li>
+                    <li>
+                        <a href="/faq" style="color:var(--accentAqua)">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="/docs" style="color:var(--accentGreen)">Docs</a>
+                    </li>
+                    <li>
+                        <a href="/cloud" style="color:var(--accentYellow)">Cloud</a>
+                    </li>
+                </ul>
+            </Typography.LabelSmall>
         </div>
         <div id="oneko" aria-hidden="true"></div>
     </div>
@@ -38,8 +37,8 @@ const { title } = Astro.props;
 
 <style>
     nav {
-        background-color: var(--surface);
-        padding: 1em 0;
+        background-color: var(--bg0);
+        /*padding: 1em 0;*/
     }
 
     .nav-content {
@@ -50,9 +49,8 @@ const { title } = Astro.props;
         margin: 0 var(--horizontal-margin);
     }
 
-    h2 {
-        cursor: pointer;
-        font-weight: 500;
+    h4 {
+        margin: 0;
     }
 
     #btns {

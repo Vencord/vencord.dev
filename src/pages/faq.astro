@@ -3,15 +3,17 @@ export const prerender = true;
 
 import Layout from "../layouts/Layout.astro";
 import { getSortedFaq } from "../scripts/collections";
+import * as Typography from "../components/typography";
 
 const faq = await getSortedFaq();
 ---
 
 <Layout
-    title="Frequently asked Questions"
+    title="Frequently Asked Questions"
     description="Answers to frequently asked questions about Vencord"
 >
-    <h1>Frequently asked Questions</h1>
+    <Typography.Headline4>Frequently Asked Questions</Typography.Headline4>
+    <p id="subtitle">Is your question not answered below? Come visit our support server.</p>
 
     <div class="questions">
         {
@@ -21,7 +23,9 @@ const faq = await getSortedFaq();
                     <details>
                         <summary>{f.data.title}</summary>
 
-                        <Content />
+                        <div class="faq-content">
+                            <Content />
+                        </div>
                     </details>
                 );
             })
@@ -30,8 +34,14 @@ const faq = await getSortedFaq();
 </Layout>
 
 <style>
-    h1 {
-        text-align: center;
+    h4 {
+        color: var(--accentAqua);
+        margin-bottom: 0;
+    }
+
+    #subtitle {
+        margin-top: -0.125em;
+        color: var(--grey1);
     }
 
     .questions {
@@ -42,25 +52,25 @@ const faq = await getSortedFaq();
 
     /* This is mostly copy pasted from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#try_it */
     details {
-        border: 1px solid var(--color-semi-trans);
-        padding: 0.5em 1em 0;
-        border-radius: 6px;
+        background-color: var(--bg3);
+        padding: 12px;
+        border-radius: 8px;
     }
 
     summary {
         font-weight: bold;
-        margin: -0.5em -1em 0;
-        padding: 0.5em 1em;
         cursor: pointer;
     }
 
-    details[open] {
-        padding: 0.5em 1em;
+    details[open] summary {
+        margin-bottom: 8px;
     }
 
-    details[open] summary {
-        border-bottom: 1px solid var(--color-semi-trans);
-        margin-bottom: 0.5em;
+    .faq-content {
+        background-color: var(--bgCurrentWord);
+        color: var(--grey2);
+        border-radius: 4px;
+        padding: 4px 12px;
     }
 
     /* style some markdown elements */

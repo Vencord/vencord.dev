@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { PLUGINS_JSON_URL } from "../scripts/constants";
+import * as Typography from "../components/typography";
 
 interface Dev {
     name: string;
@@ -39,12 +40,15 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
                     <div class="plugin">
                         {/*
                         <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
-                    */}
+                        */}
                         <div class="plugin-content">
-                            <span class="title">{plugin.name}</span>
-                            <span class="author">
-                                by {plugin.authors.map(a => a.name).join(", ")}
-                            </span>
+                            <Typography.LabelLarge>{plugin.name}</Typography.LabelLarge>
+                            <div class="author">
+                                <span id="by">by</span>
+                                <span class="author">
+                                    {plugin.authors.map(a => a.name).join(", ")}
+                                </span>
+                            </div>
                             <p class="description">{plugin.description}</p>
                         </div>
                     </div>
@@ -83,9 +87,10 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
     .plugin {
         display: flex;
         flex-direction: column;
-        background: var(--surface2);
+        background: var(--bg4);
 
         border-radius: 12px;
+        padding: 16px;
 
         transition: 200ms box-shadow cubic-bezier(0.25, 0.8, 0.25, 1);
     }
@@ -97,18 +102,29 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
     .plugin .plugin-screenshot {
         object-fit: cover;
         width: 100%;
-        border-radius: 12px 12px 0 0;
+        border-radius: 4px;
+        margin-bottom: 16px;
     }
 
     .plugin-content {
         display: flex;
         flex-direction: column;
-        padding: 1.6rem;
     }
 
     .plugin-content .title {
         font-size: 1em;
         font-weight: bold;
+    }
+
+    .plugin-content .author {
+        display: flex;
+
+        color: var(--grey1);
+    }
+
+    .plugin-content .author #by {
+        color: var(--grey0);
+        margin-right: 4px;
     }
 
     .plugin-content .description {

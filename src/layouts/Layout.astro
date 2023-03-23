@@ -32,7 +32,7 @@ const { title, description } = Astro.props;
         <link rel="sitemap" href="/sitemap-index.xml" />
     </head>
     <body>
-        <NavBar title={title} />
+        <NavBar />
         <div>
             <slot />
         </div>
@@ -41,6 +41,99 @@ const { title, description } = Astro.props;
 </html>
 
 <style>
+    :root {
+        --bg0: #1e2021;
+        --bg1: #282828;
+        --bg2: #282828;
+        --bg3: #3c3836;
+        --bg4: #3c3836;
+        --bg5: #504944;
+
+        --bgDim: #141617;
+
+        --bgCurrentWord: #32302f;
+
+        --bgDiffGreen: #32361a;
+        --bgDiffBlue: #0d3138;
+        --bgDiffRed: #3c1f1e;
+
+        --bgVisualYellow: #473c29;
+        --bgVisualGreen: #333e34;
+        --bgVisualBlue: #2e3b3b;
+        --bgVisualRed: #442e2d;
+
+        --bgAccentYellow: #d8a656;
+        --bgAccentGreen: #a8b665;
+        --bgAccentRed: #ea6962;
+
+        --accentRed: #ea6962;
+        --accentOrange: #e78a4f;
+        --accentYellow: #d8a656;
+        --accentGreen: #a8b665;
+        --accentAqua: #89b481;
+        --accentBlue: #7caea3;
+        --accentPurple: #d3859b;
+
+        --accentPurpleRgb: 211, 133, 155;
+
+        --fg0: #d4be98;
+        --fg1: #ddc7a0;
+
+        --grey0: #7c6f64;
+        --grey1: #918274;
+        --grey2: #a79a83;
+
+        --fontWeightBold: 700;
+        --fontWeightSemiBold: 600;
+        --fontWeightMedium: 500;
+        --fontWeightRegular: 400;
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --bg0: #f9f5d7;
+            --bg1: #f5edca;
+            --bg2: #f2eac7;
+            --bg3: #f2e4bc;
+            --bg4: #efdfb7;
+            --bg5: #ebdbb2;
+
+            --bgDim: #f2eac7;
+
+            --bgCurrentWord: #f2eac7;
+
+            --bgDiffGreen: #e4edc7;
+            --bgDiffBlue: #e0e9d3;
+            --bgDiffRed: #f8e4c9;
+
+            --bgVisualYellow: #f9e9bf;
+            --bgVisualGreen: #dce5c2;
+            --bgVisualBlue: #d8e1cc;
+            --bgVisualRed: #f0ddc3;
+
+            --bgAccentYellow: #a96b2d;
+            --bgAccentGreen: #6f8252;
+            --bgAccentRed: #ae5858;
+
+            --accentRed: #c14a4a;
+            --accentOrange: #c35e0a;
+            --accentYellow: #b37109;
+            --accentGreen: #6c782e;
+            --accentAqua: #4b7a5d;
+            --accentBlue: #45707a;
+            --accentPurple: #945e80;
+
+            --accentPurpleRgb: 148, 94, 128;
+
+            --fg0: #644735;
+            --fg1: #503829;
+
+            --grey0: #a79a83;
+            --grey1: #928374;
+            --grey2: #7c6f64;
+        }
+    }
+
     @font-face {
         font-family: "Inter";
         src: url("/fonts/Inter.var-subset.woff2") format("woff2");
@@ -52,6 +145,7 @@ const { title, description } = Astro.props;
 
     html {
         font-family: Inter, system-ui, sans-serif;
+        font-weight: var(--fontWeightRegular);
         line-height: 1.5;
     }
 
@@ -64,28 +158,8 @@ const { title, description } = Astro.props;
 
         min-height: 100vh;
 
-        --background-color: white;
-        --surface: #f6f6f7;
-        --surface2: #f2f2f3;
-        --color: black;
-        --color-semi-trans: rgba(0, 0, 0, 0.3);
-        --accent: hsl(0, 60%, 67%);
-        --accent-alt: hsl(0, 60%, 60%);
-
-        background-color: var(--background-color);
-        color: var(--color);
-    }
-
-    @media (prefers-color-scheme: dark) {
-        body {
-            --background-color: #202021;
-            --surface: #1e1e1f;
-            --surface2: #29292b;
-            --color: #e5e5e5;
-            --color-semi-trans: rgba(229, 229, 229, 0.4);
-            --accent: hsl(0, 59%, 84%);
-            --accent-alt: hsl(0, 59%, 77%);
-        }
+        background-color: var(--bg1);
+        color: var(--fg0);
     }
 
     div {
@@ -105,7 +179,7 @@ const { title, description } = Astro.props;
     }
 
     ::selection {
-        background-color: var(--accent);
-        color: var(--background-color);
+        background-color: var(--fg0);
+        color: var(--bg1);
     }
 </style>
