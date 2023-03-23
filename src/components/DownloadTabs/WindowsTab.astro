@@ -4,23 +4,38 @@ import Code from "../Code.astro";
 import Tab from "./Tab.astro";
 ---
 
-<Tab fileNames={["VencordInstaller.exe", "VencordInstallerCli-i386.exe"]}>
+<Tab fileNames={["VencordInstaller.exe"]}>
     <div slot="header">
         <p>Download and run <Code>VencordInstaller.exe</Code></p>
-        <p>
-            If you're using Windows 7 or earlier or a 32-bit version of Windows,
-            or if the normal installer for some reason won't open, download
-            {}
-            <Code>VencordInstallerCli-i386.exe</Code> instead. You will need to run
-            it from the command line (cmd or powershell)
-        </p>
     </div>
 
-    <Card slot="footer" kind={Kind.Warning}>
-        <p>Do not run the installer as an Administrator!</p>
+    <div slot="footer">
+        <Card kind={Kind.Warning}>
+            <p>Do not run the installer as an Administrator!</p>
+            <p>
+                If you get a warning that the app cannot be opened, click "Run
+                Anyways". You may need to click "more info" to see this option.
+            </p>
+        </Card>
+
         <p>
-            If you get a warning that the app cannot be opened, click "Run
-            Anyways". You may need to click "more info" to see this option.
+            Alternatively, or if the normal installer doesn't work for you, open
+            Powershell and run the following command
         </p>
-    </Card>
+        <Card kind={Kind.Blank}>
+            <code
+                >iwr
+                "https://raw.githubusercontent.com/Vencord/Installer/main/install.ps1"
+                | iex</code
+            >
+        </Card>
+
+        <br />
+    </div>
 </Tab>
+
+<style>
+    code {
+        overflow-wrap: anywhere;
+    }
+</style>
