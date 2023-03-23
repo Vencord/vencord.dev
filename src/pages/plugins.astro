@@ -2,26 +2,54 @@
 export const prerender = true;
 
 import Layout from "../layouts/Layout.astro";
+import { PLUGINS_JSON_URL } from "../scripts/constants";
 
-import plugins from "./plugins.json";
+interface Dev {
+    name: string;
+    id: string;
+}
+
+interface PluginData {
+    name: string;
+    description: string;
+    authors: Dev[];
+    dependencies: string[];
+    hasPatches: boolean;
+    hasCommands: boolean;
+    required: boolean;
+    enabledByDefault: boolean;
+    target: "desktop" | "web" | "dev";
+}
+
+const plugins: PluginData[] = await fetch(PLUGINS_JSON_URL).then(r => {
+    if (!r.ok) throw new Error("Failed to fetch plugins.json: " + r.status);
+    return r.json();
+});
 ---
 
 <Layout title="Vencord Plugins" description="Vencord plugin list">
     <div class="container">
-        <p>We have {plugins.length} plugins available for you to use immediately, with more being made every day.</p>
+        <p>
+            We have {plugins.length} plugins available for you to use immediately,
+            with more being made every day.
+        </p>
         <div class="plugins-grid">
-            {plugins.map((plugin, idx) => (
-                <div class="plugin">
-                    {/*
+            {
+                plugins.map((plugin, idx) => (
+                    <div class="plugin">
+                        {/*
                         <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
                     */}
-                    <div class="plugin-content">
-                        <span class="title">{plugin.name}</span>
-                        <span class="author">by {plugin.authors.join(', ')}</span>
-                        <p class="description">{plugin.description}</p>
+                        <div class="plugin-content">
+                            <span class="title">{plugin.name}</span>
+                            <span class="author">
+                                by {plugin.authors.map(a => a.name).join(", ")}
+                            </span>
+                            <p class="description">{plugin.description}</p>
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))
+            }
         </div>
     </div>
 </Layout>
@@ -45,7 +73,6 @@ import plugins from "./plugins.json";
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
     }
-
 
     @media screen and (max-width: 800px) {
         .plugins-grid {

@@ -5,6 +5,8 @@ export const SPONSOR_URL = "https://github.com/sponsors/Vendicated";
 
 export const DOWNLOAD_BASE = "https://github.com/Vencord/Installer/releases/latest/download/";
 
+export const PLUGINS_JSON_URL = "https://raw.githubusercontent.com/Vencord/builds/main/plugins.json";
+
 export const FIREFOX_WEBSTORE_URL = "https://addons.mozilla.org/en-GB/firefox/addon/vencord-web";
 export const CHROME_WEBSTORE_URL = "https://chrome.google.com/webstore/detail/vencord-web/cbghhgpcnddeihccjmnadmkaejncjndb";
 export const USERSCRIPT_URL = "https://raw.githubusercontent.com/Vencord/builds/main/Vencord.user.js";
