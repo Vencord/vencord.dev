@@ -1,6 +1,4 @@
 ---
-export const prerender = true;
-
 import Layout from "../layouts/Layout.astro";
 import { PLUGINS_JSON_URL } from "../scripts/constants";
 
@@ -25,6 +23,8 @@ const plugins: PluginData[] = await fetch(PLUGINS_JSON_URL).then(r => {
     if (!r.ok) throw new Error("Failed to fetch plugins.json: " + r.status);
     return r.json();
 });
+
+Astro.response.headers.set("Cache-Control", "s-maxage=300");
 ---
 
 <Layout title="Vencord Plugins" description="Vencord plugin list">
