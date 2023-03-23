@@ -80,6 +80,9 @@
         border: 1px solid var(--color-semi-trans);
         border-top: none;
         padding: 1rem;
+
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
     }
 
     label {
@@ -88,6 +91,14 @@
         cursor: pointer;
 
         background-color: var(--surface);
+    }
+
+    label:first-child {
+        border-top-left-radius: 12px;
+    }
+
+    label:last-child {
+        border-top-right-radius: 12px;
     }
 
     label.selected {
