@@ -30,7 +30,8 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
 
 <Layout title="Vencord Plugins" description="Vencord plugin list">
     <div class="container">
-        <p>
+        <h1 class="page-title">Plugins</h1>
+        <p class="subtitle">
             We have {plugins.length} plugins available for you to use immediately,
             with more being made every day.
         </p>
@@ -59,6 +60,10 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
 </Layout>
 
 <style>
+    h1 {
+        color: var(--accentBlue);
+    }
+
     .container {
         display: flex;
         flex-direction: column;

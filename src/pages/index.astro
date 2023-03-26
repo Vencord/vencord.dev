@@ -51,7 +51,7 @@ if (features.length % 3 !== 0)
     <header>
         <section class="tagline">
             <Typography.Display>Vencord</Typography.Display>
-            <h4>The cutest Discord client mod</h4>
+            <h2>The cutest Discord client mod</h2>
         </section>
 
         <section class="buttons">
@@ -73,40 +73,50 @@ if (features.length % 3 !== 0)
     <section class="features">
         {
             features.map(({ icon, title, description }) => (
-                <div class="feature-card">
-                    <div class="feature-icon" aria-hidden="true">
-                        <img src={`/assets/${icon}.png`} alt="" />
-                    </div>
-                    <h3 class="feature-title">{title}</h3>
-                    <p class="feature-desc">{description}</p>
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">
+                    <img src={`/assets/${icon}.png`} alt="" />
                 </div>
+                <h3 class="feature-title">{title}</h3>
+                <p class="feature-desc">{description}</p>
+            </div>
             ))
         }
     </section>
 </Layout>
 
 <style>
+
     .tagline {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
-        margin-bottom: 3em;
     }
 
     section {
         margin-bottom: 2em;
     }
 
+    .tagline {
+        margin-bottom: 1em;
+    }
+
     h1,
-    h4 {
+    h2 {
         line-height: 1;
         margin: 0;
     }
 
     h1 {
         color: var(--accentPurple);
+    }
+
+    h2 {
+        color: var(--grey1);
+        font-size: 2.25em;
+        line-height: 2.75em;
+        margin-top: -0.75em;
     }
 
     .buttons {

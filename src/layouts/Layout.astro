@@ -182,6 +182,8 @@ const { title, description, opengraph } = Astro.props;
 
     div {
         margin: 2em var(--horizontal-margin);
+        height: 100%;
+        position: relative;
     }
 
     @media screen and (max-width: 1200px) {
@@ -201,12 +203,12 @@ const { title, description, opengraph } = Astro.props;
         color: var(--bg1);
     }
 
-    code {
+    pre code {
         counter-reset: code-line-number;
-        coutner-increment: code-line-number 0;
+        counter-increment: code-line-number 0;
     }
 
-    code .line::before {
+    pre code .line::before {
         content: counter(code-line-number);
         counter-increment: code-line-number;
 
@@ -238,9 +240,10 @@ const { title, description, opengraph } = Astro.props;
         line-height: 3em;
     }
 
-    h4 {
+    h4, h1.page-title {
         font-size: 2.25em;
         line-height: 2.75em;
+        margin-bottom: 0;
     }
 
     h5 {
@@ -251,5 +254,10 @@ const { title, description, opengraph } = Astro.props;
     h6 {
         font-size: 1.5em;
         line-height: 2.45em;
+    }
+
+    .subtitle {
+        margin-top: -1.5em;
+        color: var(--grey1);
     }
 </style>

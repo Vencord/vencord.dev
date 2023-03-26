@@ -12,8 +12,8 @@ const faq = await getSortedFaq();
     title="Frequently Asked Questions"
     description="Answers to frequently asked questions about Vencord"
 >
-    <h4>Frequently Asked Questions</h4>
-    <p id="subtitle">Is your question not answered below? Come visit our support server.</p>
+    <h1 class="page-title">Frequently Asked Questions</h1>
+    <p class="subtitle">Is your question not answered below? Come visit our support server.</p>
 
     <div class="questions">
         {
@@ -34,14 +34,8 @@ const faq = await getSortedFaq();
 </Layout>
 
 <style>
-    h4 {
+    h1 {
         color: var(--accentAqua);
-        margin-bottom: 0;
-    }
-
-    #subtitle {
-        margin-top: -0.125em;
-        color: var(--grey1);
     }
 
     .questions {
@@ -53,7 +47,7 @@ const faq = await getSortedFaq();
     /* This is mostly copy pasted from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#try_it */
     details {
         background-color: var(--bg3);
-        padding: 12px;
+        padding: 0.5em 0.75em;
         border-radius: 8px;
     }
 
@@ -70,7 +64,15 @@ const faq = await getSortedFaq();
         background-color: var(--bgCurrentWord);
         color: var(--grey2);
         border-radius: 4px;
-        padding: 4px 12px;
+        padding: 0.75em;
+    }
+
+    .faq-content :global(p) {
+        margin-top: 0;
+    }
+
+    .faq-content :global(*:last-child) {
+        margin-bottom: 0;
     }
 
     /* style some markdown elements */

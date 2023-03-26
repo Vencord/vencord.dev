@@ -16,6 +16,7 @@ export interface Props extends HTMLAttributes<"a"> {
         text-decoration: none;
         text-align: center;
         background-color: var(--bg3);
+        font-weight: var(--fontWeightSemiBold);
         color: var(--fg0);
         outline: 1px solid var(--fg1);
         padding: 0.8em 2em;
@@ -39,7 +40,7 @@ export interface Props extends HTMLAttributes<"a"> {
     }
 
     a:disabled {
-        background-color: var(--bgCurrentWord)
+        background-color: var(--bgCurrentWord);
         outline-color: var(--grey0);
         color: var(--grey0);
     }
