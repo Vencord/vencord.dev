@@ -1,3 +1,5 @@
+// @ts-nocheck - bugged with astro
+
 /* headers */
 export { default as Display } from "./Display.astro";
 

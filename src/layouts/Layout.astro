@@ -42,7 +42,7 @@ const { title, description } = Astro.props;
 
 <style>
     :root {
-        --bg0: #1e2021;
+        --bg0: #1d2021;
         --bg1: #282828;
         --bg2: #282828;
         --bg3: #3c3836;
@@ -72,7 +72,7 @@ const { title, description } = Astro.props;
         --accentGreen: #a8b665;
         --accentAqua: #89b481;
         --accentBlue: #7caea3;
-        --accentPurple: #d3859b;
+        --accentPurple: #d3869b;
 
         --accentPurpleRgb: 211, 133, 155;
 
@@ -87,6 +87,18 @@ const { title, description } = Astro.props;
         --fontWeightSemiBold: 600;
         --fontWeightMedium: 500;
         --fontWeightRegular: 400;
+
+        --astro-code-color-text: var(--fg0);
+        --astro-code-color-background: var(--bg0);
+        --astro-code-token-constant: var(--fg0);
+        --astro-code-token-string: var(--accentYellow);
+        --astro-code-token-string-expression: var(--accentYellow);
+        --astro-code-token-comment: var(--grey1);
+        --astro-code-token-keyword: var(--accentOrange);
+        --astro-code-token-parameter: var(--accentBlue);
+        --astro-code-token-function: var(--accentGreen);
+        --astro-code-token-punctuation: var(--fg0);
+        --astro-code-token-link: var(--accentBlue);
     }
 
     @media (prefers-color-scheme: light) {
@@ -181,5 +193,22 @@ const { title, description } = Astro.props;
     ::selection {
         background-color: var(--fg0);
         color: var(--bg1);
+    }
+
+    code {
+        counter-reset: code-line-number;
+        coutner-increment: code-line-number 0;
+    }
+
+    code .line::before {
+        content: counter(code-line-number);
+        counter-increment: code-line-number;
+
+        display: inline-block;
+        width: 1rem;
+        margin-right: 1.5rem;
+        text-align: right;
+
+        color: var(--grey0);
     }
 </style>
