@@ -11,14 +11,12 @@ import {
     Changes,
 } from "../../components/cloud/privacy/sections.astro";
 
-const changeDate = "PUT DATE HERE";
-
 const sections = [
-    ["#intro", "Introduction", Intro],
-    ["#information-stored", "The information we store", InfoStored],
-    ["#usage", "How we use your information", Usage],
-    ["#retention", "Data Retention", DataRetention],
-    ["#changes", "Changes to this Privacy Policy", Changes],
+    ["intro", "Introduction", Intro],
+    ["information-stored", "The information we store", InfoStored],
+    ["usage", "How we use your information", Usage],
+    ["retention", "Data Retention", DataRetention],
+    ["changes", "Changes to this Privacy Policy", Changes],
 ] as const;
 ---
 
@@ -34,7 +32,7 @@ const sections = [
             {
                 sections.map(([id, title]) => (
                     <li>
-                        <Link href={id}>{title}</Link>
+                        <Link href={`#${id}`}>{title}</Link>
                     </li>
                 ))
             }
