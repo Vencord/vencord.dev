@@ -6,9 +6,10 @@ import NavBar from "../components/NavBar.astro";
 export interface Props {
     title: string;
     description: string;
+    opengraph?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, opengraph } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -23,11 +24,16 @@ const { title, description } = Astro.props;
         <meta name="author" content="Vencord Contributors" />
         <meta name="theme-color" content="#dd7878" />
 
-        <meta name="og:type" content="website" />
-        <meta name="og:title" content={title} />
-        <meta name="og:description" content={description} />
-        <meta name="og:url" content={Astro.url} />
-        {/* <meta name="og:image" content={ICON} />*/}
+        {
+            opengraph !== false && (
+                <>
+                    <meta name="og:type" content="website" />
+                    <meta name="og:title" content={title} />
+                    <meta name="og:description" content={description} />
+                    <meta name="og:url" content={Astro.url} />
+                </>
+            )
+        }
 
         <link rel="sitemap" href="/sitemap-index.xml" />
     </head>
