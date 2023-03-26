@@ -1,1 +1,11 @@
-<h1>Explode (404)</h1>
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="404 - Page Not Found" description="Uh oh" opengraph={false}>
+    <h1>404 - Page Not Found</h1>
+    <p>Uh Oh! It appears you're lost :( Click shiggy to go back home</p>
+    <a href="/">
+        <img src="/assets/shiggy.gif" alt="Take me home" title="Take me home" />
+    </a>
+</Layout>
