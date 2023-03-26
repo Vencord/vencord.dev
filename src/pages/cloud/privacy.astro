@@ -1,12 +1,52 @@
 ---
 export const prerender = true;
 
+import Link from "../../components/Link.astro";
 import Layout from "../../layouts/Layout.astro";
+import {
+    Intro,
+    InfoStored,
+    Usage,
+    DataRetention,
+    Changes,
+} from "../../components/cloud/privacy/sections.astro";
+
+const changeDate = "PUT DATE HERE";
+
+const sections = [
+    ["#intro", "Introduction", Intro],
+    ["#information-stored", "The information we store", InfoStored],
+    ["#usage", "How we use your information", Usage],
+    ["#retention", "Data Retention", DataRetention],
+    ["#changes", "Changes to this Privacy Policy", Changes],
+] as const;
 ---
 
 <Layout
-    title="Privacy Policy"
+    title="Vencord Cloud Privacy Policy"
     description="Privacy policy regarding Vencord's cloud services"
 >
-    very private yeye
+    <h1>Vencord Cloud Privacy Policy</h1>
+    <h2>Last Updated: 26/03/2023</h2>
+
+    <nav>
+        <ol>
+            {
+                sections.map(([id, title]) => (
+                    <li>
+                        <Link href={id}>{title}</Link>
+                    </li>
+                ))
+            }
+        </ol>
+    </nav>
+
+    {
+        sections.map(([id, title, Component]) => (
+            <section id={id}>
+                <h2>{title}</h2>
+                <Component />
+            </section>
+        ))
+    }
 </Layout>
