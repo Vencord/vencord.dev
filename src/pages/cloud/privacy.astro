@@ -42,9 +42,43 @@ const sections = [
     {
         sections.map(([id, title, Component]) => (
             <section id={id}>
-                <h2>{title}</h2>
+                <a href={`#${id}`}>
+                    <h2 class="title">{title}</h2>
+                </a>
                 <Component />
             </section>
         ))
     }
 </Layout>
+
+<script>
+    function handleHash() {
+        document
+            .querySelectorAll(".jumped")
+            .forEach(el => el.classList.remove("jumped"));
+
+        const { hash } = window.location;
+        if (hash) {
+            const el = document.querySelector(hash);
+            el?.classList.add("jumped");
+        }
+    }
+
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+</script>
+
+<style>
+    a {
+        text-decoration: none;
+        color: unset;
+    }
+
+    .title::before {
+        content: "# ";
+    }
+
+    .jumped .title::before {
+        color: var(--accent);
+    }
+</style>
