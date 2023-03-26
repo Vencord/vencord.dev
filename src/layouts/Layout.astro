@@ -17,7 +17,7 @@ const { title, description, opengraph } = Astro.props;
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {/* <link rel="icon" href={ICON} /> */}
+        <link rel="icon" href="/assets/favicon.png" />
 
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -96,7 +96,7 @@ const { title, description, opengraph } = Astro.props;
 
         --astro-code-color-text: var(--fg0);
         --astro-code-color-background: var(--bg0);
-        --astro-code-token-constant: var(--fg0);
+        --astro-code-token-constant: var(--accentAqua);
         --astro-code-token-string: var(--accentYellow);
         --astro-code-token-string-expression: var(--accentYellow);
         --astro-code-token-comment: var(--grey1);

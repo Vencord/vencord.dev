@@ -4,18 +4,23 @@ import * as Typography from "./typography";
 
 <nav>
     <div class="nav-content">
-        <a href="/" id="title">
-            <h4>[LOGO]</h4>
-        </a>
-        <div id="btns">
-            <Typography.LabelSmall>
+        <div id="logo">
+            <a href="/" id="title">
+                <img src="/assets/logo-nav.png">
+            </a>
+        </div>
+        <div id="btnsleft">
+            <Typography.LabelMedium>
                 <ul>
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
                     <li>
                         <a href="/download" style="color:var(--accentPurple)">Download</a>
                     </li>
+                </ul>
+            </Typography.LabelMedium>
+        </div>
+        <div id="btns">
+            <Typography.LabelMedium>
+                <ul id="right">
                     <li>
                         <a href="/plugins" style="color:var(--accentBlue)">Plugins</a>
                     </li>
@@ -29,7 +34,7 @@ import * as Typography from "./typography";
                         <a href="/cloud" style="color:var(--accentYellow)">Cloud</a>
                     </li>
                 </ul>
-            </Typography.LabelSmall>
+            </Typography.LabelMedium>
         </div>
         <div id="oneko" aria-hidden="true"></div>
     </div>
@@ -60,10 +65,17 @@ import * as Typography from "./typography";
     }
 
     ul {
-        float: right;
         list-style-type: none;
         overflow: hidden;
         padding: 0;
+    }
+
+    div#btnsleft {
+        flex: 1;
+    }
+
+    #logo img {
+        vertical-align: middle;
     }
 
     li {
