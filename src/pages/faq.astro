@@ -3,7 +3,6 @@ export const prerender = true;
 
 import Layout from "../layouts/Layout.astro";
 import { getSortedFaq } from "../scripts/collections";
-import * as Typography from "../components/typography";
 
 const faq = await getSortedFaq();
 ---
@@ -12,8 +11,8 @@ const faq = await getSortedFaq();
     title="Frequently Asked Questions"
     description="Answers to frequently asked questions about Vencord"
 >
-    <h1 class="page-title">Frequently Asked Questions</h1>
-    <p class="subtitle">Is your question not answered below? Come visit our support server.</p>
+    <h1 class="p-page-title">Frequently Asked Questions</h1>
+    <p class="p-subtitle">Is your question not answered below? Come visit our support server.</p>
 
     <div class="questions">
         {

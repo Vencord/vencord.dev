@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { PLUGINS_JSON_URL } from "../scripts/constants";
-import * as Typography from "../components/typography";
 
 interface Dev {
     name: string;
@@ -30,8 +29,8 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
 
 <Layout title="Vencord Plugins" description="Vencord plugin list">
     <div class="container">
-        <h1 class="page-title">Plugins</h1>
-        <p class="subtitle">
+        <h1 class="p-page-title">Plugins</h1>
+        <p class="p-subtitle">
             We have {plugins.length} plugins available for you to use immediately,
             with more being made every day.
         </p>
@@ -43,7 +42,7 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
                         <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
                         */}
                         <div class="plugin-content">
-                            <Typography.LabelLarge>{plugin.name}</Typography.LabelLarge>
+                            <span class="p-label-l">{plugin.name}</span>
                             <div class="author">
                                 <span id="by">by</span>
                                 <span class="author">
