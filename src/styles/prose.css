@@ -84,7 +84,7 @@ h6 {
     line-height: 1rem;
 }
 
-.p-label {
+.p-label-m {
     font-size: 1em;
     font-weight: var(--fontWeightSemiBold);
     letter-spacing: 0.02rem;
