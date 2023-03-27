@@ -1,3 +1,7 @@
+---
+const page = Astro.url.pathname.split("/")[1];
+---
+
 <nav>
     <div class="nav-content">
         <div id="logo">
@@ -8,23 +12,23 @@
         <div id="btnsleft" class="p-label-m">
             <ul>
                 <li>
-                    <a href="/download" style="color:var(--accentPurple)">Download</a>
+                    <a href="/download" style="--accent:var(--accentPurple)" class:list={{ active: page === "download" }}>Download</a>
                 </li>
             </ul>
         </div>
         <div id="btns" class="p-label-m">
             <ul id="right">
                 <li>
-                    <a href="/plugins" style="color:var(--accentBlue)">Plugins</a>
+                    <a href="/plugins" style="--accent:var(--accentBlue)" class:list={{ active: page === "plugins" }}>Plugins</a>
                 </li>
                 <li>
-                    <a href="/faq" style="color:var(--accentAqua)">FAQ</a>
+                    <a href="/faq" style="--accent:var(--accentAqua)" class:list={{ active: page === "faq" }}>FAQ</a>
                 </li>
                 <li>
-                    <a href="/docs" style="color:var(--accentGreen)">Docs</a>
+                    <a href="/docs" style="--accent:var(--accentGreen)" class:list={{ active: page === "docs" }}>Docs</a>
                 </li>
                 <li>
-                    <a href="/cloud" style="color:var(--accentYellow)">Cloud</a>
+                    <a href="/cloud" style="--accent:var(--accentYellow)" class:list={{ active: page === "cloud" }}>Cloud</a>
                 </li>
             </ul>
         </div>
@@ -81,9 +85,13 @@
         text-decoration: none;
         text-align: center;
         padding: 0.5em;
-        color: var(--color);
+        color: var(--fg0);
         transition: 0.15s ease;
         transition-property: color, text-decoration;
+    }
+
+    a.active {
+        color: var(--accent);
     }
 
     a:not(#title):where(:hover, :focus) {
