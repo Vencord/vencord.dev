@@ -33,13 +33,14 @@ const { title, description, opengraph } = Astro.props;
                 <>
                     <meta name="og:type" content="website" />
                     <meta name="og:title" content={title ?? "Vencord"} />
-                    {title && <meta name="og:site_name" content="Vencord" />}
                     <meta name="og:description" content={description} />
                     <meta name="og:url" content={Astro.url} />
                     <meta name="og:image" content={new URL("/assets/favicon.png", Astro.site)} />
                 </>
             )
         }
+        {/* FIXME: Seems to be a bug in Astro because this statement doesn't work in the above block. */}
+        {(title && opengraph !== false) && <meta name="og:site_name" content="Vencord" />}
 
         <link rel="sitemap" href="/sitemap-index.xml" />
     </head>
