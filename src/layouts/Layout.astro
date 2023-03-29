@@ -6,7 +6,7 @@ import Footer from "../components/Footer.astro";
 import NavBar from "../components/NavBar.astro";
 
 export interface Props {
-    title: string;
+    title?: string;
     description: string;
     opengraph?: boolean;
 }
@@ -23,7 +23,7 @@ const { title, description, opengraph } = Astro.props;
 
         <link rel="preload" href="/assets/fonts/Inter.var-subset.woff2" as="font" type="font/woff2" />
 
-        <title>{title}</title>
+        <title>{title && `${title} | `}Vencord</title>
         <meta name="description" content={description} />
         <meta name="author" content="Vencord Contributors" />
         <meta name="theme-color" content="#dd7878" />
@@ -32,9 +32,11 @@ const { title, description, opengraph } = Astro.props;
             opengraph !== false && (
                 <>
                     <meta name="og:type" content="website" />
-                    <meta name="og:title" content={title} />
+                    <meta name="og:title" content={title ?? "Vencord"} />
+                    {title && <meta name="og:site_name" content="Vencord" />}
                     <meta name="og:description" content={description} />
                     <meta name="og:url" content={Astro.url} />
+                    <meta name="og:image" content={new URL("/assets/favicon.png", Astro.site)} />
                 </>
             )
         }

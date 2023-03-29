@@ -27,7 +27,7 @@ const plugins: PluginData[] = await fetch(PLUGINS_JSON_URL).then(r => {
 Astro.response.headers.set("Cache-Control", "s-maxage=300");
 ---
 
-<Layout title="Vencord Plugins" description="Vencord plugin list">
+<Layout title="Plugins" description="Vencord plugin list">
     <div class="container">
         <h1 class="p-page-title">Plugins</h1>
         <p class="p-subtitle">
