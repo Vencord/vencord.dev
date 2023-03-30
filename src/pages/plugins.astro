@@ -44,7 +44,7 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
                         <div class="plugin-content">
                             <span class="p-label-l">{plugin.name}</span>
                             <div class="author">
-                                <span id="by">by</span>
+                                <span class="by">by</span>
                                 <span class="author">
                                     {plugin.authors.map(a => a.name).join(", ")}
                                 </span>
@@ -115,23 +115,23 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
         flex-direction: column;
     }
 
-    .plugin-content .title {
+    .title {
         font-size: 1em;
         font-weight: bold;
     }
 
-    .plugin-content .author {
+    .author {
         display: flex;
 
         color: var(--grey1);
     }
 
-    .plugin-content .author #by {
+    .by {
         color: var(--grey0);
         margin-right: 0.25em;
     }
 
-    .plugin-content .description {
+    .description {
         font-size: 0.9em;
         filter: brightness(90%);
         margin-bottom: 0;

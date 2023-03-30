@@ -69,11 +69,11 @@ const page = Astro.url.pathname.split("/")[1];
         padding: 0;
     }
 
-    div#btnsleft {
+    #btnsleft {
         flex: 1;
     }
 
-    #logo img {
+    img {
         vertical-align: middle;
     }
 
@@ -90,7 +90,7 @@ const page = Astro.url.pathname.split("/")[1];
         transition-property: color, text-decoration;
     }
 
-    a.active {
+    .active {
         color: var(--accent);
     }
 
