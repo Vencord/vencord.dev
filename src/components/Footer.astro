@@ -5,7 +5,6 @@ import {
     SOURCE_CODE,
     SPONSOR_URL,
 } from "../scripts/constants";
-import Link from "./Link.astro";
 import { Icon } from "astro-icon";
 ---
 
@@ -13,7 +12,7 @@ import { Icon } from "astro-icon";
     <div class="content">
         <div class="source-and-disclaimer">
             <span class="p-overline-s">
-                <Link href={SOURCE_CODE}>source code</Link>
+                <a href={SOURCE_CODE}>source code</a>
                 <span class="divider">&mdash;</span>
                 <span>
                     Discord is trademark of Discord Inc. Vencord is not affiliated
