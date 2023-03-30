@@ -13,7 +13,8 @@ const page = Astro.url.pathname.split("/")[1];
     <div class="nav-content">
         <div id="logo">
             <a href="/" id="title">
-                <img src="/assets/logo-nav.png">
+                <img src="/assets/logo-nav-oneko-padding.png">
+                <div id="oneko" aria-hidden="true"></div>
             </a>
         </div>
         <div id="btnsleft" class="p-label-m">
@@ -33,7 +34,6 @@ const page = Astro.url.pathname.split("/")[1];
                     ))}
             </ul>
         </div>
-        <div id="oneko" aria-hidden="true"></div>
     </div>
 </nav>
 
@@ -102,13 +102,19 @@ const page = Astro.url.pathname.split("/")[1];
         color: var(--accent);
     }
 
+    #logo {
+        position: relative;
+    }
+
     #oneko {
-        content: "";
-        display: inline-block;
         position: absolute;
+
+        top: -3px;
+        right: 7px;
+
+        display: inline-block;
         width: 32px;
         height: 32px;
-        right: 2rem;
         image-rendering: pixelated;
         /* https://raw.githubusercontent.com/adryd325/oneko.js/14bab15a755d0e35cd4ae19c931d96d306f99f42/oneko.gif */
         background-image: url("/assets/oneko.gif");
@@ -130,10 +136,6 @@ const page = Astro.url.pathname.split("/")[1];
         .nav-content {
             position: relative;
             flex-direction: column;
-        }
-        #oneko {
-            top: 2rem;
-            left: 2rem;
         }
     }
 
