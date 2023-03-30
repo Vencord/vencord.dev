@@ -1,4 +1,11 @@
 ---
+const navLinks = {
+    "plugins": ["Plugins", "accentBlue"],
+    "faq": ["FAQ", "accentAqua"],
+    "docs": ["Docs", "accentGreen"],
+    "cloud": ["Cloud", "accentYellow"],
+}
+
 const page = Astro.url.pathname.split("/")[1];
 ---
 
@@ -18,18 +25,12 @@ const page = Astro.url.pathname.split("/")[1];
         </div>
         <div id="btns" class="p-label-m">
             <ul id="right">
-                <li>
-                    <a href="/plugins" style="--accent:var(--accentBlue)" class:list={{ active: page === "plugins" }}>Plugins</a>
-                </li>
-                <li>
-                    <a href="/faq" style="--accent:var(--accentAqua)" class:list={{ active: page === "faq" }}>FAQ</a>
-                </li>
-                <li>
-                    <a href="/docs" style="--accent:var(--accentGreen)" class:list={{ active: page === "docs" }}>Docs</a>
-                </li>
-                <li>
-                    <a href="/cloud" style="--accent:var(--accentYellow)" class:list={{ active: page === "cloud" }}>Cloud</a>
-                </li>
+                {Object.entries(navLinks).map(([link, [display, color]]) =>
+                    (
+                        <li>
+                            <a href={`/${link}`} style={`--accent:var(--${color})`} class:list={{ active: page === link }}>{display}</a>
+                        </li>
+                    ))}
             </ul>
         </div>
         <div id="oneko" aria-hidden="true"></div>
