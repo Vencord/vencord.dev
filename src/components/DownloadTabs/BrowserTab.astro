@@ -5,7 +5,6 @@ import {
     USERSCRIPT_URL,
 } from "../../scripts/constants";
 import Card, { Kind } from "../Card.astro";
-import Link from "../Link.astro";
 import LinkButton from "../LinkButton.astro";
 import Tab from "./Tab.astro";
 ---
@@ -14,7 +13,7 @@ import Tab from "./Tab.astro";
     <Fragment slot="header">
         <p>
             You can download Vencord from the Chrome or Firefox Store, or use
-            the UserScript
+            the UserScript.
         </p>
         <div class="buttons">
             <a href={FIREFOX_WEBSTORE_URL}>
@@ -39,18 +38,13 @@ import Tab from "./Tab.astro";
 
     <Card slot="footer" kind={Kind.Warning}>
         <p>
-            Please note that due to Discord's
-            <Link href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">
-                {}content security policy{}
-            </Link>, the CSS Editor, custom themes and plugins making use of
-            external scripts will not work with the UserScript
+            Please note that due to Discord's <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">content
+            security policy</a>, the CSS Editor, custom themes and plugins making use of external scripts will not work
+            with the UserScript.
         </p>
         <p>
-            The same is true for Firefox due to
-            <Link href="https://github.com/Vendicated/Vencord/issues/548">
-                {}a bug{}
-            </Link>
-            we haven't managed to fix <span class="no-wrap">:(</span>
+            The same is true for Firefox due to <a href="https://github.com/Vendicated/Vencord/issues/548">a bug</a> we
+            haven't managed to fix. <span class="no-wrap">:(</span>
         </p>
     </Card>
 </Tab>
