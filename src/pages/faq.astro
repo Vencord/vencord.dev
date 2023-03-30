@@ -9,10 +9,10 @@ const faq = await getSortedFaq();
 
 <Layout
     title="Frequently Asked Questions"
-    description="Answers to frequently asked questions about Vencord"
+    description="Answers to frequently asked questions about Vencord."
 >
     <h1 class="p-page-title">Frequently Asked Questions</h1>
-    <p class="p-subtitle">Is your question not answered below? Come visit our support server.</p>
+    <p class="p-subtitle">Questions that we're asked often.</p>
 
     <div class="questions">
         {
@@ -30,6 +30,8 @@ const faq = await getSortedFaq();
             })
         }
     </div>
+
+    <p>Still lost? Visit our <a href="/discord">support server</a> for more assistance! We're happy to help.</p>
 </Layout>
 
 <style>
