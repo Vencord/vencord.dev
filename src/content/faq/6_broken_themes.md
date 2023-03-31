@@ -1,5 +1,6 @@
 ---
 title: My themes broke and now I can't open settings or disable them
+tags: themes, broken themes
 ---
 
 open the dev tools with `CTRL + Shift + i` and click on the "console" tab at the top. Then paste and run (with enter) the following code.

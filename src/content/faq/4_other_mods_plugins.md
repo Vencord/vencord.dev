@@ -1,5 +1,6 @@
 ---
 title: How do I install BetterDiscord / Replugged / [insert other mod here] plugins?
+tags: betterdiscord, replugged, powercord
 ---
 
 You can't.
