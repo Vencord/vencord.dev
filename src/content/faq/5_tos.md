@@ -1,5 +1,6 @@
 ---
 title: Will I get banned for using Vencord? Will plugin X get me banned?
+tags: tos, banned, terms of service
 ---
 
 Client modifications are against Discord's Terms of Service.
