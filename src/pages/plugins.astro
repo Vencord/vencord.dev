@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import { PLUGINS_JSON_URL } from "../scripts/constants";
 
+import { Icon } from "astro-icon";
+
 interface Dev {
     name: string;
     id: string;
@@ -50,6 +52,15 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
                                 </span>
                             </div>
                             <p class="description">{plugin.description}</p>
+
+                            <span class="plugin-badges">
+                                {plugin.required && <Icon name="fa-solid:asterisk" title="Required" />}
+                                {(plugin.required || plugin.enabledByDefault) && <Icon name="fa-solid:plug" title="Enabled by default" />}
+                                {plugin.hasCommands && <Icon name="fa-solid:terminal" title="Has commands" />}
+                                {plugin.target === "desktop" && <Icon name="fa-solid:desktop" title="Desktop only" />}
+                                {plugin.target === "web" && <Icon name="fa-solid:globe" title="Web only" />}
+                                {plugin.target === "dev" && <Icon name="fa-solid:code" title="Dev only" />}
+                            </span>
                         </div>
                     </div>
                 ))
@@ -91,10 +102,12 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
     .plugin {
         display: flex;
         flex-direction: column;
+        position: relative;
         background: var(--bg4);
 
         border-radius: 12px;
         padding: 1em;
+        padding-bottom: 2em;
 
         transition: 200ms box-shadow cubic-bezier(0.25, 0.8, 0.25, 1);
     }
@@ -103,7 +116,7 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
 
-    .plugin .plugin-screenshot {
+    .plugin-screenshot {
         object-fit: cover;
         width: 100%;
         border-radius: 4px;
@@ -116,8 +129,17 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
     }
 
     .title {
-        font-size: 1em;
-        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .plugin-badges {
+        display: flex;
+        gap: 0.5em;
+
+        position: absolute;
+        bottom: 1em;
     }
 
     .author {
@@ -135,5 +157,12 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
         font-size: 0.9em;
         filter: brightness(90%);
         margin-bottom: 0;
+    }
+
+    svg {
+        width: 1.5em;
+        height: 1.5em;
+        shape-rendering: auto;
+        color: var(--color);
     }
 </style>
