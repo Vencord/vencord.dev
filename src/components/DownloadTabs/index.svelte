@@ -103,6 +103,12 @@
         background-color: var(--bg2);
     }
 
+    @media screen and (max-width: 600px) {
+        label {
+            padding: 0.5em 0.75em;
+        }
+    }
+
     label:first-child {
         border-top-left-radius: 4px;
     }
