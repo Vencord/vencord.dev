@@ -8,10 +8,11 @@ const faq = await getSortedFaq();
 ---
 
 <Layout
-    title="Frequently asked Questions"
-    description="Answers to frequently asked questions about Vencord"
+    title="Frequently Asked Questions"
+    description="Answers to frequently asked questions about Vencord."
 >
-    <h1>Frequently asked Questions</h1>
+    <h1 class="p-page-title">Frequently Asked Questions</h1>
+    <p class="p-subtitle">Questions that we're asked often.</p>
 
     <div class="questions">
         {
@@ -21,17 +22,21 @@ const faq = await getSortedFaq();
                     <details>
                         <summary>{f.data.title}</summary>
 
-                        <Content />
+                        <div class="faq-content">
+                            <Content />
+                        </div>
                     </details>
                 );
             })
         }
     </div>
+
+    <p>Still lost? Visit our <a href="/discord">support server</a> for more assistance! We're happy to help.</p>
 </Layout>
 
 <style>
     h1 {
-        text-align: center;
+        color: var(--accentAqua);
     }
 
     .questions {
@@ -42,39 +47,39 @@ const faq = await getSortedFaq();
 
     /* This is mostly copy pasted from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#try_it */
     details {
-        border: 1px solid var(--color-semi-trans);
-        padding: 0.5em 1em 0;
-        border-radius: 6px;
+        background-color: var(--bg3);
+        padding: 0.5em 0.75em;
+        border-radius: 8px;
     }
 
     summary {
         font-weight: bold;
-        margin: -0.5em -1em 0;
-        padding: 0.5em 1em;
         cursor: pointer;
     }
 
-    details[open] {
-        padding: 0.5em 1em;
+    details[open] summary {
+        margin-bottom: 8px;
     }
 
-    details[open] summary {
-        border-bottom: 1px solid var(--color-semi-trans);
-        margin-bottom: 0.5em;
+    .faq-content {
+        background-color: var(--bgCurrentWord);
+        color: var(--grey2);
+        border-radius: 4px;
+        padding: 0.75em;
+    }
+
+    details :global(p) {
+        margin-top: 0;
+    }
+
+    details :global(*:last-child) {
+        margin-bottom: 0;
     }
 
     /* style some markdown elements */
 
-    .questions :global(a) {
-        color: var(--color);
-    }
-
-    .questions :global(a):hover {
-        color: var(--accent);
-    }
-
     .questions :global(code:not(pre > code)) {
-        background-color: var(--surface2);
+        background-color: var(--bg1);
         border-radius: 5px;
         text-align: center;
         padding: 0 4px;
@@ -83,7 +88,7 @@ const faq = await getSortedFaq();
 
     .questions :global(.astro-code) {
         padding: 1em;
-        background-color: var(--surface2) !important;
+        background-color: var(--bg1) !important;
         border-radius: 6px;
     }
 </style>

@@ -46,70 +46,75 @@ if (features.length % 3 !== 0)
     throw new Error("Feature amount must be multiple of 3");
 ---
 
-<Layout title="Vencord" description="read if cute">
-    <section class="tagline">
-        <h1>Vencord</h1>
-        <h2>The cutest Discord client mod</h2>
-    </section>
+<Layout description="read if cute">
+    <header>
+        <section class="tagline">
+            <h1 class="p-display">Vencord</h1>
+            <h2>The cutest Discord client mod</h2>
+        </section>
 
-    <section class="buttons">
-        <AutoSizeGrid>
-            <LinkButton href="/download" class="main-btn">
-                Download Vencord
-            </LinkButton>
-            <LinkButton href="/discord" class="main-btn surface">
-                Join our Support Server
-            </LinkButton>
-            <LinkButton href="/github" class="main-btn surface">
-                View on GitHub
-            </LinkButton>
-        </AutoSizeGrid>
-    </section>
+        <section class="buttons">
+            <AutoSizeGrid>
+                <LinkButton href="/download" class="main-btn">
+                    Download Vencord
+                </LinkButton>
+                <LinkButton href="/discord">
+                    Join our Support Server
+                </LinkButton>
+                <LinkButton href="/github">
+                    View on GitHub
+                </LinkButton>
+            </AutoSizeGrid>
+        </section>
+    </header>
 
     <!-- Heavily inspired by Vite's homepage https://vitejs.dev/ (or if they changed it, https://archive.ph/o6Lmn) -->
     <section class="features">
         {
             features.map(({ icon, title, description }) => (
-                <div class="feature-card">
-                    <div class="feature-icon" aria-hidden="true">
-                        <img src={`/assets/${icon}.png`} alt="" />
-                    </div>
-                    <h3 class="feature-title">{title}</h3>
-                    <p class="feature-desc">{description}</p>
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">
+                    <img src={`/assets/${icon}.png`} alt="" />
                 </div>
+                <h3 class="feature-title">{title}</h3>
+                <p class="feature-desc">{description}</p>
+            </div>
             ))
         }
     </section>
 </Layout>
 
 <style>
+
     .tagline {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top: 4em;
     }
 
     section {
         margin-bottom: 2em;
     }
 
+    .tagline {
+        margin-bottom: 1em;
+    }
+
     h1,
     h2 {
         line-height: 1;
         margin: 0;
+        text-align: center;
     }
 
     h1 {
-        font-size: 4em;
-        font-weight: 700;
+        color: var(--accentPurple);
     }
 
     h2 {
-        font-size: 1.5em;
-        font-weight: 300;
-        filter: brightness(80%);
+        color: var(--grey1);
+        font-size: 2.25em;
     }
 
     .buttons {
@@ -118,18 +123,22 @@ if (features.length % 3 !== 0)
     }
 
     .main-btn {
-        padding: 0.8em 2em;
-        border-radius: 9999px;
+        background-color: var(--accentPurple);
+        color: var(--bgCurrentWord);
+        outline: none;
     }
 
-    .surface {
-        background-color: var(--surface2);
-        color: var(--color);
-        border: 1px solid var(--color-semi-trans);
+    .main-btn:focus {
+        outline: 2px solid var(--accentBlue);
     }
 
-    .surface:hover {
-        background-color: var(--surface1);
+    .main-btn:hover {
+        background-color: rgba(var(--accentPurpleRgb), 0.8);
+    }
+
+    .main-btn:active {
+        background-color: rgba(var(--accentPurpleRgb), 0.9);
+        outline: none;
     }
 
     .features {
@@ -151,9 +160,9 @@ if (features.length % 3 !== 0)
     }
 
     .feature-card {
-        background-color: var(--surface2);
-        padding: 1.6em;
-        border-radius: 12px;
+        background-color: var(--bg4);
+        padding: 16px;
+        border-radius: 8px;
 
         transition: 200ms box-shadow cubic-bezier(0.25, 0.8, 0.25, 1);
     }
@@ -166,7 +175,7 @@ if (features.length % 3 !== 0)
         padding: 0.7em;
         width: 1.5em;
         height: 1.5em;
-        background-color: var(--surface);
+        background-color: var(--bgCurrentWord);
         border-radius: 6px;
     }
 
@@ -177,7 +186,7 @@ if (features.length % 3 !== 0)
     }
 
     .feature-title {
-        font-size: 1em;
+        font-size: var(--fg1);
     }
 
     .feature-desc {

@@ -1,45 +1,49 @@
 ---
-export interface Props {
-    title: string;
+const navLinks = {
+    "plugins": ["Plugins", "accentBlue"],
+    "faq": ["FAQ", "accentAqua"],
+    "docs": ["Docs", "accentGreen"],
+    "cloud": ["Cloud", "accentYellow"],
 }
-const { title } = Astro.props;
+
+const page = Astro.url.pathname.split("/")[1];
 ---
 
 <nav>
     <div class="nav-content">
-        <a href="/" id="title">
-            <h2>{title}</h2>
-        </a>
-        <div id="btns">
+        <div id="logo">
+            <a href="/" id="title">
+                <img src="/assets/logo-nav-oneko-padding.png">
+                <div id="oneko" aria-hidden="true"></div>
+            </a>
+        </div>
+        <div id="btnsleft" class="p-label-m">
             <ul>
                 <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/download">Download</a>
-                </li>
-                <li>
-                    <a href="/plugins">Plugins</a>
-                </li>
-                <li>
-                    <a href="/faq">FAQ</a>
-                </li>
-                <li>
-                    <a href="/docs">Docs</a>
-                </li>
-                <li>
-                    <a href="/cloud">Cloud</a>
+                    <a href="/download" style="--accent:var(--accentPurple)" class:list={{ active: page === "download" }}>Download</a>
                 </li>
             </ul>
         </div>
-        <div id="oneko" aria-hidden="true"></div>
+        <div id="btns" class="p-label-m">
+            <ul id="right">
+                {Object.entries(navLinks).map(([link, [display, color]]) =>
+                    (
+                        <li>
+                            <a href={`/${link}`} style={`--accent:var(--${color})`} class:list={{ active: page === link }}>{display}</a>
+                        </li>
+                    ))}
+            </ul>
+        </div>
     </div>
 </nav>
 
 <style>
     nav {
-        background-color: var(--surface);
-        padding: 1em 0;
+        background-color: var(--bg0);
+
+        position: sticky;
+        top: 0;
+        z-index: 999;
     }
 
     .nav-content {
@@ -50,9 +54,8 @@ const { title } = Astro.props;
         margin: 0 var(--horizontal-margin);
     }
 
-    h2 {
-        cursor: pointer;
-        font-weight: 500;
+    h4 {
+        margin: 0;
     }
 
     #btns {
@@ -62,10 +65,17 @@ const { title } = Astro.props;
     }
 
     ul {
-        float: right;
         list-style-type: none;
         overflow: hidden;
         padding: 0;
+    }
+
+    #btnsleft {
+        flex: 1;
+    }
+
+    img {
+        vertical-align: middle;
     }
 
     li {
@@ -76,9 +86,13 @@ const { title } = Astro.props;
         text-decoration: none;
         text-align: center;
         padding: 0.5em;
-        color: var(--color);
+        color: var(--fg0) !important;
         transition: 0.15s ease;
         transition-property: color, text-decoration;
+    }
+
+    .active {
+        color: var(--accent) !important;
     }
 
     a:not(#title):where(:hover, :focus) {
@@ -88,13 +102,19 @@ const { title } = Astro.props;
         color: var(--accent);
     }
 
+    #logo {
+        position: relative;
+    }
+
     #oneko {
-        content: "";
-        display: inline-block;
         position: absolute;
+
+        top: -3px;
+        right: 7px;
+
+        display: inline-block;
         width: 32px;
         height: 32px;
-        right: 2rem;
         image-rendering: pixelated;
         /* https://raw.githubusercontent.com/adryd325/oneko.js/14bab15a755d0e35cd4ae19c931d96d306f99f42/oneko.gif */
         background-image: url("/assets/oneko.gif");
@@ -116,10 +136,6 @@ const { title } = Astro.props;
         .nav-content {
             position: relative;
             flex-direction: column;
-        }
-        #oneko {
-            top: 2rem;
-            left: 2rem;
         }
     }
 

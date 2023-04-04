@@ -1,0 +1,130 @@
+:root {
+    --fontWeightBold: 700;
+    --fontWeightSemiBold: 600;
+    --fontWeightMedium: 500;
+    --fontWeightRegular: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: var(--fontWeightSemiBold);
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 4em;
+    line-height: 4.8125rem;
+}
+
+h2 {
+    font-size: 3em;
+    line-height: 3.625rem;
+}
+
+h3 {
+    font-size: 2.5em;
+    line-height: 3rem;
+}
+
+h4,
+.p-page-title {
+    font-size: 2.25em;
+    line-height: 2.75rem;
+    margin-bottom: 0;
+}
+
+h5 {
+    font-size: 2em;
+    line-height: 1.8125rem;
+}
+
+h6 {
+    font-size: 1.5em;
+    line-height: 2.45rem;
+}
+
+.p-subtitle {
+    margin-top: -0.1em;
+    color: var(--grey1);
+}
+
+.p-display {
+    font-size: 6em;
+    font-weight: var(--fontWeightBold);
+    letter-spacing: -0.02rem;
+    line-height: 7.25rem;
+}
+
+.p-xs {
+    font-size: 0.75em;
+}
+
+.p-s {
+    font-size: 0.875em;
+    line-height: 1rem;
+}
+
+.p-l {
+    font-size: 1.25em;
+}
+
+.p-label-xs {
+    font-size: 0.75em;
+    font-weight: var(--fontWeightSemiBold);
+}
+
+.p-label-s {
+    font-size: 0.875em;
+    font-weight: var(--fontWeightSemiBold);
+    letter-spacing: 0.02rem;
+    line-height: 1rem;
+}
+
+.p-label-m {
+    font-size: 1em;
+    font-weight: var(--fontWeightSemiBold);
+    letter-spacing: 0.02rem;
+}
+
+.p-label-l {
+    font-size: 1.25em;
+    font-weight: var(--fontWeightSemiBold);
+    letter-spacing: 0.02rem;
+}
+
+.p-overline-s {
+    font-size: 0.75em;
+    font-weight: var(--fontWeightSemiBold);
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+
+    line-height: 1rem;
+}
+
+.p-overline-m {
+    font-size: 0.875em;
+    font-weight: var(--fontWeightSemiBold);
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+
+    line-height: 1rem;
+}
+
+.p-overline-l {
+    font-size: 1em;
+    font-weight: var(--fontWeightSemiBold);
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+
+    line-height: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+    .p-display {
+        font-size: 4.5em;
+    }
+}

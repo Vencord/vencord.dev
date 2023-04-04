@@ -1,7 +1,6 @@
 ---
 export const prerender = true;
 
-import Link from "../../components/Link.astro";
 import Layout from "../../layouts/Layout.astro";
 import {
     Intro,
@@ -21,18 +20,18 @@ const sections = [
 ---
 
 <Layout
-    title="Vencord Cloud Privacy Policy"
+    title="Cloud Privacy Policy"
     description="Privacy policy regarding Vencord's cloud services"
 >
     <h1>Vencord Cloud Privacy Policy</h1>
-    <h2>Last Updated: 26/03/2023</h2>
+    <p class="p-subtitle">Last Updated: 26/03/2023</p>
 
     <nav>
         <ol>
             {
                 sections.map(([id, title]) => (
                     <li>
-                        <Link href={`#${id}`}>{title}</Link>
+                        <a href={`#${id}`}>{title}</a>
                     </li>
                 ))
             }
@@ -69,6 +68,10 @@ const sections = [
 </script>
 
 <style>
+    h1 {
+        color: var(--accentYellow);
+    }
+
     a {
         text-decoration: none;
         color: unset;
@@ -77,9 +80,10 @@ const sections = [
     .title::before {
         content: "# ";
         transition: 150ms color ease;
+        color: var(--grey1);
     }
 
     .jumped .title::before {
-        color: var(--accent);
+        color: var(--fg0);
     }
 </style>

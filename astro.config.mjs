@@ -15,6 +15,11 @@ export default defineConfig({
             sourcemap: true,
         },
     },
+    markdown: {
+        shikiConfig: {
+            theme: "css-variables",
+        },
+    },
     integrations: [
         mdx(),
         sitemap({

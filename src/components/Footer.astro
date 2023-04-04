@@ -5,18 +5,19 @@ import {
     SOURCE_CODE,
     SPONSOR_URL,
 } from "../scripts/constants";
-import Link from "./Link.astro";
 import { Icon } from "astro-icon";
 ---
 
 <footer>
     <div class="content">
         <div class="source-and-disclaimer">
-            <Link href={SOURCE_CODE}>source code</Link>
-            <span class="divider">&nbsp;•&nbsp;</span>
-            <span>
-                Discord is trademark of Discord Inc. Vencord is not affiliated
-                or endorsed by Discord Inc.
+            <span class="p-overline-s">
+                <a href={SOURCE_CODE}>source code</a>
+                <span class="divider">&mdash;</span>
+                <span>
+                    Discord is trademark of Discord Inc. Vencord is not affiliated
+                    or endorsed by Discord Inc.
+                </span>
             </span>
         </div>
 
@@ -35,9 +36,14 @@ import { Icon } from "astro-icon";
 </footer>
 
 <style>
+    .source-and-disclaimer a {
+        color: var(--accentPurple);
+        text-decoration: none;
+    }
+
     footer {
         margin-top: auto;
-        background-color: var(--surface);
+        background-color: var(--bg0);
         padding: 1rem;
     }
 
@@ -70,6 +76,10 @@ import { Icon } from "astro-icon";
     .socials {
         display: flex;
         gap: 1em;
+    }
+
+    .socials a {
+        color: var(--fg0);
     }
 
     svg {

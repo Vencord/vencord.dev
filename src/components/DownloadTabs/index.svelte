@@ -6,6 +6,13 @@
 
     const options = ["Windows", "Linux", "Mac", "Browser"] as const;
 
+    const accents: { [option in typeof options[number]]: string } = {
+        Windows: "Blue",
+        Linux: "Green",
+        Mac: "Yellow",
+        Browser: "Orange"
+    };
+
     const initialValue = IS_SERVER
         ? "Windows"
         : (() => {
@@ -26,7 +33,7 @@
     <slot name="title" />
     <nav>
         {#each options as option}
-            <label class={$selected === option ? "selected" : ""}>
+            <label class={$selected === option ? "selected" : ""} style="--accent: var(--accent{accents[option]})">
                 <input
                     type="radio"
                     name="os"
@@ -64,7 +71,6 @@
     .container {
         display: flex;
         flex-direction: column;
-        align-items: center;
     }
 
     nav {
@@ -76,34 +82,45 @@
     section {
         width: 100%;
         box-sizing: border-box;
-        background-color: var(--surface2);
-        border: 1px solid var(--color-semi-trans);
-        border-top: none;
+        background-color: var(--bgCurrentWord);
         padding: 1rem;
 
-        border-bottom-left-radius: 12px;
-        border-bottom-right-radius: 12px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
     }
 
     label {
-        padding: 0.7rem 0rem;
+        font-size: 1em;
+        font-weight: var(--fontWeightSemiBold);
+        letter-spacing: 0.02em;
+
+        padding: 1.25em 1.5rem;
         text-align: center;
         cursor: pointer;
+        border: 1px solid var(--bg5);
+        border-right: none;
 
-        background-color: var(--surface);
+        background-color: var(--bg2);
+    }
+
+    @media screen and (max-width: 600px) {
+        label {
+            padding: 0.5em 0.75em;
+        }
     }
 
     label:first-child {
-        border-top-left-radius: 12px;
+        border-top-left-radius: 4px;
     }
 
     label:last-child {
-        border-top-right-radius: 12px;
+        border-top-right-radius: 4px;
+        border-right: 1px solid var(--bg5);
     }
 
     label.selected {
         background-color: var(--accent);
-        color: var(--background-color);
+        color: var(--bg2);
     }
 
     input {

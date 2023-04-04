@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import { PLUGINS_JSON_URL } from "../scripts/constants";
 
+import { Icon } from "astro-icon";
+
 interface Dev {
     name: string;
     id: string;
@@ -27,9 +29,10 @@ const plugins: PluginData[] = await fetch(PLUGINS_JSON_URL).then(r => {
 Astro.response.headers.set("Cache-Control", "s-maxage=300");
 ---
 
-<Layout title="Vencord Plugins" description="Vencord plugin list">
+<Layout title="Plugins" description="Vencord plugin list">
     <div class="container">
-        <p>
+        <h1 class="p-page-title">Plugins</h1>
+        <p class="p-subtitle">
             We have {plugins.length} plugins available for you to use immediately,
             with more being made every day.
         </p>
@@ -39,13 +42,25 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
                     <div class="plugin">
                         {/*
                         <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
-                    */}
+                        */}
                         <div class="plugin-content">
-                            <span class="title">{plugin.name}</span>
-                            <span class="author">
-                                by {plugin.authors.map(a => a.name).join(", ")}
-                            </span>
+                            <span class="p-label-l">{plugin.name}</span>
+                            <div class="author">
+                                <span class="by">by</span>
+                                <span class="author">
+                                    {plugin.authors.map(a => a.name).join(", ")}
+                                </span>
+                            </div>
                             <p class="description">{plugin.description}</p>
+
+                            <span class="plugin-badges">
+                                {plugin.required && <Icon name="fa-solid:asterisk" title="Required" />}
+                                {(plugin.required || plugin.enabledByDefault) && <Icon name="fa-solid:plug" title="Enabled by default" />}
+                                {plugin.hasCommands && <Icon name="fa-solid:terminal" title="Has commands" />}
+                                {plugin.target === "desktop" && <Icon name="fa-solid:desktop" title="Desktop only" />}
+                                {plugin.target === "web" && <Icon name="fa-solid:globe" title="Web only" />}
+                                {plugin.target === "dev" && <Icon name="fa-solid:code" title="Dev only" />}
+                            </span>
                         </div>
                     </div>
                 ))
@@ -55,6 +70,10 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
 </Layout>
 
 <style>
+    h1 {
+        color: var(--accentBlue);
+    }
+
     .container {
         display: flex;
         flex-direction: column;
@@ -83,9 +102,12 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
     .plugin {
         display: flex;
         flex-direction: column;
-        background: var(--surface2);
+        position: relative;
+        background: var(--bg4);
 
         border-radius: 12px;
+        padding: 1em;
+        padding-bottom: 2em;
 
         transition: 200ms box-shadow cubic-bezier(0.25, 0.8, 0.25, 1);
     }
@@ -94,26 +116,53 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
 
-    .plugin .plugin-screenshot {
+    .plugin-screenshot {
         object-fit: cover;
         width: 100%;
-        border-radius: 12px 12px 0 0;
+        border-radius: 4px;
+        margin-bottom: 1em;
     }
 
     .plugin-content {
         display: flex;
         flex-direction: column;
-        padding: 1.6rem;
     }
 
-    .plugin-content .title {
-        font-size: 1em;
-        font-weight: bold;
+    .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    .plugin-content .description {
+    .plugin-badges {
+        display: flex;
+        gap: 0.5em;
+
+        position: absolute;
+        bottom: 1em;
+    }
+
+    .author {
+        display: flex;
+
+        color: var(--grey1);
+    }
+
+    .by {
+        color: var(--grey0);
+        margin-right: 0.25em;
+    }
+
+    .description {
         font-size: 0.9em;
         filter: brightness(90%);
         margin-bottom: 0;
+    }
+
+    svg {
+        width: 1.5em;
+        height: 1.5em;
+        shape-rendering: auto;
+        color: var(--color);
     }
 </style>

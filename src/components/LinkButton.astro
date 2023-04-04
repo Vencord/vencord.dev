@@ -12,18 +12,37 @@ export interface Props extends HTMLAttributes<"a"> {
 <style>
     a {
         display: inline-block;
+
         text-decoration: none;
         text-align: center;
-        background-color: var(--accent);
-        color: var(--background-color);
-        padding: 0.5rem 1rem;
-        border-radius: 8px;
+        background-color: var(--bg3);
+        font-weight: var(--fontWeightSemiBold);
+        color: var(--fg0);
+        outline: 1px solid var(--fg1);
+        padding: 0.8em 2em;
+        border-radius: 12px;
 
         transition: 200ms color ease;
     }
 
+    a:focus {
+        outline: 2px solid var(--accentPurple)
+    }
+
     a:hover {
-        background-color: var(--accent-alt);
+        background-color: var(--bg5);
+    }
+
+    a:active {
+        outline-color: var(--fg1);
+        outline-width: 1px;
+        background-color: var(--bgCurrentWord);
+    }
+
+    a:disabled {
+        background-color: var(--bgCurrentWord);
+        outline-color: var(--grey0);
+        color: var(--grey0);
     }
 
     a::selection {

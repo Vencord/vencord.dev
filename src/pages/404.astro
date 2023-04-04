@@ -2,10 +2,71 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="404 - Page Not Found" description="Uh oh" opengraph={false}>
-    <h1>404 - Page Not Found</h1>
-    <p>Uh Oh! It appears you're lost :( Click shiggy to go back home</p>
-    <a href="/">
-        <img src="/assets/shiggy.gif" alt="Take me home" title="Take me home" />
-    </a>
+<Layout title="404" description="Uh oh" opengraph={false}>
+    <div>
+        <img src="/assets/oneko-jump.png" aria-hidden="true" />
+        <h1>404</h1>
+        <p class="light">it's dark here...</p>
+        <p class="dark">are you lost?</p>
+        <a href="/">let's go home...</a>
+    </div>
 </Layout>
+
+<style>
+    @font-face {
+        font-family: "Minecraft";
+        src: url("/fonts/Minecraft-Regular.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    body {
+        background-color: #141617;
+    }
+
+    h1, p, a {
+        font-family: Minecraft, Inter, system-ui, sans-serif !important;
+        text-align: center;
+    }
+
+    h1 {
+        color: white;
+        font-size: 6em;
+        margin-bottom: -0.5em;
+    }
+
+    p {
+        font-size: 3em;
+    }
+
+    img {
+        display: block;
+        image-rendering: pixelated;
+
+        width: 100px;
+    }
+
+    p {
+        color: #ea6962;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .light {
+            display: none;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        .dark {
+            display: none;
+        }
+    }
+</style>
