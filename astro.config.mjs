@@ -4,8 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
 import vercel from "@astrojs/vercel/serverless";
 
-// FIXME
-const site = "https://vencord-website.vercel.app";
+const site = "https://vencord.dev";
 
 // https://astro.build/config
 export default defineConfig({
