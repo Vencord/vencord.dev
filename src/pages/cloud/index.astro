@@ -2,31 +2,56 @@
 export const prerender = true;
 
 import Layout from "../../layouts/Layout.astro";
+import { VENCORD_CLOUD_SOURCE_CODE_URL } from "../../scripts/constants";
 ---
 
-<Layout title="Cloud" description="Yes, we have cloud services! Ain't that cool?">
+<Layout
+    title="Cloud"
+    description="Yes, we have cloud services! Ain't that cool?"
+>
     <h1 class="p-page-title">Cloud</h1>
-    <p class="p-subtitle">The coolest thing since factory-sliced bread.</p>
+    <p class="p-subtitle">Now in your Vencord!!</p>
 
     <p>
-        Vencord has a (completely optional) cloud integration. This grants the ability to use services such as settings
-        synchronization to make sure all of your Vencord configuration is kept up to date across devices and clients.
+        Vencord has a cloud integration that powers additional features. It's
+        completely optional and honours your privacy!
     </p>
 
+    <h2>Features</h2>
+    <ul>
+        <li>
+            <strong>Settings Sync</strong>: Easily synchronise your settings
+            across Devices
+        </li>
+        <li>Stay tuned for more future features!</li>
+    </ul>
+
+    <h2>Getting Started</h2>
     <p>
-        Whilst this page is not done, you can still enable cloud services in the client! Simply go to the Cloud page in
-        your user settings (under the Vencord section, of course), enable the "Enable Cloud Integrations" switch, and
-        authorize. Easy as pie!
+        To start using our cloud integration, head over to the Vencord settings
+        section inside Discord and check the "Enable Cloud Integrations" switch.
+        After authorising, you're good to go! You can now enable specific
+        features on the same page
     </p>
 
-    <p>
-        Also, if you're worried about privacy, don't worry. We don't store more than we need to, and we have a
-        <a href="/cloud/privacy">privacy policy to guarantee that</a>.
-    </p>
+    <h2>Links</h2>
+    <ul>
+        <li>
+            <a href={VENCORD_CLOUD_SOURCE_CODE_URL}>Source Code</a>
+        </li>
+        <li>
+            <a href="/cloud/privacy">Privacy Policy</a>
+        </li>
+    </ul>
 </Layout>
 
 <style>
     h1 {
         color: var(--accentYellow);
+    }
+
+    h2 {
+        font-size: larger;
+        line-height: 2em;
     }
 </style>
