@@ -46,30 +46,32 @@ if (features.length % 3 !== 0)
     throw new Error("Feature amount must be multiple of 3");
 ---
 
-<Layout
-    title="Vencord"
-    description="Vencord is the cutest modification for Discord"
->
-    <section class="tagline">
-        <h1>Vencord</h1>
-        <h2>The cutest Discord client mod</h2>
-    </section>
+<Layout description="read if cute">
+    <header>
+        <section class="tagline">
+            <h1 class="p-display">Vencord</h1>
+            <h2>The cutest Discord client mod</h2>
+        </section>
 
-    <section class="buttons">
-        <AutoSizeGrid>
-            <LinkButton href="/download" class="main-btn">
-                Download Vencord
-            </LinkButton>
-            <LinkButton href="/discord">Join our Support Server</LinkButton>
-            <LinkButton href="/github">View on GitHub</LinkButton>
-        </AutoSizeGrid>
-    </section>
-</Layout>
+        <section class="buttons">
+            <AutoSizeGrid>
+                <LinkButton href="/download" class="main-btn">
+                    Download Vencord
+                </LinkButton>
+                <LinkButton href="/discord">
+                    Join our Support Server
+                </LinkButton>
+                <LinkButton href="/github">
+                    View on GitHub
+                </LinkButton>
+            </AutoSizeGrid>
+        </section>
+    </header>
 
-<!-- Heavily inspired by Vite's homepage https://vitejs.dev/ (or if they changed it, https://archive.ph/o6Lmn) -->
-<section class="features">
-    {
-        features.map(({ icon, title, description }) => (
+    <!-- Heavily inspired by Vite's homepage https://vitejs.dev/ (or if they changed it, https://archive.ph/o6Lmn) -->
+    <section class="features">
+        {
+            features.map(({ icon, title, description }) => (
             <div class="feature-card">
                 <div class="feature-icon" aria-hidden="true">
                     <img src={`/assets/${icon}.png`} alt="" />
@@ -77,11 +79,13 @@ if (features.length % 3 !== 0)
                 <h3 class="feature-title">{title}</h3>
                 <p class="feature-desc">{description}</p>
             </div>
-        ))
-    }
-</section>
+            ))
+        }
+    </section>
+</Layout>
 
 <style>
+
     .tagline {
         display: flex;
         flex-direction: column;
