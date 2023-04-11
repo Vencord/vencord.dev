@@ -46,7 +46,7 @@ if (features.length % 3 !== 0)
     throw new Error("Feature amount must be multiple of 3");
 ---
 
-<Layout description="read if cute">
+<Layout description="Vencord is the cutest modification for Discord">
     <header>
         <section class="tagline">
             <h1 class="p-display">Vencord</h1>
@@ -58,12 +58,8 @@ if (features.length % 3 !== 0)
                 <LinkButton href="/download" class="main-btn">
                     Download Vencord
                 </LinkButton>
-                <LinkButton href="/discord">
-                    Join our Support Server
-                </LinkButton>
-                <LinkButton href="/github">
-                    View on GitHub
-                </LinkButton>
+                <LinkButton href="/discord">Join our Support Server</LinkButton>
+                <LinkButton href="/github">View on GitHub</LinkButton>
             </AutoSizeGrid>
         </section>
     </header>
@@ -72,20 +68,19 @@ if (features.length % 3 !== 0)
     <section class="features">
         {
             features.map(({ icon, title, description }) => (
-            <div class="feature-card">
-                <div class="feature-icon" aria-hidden="true">
-                    <img src={`/assets/${icon}.png`} alt="" />
+                <div class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">
+                        <img src={`/assets/${icon}.png`} alt="" />
+                    </div>
+                    <h3 class="feature-title">{title}</h3>
+                    <p class="feature-desc">{description}</p>
                 </div>
-                <h3 class="feature-title">{title}</h3>
-                <p class="feature-desc">{description}</p>
-            </div>
             ))
         }
     </section>
 </Layout>
 
 <style>
-
     .tagline {
         display: flex;
         flex-direction: column;
