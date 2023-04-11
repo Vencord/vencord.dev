@@ -29,7 +29,10 @@ const plugins: PluginData[] = await fetch(PLUGINS_JSON_URL).then(r => {
 Astro.response.headers.set("Cache-Control", "s-maxage=300");
 ---
 
-<Layout title="Plugins" description="Vencord plugin list">
+<Layout
+    title="Vencord Plugins"
+    description={`Browse our list of ${plugins.length} Vencord plugins`}
+>
     <div class="container">
         <h1 class="p-page-title">Plugins</h1>
         <p class="p-subtitle">
@@ -54,12 +57,43 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
                             <p class="description">{plugin.description}</p>
 
                             <span class="plugin-badges">
-                                {plugin.required && <Icon name="fa-solid:asterisk" title="Required" />}
-                                {(plugin.required || plugin.enabledByDefault) && <Icon name="fa-solid:plug" title="Enabled by default" />}
-                                {plugin.hasCommands && <Icon name="fa-solid:terminal" title="Has commands" />}
-                                {plugin.target === "desktop" && <Icon name="fa-solid:desktop" title="Desktop only" />}
-                                {plugin.target === "web" && <Icon name="fa-solid:globe" title="Web only" />}
-                                {plugin.target === "dev" && <Icon name="fa-solid:code" title="Dev only" />}
+                                {plugin.required && (
+                                    <Icon
+                                        name="fa-solid:asterisk"
+                                        title="Required"
+                                    />
+                                )}
+                                {(plugin.required ||
+                                    plugin.enabledByDefault) && (
+                                    <Icon
+                                        name="fa-solid:plug"
+                                        title="Enabled by default"
+                                    />
+                                )}
+                                {plugin.hasCommands && (
+                                    <Icon
+                                        name="fa-solid:terminal"
+                                        title="Has commands"
+                                    />
+                                )}
+                                {plugin.target === "desktop" && (
+                                    <Icon
+                                        name="fa-solid:desktop"
+                                        title="Desktop only"
+                                    />
+                                )}
+                                {plugin.target === "web" && (
+                                    <Icon
+                                        name="fa-solid:globe"
+                                        title="Web only"
+                                    />
+                                )}
+                                {plugin.target === "dev" && (
+                                    <Icon
+                                        name="fa-solid:code"
+                                        title="Dev only"
+                                    />
+                                )}
                             </span>
                         </div>
                     </div>
