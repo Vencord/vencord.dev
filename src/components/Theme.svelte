@@ -17,12 +17,18 @@
           })();
     
     const selected = writable(initialValue);
+    let first = true;
     // Note - Theme switcher does not work on dev mode
     if (!IS_SERVER) {
         selected.subscribe(v => {
             localStorage.theme = v;
-            const prev = (v === "Light") ? "dark" : "light";
-            document.body.classList.replace(prev, v.toLowerCase());
+            v = v.toLowerCase();
+            const prev = (v === "light") ? "dark" : "light";
+            if (first) {
+                document.body.classList.add(v);
+                first = false;
+            }
+            else document.body.classList.replace(prev, v);
         });
     }
 
@@ -32,22 +38,26 @@
 </script>
 
 <!-- Probably not the best way to go about this tbh -->
-<a href="#" on:click|preventDefault={themeSwitch} title="Switch to Dark">
+<button on:click={themeSwitch} title="Switch to Dark">
     {#if $selected === "Light"}
         <slot name="light"/>
     {:else if $selected === "Dark"}
         <slot name="dark"/>
     {/if}
-</a>
+</button>
 
 <style>
-    a slot {
+    button {
+        all: unset;
+        cursor: pointer;
+    }
+    button slot {
         display: inline-block;
         width: 1.5em;
         height: 1.5em;
         color: var(--fg0);
     }
-    a:hover slot {
+    button slot {
         color: var(--accent);
     }
 </style>
