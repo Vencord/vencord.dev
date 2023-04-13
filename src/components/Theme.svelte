@@ -24,7 +24,6 @@
     });
 
     function themeSwitch() {
-        console.log("test");
         selected.update(x => x = (x === "Light") ? "Dark" : "Light");
     }
 </script>
