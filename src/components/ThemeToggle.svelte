@@ -18,12 +18,13 @@
     
     const selected = writable(initialValue);
     let first = true;
-    // Note - Theme switcher does not work on dev mode
+    let next = writable((initialValue === "Light") ? "dark" : "light");
     if (!IS_SERVER) {
         selected.subscribe(v => {
             localStorage.theme = v;
             v = v.toLowerCase();
             const prev = (v === "light") ? "dark" : "light";
+            next.update(v => v = prev); // Will need to change if more themes are added
             if (first) {
                 document.body.classList.add(v);
                 first = false;
@@ -38,11 +39,11 @@
 </script>
 
 <!-- Probably not the best way to go about this tbh -->
-<button on:click={themeSwitch} title="Switch to Dark">
+<button on:click={themeSwitch} title={`Switch to ${$next}`}>
     {#if $selected === "Light"}
-        <slot name="light"/>
-    {:else if $selected === "Dark"}
         <slot name="dark"/>
+    {:else if $selected === "Dark"}
+        <slot name="light"/>
     {/if}
 </button>
 
@@ -50,6 +51,11 @@
     button {
         all: unset;
         cursor: pointer;
+    }
+    button:focus {
+        /* Should stylize this to be less ugly, 
+           along with other elements - Tyler */
+        outline: auto;
     }
     button slot {
         display: inline-block;

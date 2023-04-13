@@ -6,7 +6,7 @@ import {
     SPONSOR_URL,
 } from "../scripts/constants";
 import { Icon } from "astro-icon";
-import Theme from "./Theme.svelte";
+import ThemeToggle from "./ThemeToggle.svelte";
 ---
 
 <footer>
@@ -32,10 +32,10 @@ import Theme from "./Theme.svelte";
             <a href="/support" title="Support Vencord's Development">
                 <Icon name="fa-regular:heart" />
             </a>
-            <Theme client:load>
-                <Icon name="fa-regular:sun" slot="light"/>
-                <Icon name="fa-regular:moon" slot="dark"/>
-            </Theme>
+            <ThemeToggle client:load>
+                <Icon name="fa-regular:sun" slot="light" />
+                <Icon name="fa-regular:moon" slot="dark" />
+            </ThemeToggle>
         </div>
     </div>
 </footer>
