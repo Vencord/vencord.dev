@@ -52,7 +52,7 @@
         all: unset;
         cursor: pointer;
     }
-    button:focus {
+    button:focus-visible {
         /* Should stylize this to be less ugly, 
            along with other elements - Tyler */
         outline: auto;
