@@ -18,10 +18,13 @@
     
     const selected = writable(initialValue);
     // Note - Theme switcher does not work on dev mode
-    if (!IS_SERVER) selected.subscribe(v => {
-        localStorage.theme = v;
-        document.body.className = v.toLowerCase();
-    });
+    if (!IS_SERVER) {
+        selected.subscribe(v => {
+            localStorage.theme = v;
+            const prev = (v === "Light") ? "dark" : "light";
+            document.body.classList.replace(prev, v.toLowerCase());
+        });
+    }
 
     function themeSwitch() {
         selected.update(x => x = (x === "Light") ? "Dark" : "Light");
