@@ -45,7 +45,10 @@ const { title, description, opengraph } = Astro.props;
         <link rel="sitemap" href="/sitemap-index.xml" />
     </head>
     <body>
-        <!-- Loads theme -->
+        <!-- Loads theme (this fixes a "flickering" bug 
+            that occurs when the theme script loads after
+            the page content does, causing it to briefly
+            show the original colors.) -->
         <script is:raw>
             const theme = localStorage.theme.toLowerCase();
             const options = ["light", "dark"]
