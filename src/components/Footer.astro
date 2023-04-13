@@ -32,7 +32,7 @@ import Theme from "./Theme.svelte";
             <a href="/support" title="Support Vencord's Development">
                 <Icon name="fa-regular:heart" />
             </a>
-            <Theme>
+            <Theme client:load>
                 <Icon name="fa-regular:sun" slot="light"/>
                 <Icon name="fa-regular:moon" slot="dark"/>
             </Theme>
