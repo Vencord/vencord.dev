@@ -45,6 +45,15 @@ const { title, description, opengraph } = Astro.props;
         <link rel="sitemap" href="/sitemap-index.xml" />
     </head>
     <body>
+        <!-- Loads theme (this fixes a "flickering" bug 
+            that occurs when the theme script loads after
+            the page content does, causing it to briefly
+            show the original colors.) -->
+        <script is:raw>
+            const theme = localStorage.theme?.toLowerCase();
+            const options = ["light", "dark"]
+            if (options.includes(theme)) document.body.classList.add(theme);
+        </script>
         <NavBar />
         <div>
             <slot />
@@ -55,46 +64,91 @@ const { title, description, opengraph } = Astro.props;
 
 <style>
     :root {
-        --bg0: #1d2021;
-        --bg1: #282828;
-        --bg2: #282828;
-        --bg3: #3c3836;
-        --bg4: #3c3836;
-        --bg5: #504944;
+        /* Light Theme */
+        --light-bg0: #f9f5d7;
+        --light-bg1: #f5edca;
+        --light-bg2: #f2eac7;
+        --light-bg3: #f2e4bc;
+        --light-bg4: #efdfb7;
+        --light-bg5: #ebdbb2;
 
-        --bgDim: #141617;
+        --light-bgDim: #f2eac7;
 
-        --bgCurrentWord: #32302f;
+        --light-bgCurrentWord: #f2eac7;
 
-        --bgDiffGreen: #32361a;
-        --bgDiffBlue: #0d3138;
-        --bgDiffRed: #3c1f1e;
+        --light-bgDiffGreen: #e4edc7;
+        --light-bgDiffBlue: #e0e9d3;
+        --light-bgDiffRed: #f8e4c9;
 
-        --bgVisualYellow: #473c29;
-        --bgVisualGreen: #333e34;
-        --bgVisualBlue: #2e3b3b;
-        --bgVisualRed: #442e2d;
+        --light-bgVisualYellow: #f9e9bf;
+        --light-bgVisualGreen: #dce5c2;
+        --light-bgVisualBlue: #d8e1cc;
+        --light-bgVisualRed: #f0ddc3;
 
-        --bgAccentYellow: #d8a656;
-        --bgAccentGreen: #a8b665;
-        --bgAccentRed: #ea6962;
+        --light-bgAccentYellow: #a96b2d;
+        --light-bgAccentGreen: #6f8252;
+        --light-bgAccentRed: #ae5858;
 
-        --accentRed: #ea6962;
-        --accentOrange: #e78a4f;
-        --accentYellow: #d8a656;
-        --accentGreen: #a8b665;
-        --accentAqua: #89b481;
-        --accentBlue: #7caea3;
-        --accentPurple: #d3869b;
+        --light-accentRed: #c14a4a;
+        --light-accentOrange: #c35e0a;
+        --light-accentYellow: #b37109;
+        --light-accentGreen: #6c782e;
+        --light-accentAqua: #4b7a5d;
+        --light-accentBlue: #45707a;
+        --light-accentPurple: #945e80;
 
-        --accentPurpleRgb: 211, 133, 155;
+        --light-accentPurpleRgb: 148, 94, 128; /* why? */
 
-        --fg0: #d4be98;
-        --fg1: #ddc7a0;
+        --light-fg0: #644735;
+        --light-fg1: #503829;
 
-        --grey0: #7c6f64;
-        --grey1: #918274;
-        --grey2: #a79a83;
+        --light-grey0: #a79a83;
+        --light-grey1: #928374;
+        --light-grey2: #7c6f64;
+
+        /* Dark Theme */
+        --dark-bg0: #1d2021;
+        --dark-bg1: #282828;
+        --dark-bg2: #282828;
+        --dark-bg3: #3c3836;
+        --dark-bg4: #3c3836;
+        --dark-bg5: #504944;
+
+        --dark-bgDim: #141617;
+
+        --dark-bgCurrentWord: #32302f;
+
+        --dark-bgDiffGreen: #32361a;
+        --dark-bgDiffBlue: #0d3138;
+        --dark-bgDiffRed: #3c1f1e;
+
+        --dark-bgVisualYellow: #473c29;
+        --dark-bgVisualGreen: #333e34;
+        --dark-bgVisualBlue: #2e3b3b;
+        --dark-bgVisualRed: #442e2d;
+
+        --dark-bgAccentYellow: #d8a656;
+        --dark-bgAccentGreen: #a8b665;
+        --dark-bgAccentRed: #ea6962;
+
+        --dark-accentRed: #ea6962;
+        --dark-accentOrange: #e78a4f;
+        --dark-accentYellow: #d8a656;
+        --dark-accentGreen: #a8b665;
+        --dark-accentAqua: #89b481;
+        --dark-accentBlue: #7caea3;
+        --dark-accentPurple: #d3869b;
+
+        --dark-accentPurpleRgb: 211, 133, 155;
+
+        --dark-fg0: #d4be98;
+        --dark-fg1: #ddc7a0;
+
+        --dark-grey0: #7c6f64;
+        --dark-grey1: #918274;
+        --dark-grey2: #a79a83;
+
+        /* Astro Code Colors */
 
         --astro-code-color-text: var(--fg0);
         --astro-code-color-background: var(--bg0);
@@ -109,48 +163,138 @@ const { title, description, opengraph } = Astro.props;
         --astro-code-token-link: var(--accentBlue);
     }
 
+    /* Light class */
+    .light {
+        --bg0: var(--light-bg0);
+        --bg1: var(--light-bg1);
+        --bg2: var(--light-bg2);
+        --bg3: var(--light-bg3);
+        --bg4: var(--light-bg4);
+        --bg5: var(--light-bg5);
+
+        --bgDim: var(--light-bgDim);
+
+        --bgCurrentWord: var(--light-bgCurrentWord);
+
+        --bgDiffGreen: var(--light-bgDiffGreen);
+        --bgDiffBlue: var(--light-bgDiffBlue);
+        --bgDiffRed: var(--light-bgDiffRed);
+
+        --bgVisualYellow: var(--light-bgVisualYellow);
+        --bgVisualGreen: var(--light-bgVisualGreen);
+        --bgVisualBlue: var(--light-bgVisualBlue);
+        --bgVisualRed: var(--light-bgVisualRed);
+
+        --bgAccentYellow: var(--light-bgAccentYellow);
+        --bgAccentGreen: var(--light-bgAccentGreen);
+        --bgAccentRed: var(--light-bgAccentRed);
+
+        --accentRed: var(--light-accentRed);
+        --accentOrange: var(--light-accentOrange);
+        --accentYellow: var(--light-accentYellow);
+        --accentGreen: var(--light-accentGreen);
+        --accentAqua: var(--light-accentAqua);
+        --accentBlue: var(--light-accentBlue);
+        --accentPurple: var(--light-accentPurple);
+
+        --accentPurpleRgb: var(--light-accentPurpleRgb);
+
+        --fg0: var(--light-fg0);
+        --fg1: var(--light-fg1);
+
+        --grey0: var(--light-grey0);
+        --grey1: var(--light-grey1);
+        --grey2: var(--light-grey2);
+    }
+
+    /* Dark class (+ default colors) */
+    .dark, :root {
+        --bg0: var(--dark-bg0);
+        --bg1: var(--dark-bg1);
+        --bg2: var(--dark-bg2);
+        --bg3: var(--dark-bg3);
+        --bg4: var(--dark-bg4);
+        --bg5: var(--dark-bg5);
+
+        --bgDim: var(--dark-bgDim);
+
+        --bgCurrentWord: var(--dark-bgCurrentWord);
+
+        --bgDiffGreen: var(--dark-bgDiffGreen);
+        --bgDiffBlue: var(--dark-bgDiffBlue);
+        --bgDiffRed: var(--dark-bgDiffRed);
+
+        --bgVisualYellow: var(--dark-bgVisualYellow);
+        --bgVisualGreen: var(--dark-bgVisualGreen);
+        --bgVisualBlue: var(--dark-bgVisualBlue);
+        --bgVisualRed: var(--dark-bgVisualRed);
+
+        --bgAccentYellow: var(--dark-bgAccentYellow);
+        --bgAccentGreen: var(--dark-bgAccentGreen);
+        --bgAccentRed: var(--dark-bgAccentRed);
+
+        --accentRed: var(--dark-accentRed);
+        --accentOrange: var(--dark-accentOrange);
+        --accentYellow: var(--dark-accentYellow);
+        --accentGreen: var(--dark-accentGreen);
+        --accentAqua: var(--dark-accentAqua);
+        --accentBlue: var(--dark-accentBlue);
+        --accentPurple: var(--dark-accentPurple);
+
+        --accentPurpleRgb: var(--dark-accentPurpleRgb);
+
+        --fg0: var(--dark-fg0);
+        --fg1: var(--dark-fg1);
+
+        --grey0: var(--dark-grey0);
+        --grey1: var(--dark-grey1);
+        --grey2: var(--dark-grey2);
+    }
+    
+    /* Light theme (if browser is set to light) */
+    /* (YES IT'S DUPLICATE CODE SHHHHHHHHHHHHH) */
     @media (prefers-color-scheme: light) {
         :root {
-            --bg0: #f9f5d7;
-            --bg1: #f5edca;
-            --bg2: #f2eac7;
-            --bg3: #f2e4bc;
-            --bg4: #efdfb7;
-            --bg5: #ebdbb2;
+            --bg0: var(--light-bg0);
+            --bg1: var(--light-bg1);
+            --bg2: var(--light-bg2);
+            --bg3: var(--light-bg3);
+            --bg4: var(--light-bg4);
+            --bg5: var(--light-bg5);
 
-            --bgDim: #f2eac7;
+            --bgDim: var(--light-bgDim);
 
-            --bgCurrentWord: #f2eac7;
+            --bgCurrentWord: var(--light-bgCurrentWord);
 
-            --bgDiffGreen: #e4edc7;
-            --bgDiffBlue: #e0e9d3;
-            --bgDiffRed: #f8e4c9;
+            --bgDiffGreen: var(--light-bgDiffGreen);
+            --bgDiffBlue: var(--light-bgDiffBlue);
+            --bgDiffRed: var(--light-bgDiffRed);
 
-            --bgVisualYellow: #f9e9bf;
-            --bgVisualGreen: #dce5c2;
-            --bgVisualBlue: #d8e1cc;
-            --bgVisualRed: #f0ddc3;
+            --bgVisualYellow: var(--light-bgVisualYellow);
+            --bgVisualGreen: var(--light-bgVisualGreen);
+            --bgVisualBlue: var(--light-bgVisualBlue);
+            --bgVisualRed: var(--light-bgVisualRed);
 
-            --bgAccentYellow: #a96b2d;
-            --bgAccentGreen: #6f8252;
-            --bgAccentRed: #ae5858;
+            --bgAccentYellow: var(--light-bgAccentYellow);
+            --bgAccentGreen: var(--light-bgAccentGreen);
+            --bgAccentRed: var(--light-bgAccentRed);
 
-            --accentRed: #c14a4a;
-            --accentOrange: #c35e0a;
-            --accentYellow: #b37109;
-            --accentGreen: #6c782e;
-            --accentAqua: #4b7a5d;
-            --accentBlue: #45707a;
-            --accentPurple: #945e80;
+            --accentRed: var(--light-accentRed);
+            --accentOrange: var(--light-accentOrange);
+            --accentYellow: var(--light-accentYellow);
+            --accentGreen: var(--light-accentGreen);
+            --accentAqua: var(--light-accentAqua);
+            --accentBlue: var(--light-accentBlue);
+            --accentPurple: var(--light-accentPurple);
 
-            --accentPurpleRgb: 148, 94, 128;
+            --accentPurpleRgb: var(--light-accentPurpleRgb);
 
-            --fg0: #644735;
-            --fg1: #503829;
+            --fg0: var(--light-fg0);
+            --fg1: var(--light-fg1);
 
-            --grey0: #a79a83;
-            --grey1: #928374;
-            --grey2: #7c6f64;
+            --grey0: var(--light-grey0);
+            --grey1: var(--light-grey1);
+            --grey2: var(--light-grey2);
         }
     }
 
