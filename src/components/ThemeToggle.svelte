@@ -8,42 +8,42 @@
     const initialValue = IS_SERVER
         ? "Dark"
         : (() => {
-            const stored = localStorage.theme;
-            if (stored && options.includes(stored)) return stored;
+              const stored = localStorage.theme;
+              if (stored && options.includes(stored)) return stored;
 
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light').matches)
-                return "Light";
-            else return "Dark";
+              if (
+                  window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: light").matches
+              )
+                  return "Light";
+              else return "Dark";
           })();
-    
+
     const selected = writable(initialValue);
     let first = true;
-    let next = writable((initialValue === "Light") ? "dark" : "light");
     if (!IS_SERVER) {
         selected.subscribe(v => {
             localStorage.theme = v;
             v = v.toLowerCase();
-            const prev = (v === "light") ? "dark" : "light";
-            next.update(v => v = prev); // Will need to change if more themes are added
+            const prev = v === "light" ? "dark" : "light";
             if (first) {
                 document.body.classList.add(v);
                 first = false;
-            }
-            else document.body.classList.replace(prev, v);
+            } else document.body.classList.replace(prev, v);
         });
     }
 
     function themeSwitch() {
-        selected.update(x => x = (x === "Light") ? "Dark" : "Light");
+        selected.update(x => (x = x === "Light" ? "Dark" : "Light"));
     }
 </script>
 
 <!-- Probably not the best way to go about this tbh -->
-<button on:click={themeSwitch} title={`Switch to ${$next}`}>
+<button on:click={themeSwitch}>
     {#if $selected === "Light"}
-        <slot name="dark"/>
+        <slot name="dark" />
     {:else if $selected === "Dark"}
-        <slot name="light"/>
+        <slot name="light" />
     {/if}
 </button>
 
