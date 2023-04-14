@@ -16,6 +16,7 @@ const { title, description, opengraph } = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
+    <!-- read if cute :3 -->
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -61,10 +62,13 @@ const { title, description, opengraph } = Astro.props;
         <meta name="darkreader-lock" />
     </head>
     <body>
-        <!-- Loads theme (this fixes a "flickering" bug
+        {
+            /* Loads theme (this fixes a "flickering" bug
             that occurs when the theme script loads after
             the page content does, causing it to briefly
-            show the original colors.) -->
+            show the original colors.)
+            */
+        }
         <script is:raw>
             const theme = localStorage.theme?.toLowerCase();
             const options = ["light", "dark"];
