@@ -21,7 +21,12 @@ const { title, description, opengraph } = Astro.props;
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/assets/favicon.png" />
 
-        <link rel="preload" href="/fonts/Inter.var-subset.woff2" as="font" type="font/woff2" />
+        <link
+            rel="preload"
+            href="/fonts/Inter.var-subset.woff2"
+            as="font"
+            type="font/woff2"
+        />
 
         <title>{title && `${title} | `}Vencord</title>
         <meta name="description" content={description} />
@@ -35,23 +40,32 @@ const { title, description, opengraph } = Astro.props;
                     <meta name="og:title" content={title ?? "Vencord"} />
                     <meta name="og:description" content={description} />
                     <meta name="og:url" content={Astro.url} />
-                    <meta name="og:image" content={new URL("/assets/favicon.png", Astro.site)} />
+                    <meta
+                        name="og:image"
+                        content={new URL("/assets/favicon.png", Astro.site)}
+                    />
                 </>
             )
         }
-        {/* FIXME: Seems to be a bug in Astro because this statement doesn't work in the above block. */}
-        {(title && opengraph !== false) && <meta name="og:site_name" content="Vencord" />}
+        {
+            /* FIXME: Seems to be a bug in Astro because this statement doesn't work in the above block. */
+        }
+        {
+            title && opengraph !== false && (
+                <meta name="og:site_name" content="Vencord" />
+            )
+        }
 
         <link rel="sitemap" href="/sitemap-index.xml" />
     </head>
     <body>
-        <!-- Loads theme (this fixes a "flickering" bug 
+        <!-- Loads theme (this fixes a "flickering" bug
             that occurs when the theme script loads after
             the page content does, causing it to briefly
             show the original colors.) -->
         <script is:raw>
             const theme = localStorage.theme?.toLowerCase();
-            const options = ["light", "dark"]
+            const options = ["light", "dark"];
             if (options.includes(theme)) document.body.classList.add(theme);
         </script>
         <NavBar />
@@ -208,7 +222,8 @@ const { title, description, opengraph } = Astro.props;
     }
 
     /* Dark class (+ default colors) */
-    .dark, :root {
+    .dark,
+    :root {
         --bg0: var(--dark-bg0);
         --bg1: var(--dark-bg1);
         --bg2: var(--dark-bg2);
@@ -250,7 +265,7 @@ const { title, description, opengraph } = Astro.props;
         --grey1: var(--dark-grey1);
         --grey2: var(--dark-grey2);
     }
-    
+
     /* Light theme (if browser is set to light) */
     /* (YES IT'S DUPLICATE CODE SHHHHHHHHHHHHH) */
     @media (prefers-color-scheme: light) {

@@ -6,11 +6,11 @@
 
     const options = ["Windows", "Linux", "Mac", "Browser"] as const;
 
-    const accents: { [option in typeof options[number]]: string } = {
+    const accents: { [option in (typeof options)[number]]: string } = {
         Windows: "Blue",
         Linux: "Green",
         Mac: "Yellow",
-        Browser: "Orange"
+        Browser: "Orange",
     };
 
     const initialValue = IS_SERVER
@@ -33,7 +33,10 @@
     <slot name="title" />
     <nav>
         {#each options as option}
-            <label class={$selected === option ? "selected" : ""} style="--accent: var(--accent{accents[option]})">
+            <label
+                class={$selected === option ? "selected" : ""}
+                style="--accent: var(--accent{accents[option]})"
+            >
                 <input
                     type="radio"
                     name="os"

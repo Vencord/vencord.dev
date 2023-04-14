@@ -1,11 +1,11 @@
 ---
 const navLinks = {
-    "download": ["Download", "accentPurple"],
-    "plugins": ["Plugins", "accentBlue"],
-    "faq": ["FAQ", "accentAqua"],
-    "docs": ["Docs", "accentGreen"],
-    "cloud": ["Cloud", "accentYellow"],
-}
+    download: ["Download", "accentPurple"],
+    plugins: ["Plugins", "accentBlue"],
+    faq: ["FAQ", "accentAqua"],
+    docs: ["Docs", "accentGreen"],
+    cloud: ["Cloud", "accentYellow"],
+};
 
 const page = Astro.url.pathname.split("/")[1];
 ---
@@ -14,18 +14,25 @@ const page = Astro.url.pathname.split("/")[1];
     <div class="nav-content">
         <div id="logo">
             <a href="/" id="title">
-                <img src="/assets/logo-nav-oneko-padding.png">
+                <img src="/assets/logo-nav-oneko-padding.png" />
                 <div id="oneko" aria-hidden="true"></div>
             </a>
         </div>
         <div id="btns" class="p-label-m">
             <ul id="right">
-                {Object.entries(navLinks).map(([link, [display, color]]) =>
-                    (
+                {
+                    Object.entries(navLinks).map(([link, [display, color]]) => (
                         <li>
-                            <a href={`/${link}`} style={`--accent:var(--${color})`} class:list={{ active: page === link }}>{display}</a>
+                            <a
+                                href={`/${link}`}
+                                style={`--accent:var(--${color})`}
+                                class:list={{ active: page === link }}
+                            >
+                                {display}
+                            </a>
                         </li>
-                    ))}
+                    ))
+                }
             </ul>
         </div>
     </div>

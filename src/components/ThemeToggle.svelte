@@ -23,7 +23,7 @@
             v = v.toLowerCase();
             const prev = v === "light" ? "dark" : "light";
             document.body.classList.remove(prev);
-            document.body.classList.add(v); 
+            document.body.classList.add(v);
         });
     }
 
@@ -32,7 +32,6 @@
     }
 </script>
 
-<!-- Probably not the best way to go about this tbh -->
 <button on:click={themeSwitch}>
     {#if $selected === "Light"}
         <slot name="dark" />
@@ -47,7 +46,7 @@
         cursor: pointer;
     }
     button:focus-visible {
-        /* Should stylize this to be less ugly, 
+        /* Should stylize this to be less ugly,
            along with other elements - Tyler */
         outline: auto;
     }
