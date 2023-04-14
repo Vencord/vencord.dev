@@ -11,10 +11,7 @@
               const stored = localStorage.theme;
               if (stored && options.includes(stored)) return stored;
 
-              if (
-                  window.matchMedia &&
-                  window.matchMedia("(prefers-color-scheme: light").matches
-              )
+              if (window.matchMedia("(prefers-color-scheme: light").matches)
                   return "Light";
               else return "Dark";
           })();
