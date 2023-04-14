@@ -20,16 +20,13 @@
           })();
 
     const selected = writable(initialValue);
-    let first = true;
     if (!IS_SERVER) {
         selected.subscribe(v => {
             localStorage.theme = v;
             v = v.toLowerCase();
             const prev = v === "light" ? "dark" : "light";
-            if (first) {
-                document.body.classList.add(v);
-                first = false;
-            } else document.body.classList.replace(prev, v);
+            document.body.classList.remove(prev);
+            document.body.classList.add(v); 
         });
     }
 
