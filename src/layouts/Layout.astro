@@ -60,6 +60,10 @@ const { title, description, opengraph } = Astro.props;
         <link rel="sitemap" href="/sitemap-index.xml" />
         {/* explode darkreader */}
         <meta name="darkreader-lock" />
+        <link
+            rel="canonical"
+            href={new URL(Astro.url.pathname, Astro.site).toString()}
+        />
     </head>
     <body>
         {
