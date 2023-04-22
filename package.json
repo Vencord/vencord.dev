@@ -17,7 +17,6 @@
         "@astrojs/sitemap": "^1.2.1",
         "@astrojs/svelte": "^2.1.0",
         "astro": "^2.3.0",
-        "astro-icon": "^0.8.0",
         "normalize.css": "^8.0.1",
         "svelte": "^3.54.0"
     }

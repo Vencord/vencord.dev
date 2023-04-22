@@ -2,8 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import { PLUGINS_JSON_URL } from "../scripts/constants";
 
-import { Icon } from "astro-icon";
-
 interface Dev {
     name: string;
     id: string;
@@ -56,6 +54,7 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
                             </div>
                             <p class="description">{plugin.description}</p>
 
+                            {/*
                             <span class="plugin-badges">
                                 {plugin.required && (
                                     <Icon
@@ -95,6 +94,7 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
                                     />
                                 )}
                             </span>
+                        */}
                         </div>
                     </div>
                 ))
