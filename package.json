@@ -1,24 +1,24 @@
 {
-  "name": "vencord-site",
-  "type": "module",
-  "private": true,
-  "license": "AGPL-3.0",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/mdx": "^0.18.1",
-    "@astrojs/sitemap": "^1.2.1",
-    "@astrojs/svelte": "^2.1.0",
-    "@astrojs/vercel": "^3.2.1",
-    "astro": "^2.1.3",
-    "astro-icon": "^0.8.0",
-    "normalize.css": "^8.0.1",
-    "svelte": "^3.54.0"
-  }
+    "name": "vencord-site",
+    "type": "module",
+    "private": true,
+    "license": "AGPL-3.0",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro"
+    },
+    "dependencies": {
+        "@astrojs/cloudflare": "^6.2.2",
+        "@astrojs/mdx": "^0.18.1",
+        "@astrojs/sitemap": "^1.2.1",
+        "@astrojs/svelte": "^2.1.0",
+        "astro": "^2.3.0",
+        "astro-icon": "^0.8.0",
+        "normalize.css": "^8.0.1",
+        "svelte": "^3.54.0"
+    }
 }
