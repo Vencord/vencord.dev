@@ -1,18 +1,64 @@
 <script lang="ts">
-    import { PluginData } from "scripts/types";
+    import type { PluginData } from "scripts/types";
 
     export let plugins: PluginData[];
+
+    const criteria = [
+        {
+            name: "Has Commands",
+            state: false,
+            check: (p: PluginData) => p.hasCommands,
+        },
+        {
+            name: "Desktop",
+            state: false,
+            check: (p: PluginData) => p.target !== "web",
+        },
+        {
+            name: "Web",
+            state: false,
+            check: (p: PluginData) => p.target === "web",
+        },
+    ];
+
+    let filter = "";
+
+    $: lowerFilter = filter.toLowerCase();
+    $: filteredPlugins = plugins.filter(p => {
+        for (const c of criteria) {
+            if (c.state && !c.check(p)) return false;
+        }
+
+        if (p.name.toLowerCase().includes(lowerFilter)) return true;
+        if (p.description.toLowerCase().includes(lowerFilter)) return true;
+        if (p.authors.some(a => a.name.toLowerCase().includes(lowerFilter)))
+            return true;
+        return false;
+    });
 </script>
 
 <div>
-    <!--
     <section>
         <h2>Filter</h2>
+
+        <div class="criteria">
+            {#each criteria as c}
+                <label>
+                    <input type="checkbox" bind:checked={c.state} />
+                    {c.name}
+                </label>
+            {/each}
+        </div>
+
+        <input
+            type="text"
+            placeholder="Search by Name, Author or Description..."
+            bind:value={filter}
+        />
     </section>
-    -->
 
     <section class="plugins-grid">
-        {#each plugins as p}
+        {#each filteredPlugins as p}
             <div class="plugin">
                 <!--
                     <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
@@ -160,5 +206,28 @@
         height: 1.5em;
         shape-rendering: auto;
         color: var(--color);
+    }
+
+    input[type="text"] {
+        box-sizing: border-box;
+        width: 100%;
+        margin: 1em 0;
+        padding: 1em;
+    }
+
+    .criteria {
+        display: flex;
+    }
+
+    .criteria label {
+        display: flex;
+        gap: 0.5em;
+        flex-direction: row;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    .criteria label:not(:last-child) {
+        margin-right: 1em;
     }
 </style>
