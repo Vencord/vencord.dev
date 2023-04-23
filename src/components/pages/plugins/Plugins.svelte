@@ -44,6 +44,24 @@
             match => `<mark>${match}</mark>`
         );
     }
+
+    function overflowTooltips(node: HTMLElement, _: PluginData) {
+        const applyTitle = () => {
+            const hasOverflow =
+                node.scrollWidth > node.clientWidth ||
+                (!node.classList.contains("author") &&
+                    node.scrollHeight > node.clientHeight);
+
+            node.title = hasOverflow ? node.textContent! : "";
+        };
+
+        applyTitle();
+        return {
+            update() {
+                applyTitle();
+            },
+        };
+    }
 </script>
 
 <div>
@@ -73,15 +91,21 @@
                     <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
                 -->
                 <section class="plugin-content">
-                    <span class="p-label-l"
-                        >{@html highlightMatches(p.name)}</span
+                    <span class="p-label-l">
+                        {@html highlightMatches(p.name)}
+                    </span>
+                    <span
+                        use:overflowTooltips={p}
+                        class="author ellipsis-overflow"
                     >
-                    <span class="author"
-                        >{@html highlightMatches(
+                        {@html highlightMatches(
                             p.authors.map(a => a.name).join(", ")
-                        )}</span
+                        )}
+                    </span>
+                    <p
+                        use:overflowTooltips={p}
+                        class="description ellipsis-overflow"
                     >
-                    <p class="description">
                         {@html highlightMatches(p.description)}
                     </p>
 
@@ -195,11 +219,14 @@
         bottom: 1em;
     }
 
+    .ellipsis-overflow {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     .author {
         color: var(--grey1);
-        overflow: hidden;
         white-space: nowrap;
-        text-overflow: ellipsis;
     }
 
     .author::before {
@@ -207,17 +234,10 @@
         color: var(--grey0);
     }
 
-    .by {
-        color: var(--grey0);
-        margin-right: 0.25em;
-    }
-
     .description {
         font-size: 0.9em;
         filter: brightness(90%);
         margin-bottom: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-line-clamp: 3;
         line-clamp: 3;
