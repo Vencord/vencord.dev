@@ -5,6 +5,11 @@
     --fontWeightRegular: 400;
 }
 
+html {
+    /* make scrollbar overlay over the content, not taking up any space */
+    overflow-y: overlay;
+}
+
 h1,
 h2,
 h3,
