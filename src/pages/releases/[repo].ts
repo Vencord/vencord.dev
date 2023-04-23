@@ -1,3 +1,4 @@
+import { getRuntime } from "@astrojs/cloudflare/runtime";
 import { APIRoute } from "astro";
 
 const Repos = {
@@ -6,10 +7,12 @@ const Repos = {
     "vencord-desktop": "Vencord/Desktop",
 };
 
-export const get: APIRoute = async ({ params }) => {
+export const get: APIRoute = async ({ params, request }) => {
     const repo = Repos[params.repo as keyof typeof Repos];
 
     if (!repo) return new Response(null, { status: 404 });
+
+    const { GITHUB_TOKEN } = getRuntime<{ GITHUB_TOKEN: string }>(request).env;
 
     const data = await fetch(
         `https://api.github.com/repos/${repo}/releases/latest`,
@@ -23,16 +26,21 @@ export const get: APIRoute = async ({ params }) => {
             },
             headers: {
                 Accept: "application/vnd.github+json",
-                Authorization: `Bearer ${import.meta.env.GITHUB_TOKEN}`,
+                Authorization: `Bearer ${GITHUB_TOKEN}`,
                 "User-Agent": "https://github.com/Vencord/Website",
             },
         }
     );
 
-    if (!data.ok)
+    if (!data.ok) {
+        console.error(
+            `GET ${repo}/releases/latest failed with status ${data.status}`
+        );
+
         return new Response(null, {
             status: 502,
         });
+    }
 
     return new Response(await data.text(), {
         status: 200,
