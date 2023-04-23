@@ -65,12 +65,9 @@
                 -->
                 <section class="plugin-content">
                     <span class="p-label-l">{p.name}</span>
-                    <div class="author">
-                        <span class="by">by</span>
-                        <span class="author">
-                            {p.authors.map(a => a.name).join(", ")}
-                        </span>
-                    </div>
+                    <span class="author"
+                        >{p.authors.map(a => a.name).join(", ")}</span
+                    >
                     <p class="description">{p.description}</p>
 
                     <!--
@@ -124,7 +121,6 @@
     .plugins-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-auto-rows: 1fr;
         grid-auto-columns: 1fr;
         grid-gap: 1em;
     }
@@ -185,9 +181,15 @@
     }
 
     .author {
-        display: flex;
-
         color: var(--grey1);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .author::before {
+        content: "by ";
+        color: var(--grey0);
     }
 
     .by {
@@ -199,6 +201,13 @@
         font-size: 0.9em;
         filter: brightness(90%);
         margin-bottom: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        box-orient: vertical;
     }
 
     svg {
