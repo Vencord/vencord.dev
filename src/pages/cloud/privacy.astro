@@ -1,14 +1,14 @@
 ---
 export const prerender = true;
 
-import Layout from "layouts/Layout.astro";
 import {
-    Intro,
-    InfoStored,
-    Usage,
-    DataRetention,
     Changes,
+    DataRetention,
+    InfoStored,
+    Intro,
+    Usage,
 } from "components/pages/cloud/privacy/sections.astro";
+import Layout from "layouts/Layout.astro";
 
 const sections = [
     ["intro", "Introduction", Intro],
