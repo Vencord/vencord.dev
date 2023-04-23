@@ -1,7 +1,7 @@
 <script lang="ts">
     import { writable } from "svelte/store";
 
-    import { IS_SERVER } from "../scripts/constants";
+    import { IS_SERVER } from "scripts/constants";
 
     const options = ["Light", "Dark"] as const;
 

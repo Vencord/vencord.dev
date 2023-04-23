@@ -5,6 +5,7 @@
         // astro considers stuff only used in frontmatter unused, so disable for now
         // "importsNotUsedAsValues": "error",
         "strictNullChecks": true,
-        "types": ["@cloudflare/workers-types"]
+        "types": ["@cloudflare/workers-types"],
+        "baseUrl": "src/"
     }
 }

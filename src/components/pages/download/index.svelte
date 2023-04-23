@@ -2,7 +2,7 @@
     import { writable } from "svelte/store";
     import { fade } from "svelte/transition";
 
-    import { IS_SERVER } from "../../scripts/constants";
+    import { IS_SERVER } from "scripts/constants";
 
     const options = ["Windows", "Linux", "Mac", "Browser"] as const;
 
