@@ -35,6 +35,15 @@
             return true;
         return false;
     });
+
+    function highlightMatches(text: string) {
+        if (!filter) return text;
+
+        return text.replace(
+            new RegExp(filter, "gi"),
+            match => `<mark>${match}</mark>`
+        );
+    }
 </script>
 
 <div>
@@ -64,11 +73,17 @@
                     <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
                 -->
                 <section class="plugin-content">
-                    <span class="p-label-l">{p.name}</span>
-                    <span class="author"
-                        >{p.authors.map(a => a.name).join(", ")}</span
+                    <span class="p-label-l"
+                        >{@html highlightMatches(p.name)}</span
                     >
-                    <p class="description">{p.description}</p>
+                    <span class="author"
+                        >{@html highlightMatches(
+                            p.authors.map(a => a.name).join(", ")
+                        )}</span
+                    >
+                    <p class="description">
+                        {@html highlightMatches(p.description)}
+                    </p>
 
                     <!--
                         <span class="plugin-badges">
