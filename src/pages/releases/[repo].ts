@@ -23,6 +23,7 @@ export const get: APIRoute = async ({ params }) => {
             },
             headers: {
                 Accept: "application/vnd.github+json",
+                Authorization: `Bearer ${import.meta.env.GITHUB_TOKEN}`,
                 "User-Agent": "https://github.com/Vencord/Website",
             },
         }
