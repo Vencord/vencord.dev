@@ -260,13 +260,6 @@
         color: var(--color);
     }
 
-    input[type="text"] {
-        box-sizing: border-box;
-        width: 100%;
-        margin: 1em 0;
-        padding: 1em;
-    }
-
     .criteria {
         display: flex;
     }
@@ -283,23 +276,12 @@
         margin-right: 1em;
     }
 
-    input[type="text"] {
-        background: var(--bg0);
-        color: var(--fg0);
-        border: none;
-        border-radius: 8px;
-    }
-
-    input::placeholder {
-        color: var(--grey0);
-    }
-
     .search {
         position: relative;
         height: 5em;
     }
 
-    .search * {
+    .search :is(svg, input) {
         position: absolute;
     }
 
@@ -313,11 +295,22 @@
 
     .search input {
         text-indent: 1.5em;
+        background: var(--bg0);
+        color: var(--fg0);
+        border: none;
+        border-radius: 8px;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 1em 0;
+        padding: 1em;
+    }
+
+    .search input::placeholder {
+        color: var(--grey0);
     }
 
     input[type="checkbox"] {
         height: 1em;
         width: 1em;
-        background: var(--bg0);
     }
 </style>
