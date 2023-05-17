@@ -19,12 +19,15 @@ interface PluginData {
     target: "desktop" | "web" | "dev";
 }
 
-const plugins: PluginData[] = await fetch(PLUGINS_JSON_URL).then(r => {
+const plugins: PluginData[] = await fetch(PLUGINS_JSON_URL).then((r) => {
     if (!r.ok) throw new Error("Failed to fetch plugins.json: " + r.status);
     return r.json();
 });
 
-Astro.response.headers.set("Cache-Control", "s-maxage=300");
+Astro.response.headers.set(
+    "Cache-Control",
+    "public, max-age=300, s-maxage=300"
+);
 ---
 
 <Layout
@@ -47,7 +50,7 @@ Astro.response.headers.set("Cache-Control", "s-maxage=300");
                         <div class="plugin-content">
                             <span class="p-label-l">{plugin.name}</span>
                             <span class="author">
-                                {plugin.authors.map(a => a.name).join(", ")}
+                                {plugin.authors.map((a) => a.name).join(", ")}
                             </span>
                             <p class="description">{plugin.description}</p>
 
