@@ -14,7 +14,8 @@ export const get: APIRoute = async ({ params, request }) => {
         return new Response(null, {
             status: 404,
             headers: {
-                "s-maxage": "3600", // 1h
+                // 1h
+                "Cache-Control": "public, max-age=3600, s-maxage=3600",
             },
         });
 
@@ -52,7 +53,7 @@ export const get: APIRoute = async ({ params, request }) => {
         status: 200,
         headers: {
             "Content-Type": "application/json",
-            "s-maxage": "20",
+            "Cache-Control": "public, max-age=20, s-maxage=20",
         },
     });
 };
