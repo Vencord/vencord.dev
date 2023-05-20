@@ -1,23 +1,8 @@
 ---
 import Layout from "layouts/Layout.astro";
 import { PLUGINS_JSON_URL } from "scripts/constants";
-
-interface Dev {
-    name: string;
-    id: string;
-}
-
-interface PluginData {
-    name: string;
-    description: string;
-    authors: Dev[];
-    dependencies: string[];
-    hasPatches: boolean;
-    hasCommands: boolean;
-    required: boolean;
-    enabledByDefault: boolean;
-    target: "desktop" | "web" | "dev";
-}
+import Plugins from "components/pages/plugins/Plugins.svelte";
+import { PluginData } from "scripts/types";
 
 const plugins: PluginData[] = await fetch(PLUGINS_JSON_URL).then((r) => {
     if (!r.ok) throw new Error("Failed to fetch plugins.json: " + r.status);
@@ -40,66 +25,8 @@ Astro.response.headers.set(
             We have {plugins.length} plugins available for you to use immediately,
             with more being made every day.
         </p>
-        <div class="plugins-grid">
-            {
-                plugins.map((plugin, idx) => (
-                    <div class="plugin">
-                        {/*
-                        <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
-                        */}
-                        <div class="plugin-content">
-                            <span class="p-label-l">{plugin.name}</span>
-                            <span class="author">
-                                {plugin.authors.map((a) => a.name).join(", ")}
-                            </span>
-                            <p class="description">{plugin.description}</p>
 
-                            {/*
-                            <span class="plugin-badges">
-                                {plugin.required && (
-                                    <Icon
-                                        name="fa-solid:asterisk"
-                                        title="Required"
-                                    />
-                                )}
-                                {(plugin.required ||
-                                    plugin.enabledByDefault) && (
-                                    <Icon
-                                        name="fa-solid:plug"
-                                        title="Enabled by default"
-                                    />
-                                )}
-                                {plugin.hasCommands && (
-                                    <Icon
-                                        name="fa-solid:terminal"
-                                        title="Has commands"
-                                    />
-                                )}
-                                {plugin.target === "desktop" && (
-                                    <Icon
-                                        name="fa-solid:desktop"
-                                        title="Desktop only"
-                                    />
-                                )}
-                                {plugin.target === "web" && (
-                                    <Icon
-                                        name="fa-solid:globe"
-                                        title="Web only"
-                                    />
-                                )}
-                                {plugin.target === "dev" && (
-                                    <Icon
-                                        name="fa-solid:code"
-                                        title="Dev only"
-                                    />
-                                )}
-                            </span>
-                        */}
-                        </div>
-                    </div>
-                ))
-            }
-        </div>
+        <Plugins {plugins} client:load />
     </div>
 </Layout>
 
@@ -111,99 +38,5 @@ Astro.response.headers.set(
     .container {
         display: flex;
         flex-direction: column;
-    }
-
-    .plugins-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-auto-columns: 1fr;
-        grid-gap: 1em;
-    }
-
-    @media screen and (max-width: 1200px) {
-        .plugins-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-    }
-
-    @media screen and (max-width: 800px) {
-        .plugins-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    .plugin {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        background: var(--bg4);
-
-        border-radius: 12px;
-        padding: 1em;
-        padding-bottom: 2em;
-
-        transition: 200ms box-shadow cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-
-    .plugin:hover {
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    }
-
-    .plugin-screenshot {
-        object-fit: cover;
-        width: 100%;
-        border-radius: 4px;
-        margin-bottom: 1em;
-    }
-
-    .plugin-content {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .title {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .plugin-badges {
-        display: flex;
-        gap: 0.5em;
-
-        position: absolute;
-        bottom: 1em;
-    }
-
-    .author {
-        color: var(--grey1);
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
-
-    .author::before {
-        content: "by";
-        color: var(--grey0);
-    }
-
-    .description {
-        font-size: 0.9em;
-        filter: brightness(90%);
-        margin-bottom: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        line-clamp: 3;
-        -webkit-box-orient: vertical;
-        box-orient: vertical;
-    }
-
-    svg {
-        width: 1.5em;
-        height: 1.5em;
-        shape-rendering: auto;
-        color: var(--color);
     }
 </style>
