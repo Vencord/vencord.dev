@@ -99,9 +99,9 @@
                     <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
                 -->
                 <section class="plugin-content">
-                    <span class="p-label-l">
+                    <h3 class="p-label-l">
                         {@html highlightMatches(p.name)}
-                    </span>
+                    </h3>
                     <span
                         use:overflowTooltips={p}
                         class="author ellipsis-overflow"
@@ -170,6 +170,7 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         grid-auto-columns: 1fr;
         grid-gap: 1em;
+        padding: 1em;
     }
 
     @media screen and (max-width: 1200px) {
@@ -187,8 +188,9 @@
     .plugin {
         display: flex;
         flex-direction: column;
-        position: relative;
         background: var(--bg4);
+
+        max-width: 75vw;
 
         border-radius: 12px;
         padding: 1em;
@@ -211,6 +213,13 @@
     .plugin-content {
         display: flex;
         flex-direction: column;
+        position: relative;
+    }
+
+    h3 {
+        margin: 0;
+        word-wrap: break-word;
+        line-height: normal;
     }
 
     .title {
@@ -262,6 +271,13 @@
 
     .criteria {
         display: flex;
+        flex-direction: row;
+    }
+
+    @media screen and (max-width: 400px) {
+        .criteria {
+            flex-direction: column;
+        }
     }
 
     .criteria label {
