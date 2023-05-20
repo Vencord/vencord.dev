@@ -10,7 +10,14 @@ const Repos = {
 export const get: APIRoute = async ({ params, request }) => {
     const repo = Repos[params.repo as keyof typeof Repos];
 
-    if (!repo) return new Response(null, { status: 404 });
+    if (!repo)
+        return new Response(null, {
+            status: 404,
+            headers: {
+                // 1h
+                "Cache-Control": "public, max-age=3600, s-maxage=3600",
+            },
+        });
 
     const { GITHUB_TOKEN } = getRuntime<{ GITHUB_TOKEN: string }>(request).env;
 
@@ -46,6 +53,7 @@ export const get: APIRoute = async ({ params, request }) => {
         status: 200,
         headers: {
             "Content-Type": "application/json",
+            "Cache-Control": "public, max-age=20, s-maxage=20",
         },
     });
 };
