@@ -172,7 +172,6 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         grid-auto-columns: 1fr;
         grid-gap: 1em;
-        padding: 1em;
     }
 
     @media screen and (max-width: 1200px) {
@@ -183,7 +182,7 @@
 
     @media screen and (max-width: 800px) {
         .plugins-grid {
-            grid-template-columns: 1fr;
+            grid-template-columns: minmax(0, 1fr);
         }
     }
 
@@ -191,8 +190,6 @@
         display: flex;
         flex-direction: column;
         background: var(--bg4);
-
-        max-width: 75vw;
 
         border-radius: 12px;
         padding: 1em;
