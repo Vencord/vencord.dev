@@ -4,10 +4,12 @@ import { PLUGINS_JSON_URL } from "scripts/constants";
 import Plugins from "components/pages/plugins/Plugins.svelte";
 import { PluginData } from "scripts/types";
 
-const plugins: PluginData[] = await fetch(PLUGINS_JSON_URL).then((r) => {
-    if (!r.ok) throw new Error("Failed to fetch plugins.json: " + r.status);
-    return r.json();
-});
+const plugins = await fetch(PLUGINS_JSON_URL)
+    .then((r) => {
+        if (!r.ok) throw new Error("Failed to fetch plugins.json: " + r.status);
+        return r.json() as Promise<PluginData[]>;
+    })
+    .then((plugins) => plugins.filter((p) => !p.name.endsWith("API")));
 
 Astro.response.headers.set(
     "Cache-Control",

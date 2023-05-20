@@ -6,6 +6,7 @@ export interface PluginDev {
 export interface PluginData {
     name: string;
     description: string;
+    tags: string[];
     authors: PluginDev[];
     dependencies: string[];
     hasPatches: boolean;

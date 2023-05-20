@@ -31,6 +31,8 @@
 
         if (p.name.toLowerCase().includes(lowerFilter)) return true;
         if (p.description.toLowerCase().includes(lowerFilter)) return true;
+        if (p.tags.some(t => t.toLowerCase().includes(lowerFilter)))
+            return true;
         if (p.authors.some(a => a.name.toLowerCase().includes(lowerFilter)))
             return true;
         return false;
