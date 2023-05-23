@@ -1,5 +1,5 @@
 ---
-title: When joining voice channels, i get "RTC Connecting"
+title: When joining voice channels, I get "RTC Connecting"
 tags: vc
 ---
 
