@@ -1,5 +1,5 @@
 ---
-title: Why do i get logged out after opening DevTools?
+title: Why do I get logged out after opening DevTools?
 tags: nodevtoolswarning, hidetoken
 ---
 
