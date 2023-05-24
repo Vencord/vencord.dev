@@ -10,3 +10,5 @@ However, Discord is pretty indifferent about them and there are no known cases o
 Regardless, if your account is very important to you and it getting disabled would be a disaster for you, you should probably not use any client mods (not exclusive to Vencord), just to be safe
 
 Additionally, make sure not to post screenshots with Vencord in a server where you might get banned for it
+
+For more information about plugins like MessageLogger & ShowHidden Channels see [here](<https://discord.com/channels/1015060230222131221/1027235873990901780/1086667726489145356>) on our discord support server 
