@@ -1,5 +1,5 @@
 ---
-title: How do I install my custom / BetterDiscord / Replugged / [insert other mod here] plugins?
+title: How do I install BetterDiscord / Replugged / [insert other mod here] plugins?
 tags: betterdiscord, replugged, powercord, shelter, plugins, bd, rp, custom
 ---
 
