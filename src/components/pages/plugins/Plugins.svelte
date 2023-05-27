@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { IS_SERVER } from "scripts/constants";
     import type { PluginData } from "scripts/types";
 
     export let plugins: PluginData[];
@@ -21,7 +22,9 @@
         },
     ];
 
-    let filter = "";
+    let filter = IS_SERVER ? "" : location.hash.slice(1);
+
+    $: !IS_SERVER && (location.hash = filter);
 
     $: lowerFilter = filter.toLowerCase();
     $: filteredPlugins = plugins.filter(p => {
