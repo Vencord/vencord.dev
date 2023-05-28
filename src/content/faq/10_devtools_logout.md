@@ -1,6 +1,6 @@
 ---
 title: Why do I get logged out after opening DevTools?
-tags: nodevtoolswarning, hidetoken
+tags: nodevtoolswarning, hidetoken, logout
 ---
 
 Discord tries to protect you from getting scammed by "hiding" your token when you open DevTools, which means it deletes it from storage and only keeps it in memory in order to make it harder to obtain.
