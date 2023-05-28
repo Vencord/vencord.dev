@@ -1,20 +1,12 @@
 ---
 import Layout from "layouts/Layout.astro";
-import { PLUGINS_JSON_URL } from "scripts/constants";
-import Plugins from "components/pages/plugins/Plugins.svelte";
-import { PluginData } from "scripts/types";
+import PluginsList from "components/pages/plugins/Plugins.svelte";
+import { cacheResponseFor, MINUTES } from "scripts/cache";
+import { fetchPlugins } from "scripts/data";
 
-const plugins = await fetch(PLUGINS_JSON_URL)
-    .then((r) => {
-        if (!r.ok) throw new Error("Failed to fetch plugins.json: " + r.status);
-        return r.json() as Promise<PluginData[]>;
-    })
-    .then((plugins) => plugins.filter((p) => !p.name.endsWith("API")));
+cacheResponseFor(Astro.response, 5 * MINUTES);
 
-Astro.response.headers.set(
-    "Cache-Control",
-    "public, max-age=300, s-maxage=300"
-);
+const plugins = (await fetchPlugins()).filter((p) => !p.name.endsWith("API"));
 ---
 
 <Layout
@@ -28,7 +20,7 @@ Astro.response.headers.set(
             with more being made every day.
         </p>
 
-        <Plugins {plugins} client:load />
+        <PluginsList {plugins} client:load />
     </div>
 </Layout>
 
