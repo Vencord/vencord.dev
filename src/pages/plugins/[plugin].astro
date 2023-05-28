@@ -1,0 +1,33 @@
+---
+import { cacheResponseFor, HOURS, DAYS } from "scripts/cache";
+import Layout from "layouts/Layout.astro";
+import { fetchPlugins } from "scripts/data";
+import { humanFriendlyJoin } from "scripts/text";
+
+const pluginName = Astro.params.plugin;
+
+const plugins = await fetchPlugins();
+
+const p = plugins.find((p) => p.name === pluginName);
+if (!p) {
+    cacheResponseFor(Astro.response, 1 * HOURS);
+    return new Response(null, { status: 404 });
+} else {
+    cacheResponseFor(Astro.response, 1 * DAYS);
+}
+---
+
+<Layout title={p.name} description={p.description}>
+    <div>
+        <h1 class="p-page-title">{p.name}</h1>
+        <p class="p-subtitle">
+            by {humanFriendlyJoin(p.authors, (a) => a.name)}
+        </p>
+    </div>
+
+    <p class="desc">
+        {p.description}
+    </p>
+</Layout>
+
+<style></style>

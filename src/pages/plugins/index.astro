@@ -1,0 +1,36 @@
+---
+import Layout from "layouts/Layout.astro";
+import PluginsList from "components/pages/plugins/Plugins.svelte";
+import { cacheResponseFor, MINUTES } from "scripts/cache";
+import { fetchPlugins } from "scripts/data";
+
+cacheResponseFor(Astro.response, 5 * MINUTES);
+
+const plugins = (await fetchPlugins()).filter((p) => !p.name.endsWith("API"));
+---
+
+<Layout
+    title="Plugins"
+    description={`Browse our list of ${plugins.length} Vencord plugins`}
+>
+    <div class="container">
+        <h1 class="p-page-title">Plugins</h1>
+        <p class="p-subtitle">
+            We have {plugins.length} plugins available for you to use immediately,
+            with more being made every day.
+        </p>
+
+        <PluginsList {plugins} client:load />
+    </div>
+</Layout>
+
+<style>
+    h1 {
+        color: var(--accentBlue);
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+</style>

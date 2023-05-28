@@ -103,26 +103,26 @@
                 <!--
                     <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
                 -->
-                <section class="plugin-content">
-                    <h3 class="p-label-l">
-                        {@html highlightMatches(p.name)}
-                    </h3>
-                    <span
-                        use:overflowTooltips={p}
-                        class="author ellipsis-overflow"
-                    >
-                        {@html highlightMatches(
-                            p.authors.map(a => a.name).join(", ")
-                        )}
-                    </span>
-                    <p
-                        use:overflowTooltips={p}
-                        class="description ellipsis-overflow"
-                    >
-                        {@html highlightMatches(p.description)}
-                    </p>
+                <a class="plugin-content plugin-link" href={`/plugins/${encodeURIComponent(p.name)}`}>
+                        <h3 class="p-label-l">
+                            {@html highlightMatches(p.name)}
+                        </h3>
+                        <span
+                            use:overflowTooltips={p}
+                            class="author ellipsis-overflow"
+                        >
+                            {@html highlightMatches(
+                                p.authors.map(a => a.name).join(", ")
+                            )}
+                        </span>
+                        <p
+                            use:overflowTooltips={p}
+                            class="description ellipsis-overflow"
+                        >
+                            {@html highlightMatches(p.description)}
+                        </p>
 
-                    <!--
+                        <!--
                         <span class="plugin-badges">
                             {plugin.required && (
                                 <Icon
@@ -163,7 +163,7 @@
                             )}
                         </span>
                     -->
-                </section>
+                </a>
             </div>
         {/each}
     </section>
@@ -205,6 +205,11 @@
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
 
+    .plugin-link {
+        color: unset;
+        text-decoration: unset;
+    }
+
     .plugin-screenshot {
         object-fit: cover;
         width: 100%;
@@ -222,12 +227,6 @@
         margin: 0;
         word-wrap: break-word;
         line-height: normal;
-    }
-
-    .title {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
     }
 
     .plugin-badges {
