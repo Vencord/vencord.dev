@@ -1,5 +1,5 @@
 ---
-title: Discord always crashes when opening DevTools
+title: Why does my Discord always crash when opening DevTools?
 tags: crashing, crashes, oom
 ---
 
