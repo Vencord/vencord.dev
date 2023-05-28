@@ -18,7 +18,10 @@ export const CHROME_WEBSTORE_URL =
 export const USERSCRIPT_URL =
     "https://raw.githubusercontent.com/Vencord/builds/main/Vencord.user.js";
 
-export const STATUS_MOVED_PERMANENTLY = 301;
-export const STATUS_FOUND = 302;
-
 export const IS_SERVER = import.meta.env.SSR;
+
+export const enum StatusCodes {
+    MovedPermanently = 301,
+    Found = 302,
+    SeeOther = 303,
+}
