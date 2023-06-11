@@ -29,7 +29,7 @@
     if (!IS_SERVER) selected.subscribe(v => (localStorage.platform = v));
 </script>
 
-<div class="container">
+<div class="container move-in">
     <slot name="title" />
     <nav>
         {#each options as option}
@@ -128,5 +128,25 @@
 
     input {
         display: none;
+    }
+
+    .move-in {
+        animation: move-in 0.6s cubic-bezier(0.6, 0.6, 0.3, 1.3) both;
+        animation-delay: 0.1s;
+    }
+    @media (prefers-reduced-motion) {
+        .move-in {
+            animation: none;
+        }
+    }
+    @keyframes move-in {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
     }
 </style>
