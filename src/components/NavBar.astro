@@ -80,6 +80,11 @@ const page = Astro.url.pathname.split("/")[1];
 
     img {
         vertical-align: middle;
+        transition: transform 0.8s ease-in-out;
+    }
+
+    img:hover {
+        transform: rotate(1080deg);
     }
 
     li {

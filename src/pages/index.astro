@@ -49,11 +49,13 @@ if (features.length % 3 !== 0)
 <Layout description="Vencord is the cutest modification for Discord">
     <header>
         <section class="tagline">
-            <h1 class="p-display">Vencord</h1>
-            <h2>The cutest Discord client mod</h2>
+            <h1 class="p-display move-in">Vencord</h1>
+            <h2 class="move-in" style="animation-delay: 0.8s;">
+                The cutest Discord client mod
+            </h2>
         </section>
 
-        <section class="buttons">
+        <section class="buttons move-in" style="animation-delay: 1.3s;">
             <AutoSizeGrid>
                 <LinkButton href="/download" class="main-btn">
                     Download Vencord
@@ -65,7 +67,7 @@ if (features.length % 3 !== 0)
     </header>
 
     <!-- Heavily inspired by Vite's homepage https://vitejs.dev/ (or if they changed it, https://archive.ph/o6Lmn) -->
-    <section class="features">
+    <section class="features move-in" style="animation-delay: 2s;">
         {
             features.map(({ icon, title, description }) => (
                 <div class="feature-card">
@@ -159,11 +161,15 @@ if (features.length % 3 !== 0)
         padding: 16px;
         border-radius: 8px;
 
+        outline: 1px solid var(--bg5);
+
         transition: 200ms box-shadow cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition: all 0.2s;
     }
 
     .feature-card:hover {
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        box-shadow: 0 6px 10px #0006;
+        transform: scale(1.01);
     }
 
     .feature-icon {
@@ -178,6 +184,11 @@ if (features.length % 3 !== 0)
         width: 100%;
         height: 100%;
         object-fit: contain;
+        transition: transform 0.8s ease-in-out;
+    }
+
+    .feature-icon img:hover {
+        transform: rotate(1080deg);
     }
 
     .feature-title {
@@ -193,5 +204,25 @@ if (features.length % 3 !== 0)
     svg {
         width: 1.5em;
         height: 1.5em;
+    }
+
+    .move-in {
+        animation: move-in 0.6s cubic-bezier(0.6, 0.6, 0.3, 1.3) both;
+        animation-delay: 0.1s;
+    }
+    @media (prefers-reduced-motion) {
+        .move-in {
+            animation: none;
+        }
+    }
+    @keyframes move-in {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
     }
 </style>
