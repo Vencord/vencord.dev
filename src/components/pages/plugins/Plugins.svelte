@@ -97,7 +97,7 @@
         </div>
     </section>
 
-    <section class="plugins-grid">
+    <section class="plugins-grid move-in">
         {#each filteredPlugins as p}
             <div class="plugin">
                 <!--
@@ -194,15 +194,19 @@
         flex-direction: column;
         background: var(--bg4);
 
-        border-radius: 12px;
+        outline: 1px solid var(--bg5);
+
+        border-radius: 8px;
         padding: 1em;
         padding-bottom: 2em;
 
         transition: 200ms box-shadow cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition: all 0.2s;
     }
 
     .plugin:hover {
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        box-shadow: 0 6px 10px #0006;
+        transform: scale(1.01);
     }
 
     .plugin-link {
@@ -329,5 +333,25 @@
     input[type="checkbox"] {
         height: 1em;
         width: 1em;
+    }
+
+        .move-in {
+        animation: move-in 0.6s cubic-bezier(0.6, 0.6, 0.3, 1.3) both;
+        animation-delay: 0.1s;
+    }
+    @media (prefers-reduced-motion) {
+        .move-in {
+            animation: none;
+        }
+    }
+    @keyframes move-in {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
     }
 </style>
