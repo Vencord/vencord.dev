@@ -5,6 +5,22 @@ import Layout from "layouts/Layout.astro";
 import { getSortedFaq } from "scripts/collections";
 
 const faq = await getSortedFaq();
+
+// this sucks, but it's the only way to generate the right data for structured data
+// regardless, this only runs at prerender time so it's okay
+const rawFaqData = await Astro.glob("../content/faq/*.md");
+const structuredData = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: rawFaqData.map(f => ({
+        "@type": "Question",
+        name: f.frontmatter.title,
+        acceptedAnswer: {
+            "@type": "Answer",
+            text: f.compiledContent(),
+        },
+    })),
+});
 ---
 
 <Layout
@@ -35,6 +51,8 @@ const faq = await getSortedFaq();
         Still lost? Visit our <a href="/discord">support server</a> for more assistance!
         We're happy to help.
     </p>
+
+    <script type="application/ld+json" set:html={structuredData}></script>
 </Layout>
 
 <style>
