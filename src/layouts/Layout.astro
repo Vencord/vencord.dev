@@ -12,6 +12,14 @@ export interface Props {
 }
 
 const { title, description, opengraph } = Astro.props;
+
+const structuredData = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Vencord",
+    alternateName: "VC",
+    url: Astro.site,
+});
 ---
 
 <!DOCTYPE html>
@@ -56,6 +64,8 @@ const { title, description, opengraph } = Astro.props;
                 <meta name="og:site_name" content="Vencord" />
             )
         }
+
+        <script type="application/ld+json" set:html={structuredData}></script>
 
         <link rel="sitemap" href="/sitemap-index.xml" />
         {/* explode darkreader */}
