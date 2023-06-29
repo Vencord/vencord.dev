@@ -103,26 +103,29 @@
                 <!--
                     <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
                 -->
-                <a class="plugin-content plugin-link" href={`/plugins/${encodeURIComponent(p.name)}`}>
-                        <h3 class="p-label-l">
-                            {@html highlightMatches(p.name)}
-                        </h3>
-                        <span
-                            use:overflowTooltips={p}
-                            class="author ellipsis-overflow"
-                        >
-                            {@html highlightMatches(
-                                p.authors.map(a => a.name).join(", ")
-                            )}
-                        </span>
-                        <p
-                            use:overflowTooltips={p}
-                            class="description ellipsis-overflow"
-                        >
-                            {@html highlightMatches(p.description)}
-                        </p>
+                <a
+                    class="plugin-content plugin-link"
+                    href={`/plugins/${encodeURIComponent(p.name)}`}
+                >
+                    <h3 class="p-label-l">
+                        {@html highlightMatches(p.name)}
+                    </h3>
+                    <span
+                        use:overflowTooltips={p}
+                        class="author ellipsis-overflow"
+                    >
+                        {@html highlightMatches(
+                            p.authors.map(a => a.name).join(", ")
+                        )}
+                    </span>
+                    <p
+                        use:overflowTooltips={p}
+                        class="description ellipsis-overflow"
+                    >
+                        {@html highlightMatches(p.description)}
+                    </p>
 
-                        <!--
+                    <!--
                         <span class="plugin-badges">
                             {plugin.required && (
                                 <Icon
@@ -194,7 +197,9 @@
         flex-direction: column;
         background: var(--bg4);
 
-        border-radius: 12px;
+        border: 1px solid var(--fg0-muted);
+
+        border-radius: 8px;
         padding: 1em;
         padding-bottom: 2em;
 
