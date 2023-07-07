@@ -52,6 +52,10 @@ h6 {
     line-height: 2.45rem;
 }
 
+p {
+    line-height: 1.25rem;
+}
+
 .p-subtitle {
     margin-top: -0.1em;
     color: var(--grey1);

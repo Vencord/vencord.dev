@@ -8,7 +8,7 @@ const pluginName = Astro.params.plugin;
 
 const plugins = await fetchPlugins();
 
-const p = plugins.find((p) => p.name === pluginName);
+const p = plugins.find(p => p.name === pluginName);
 if (!p) {
     cacheResponseFor(Astro.response, 1 * HOURS);
     return new Response(null, { status: 404 });
@@ -21,13 +21,26 @@ if (!p) {
     <div>
         <h1 class="p-page-title">{p.name}</h1>
         <p class="p-subtitle">
-            by {humanFriendlyJoin(p.authors, (a) => a.name)}
+            by {humanFriendlyJoin(p.authors, a => a.name)}
         </p>
     </div>
 
     <p class="desc">
         {p.description}
     </p>
+
+    <h2 class="h">Installation</h2>
+    <p>
+        To enable {p.name}, first <a href="/download">install Vencord</a> if you
+        haven't already done so. Then open the Plugins section in settings, search
+        for {p.name}, and enable it.
+    </p>
 </Layout>
 
-<style></style>
+<style>
+    .h {
+        margin: 2em 0 0.5em;
+        font-size: 2em;
+        line-height: 1em;
+    }
+</style>
