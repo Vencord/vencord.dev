@@ -35,7 +35,7 @@ const structuredData = JSON.stringify({
             faq.map(async f => {
                 const { Content } = await f.render();
                 return (
-                    <details>
+                    <details data-faq-title={f.data.title.replaceAll(" ", "-")}>
                         <summary>{f.data.title}</summary>
 
                         <div class="faq-content">
@@ -54,6 +54,29 @@ const structuredData = JSON.stringify({
 
     <script type="application/ld+json" set:html={structuredData}></script>
 </Layout>
+
+<script>
+    const faqs = [...document.querySelectorAll("details")];
+
+    const faqTitle = location.hash.slice(1);
+    const faq = faqs.find(f => f.dataset.faqTitle === faqTitle);
+    if (faq) {
+        faq.open = true;
+        faq.scrollIntoView({
+            behavior: "smooth",
+        });
+    }
+
+    for (const faq of faqs) {
+        faq.addEventListener("toggle", () => {
+            if (faqs.filter(f => f.open).length === 1) {
+                location.hash = faq.dataset.faqTitle!;
+            } else {
+                location.hash = "";
+            }
+        });
+    }
+</script>
 
 <style>
     h1 {
