@@ -69,8 +69,9 @@ const structuredData = JSON.stringify({
 
     for (const faq of faqs) {
         faq.addEventListener("toggle", () => {
-            if (faqs.filter(f => f.open).length === 1) {
-                location.hash = faq.dataset.faqTitle!;
+            const openFaqs = faqs.filter(f => f.open);
+            if (openFaqs.length === 1) {
+                location.hash = openFaqs[0].dataset.faqTitle!;
             } else {
                 location.hash = "";
             }
