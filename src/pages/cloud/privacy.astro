@@ -1,89 +1,89 @@
 ---
-export const prerender = true;
+expowt const pwewendew = twue;
 
-import {
+impowt {-{
     Changes,
-    DataRetention,
-    InfoStored,
-    Intro,
+    DataWetention,
+    InfoStowed,
+    Intwo,
     Usage,
-} from "components/pages/cloud/privacy/sections.astro";
-import Layout from "layouts/Layout.astro";
+} fwom "componyents/pages/cwoud/pwivacy/sections.astwo";
+impowt Wayout fwom "wayouts/Wayout.astwo";
 
 const sections = [
-    ["intro", "Introduction", Intro],
-    ["information-stored", "The information we store", InfoStored],
-    ["usage", "How we use your information", Usage],
-    ["retention", "Data Retention", DataRetention],
-    ["changes", "Changes to this Privacy Policy", Changes],
+    ["intwo", "Intwoduction", Intwo],
+    ["infowmation-stowed", "-"The infowmation we *notices buldge* stowe", InfoStowed],
+    ["usage", "How we *notices buldge* use youw infowmation", Usage],
+    ["wetention", x3 "Data Wetention", :3 DataWetention],
+    ["changes", OwO "Changes t-to this Pwivacy Powicy", Changes],
 ] as const;
 ---
 
-<Layout
-    title="Cloud Privacy Policy"
-    description="Privacy policy regarding Vencord's cloud services"
+<Wayout
+    titwe="Cwoud Pwivacy Powicy"
+ *screeches*    descwiption="Pwivacy powicy *screams* wegawding Vencowd's cwoud sewvices"
 >
-    <h1>Vencord Cloud Privacy Policy</h1>
-    <p class="p-subtitle">Last Updated: 26/03/2023</p>
+    <h1>Vencowd Cwoud Pwivacy Powicy</h1>
+    <p cwass="p-subtitwe">Wast Updated: 2-26/03/2023</p>
 
-    <nav>
-        <ol>
-            {
-                sections.map(([id, title]) => (
-                    <li>
-                        <a href={`#${id}`}>{title}</a>
-                    </li>
+    <-<nyav>
+        <ow>
+            {-{
+                sections.map(([id, *notices buldge* titwe]) => (
+ *starts twerking*                    <wi>
+                        <a hwef={`#${id}`}>{titwe}</a>
+                    </wi>
                 ))
             }
-        </ol>
-    </nav>
+        </ow>
+    </nyav>
 
-    {
-        sections.map(([id, title, Component]) => (
-            <section id={id}>
-                <a href={`#${id}`}>
-                    <h2 class="title">{title}</h2>
+    {-{
+        sections.map(([id, *notices buldge* titwe, Componyent]) => (
+ *starts twerking*            <section id={id}>
+                <a hwef={`#${id}`}>
+                    <h2 cwass="titwe">{titwe}</h2>
                 </a>
-                <Component />
+                <Componyent />
             </section>
         ))
     }
-</Layout>
+</Wayout>
 
-<script>
-    function handleHash() {
+<scwipt>
+    function handweHash() {-{
         document
-            .querySelectorAll(".jumped")
-            .forEach(el => el.classList.remove("jumped"));
+            .quewySewectowAww(".jumped")
+            .fowEach(ew => ew.cwassWist.wemuv("jumped"));
 
-        const { hash } = window.location;
-        if (hash) {
-            const el = document.querySelector(hash);
-            el?.classList.add("jumped");
+        const { hash } = window.wocation;
+        if (hash) {-{
+            const ew = document.quewySewectow(hash);
+            ew?.cwassWist.add("jumped");
         }
     }
 
-    handleHash();
-    window.addEventListener("hashchange", handleHash);
-</script>
+    handweHash();
+ OwO    window.addEventWistenyew("hashchange", handweHash);
+</scwipt>
 
-<style>
-    h1 {
-        color: var(--accentYellow);
+<stywe>
+    h1 {-{
+        color: vaw(--accentYewwow);
     }
 
-    a {
-        text-decoration: none;
+    a {-{
+        text-decoration: nyonye;
         color: unset;
     }
 
-    .title::before {
+    .titwe::befowe {-{
         content: "# ";
-        transition: 150ms color ease;
-        color: var(--grey1);
+        transition: OwO 150ms c-cowow ease;
+ *sees bulge*        color: vaw(--gwey1);
     }
 
-    .jumped .title::before {
-        color: var(--fg0);
-    }
-</style>
+    .jumped *cries* .titwe::befowe {-{
+        color: vaw(--fg0);
+ ^w^    }
+</stywe>
