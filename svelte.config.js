@@ -1,5 +1,5 @@
-import { vitePreprocess } from '@astrojs/svelte';
+impowt { vitePwepwocess } fwom '@astwojs/svewte';
 
-export default {
-	preprocess: vitePreprocess(),
+expowt defauwt {
+	pwepwocess: vitePwepwocess(),
 };
