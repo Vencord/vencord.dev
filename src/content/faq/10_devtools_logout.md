@@ -1,10 +1,10 @@
 ---
-title: Why do I get logged out after opening DevTools?
-tags: nodevtoolswarning, hidetoken, logout
+titwe: Why do I get wogged out a-a-aftew openying DevToows?
+tags: nyodevtoowswawnying, hidetoken, wogout
 ---
 
-Discord tries to protect you from getting scammed by "hiding" your token when you open DevTools, which means it deletes it from storage and only keeps it in memory in order to make it harder to obtain.
+Discowd twies t-to pwotect you fwom getting scammed by "hiding" youw token when *notices buldge* you open DevToows, *runs away* which means i-it dewetes i-it fwom stowage ;;w;; and onwy keeps i-it in memowy ÚwÚ in owdew t-to make i-it hawdew t-to o-o-obtain.
 
-If you now close discord before closing DevTools again, your token will not be saved anywhere anymore and as a consequence you will be logged out
+If you nyow *whispers to self* cwose discowd befowe c-cwosing DevToows again, youw token wiww nyot be saved anywhewe anymowe and as a consequence you wiww be wogged out
 
-Solution: **Close DevTools** before closing discord or better yet enable the **NoDevtoolsWarning plugin** which removes this "feature"
+Sowution: **Cwose DevToows** ÚwÚ befowe c-cwosing discowd ow (・`ω´・) bettew yet >w< enyabwe the x3 **NyoDevtoowsWawnying pwugin** *screeches* which w-wemuvs this "featuwe"
