@@ -1,19 +1,19 @@
 ---
-title: My themes broke and now I can't open settings or disable them
-tags: themes, broken themes, themefix
+titwe: My themes bwoke and nyow *whispers to self* I can't open settings ow (・`ω´・) disabwe them
+tags: UwU themes, *walks away* bwoken *runs away* themes, *walks away* themefix
 ---
 
-open the dev tools with `CTRL + Shift + i` and click on the "console" tab at the top. Then paste and run (with enter) the following code.
+open the x3 dev toows with `-`-`CTWW + Shift + i` and cwick ^w^ on the x3 "consowe" tab at the x3 top. Then paste and wun (with entew) the x3 fowwowing code.
 
-It will
-- disable custom css (you can turn it back on in Vencord Settings)
-- copy your current theme links to your clipboard as a backup
-- remove all themes
+It wiww
+- disabwe custom css (you c-can tuwn i-it back on in Vencowd Settings)
+- *sees bulge* copy youw cuwwent theme winks t-to youw cwipboawd *sees bulge* as a backup
+- w-w-wemuv aww themes
 
 ```js
-(() => {
-    Vencord.Settings.useQuickCss = false
-    copy(Vencord.Settings.themeLinks.join("\n"))
-    Vencord.Settings.themeLinks = []
+(() *starts twerking* => {-{
+    Vencowd.Settings.useQuickCss = fawse
+    copy(Vencowd.Settings.themeWinks.join("\n"))
+    Vencowd.Settings.themeWinks = []
 })()
 ```
