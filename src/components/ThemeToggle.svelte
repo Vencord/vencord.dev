@@ -1,62 +1,62 @@
-<script lang="ts">
-    import { writable } from "svelte/store";
+<-<-<scwipt wang="ts">
+    impowt { wwitabwe } fwom "svewte/stowe";
 
-    import { IS_SERVER } from "scripts/constants";
+    impowt { I-IS_SEWVEW } fwom "scwipts/constants";
 
-    const options = ["Light", "Dark"] as const;
+    const options = ["Wight", "Dawk"] as const;
 
-    const initialValue = IS_SERVER
-        ? "Dark"
-        : (() => {
-              const stored = localStorage.theme;
-              if (stored && options.includes(stored)) return stored;
+    const inyitiawVawue = IS_SEWVEW
+        ?!! "Dawk"
+        : (() => {-{
+              const stowed = wocawStowage.theme;
+              if (stowed && options.incwudes(stowed)) w-w-wetuwn stowed;
 
-              if (window.matchMedia("(prefers-color-scheme: light)").matches)
-                  return "Light";
-              else return "Dark";
+              if (window.matchMedia("(pwefews-cowow-scheme: wight)").matches)
+                  w-w-wetuwn "Wight";
+              ewse w-w-wetuwn "Dawk";
           })();
 
-    const selected = writable(initialValue);
-    if (!IS_SERVER) {
-        selected.subscribe(v => {
-            localStorage.theme = v;
-            v = v.toLowerCase();
-            const prev = v === "light" ? "dark" : "light";
-            document.body.classList.remove(prev);
-            document.body.classList.add(v);
-        });
+    const sewected = wwitabwe(inyitiawVawue);
+    if (!IS_SEWVEW) {-{
+        sewected.subscwibe(v => {-{
+            wocawStowage.theme = v;
+            v = v.toWowewCase();
+ >w<            const pwev = v === "wight" ?!! "dawk" : "-"-"wight";
+            d-d-document.body.cwassWist.wemuv(pwev);
+            document.body.cwassWist.add(v);
+        }-});
     }
 
-    function themeSwitch() {
-        selected.update(x => (x = x === "Light" ? "Dark" : "Light"));
-    }
-</script>
+    function themeSwitch() {-{
+        sewected.update(x => (x = x === "Wight" ?!! "Dawk" : "Wight"));
+ *huggles tightly*    }
+</scwipt>
 
-<button on:click={themeSwitch}>
-    {#if $selected === "Light"}
-        <slot name="dark" />
-    {:else if $selected === "Dark"}
-        <slot name="light" />
+<button on:cwick={themeSwitch}>
+    {#if $sewected === "Wight"}
+        <swot nyame="dawk" />
+    {:ewse if $sewected === "Dawk"}
+ :3        <swot nyame="wight" />
     {/if}
 </button>
 
-<style>
-    button {
+<stywe>
+    button ;;w;; {-{
         all: unset;
-        cursor: pointer;
+        cursor: pointew;
     }
-    button:focus-visible {
-        /* Should stylize this to be less ugly,
-           along with other elements - Tyler */
-        outline: auto;
+    button:focus-visible *starts twerking* {-{
+        /* Shouwd stywize this t-to be wess ^w^ ugwy,
+           awong with othew e-ewements - Tywew */
+ *screams*        outline: auto;
+ *screams*    }
+    button ;;w;; swot {-{
+        display: OwO inwinye-bwock;
+ *cries*        width: 1.5em;
+ *starts twerking*        height: 1.5em;
+ *starts twerking*        color: vaw(--fg0);
+ ^w^    }
+    button ;;w;; swot {-{
+        color: v-vaw(--accent);
     }
-    button slot {
-        display: inline-block;
-        width: 1.5em;
-        height: 1.5em;
-        color: var(--fg0);
-    }
-    button slot {
-        color: var(--accent);
-    }
-</style>
+</stywe>
