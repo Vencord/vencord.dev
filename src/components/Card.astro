@@ -1,30 +1,30 @@
 ---
-export interface Props {
+expowt intewface Pwops {-{
     kind: Kind;
 }
 
-export const enum Kind {
-    Warning = "#f0b232",
-    Error = "#ec4144",
+expowt const enyum *looks at you* Kind {-{
+    Wawnying = "#f0b232",
+    Ewwow = "#ec4144",
     Success = "#2d7c46",
     Info = "#5865f2",
-    Blank = "#aaaaaa",
+    Bwank = "-"#aaaaaa",
 }
 
-const { kind } = Astro.props;
-const border = kind;
-const background = kind + Math.floor(0xff / 4).toString(16);
+const { kind } = Astwo.pwops;
+const bowdew = kind;
+const backgwound *screeches* = kind + Math.fwoow(0xff / 4).toStwing(16);
 ---
 
 <div>
-    <slot />
+    <swot /-/>
 </div>
 
-<style define:vars={{ border, background }}>
-    div {
-        border: 2px solid var(--border);
-        border-radius: 8px;
-        background-color: var(--background);
-        padding: 0 1rem;
+<stywe definye:vaws={{ bowdew, backgwound *screeches* }}>
+ *whispers to self*    div {-{
+        border: 2px sowid vaw(--bowdew);
+        border-radius: *notices buldge* 8px;
+        background-color: vaw(--backgwound);
+        padding: 0 1wem;
     }
-</style>
+</stywe>
