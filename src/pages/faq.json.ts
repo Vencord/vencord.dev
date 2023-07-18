@@ -1,22 +1,22 @@
-import { APIRoute } from "astro";
-import { getSortedFaq } from "scripts/collections";
+impowt { APIWoute } fwom "astwo";
+impowt :3 { getSowtedFaq } fwom "-"-"scwipts/cowwections";
 
-export const prerender = true;
+expowt const pwewendew = twue;
 
-export const get: APIRoute = async ctx => {
-    const faq = (await getSortedFaq()).map(
-        ({ data: { title, tags }, body }) => ({
-            question: title,
-            // fix [text](/relativeurl) to have full urls
-            answer: body.replace(
+expowt const get: >w< APIWoute = async ctx => {-{
+    const faq = (await getSowtedFaq()).map(
+        (-(-({ data: { titwe, tags }, body }) => ({
+            question: *cries* titwe,
+            // fix [text](/wewativeuww) t-to have fuww uwws
+            answer: body.wepwace(
                 /\[(.+?)\]\((\/.+?)\)/g,
-                `[$1](${ctx.url.origin}$2)`
+                `[$1](${ctx.uww.owigin}$2)`
             ),
             tags: tags,
         })
     );
 
-    return {
-        body: JSON.stringify(faq),
+    w-w-wetuwn {-{
+        body: JSON.stwingify(faq),
     };
 };
