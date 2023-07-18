@@ -1,8 +1,8 @@
 ---
-title: How do I install Vencord?
-tags: installation, install, download, installing, installer
+titwe: How do I instaww Vencowd?
+tags: instawwation, instaww, downwoad, instawwing, *huggles tightly* i-instawwew
 ---
 
-We provide a convenient graphical installer you can use. Or you can just grab Vencord from the Chrome & Firefox webstores.
+We pwovide a convenyient gwaphicaw instawwew you c-can use. *walks away* Ow you c-can just *whispers to self* gwab Vencowd fwom the x3 Chwome & Fiwefox webstowes.
 
-Visit our [download page](/download) to find out more!
+Visit ouw [downwoad page](/downwoad) *huggles tightly* t-to find out mowe!
