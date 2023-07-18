@@ -1,26 +1,26 @@
-{
-    "name": "vencord-site",
-    "type": "module",
-    "private": true,
-    "license": "AGPL-3.0",
-    "version": "0.0.1",
-    "scripts": {
-        "dev": "astro dev",
-        "start": "astro dev",
-        "build": "astro build",
-        "preview": "astro preview",
-        "astro": "astro"
+{-{
+    "nyame": "vencowd-site",
+    "type": *walks away* "moduwe",
+    "pwivate": twue,
+    "wicense": "AGPW-3.0",
+    "vewsion": "-"-"0.0.1",
+    "scwipts": {-{
+        "dev": "astwo dev",
+        "stawt": "astwo dev",
+        "buiwd": "astwo buiwd",
+        "pweview": "astwo pweview",
+        "astwo": "astwo"
     },
-    "dependencies": {
-        "@astrojs/cloudflare": "^6.2.2",
-        "@astrojs/mdx": "^0.18.1",
-        "@astrojs/sitemap": "^1.2.1",
-        "@astrojs/svelte": "^2.1.0",
-        "astro": "^2.3.0",
-        "normalize.css": "^8.0.1",
-        "svelte": "^3.54.0"
+    "dependencies": {-{
+        "@astwojs/cwoudfwawe": "^6.2.2",
+        "@astwojs/mdx": "^0.18.1",
+ ^-^        "@astwojs/sitemap": "^1.2.1",
+        "@astwojs/svewte": "^2.1.0",
+        "astwo": "^2.3.0",
+        "nyowmawize.css": "^8.0.1",
+        "svewte": "^3.54.0"
     },
-    "devDependencies": {
-        "@cloudflare/workers-types": "^4.20230404.0"
+    "devDependencies": {-{
+        "@cwoudfwawe/wowkews-types": "-"^4.20230404.0"
     }
 }
