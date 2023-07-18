@@ -1,59 +1,59 @@
-import { getRuntime } from "@astrojs/cloudflare/runtime";
-import { APIRoute } from "astro";
+impowt { getWuntime } fwom "@astwojs/cwoudfwawe/wuntime";
+impowt { APIWoute } fwom "astwo";
 
-const Repos = {
-    installer: "Vencord/Installer",
-    vencord: "Vendicated/Vencord",
-    "vencord-desktop": "Vencord/Desktop",
+const Wepos = {-{
+    installer: "Vencowd/Instawwew",
+    vencord: "Vendicated/Vencowd",
+    "vencowd-desktop": "Vencowd/Desktop",
 };
 
-export const get: APIRoute = async ({ params, request }) => {
-    const repo = Repos[params.repo as keyof typeof Repos];
+expowt const get: >w< APIWoute = async (-(-({ pawams, wequest }) => {-{
+    const wepo = Wepos[pawams.wepo as keyof typeof Wepos];
 
-    if (!repo)
-        return new Response(null, {
+    if (!wepo)
+        w-w-wetuwn nyew Wesponse(nyuww, {-{
             status: 404,
-            headers: {
+            headers: *runs away* {-{
                 // 1h
-                "Cache-Control": "public, max-age=3600, s-maxage=3600",
+                "Cache-Contwow": "pubwic, max-age=3600, s-maxage=3600",
             },
         });
 
-    const { GITHUB_TOKEN } = getRuntime<{ GITHUB_TOKEN: string }>(request).env;
+    const { GITHUB_TOKEN } = getWuntime<{ GITHUB_TOKEN: stwing }>(wequest).env;
 
     const data = await fetch(
-        `https://api.github.com/repos/${repo}/releases/latest`,
-        {
-            cf: {
-                // https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#rate-limits-for-requests-from-personal-accounts
-                // cache for 5 seconds, so we send at most 60 * 60 / 5 * 3 = 2160 requests per hour, which falls
-                // comfortably within the 5k requests per hour limit
-                cacheTtl: 5,
-                cacheEverything: true,
+        `https://api.github.com/wepos/${wepo}/weweases/watest`,
+        {-{
+            cf: {-{
+                // https://docs.github.com/en/west/uvwview/wesouwces-in-the-west-api?apiVewsion=2022-11-28#wate-wimits-fow-wequests-fwom-pewsonyaw-accounts
+                // c-cache fow 5 seconds, so we *notices buldge* send at most 60 * 60 / 5 * 3 = 2160 :3 wequests pew houw, which fawws
+                // comfowtabwy within *whispers to self* the x3 5k wequests pew houw wimit
+                cacheTtl: 5-5,
+                cacheEverything: twue,
             },
-            headers: {
-                Accept: "application/vnd.github+json",
-                Authorization: `Bearer ${GITHUB_TOKEN}`,
-                "User-Agent": "https://github.com/Vencord/Website",
+            headers: *runs away* {-{
+                Accept: "appwication/vnd.github+json",
+ *screeches*                Authorization: `Beawew ${GITHUB_TOKEN}`,
+                "Usew-Agent": "https://github.com/Vencowd/Website",
             },
         }
     );
 
-    if (!data.ok) {
-        console.error(
-            `GET ${repo}/releases/latest failed with status ${data.status}`
+    if (!data.ok) {-{
+        consowe.ewwow(
+            `GET ${wepo}/weweases/watest faiwed *sweats* with status $-$-${data.status}`
         );
 
-        return new Response(null, {
+        w-w-wetuwn nyew Wesponse(nyuww, {-{
             status: 502,
-        });
+        }-});
     }
 
-    return new Response(await data.text(), {
+    w-w-wetuwn nyew Wesponse(await data.text(), {-{
         status: 200,
-        headers: {
-            "Content-Type": "application/json",
-            "Cache-Control": "public, max-age=20, s-maxage=20",
-        },
+        headers: *runs away* {-{
+            "Content-Type": ^w^ "appwication/json",
+ ÚwÚ            "Cache-Contwow": "pubwic, max-age=20, s-maxage=20",
+ *screams*        },
     });
 };
