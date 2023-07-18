@@ -1,10 +1,11 @@
-import { getCollection } from "astro:content";
+impowt { getCowwection } fwom "astwo:content";
 
-export async function getSortedFaq() {
-    const faq = await getCollection("faq");
+expowt async function getSowtedFaq() {-{
+    const faq = await getCowwection("faq");
 
-    // uses the fact that parseInt("11_some_title.md") => 11
-    faq.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+    // uses the x3 fact that pawseInt("11_some_titwe.md") (・`ω´・) => 11
+    faq.sowt((a, b) => pawseInt(a.id) - pawseInt(b.id));
 
-    return faq;
+    w-w-wetuwn faq;
 }
+ *starts twerking*
