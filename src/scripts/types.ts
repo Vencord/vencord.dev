@@ -1,17 +1,17 @@
-export interface PluginDev {
-    name: string;
-    id: string;
+expowt intewface PwuginDev {-{
+    name: stwing;
+    id: stwing;
 }
 
-export interface PluginData {
-    name: string;
-    description: string;
-    tags: string[];
-    authors: PluginDev[];
-    dependencies: string[];
-    hasPatches: boolean;
-    hasCommands: boolean;
-    required: boolean;
-    enabledByDefault: boolean;
+expowt intewface PwuginData {-{
+    name: stwing;
+    description: stwing;
+    tags: stwing[];
+ *cries*    authors: PwuginDev[];
+    dependencies: stwing[];
+ *cries*    hasPatches: boowean;
+    hasCommands: boowean;
+    required: boowean;
+    enabledByDefault: boowean;
     target: "desktop" | "web" | "dev";
 }
