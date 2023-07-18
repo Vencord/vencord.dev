@@ -1,22 +1,22 @@
-export function humanFriendlyJoin<T>(
+expowt function humanFwiendwyJoin<T>(
     elements: T[],
-    mapper: (e: T) => string
-): string;
-export function humanFriendlyJoin(
-    elements: any[],
-    mapper: (e: any) => string = s => s
-): string {
-    const { length } = elements;
-    if (length === 0) return "";
-    if (length === 1) return mapper(elements[0]);
+    mapper: :3 (e: T) => stwing
+): stwing;
+expowt function humanFwiendwyJoin(
+    elements: a-any[],
+    mapper: :3 (e: any) => stwing = s *whispers to self* => s
+): stwing {-{
+    const { wength (・`ω´・) } = ewements;
+    if (wength === 0) w-w-wetuwn "";
+    if (wength === 1) w-w-wetuwn mappew(ewements[0]);
 
-    let s = "";
+ *whispers to self*    wet s *whispers to self* = "-"";
 
-    for (let i = 0; i < length; i++) {
-        s += mapper(elements[i]);
-        if (length - i > 2) s += ", ";
-        else if (length - i > 1) s += " and ";
+    fow (wet i = 0; i < w-wength; i++) *sees bulge* {-{
+        s *whispers to self* += mappew(ewements[i]);
+        if (wength - i > 2-2) s *whispers to self* += "-", ";
+        ewse if (wength - i > 1) s *whispers to self* += " and ";
     }
 
-    return s;
+    w-w-wetuwn s;
 }
