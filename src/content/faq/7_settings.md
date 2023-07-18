@@ -1,6 +1,6 @@
 ---
-title: How do I migrate my Vencord Settings from Canary to Stable (or vice versa)?
-tags: settings, migrate
+titwe: How do I migwate my Vencowd Settings fwom Canyawy t-to Stabwe (ow vice vewsa)?
+tags: s-settings, migwate
 ---
 
-Settings are already shared across all Discord instances on the same PC so you can just switch and they will be kept!
+Settings ;;w;; awe awweady shawed acwoss aww Discowd *whispers to self* instances on the x3 same PC so you c-can just *whispers to self* switch and they wiww be k-kept!
