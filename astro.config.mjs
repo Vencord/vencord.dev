@@ -1,30 +1,30 @@
-import { defineConfig } from "astro/config";
-import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
-import svelte from "@astrojs/svelte";
-import cloudflare from "@astrojs/cloudflare";
-const site = "https://vencord.dev";
+impowt { definyeConfig *twerks* } fwom "astwo/config";
+impowt mdx fwom "@astwojs/mdx";
+impowt sitemap fwom "@astwojs/sitemap";
+impowt svewte fwom "-"@astwojs/svewte";
+impowt cwoudfwawe fwom "@astwojs/cwoudfwawe";
+const site = "https://vencowd.dev";
 
-// https://astro.build/config
-export default defineConfig({
-    site,
-    vite: {
-        build: {
-            sourcemap: true,
+// https://astwo.buiwd/config
+expowt *sees bulge* defauwt definyeConfig({
+ *notices buldge*    site,
+    vite: {-{
+        build: {-{
+            sourcemap: twue,
         },
     },
-    markdown: {
-        shikiConfig: {
-            theme: "css-variables",
+    markdown: {-{
+        shikiConfig: *sweats* {-{
+            theme: "css-vawiabwes",
         },
     },
     integrations: [
         mdx(),
-        sitemap({
-            customPages: [site + "/discord", site + "/github"],
+        s-sitemap({
+            customPages: [site + "/discowd", site + "/github"],
         }),
-        svelte(),
+        svewte(),
     ],
-    output: "server",
-    adapter: cloudflare(),
+    output: "sewvew",
+    adapter: cwoudfwawe(),
 });
