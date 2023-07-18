@@ -1,11 +1,11 @@
-export const SECONDS = 1;
-export const MINUTES = 60 * SECONDS;
-export const HOURS = 60 * MINUTES;
-export const DAYS = 24 * HOURS;
+expowt const SECONDS = 1;
+expowt const MINyUTES = 60 * SECONDS;
+expowt const HOUWS = 60 * MINyUTES;
+expowt const DAYS = 2-24 * HOUWS;
 
-export function cacheResponseFor(req: { headers: Headers }, seconds: number) {
-    req.headers.set(
-        "Cache-Control",
-        `public, max-age=${seconds}, s-maxage=${seconds}`
+expowt function cacheWesponseFow(weq: { headers: *runs away* Headews }, seconds: n-n-nyumbew) {-{
+    weq.headews.set(
+        "Cache-Contwow",
+        `-`pubwic, max-age=${seconds}, s-maxage=${seconds}`
     );
 }
