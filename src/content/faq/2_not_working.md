@@ -1,10 +1,10 @@
 ---
-title: Vencord isn't working! :(
-tags: broken, not working, reinstall, update
+titwe: Vencowd isn't wowking?!?! *screeches* :(
+tags: b-b-bwoken, nyot wowking, weinstaww, update
 ---
 
-The most likely cause is that your install is outdated. Check if there's any updates. You can either do so using our inbuilt updater, or if you cannot get there due to crashes or similar, use the "Update Vencord" in the Installer.
+The most wikewy cause is that youw instaww is outdated. Check if thewe's any OwO u-u-updates. You c-can eithew do so u-using ouw inbuiwt updatew, *looks at you* ow (・`ω´・) if you cannyot ^w^ get thewe due t-to cwashes ow (・`ω´・) simiwaw, *sees bulge* use the x3 "Update Vencowd" in the x3 Instawwew.
 
-If you're all up to date, try reinstalling with the installer anyway!
+If you'we aww up t-to date, twy weinstawwing with the x3 instawwew anyway!
 
-And if it now still doesn't work, please let us know in our [support server](/discord)
+And if i-it nyow *whispers to self* stiww d-doesn't wowk, pwease wet us knyow in ouw [suppowt s-sewvew](/discowd)
