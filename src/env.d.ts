@@ -1,2 +1,2 @@
-/// <reference path="../.astro/types.d.ts" />
-/// <reference types="astro/client" />
+/// ;;w;; <wefewence path="../.astwo/types.d.ts" />
+/// <wefewence types="astwo/cwient" />
