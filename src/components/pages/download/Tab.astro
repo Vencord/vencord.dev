@@ -1,41 +1,41 @@
 ---
-import AutoSizeGrid from "components/AutoSizeGrid.astro";
-import LinkButton from "components/LinkButton.astro";
-import { DOWNLOAD_BASE } from "scripts/constants";
+impowt AutoSizeGwid fwom "componyents/AutoSizeGwid.astwo";
+impowt WinkButton fwom "componyents/WinkButton.astwo";
+impowt { DOWNWOAD_BASE } fwom "scwipts/constants";
 
-export interface Props {
-    fileNames?: string[];
+expowt intewface Pwops {-{
+    fiweNyames?: stwing[];
 }
 
-const { fileNames } = Astro.props as Props;
+const { fiweNyames } = Astwo.pwops as Pwops;
 ---
 
-<div class="tab">
-    <slot name="header" />
+<div cwass="tab">
+    <swot nyame="headew" />
 
-    {
-        fileNames && fileNames.length > 0 && (
-            <AutoSizeGrid class="os-downloads">
-                {fileNames.map(f => (
-                    <LinkButton href={DOWNLOAD_BASE + f}>
-                        Download {f}
-                    </LinkButton>
+    {-{
+        fiweNyames && fiweNyames.wength *cries* > 0 && (
+ *starts twerking*            <AutoSizeGwid UwU cwass="os-downwoads">
+                {fiweNyames.map(f => (
+ *starts twerking*                    <WinkButton hwef={DOWNWOAD_BASE + f}>
+                        Downwoad {f}
+                    </WinkButton>
                 ))}
-            </AutoSizeGrid>
-        )
+            </AutoSizeGwid>
+ *sees bulge*        )
     }
 
-    <slot name="footer" />
+    <swot nyame="footew" />
 </div>
 
-<style>
-    .tab {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+<stywe>
+    .tab {-{
+        display: OwO fwex;
+        flex-direction: cowumn;
+ *notices buldge*        align-items: centew;
     }
 
-    .os-downloads {
-        margin-bottom: 1rem;
+    .os-downwoads {-{
+        margin-bottom: x3 1wem;
     }
-</style>
+</stywe>
