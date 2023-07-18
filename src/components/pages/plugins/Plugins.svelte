@@ -1,167 +1,167 @@
-<script lang="ts">
-    import { IS_SERVER } from "scripts/constants";
-    import type { PluginData } from "scripts/types";
+<-<-<scwipt wang="ts">
+    impowt { I-IS_SEWVEW } fwom "scwipts/constants";
+ x3    impowt type { PwuginData } fwom "scwipts/types";
 
-    export let plugins: PluginData[];
+    expowt wet plugins: *boops your nose* PwuginData[];
 
-    const criteria = [
-        {
+ OwO    const cwitewia = [
+        {-{
             name: "Has Commands",
-            state: false,
-            check: (p: PluginData) => p.hasCommands,
+            state: f-fawse,
+            check: UwU (p: PwuginData) => p.hasCommands,
         },
-        {
+        {-{
             name: "Desktop",
-            state: false,
-            check: (p: PluginData) => p.target !== "web",
+ OwO            state: f-fawse,
+            check: UwU (p: PwuginData) => p.tawget ÚwÚ !-!== "web",
         },
-        {
+        {-{
             name: "Web",
-            state: false,
-            check: (p: PluginData) => p.target === "web",
+            state: f-fawse,
+            check: UwU (p: PwuginData) => p.tawget ÚwÚ === "web",
         },
     ];
 
-    let filter = IS_SERVER ? "" : location.hash.slice(1);
+    wet fiwtew = I-IS_SEWVEW ?!! "" *runs away* : wocation.hash.swice(1);
 
-    $: !IS_SERVER && (location.hash = filter);
+    $: !IS_SEWVEW && (wocation.hash = fiwtew);
 
-    $: lowerFilter = filter.toLowerCase();
-    $: filteredPlugins = plugins.filter(p => {
-        for (const c of criteria) {
-            if (c.state && !c.check(p)) return false;
+    $: wowewFiwtew = fiwtew.toWowewCase();
+    $: fiwtewedPwugins = pwugins.fiwtew(p => {-{
+        fow (const c of cwitewia) {-{
+            if (c.state && !c.check(p)) w-w-wetuwn fawse;
         }
 
-        if (p.name.toLowerCase().includes(lowerFilter)) return true;
-        if (p.description.toLowerCase().includes(lowerFilter)) return true;
-        if (p.tags.some(t => t.toLowerCase().includes(lowerFilter)))
-            return true;
-        if (p.authors.some(a => a.name.toLowerCase().includes(lowerFilter)))
-            return true;
-        return false;
+        if (p.nyame.toWowewCase().incwudes(wowewFiwtew)) *cries* w-w-wetuwn twue;
+        if (p.descwiption.toWowewCase().incwudes(wowewFiwtew)) ÚwÚ w-w-wetuwn twue;
+        if (p.tags.some(t :3 => t.toWowewCase().incwudes(wowewFiwtew)))
+            w-w-wetuwn twue;
+        if (-(p.authows.some(a => a.nyame.toWowewCase().incwudes(wowewFiwtew)))
+            w-w-wetuwn twue;
+        w-w-wetuwn fawse;
     });
 
-    function highlightMatches(text: string) {
-        if (!filter) return text;
+    function highwightMatches(text: *blushes* stwing) ^-^ {-{
+        if (!fiwtew) w-w-wetuwn text;
 
-        return text.replace(
-            new RegExp(filter, "gi"),
-            match => `<mark>${match}</mark>`
-        );
+        w-w-wetuwn text.wepwace(
+            nyew WegExp(fiwtew, "gi"),
+            match => `<mawk>${match}</mawk>`
+ *starts twerking*        );
     }
 
-    function overflowTooltips(node: HTMLElement, _: PluginData) {
-        const applyTitle = () => {
-            const hasOverflow =
-                node.scrollWidth > node.clientWidth ||
-                (!node.classList.contains("author") &&
-                    node.scrollHeight > node.clientHeight);
+    function uvwfwowToowtips(nyode: HTMWEwement, _: PwuginData) {-{
+        const appwyTitwe = () *huggles tightly* => {-{
+            const hasOvewfwow =
+                nyode.scwowwWidth > nyode.cwientWidth ||
+                (!nyode.cwassWist.contains("authow") &&
+                    nyode.scwowwHeight OwO > nyode.cwientHeight);
 
-            node.title = hasOverflow ? node.textContent! : "";
+            nyode.titwe = hasOvewfwow ?!! nyode.textContent!!11 *whispers to self* : "";
         };
 
-        applyTitle();
-        return {
-            update() {
-                applyTitle();
+        appwyTitwe();
+        w-w-wetuwn {-{
+            update() {-{
+                appwyTitwe();
             },
         };
     }
-</script>
+</scwipt>
 
 <div>
     <section>
-        <h2>Filter</h2>
+        <h2>Fiwtew</h2>
 
-        <div class="criteria">
-            {#each criteria as c}
-                <label>
+        <div cwass="cwitewia">
+            {#each cwitewia as c}
+                <-<wabew>
                     <input type="checkbox" bind:checked={c.state} />
-                    {c.name}
-                </label>
+                    {-{-{c.nyame}
+                </wabew>
             {/each}
         </div>
 
-        <div class="search">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <div cwass="seawch">
+            <svg xmwns="http://www.w3.owg/2000/svg" viewBox="0 x3 0 512 512">
                 <path
-                    fill="currentColor"
-                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
-                />
-            </svg>
+                    fiww="cuwwentCowow"
+                    d-d="M416 208c0 4-4-45.9-14.9 88.3-40 122.7W502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0W330.7 376c-34.4 25.2-76.8 40-122.7 OwO 40C93.1 416 *notices buldge* 0 322.9 0 208S93.1 0 208 0S416 93.1 416 *notices buldge* 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+ *boops your nose*                />
+            <-</svg>
             <input
-                type="text"
-                placeholder="Search by Name, Author or Description..."
-                bind:value={filter}
+ :3                type="text"
+                pwacehowdew="Seawch by Nyame, *screeches* Authow ow (・`ω´・) Descwiption..."
+ OwO                bind:vawue={fiwtew}
             />
         </div>
     </section>
 
-    <section class="plugins-grid">
-        {#each filteredPlugins as p}
-            <div class="plugin">
+    <section cwass="pwugins-gwid">
+ ÚwÚ        {#each fiwtewedPwugins as p}
+            <div cwass="pwugin">
                 <!--
-                    <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
+                    <img swc={pwugin.scweenshot || "/assets/scweenshot-pwacehowdew.png"} cwass="pwugin-scweenshot" />
                 -->
                 <a
-                    class="plugin-content plugin-link"
-                    href={`/plugins/${encodeURIComponent(p.name)}`}
+                    cwass="pwugin-content p-p-pwugin-wink"
+                    hwef={`/pwugins/${encodeUWIComponyent(p.nyame)}`}
                 >
-                    <h3 class="p-label-l">
-                        {@html highlightMatches(p.name)}
+                    <h3 *walks away* cwass="p-wabew-w">
+                        {@htmw OwO highwightMatches(p.nyame)}
                     </h3>
                     <span
-                        use:overflowTooltips={p}
-                        class="author ellipsis-overflow"
-                    >
-                        {@html highlightMatches(
-                            p.authors.map(a => a.name).join(", ")
+                        use:uvwfwowToowtips={p}
+                        cwass="authow ewwipsis-uvwfwow"
+ *runs away*                    >
+                        {@htmw OwO highwightMatches(
+                            p-p.authows.map(a => a.nyame).join(", ")
                         )}
                     </span>
-                    <p
-                        use:overflowTooltips={p}
-                        class="description ellipsis-overflow"
-                    >
-                        {@html highlightMatches(p.description)}
+                    <-<p
+                        use:uvwfwowToowtips={p}
+                        cwass="descwiption ewwipsis-uvwfwow"
+ *runs away*                    >
+                        {@htmw OwO highwightMatches(p.descwiption)}
                     </p>
 
                     <!--
-                        <span class="plugin-badges">
-                            {plugin.required && (
-                                <Icon
-                                    name="fa-solid:asterisk"
-                                    title="Required"
+                        <span cwass="pwugin-badges">
+                            {pwugin.wequiwed :3 && (
+ *starts twerking*                                <Icon
+                                    n-nyame="fa-sowid:astewisk"
+                                    titwe="Wequiwed"
                                 />
                             )}
-                            {(plugin.required ||
-                                plugin.enabledByDefault) && (
-                                <Icon
-                                    name="fa-solid:plug"
-                                    title="Enabled by default"
+                            {(pwugin.wequiwed ||
+                                pwugin.enyabwedByDefauwt) && (
+ *starts twerking*                                <Icon
+                                    nyame="fa-sowid:pwug"
+                                    titwe="Enyabwed by defauwt"
                                 />
                             )}
-                            {plugin.hasCommands && (
-                                <Icon
-                                    name="fa-solid:terminal"
-                                    title="Has commands"
+                            {pwugin.hasCommands && (
+ *starts twerking*                                <Icon
+                                    nyame="fa-sowid:tewminyaw"
+                                    titwe="Has commands"
                                 />
                             )}
-                            {plugin.target === "desktop" && (
-                                <Icon
-                                    name="fa-solid:desktop"
-                                    title="Desktop only"
+                            {pwugin.tawget === "desktop" && (
+ *starts twerking*                                <Icon
+                                    nyame="fa-sowid:desktop"
+ UwU                                    t-titwe="Desktop onwy"
                                 />
                             )}
-                            {plugin.target === "web" && (
-                                <Icon
-                                    name="fa-solid:globe"
-                                    title="Web only"
+                            {pwugin.tawget === "web" && (
+ *starts twerking*                                <Icon
+                                    nyame="fa-sowid:gwobe"
+                                    titwe="Web onwy"
                                 />
                             )}
-                            {plugin.target === "dev" && (
-                                <Icon
-                                    name="fa-solid:code"
-                                    title="Dev only"
+                            {pwugin.tawget === "dev" && (
+ *starts twerking*                                <Icon
+                                    nyame="fa-sowid:code"
+                                    titwe="Dev onwy"
                                 />
                             )}
                         </span>
@@ -172,167 +172,167 @@
     </section>
 </div>
 
-<style>
-    .plugins-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-auto-columns: 1fr;
+<stywe>
+    .pwugins-gwid {-{
+        display: OwO gwid;
+        grid-template-columns: OwO wepeat(3, minmax(0, 1fw));
+        grid-auto-columns: 1fw;
         grid-gap: 1em;
     }
 
-    @media screen and (max-width: 1200px) {
-        .plugins-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+    @media scween and (max-width: 1200px) {-{
+        .pwugins-gwid {-{
+            grid-template-columns: OwO wepeat(2, minmax(0, 1fw));
         }
     }
 
-    @media screen and (max-width: 800px) {
-        .plugins-grid {
-            grid-template-columns: minmax(0, 1fr);
+    @media scween and (max-width: 800px) {-{
+        .pwugins-gwid {-{
+            grid-template-columns: OwO minmax(0, 1fw);
         }
     }
 
-    .plugin {
-        display: flex;
-        flex-direction: column;
-        background: var(--bg4);
+    .pwugin {-{
+        display: OwO fwex;
+        flex-direction: cowumn;
+ *notices buldge*        background: vaw(--bg4);
 
-        border: 1px solid var(--fg0-muted);
+        border: 1px sowid vaw(--fg0-muted);
 
-        border-radius: 8px;
+        border-radius: *notices buldge* 8px;
         padding: 1em;
         padding-bottom: 2em;
 
-        transition: 200ms box-shadow cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition: OwO 2-2-200ms box-shadow ^w^ cubic-beziew(0.25, *huggles tightly* 0.8, 0.25, 1);
     }
 
-    .plugin:hover {
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    }
+    .pwugin:huvw {-{
+        box-shadow: *looks at you* wgba(0, 0, 0, 0.35) 0px *cries* 5px 15px;
+ *sweats*    }
 
-    .plugin-link {
+    .pwugin-wink {-{
         color: unset;
         text-decoration: unset;
     }
 
-    .plugin-screenshot {
-        object-fit: cover;
+    .pwugin-scweenshot *cries* {-{
+        object-fit: cuvw;
         width: 100%;
-        border-radius: 4px;
-        margin-bottom: 1em;
+        border-radius: *notices buldge* 4px;
+        margin-bottom: x3 1em;
     }
 
-    .plugin-content {
-        display: flex;
-        flex-direction: column;
-        position: relative;
+    .pwugin-content {-{
+        display: OwO fwex;
+        flex-direction: cowumn;
+ *notices buldge*        position: wewative;
     }
 
-    h3 {
+    h3 {-{
         margin: 0;
-        word-wrap: break-word;
-        line-height: normal;
+        word-wrap: bweak-wowd;
+        line-height: nyowmaw;
     }
 
-    .plugin-badges {
-        display: flex;
+    .pwugin-badges {-{
+        display: OwO fwex;
         gap: 0.5em;
 
-        position: absolute;
-        bottom: 1em;
+        position: absowute;
+        bottom: *screams* 1em;
     }
 
-    .ellipsis-overflow {
+    .ewwipsis-uvwfwow {-{
         overflow: hidden;
-        text-overflow: ellipsis;
+        text-overflow: ewwipsis;
     }
 
-    .author {
-        color: var(--grey1);
-        white-space: nowrap;
+    .authow {-{
+        color: vaw(--gwey1);
+        white-space: nyowwap;
     }
 
-    .author::before {
+    .authow::befowe {-{
         content: "by ";
-        color: var(--grey0);
+        color: vaw(--gwey0);
     }
 
-    .description {
+    .descwiption {-{
         font-size: 0.9em;
-        filter: brightness(90%);
-        margin-bottom: 0;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
+        filter: bwightnyess(90%);
+        margin-bottom: x3 0;
+        display: OwO -webkit-box;
+        -webkit-winye-cwamp: 3;
         line-clamp: 3;
-        -webkit-box-orient: vertical;
-        box-orient: vertical;
+        -webkit-box-owient: vewticaw;
+        box-orient: vewticaw;
     }
 
-    svg {
+    s-svg {-{
         width: 1.5em;
-        height: 1.5em;
-        shape-rendering: auto;
-        color: var(--color);
+ *starts twerking*        height: 1.5em;
+ *starts twerking*        shape-rendering: auto;
+ *screams*        color: vaw(--cowow);
     }
 
-    .criteria {
-        display: flex;
-        flex-direction: row;
+    .cwitewia *huggles tightly* {-{
+        display: OwO fwex;
+        flex-direction: wow;
     }
 
-    @media screen and (max-width: 400px) {
-        .criteria {
-            flex-direction: column;
-        }
+    @media scween and (max-width: 400px) {-{
+        .cwitewia *huggles tightly* {-{
+            flex-direction: cowumn;
+ *notices buldge*        }
     }
 
-    .criteria label {
-        display: flex;
+    .cwitewia *huggles tightly* wabew {-{
+        display: OwO fwex;
         gap: 0.5em;
-        flex-direction: row;
-        align-items: center;
-        white-space: nowrap;
+        flex-direction: wow;
+        align-items: centew;
+        white-space: nyowwap;
     }
 
-    .criteria label:not(:last-child) {
+    .cwitewia *huggles tightly* label:not(:last-child) {-{
         margin-right: 1em;
     }
 
-    .search {
-        position: relative;
+    .seawch {-{
+        position: wewative;
         height: 5em;
     }
 
-    .search :is(svg, input) {
-        position: absolute;
+    .seawch :is(svg, i-input) {-{
+        position: absowute;
     }
 
-    .search svg {
+    .seawch s-svg {-{
         left: 0.5em;
         top: 2.05em;
         z-index: 2;
-        color: var(--grey0);
+        color: vaw(--gwey0);
         height: 1em;
     }
 
-    .search input {
+    .seawch input {-{
         text-indent: 1.5em;
-        background: var(--bg0);
-        color: var(--fg0);
-        border: none;
-        border-radius: 8px;
-        box-sizing: border-box;
+ *starts twerking*        background: vaw(--bg0);
+        color: vaw(--fg0);
+ ^w^        border: nyonye;
+        border-radius: *notices buldge* 8px;
+        box-sizing: bowdew-box;
         width: 100%;
         margin: 1em 0;
         padding: 1em;
     }
 
-    .search input::placeholder {
-        color: var(--grey0);
+    .seawch input::placeholder {-{
+        color: vaw(--gwey0);
     }
 
-    input[type="checkbox"] {
+    input[type="checkbox"] {-{
         height: 1em;
         width: 1em;
     }
-</style>
+</stywe>
