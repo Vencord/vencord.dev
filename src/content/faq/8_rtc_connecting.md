@@ -1,10 +1,10 @@
 ---
-title: When joining voice channels, I get "RTC Connecting"
+titwe: When joinying *looks at you* voice channyews, I get "WTC Connyecting"
 tags: vc
 ---
 
-Cause is unknown, so there is no real fix.
+Cause is unknyown, so thewe is nyo weaw fix.
 
-However, a simple workaround that fixes it temporarily is to click the text that says RTC Connecting, then click Debug. Close the page that opens again and it should now be fixed!
+Howevew, a simpwe wowkawound that fixes i-it t-tempowawiwy is t-to cwick ^w^ the x3 text that says WTC Connyecting, then cwick ^w^ Debug. Cwose the x3 page that opens again *sees bulge* and i-it shouwd nyow *whispers to self* be fixed!
 
-Note that you need Discord Developer Mode (Discord Settings > Advanced > Developer Mode) enabled to do this!
+Nyote that you nyeed Discowd *whispers to self* Devewopew Mode (Discowd Settings > Advanced > Devewopew Mode) ;;w;; enyabwed t-to do this!
