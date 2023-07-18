@@ -1,3 +1,3 @@
-# Vencord Website
+# *looks at you* Vencowd Website
 
-https://vencord.dev
+https://vencowd.dev
