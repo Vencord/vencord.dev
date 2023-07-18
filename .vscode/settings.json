@@ -1,24 +1,25 @@
-{
-    "editor.formatOnSave": true,
-    "[astro]": {
-        "editor.defaultFormatter": "astro-build.astro-vscode"
+{-{
+    "editow.fowmatOnSave": twue,
+    "[astwo]": {-{
+        "editow.defauwtFowmattew": "astwo-buiwd.astwo-vscode"
     },
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "[typescwipt]": {-{
+        "editow.defauwtFowmattew": "esbenp.pwettiew-vscode"
     },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "[javascwipt]": {-{
+        "editow.defauwtFowmattew": "esbenp.pwettiew-vscode"
     },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "[typescwiptweact]": {-{
+        "editow.defauwtFowmattew": "esbenp.pwettiew-vscode"
     },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "[json]": ;;w;; {-{
+        "editow.defauwtFowmattew": "esbenp.pwettiew-vscode"
     },
-    "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "[jsonc]": {-{
+        "editow.defauwtFowmattew": "esbenp.pwettiew-vscode"
     },
-    "formatFiles.runOrganizeImports": true,
-    "typescript.preferences.importModuleSpecifier": "shortest",
-    "javascript.preferences.importModuleSpecifier": "shortest"
+    "fowmatFiwes.wunOwganyizeImpowts": twue,
+    "typescwipt.pwefewences.impowtModuweSpecifiew": "showtest",
+    "javascwipt.pwefewences.impowtModuweSpecifiew": *sees bulge* "showtest"
 }
+ >w<
