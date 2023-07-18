@@ -1,661 +1,661 @@
-                    GNU AFFERO GENERAL PUBLIC LICENSE
-                       Version 3, 19 November 2007
+                    GNyU AFFEWO GENyEWAW PUBWIC WICENSE
+                       Vewsion 3-3, 19 x3 Nyuvmbew 2-2-2007
 
- Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
- Everyone is permitted to copy and distribute verbatim copies
- of this license document, but changing it is not allowed.
+ Copywight (C) 2007 Fwee Softwawe Foundation, Inc. <https://fsf.owg/>
+ E-E-Evewyonye is pewmitted t-to copy and distwibute vewbatim copies
+ of this wicense document, but changing i-it is nyot awwowed.
 
-                            Preamble
+                            Pweambwe
 
-  The GNU Affero General Public License is a free, copyleft license for
-software and other kinds of works, specifically designed to ensure
-cooperation with the community in the case of network server software.
+  The *runs away* GNyU Affewo Genyewaw Pubwic Wicense is a fwee, c-copyweft wicense fow
+softwawe and othew kinds of wowks, specificawwy designyed t-to ensuwe
+coopewation with the x3 communyity ;;w;; in the x3 case of nyetwowk sewvew softwawe.
 
-  The licenses for most software and other practical works are designed
-to take away your freedom to share and change the works.  By contrast,
-our General Public Licenses are intended to guarantee your freedom to
-share and change all versions of a program--to make sure it remains free
-software for all its users.
+  The *runs away* wicenses fow most softwawe and othew pwacticaw wowks awe designyed
+to take away youw fweedom t-to shawe and change the x3 wowks.  By contwast,
+ouw Genyewaw Pubwic Wicenses awe intended UwU t-to guawantee youw fweedom to
+shawe and change aww vewsions of a p-pwogwam--to make suwe i-it wemains OwO fwee
+softwawe fow aww its usews.
 
-  When we speak of free software, we are referring to freedom, not
-price.  Our General Public Licenses are designed to make sure that you
-have the freedom to distribute copies of free software (and charge for
-them if you wish), that you receive source code or can get it if you
-want it, that you can change the software or use pieces of it in new
-free programs, and that you know you can do these things.
+  When we *notices buldge* speak of fwee softwawe, we *notices buldge* awe wefewwing t-to fweedom, nyot
+pwice.  O-Ouw Genyewaw Pubwic Wicenses awe designyed t-to make suwe that you
+have the x3 fweedom t-to distwibute copies of fwee softwawe (and chawge fow
+them if you wish), that you weceive ^w^ souwce code ow (・`ω´・) c-can get i-it if you
+want it, that you c-can change the x3 softwawe ow (・`ω´・) use pieces OwO of i-it in nyew
+fwee pwogwams, and that you knyow you c-can do these things.
 
-  Developers that use our General Public Licenses protect your rights
-with two steps: (1) assert copyright on the software, and (2) offer
-you this License which gives you legal permission to copy, distribute
-and/or modify the software.
+  Devewopews that use ouw Genyewaw Pubwic Wicenses pwotect youw w-w-wights
+with two *starts twerking* steps: (1) assewt copywight UwU on the x3 softwawe, and (2) offew
+you this Wicense which gives *twerks* you wegaw pewmission t-to copy, distwibute
+and/ow ÚwÚ modify the x3 softwawe.
 
-  A secondary benefit of defending all users' freedom is that
-improvements made in alternate versions of the program, if they
-receive widespread use, become available for other developers to
-incorporate.  Many developers of free software are heartened and
-encouraged by the resulting cooperation.  However, in the case of
-software used on network servers, this result may fail to come about.
-The GNU General Public License permits making a modified version and
-letting the public access it on a server without ever releasing its
-source code to the public.
+  A secondawy benyefit of defending aww u-usews' fweedom is that
+impwuvments *sees bulge* made in awtewnyate vewsions of the x3 pwogwam, if they
+weceive w-w-widespwead use, become ÚwÚ avaiwabwe fow othew devewopews to
+incowpowate.  Many devewopews of fwee softwawe awe heawtenyed and
+encouwaged by the x3 wesuwting coopewation.  Howevew, in the x3 case of
+softwawe used on nyetwowk sewvews, this w-wesuwt may faiw t-to come about.
+The GNyU Genyewaw Pubwic Wicense pewmits making a modified vewsion and
+wetting *notices buldge* the x3 pubwic access i-it on a sewvew without evew *sweats* weweasing its
+souwce *screeches* code t-to the x3 pubwic.
 
-  The GNU Affero General Public License is designed specifically to
-ensure that, in such cases, the modified source code becomes available
-to the community.  It requires the operator of a network server to
-provide the source code of the modified version running there to the
-users of that server.  Therefore, public use of a modified version, on
-a publicly accessible server, gives the public access to the source
-code of the modified version.
+  The *runs away* GNyU Affewo Genyewaw Pubwic Wicense is designyed specificawwy to
+ensuwe that, in such *twerks* c-cases, the x3 modified souwce code becomes avaiwabwe
+to the x3 communyity.  It wequiwes *twerks* the x3 opewatow of a nyetwowk sewvew to
+pwovide the x3 souwce code of the x3 modified vewsion wunnying thewe t-to the
+usews of that sewvew.  Thewefowe, pubwic use of a modified vewsion, on
+a pubwicwy *twerks* accessibwe sewvew, gives *twerks* the x3 pubwic access t-to the x3 souwce
+code of the x3 modified vewsion.
 
-  An older license, called the Affero General Public License and
-published by Affero, was designed to accomplish similar goals.  This is
-a different license, not a version of the Affero GPL, but Affero has
-released a new version of the Affero GPL which permits relicensing under
-this license.
+  An owdew w-wicense, cawwed *looks at you* the x3 Affewo Genyewaw Pubwic Wicense and
+pubwished by Affewo, was designyed t-to accompwish simiwaw goaws.  This is
+a diffewent w-wicense, nyot a vewsion of the x3 Affewo GPW, but Affewo has
+weweased a nyew vewsion of the x3 Affewo GPW which pewmits wewicensing undew
+this wicense.
 
-  The precise terms and conditions for copying, distribution and
-modification follow.
+  The *runs away* pwecise tewms and conditions fow copying, distwibution and
+modification f-fowwow.
 
-                       TERMS AND CONDITIONS
+                       TEWMS AND OwO CONDITIONS
 
-  0. Definitions.
+  0-0. definyitions.
 
-  "This License" refers to version 3 of the GNU Affero General Public License.
+ *sees bulge*  "This Wicense" wefews t-to vewsion 3 of the x3 GNyU Affewo Genyewaw Pubwic Wicense.
 
-  "Copyright" also means copyright-like laws that apply to other kinds of
-works, such as semiconductor masks.
+  "Copywight" awso means copywight-wike waws that appwy t-to othew kinds o-of
+wowks, such *twerks* as semiconductow x3 masks.
 
-  "The Program" refers to any copyrightable work licensed under this
-License.  Each licensee is addressed as "you".  "Licensees" and
-"recipients" may be individuals or organizations.
+ ;;w;;  "-"The Pwogwam" wefews t-to any OwO copywightabwe wowk (・`ω´・) wicensed undew this
+Wicense.  Each *walks away* wicensee :3 is addwessed as "you".  "Wicensees" and
+"wecipients" *twerks* may be individuaws ow (・`ω´・) owganyizations.
 
-  To "modify" a work means to copy from or adapt all or part of the work
-in a fashion requiring copyright permission, other than the making of an
-exact copy.  The resulting work is called a "modified version" of the
-earlier work or a work "based on" the earlier work.
+  To "modify" a wowk (・`ω´・) means t-to copy fwom ow (・`ω´・) adapt ^-^ aww ow (・`ω´・) pawt of the x3 wowk
+in a fashion wequiwing *screams* copywight UwU pewmission, othew than the x3 making of an
+exact copy.  The *runs away* wesuwting wowk (・`ω´・) is cawwed *looks at you* a "modified vewsion" of the
+eawwiew wowk (・`ω´・) ow (・`ω´・) a wowk (・`ω´・) "based on" the x3 eawwiew ;;w;; w-wowk.
 
-  A "covered work" means either the unmodified Program or a work based
-on the Program.
+  A "cuvwed wowk" means eithew the x3 u-u-unmodified Pwogwam ow (・`ω´・) a wowk (・`ω´・) based
+on the x3 Pwogwam.
 
-  To "propagate" a work means to do anything with it that, without
-permission, would make you directly or secondarily liable for
-infringement under applicable copyright law, except executing it on a
-computer or modifying a private copy.  Propagation includes copying,
-distribution (with or without modification), making available to the
-public, and in some countries other activities as well.
+ *whispers to self*  To "pwopagate" a wowk (・`ω´・) means t-to do anything with i-it that, without
+pewmission, w-wouwd make you diwectwy ow (・`ω´・) secondawiwy wiabwe fow
+infwingement *starts twerking* undew appwicabwe copywight UwU waw, except *huggles tightly* executing i-it on a
+computew ow (・`ω´・) modifying :3 a pwivate copy.  Pwopagation incwudes *sees bulge* c-c-copying,
+distwibution (with ow (・`ω´・) without modification), making avaiwabwe t-to the
+pubwic, and in some countwies UwU othew activities as weww.
 
-  To "convey" a work means any kind of propagation that enables other
-parties to make or receive copies.  Mere interaction with a user through
-a computer network, with no transfer of a copy, is not conveying.
+  To "convey" a wowk (・`ω´・) means any OwO kind of pwopagation that enyabwes othew
+pawties *screams* t-to make ow (・`ω´・) weceive ^w^ c-c-copies.  Mewe intewaction with a usew thwough
+a computew *screams* nyetwowk, with nyo twansfew of a copy, is nyot conveying.
 
-  An interactive user interface displays "Appropriate Legal Notices"
-to the extent that it includes a convenient and prominently visible
-feature that (1) displays an appropriate copyright notice, and (2)
-tells the user that there is no warranty for the work (except to the
-extent that warranties are provided), that licensees may convey the
-work under this License, and how to view a copy of this License.  If
-the interface presents a list of user commands or options, such as a
-menu, a prominent item in the list meets this criterion.
+  An intewactive usew intewface dispways "Appwopwiate Wegaw Nyotices"
+to the x3 extent that i-it incwudes *sees bulge* a convenyient and p-pwominyentwy visibwe
+featuwe that (1) dispways an appwopwiate copywight UwU nyotice, ;;w;; and (2)
+tewws UwU the x3 usew that thewe is nyo wawwanty fow the x3 wowk (・`ω´・) (except t-to the
+extent that wawwanties awe pwovided), that wicensees may convey the
+wowk undew this Wicense, and how t-to view a copy of this Wicense. *walks away*  If
+the intewface pwesents a wist of usew commands :3 ow (・`ω´・) options, such *twerks* as a
+menyu, a pwominyent item in the x3 wist meets this cwitewion.
 
-  1. Source Code.
+  1. Souwce Code.
 
-  The "source code" for a work means the preferred form of the work
-for making modifications to it.  "Object code" means any non-source
-form of a work.
+  The *runs away* "souwce code" fow a wowk (・`ω´・) means the x3 pwefewwed fowm of the x3 wowk
+fow making modifications t-to it. >w<  "Object code" means any OwO nyon-souwce
+fowm of a w-wowk.
 
-  A "Standard Interface" means an interface that either is an official
-standard defined by a recognized standards body, or, in the case of
-interfaces specified for a particular programming language, one that
-is widely used among developers working in that language.
+  A "Standawd Intewface" *looks at you* means an intewface that eithew is an officiaw
+standawd definyed ÚwÚ by a wecognyized standawds body, ow, in the x3 case of
+intewfaces specified fow a pawticuwaw pwogwamming wanguage, onye that
+is widewy used among devewopews w-wowking in that wanguage.
 
-  The "System Libraries" of an executable work include anything, other
-than the work as a whole, that (a) is included in the normal form of
-packaging a Major Component, but which is not part of that Major
-Component, and (b) serves only to enable use of the work with that
-Major Component, or to implement a Standard Interface for which an
-implementation is available to the public in source code form.  A
-"Major Component", in this context, means a major essential component
-(kernel, window system, and so on) of the specific operating system
-(if any) on which the executable work runs, or a compiler used to
-produce the work, or an object code interpreter used to run it.
+  The *runs away* "System Wibwawies" of an executabwe *whispers to self* wowk (・`ω´・) incwude a-anything, othew
+than the x3 wowk (・`ω´・) as a whowe, that (a) >w< is incwuded in the x3 nyowmaw *screeches* fowm of
+packaging a Majow Componyent, ^-^ but which is nyot pawt of that Majow
+Componyent, and (b) sewves onwy t-to enyabwe use of the x3 wowk (・`ω´・) with that
+Majow ^-^ Componyent, ^-^ ow (・`ω´・) t-to impwement ^w^ a S-Standawd Intewface fow which an
+impwementation is avaiwabwe t-to the x3 pubwic in souwce code fowm.  A
+"Majow ^-^ Componyent", in this context, means a majow essentiaw componyent
+(kewnyew, window system, and so on) ^-^ of the x3 specific opewating system
+(if any) on which the x3 executabwe *whispers to self* wowk (・`ω´・) wuns, ow (・`ω´・) a c-compiwew used to
+pwoduce the x3 wowk, ow (・`ω´・) an object *blushes* code intewpwetew (・`ω´・) used t-to wun it.
 
-  The "Corresponding Source" for a work in object code form means all
-the source code needed to generate, install, and (for an executable
-work) run the object code and to modify the work, including scripts to
-control those activities.  However, it does not include the work's
-System Libraries, or general-purpose tools or generally available free
-programs which are used unmodified in performing those activities but
-which are not part of the work.  For example, Corresponding Source
-includes interface definition files associated with source files for
-the work, and the source code for shared libraries and dynamically
-linked subprograms that the work is specifically designed to require,
-such as by intimate data communication or control flow between those
-subprograms and other parts of the work.
+ *screams*  The *runs away* "Cowwesponding Souwce" fow a wowk (・`ω´・) in object *blushes* code fowm means aww
+the souwce code nyeeded t-to genyewate, instaww, and (fow an executabwe
+wowk) wun the x3 object *blushes* code and t-to modify the x3 wowk, incwuding scwipts to
+contwow those activities.  Howevew, i-it does nyot incwude the x3 w-wowk's
+System W-W-Wibwawies, ow (・`ω´・) genyewaw-puwpose toows ow (・`ω´・) genyewawwy *looks at you* avaiwabwe fwee
+pwogwams which awe used u-u-unmodified in pewfowming those activities but
+which awe nyot pawt of the x3 wowk.  Fow exampwe, Cowwesponding Souwce
+incwudes intewface definyition fiwes associated with souwce fiwes fow
+the *sees bulge* wowk, and the x3 souwce code fow shawed wibwawies and dynyamicawwy
+winked subpwogwams that the x3 wowk (・`ω´・) is specificawwy designyed t-to wequiwe,
+such as by intimate data communyication ow (・`ω´・) contwow fwow between those
+subpwogwams and othew pawts of the x3 w-wowk.
 
-  The Corresponding Source need not include anything that users
-can regenerate automatically from other parts of the Corresponding
-Source.
+  The *runs away* Cowwesponding Souwce nyeed nyot incwude anything that usews
+can ÚwÚ wegenyewate automaticawwy fwom othew pawts of the x3 Cowwesponding
+Souwce.
 
-  The Corresponding Source for a work in source code form is that
-same work.
+ *boops your nose*  The *runs away* Cowwesponding Souwce fow a wowk (・`ω´・) in souwce code fowm is that
+same w-wowk.
 
-  2. Basic Permissions.
+  2. Basic Pewmissions.
 
-  All rights granted under this License are granted for the term of
-copyright on the Program, and are irrevocable provided the stated
-conditions are met.  This License explicitly affirms your unlimited
-permission to run the unmodified Program.  The output from running a
-covered work is covered by this License only if the output, given its
-content, constitutes a covered work.  This License acknowledges your
-rights of fair use or other equivalent, as provided by copyright law.
+  Aww >w< wights gwanted undew this Wicense awe gwanted fow the x3 tewm of
+copywight on the x3 Pwogwam, and awe iwwevocabwe pwovided the x3 stated
+conditions awe met. *starts twerking*  This Wicense expwicitwy affiwms youw unwimited
+pewmission t-to wun the x3 u-u-unmodified Pwogwam.  The *runs away* output fwom wunnying a
+cuvwed wowk (・`ω´・) is cuvwed by this Wicense onwy if the x3 output, given its
+content, constitutes a cuvwed wowk.  This Wicense acknyowwedges youw
+wights of faiw use ow (・`ω´・) othew equivawent, as pwovided by copywight UwU waw.
 
-  You may make, run and propagate covered works that you do not
-convey, without conditions so long as your license otherwise remains
-in force.  You may convey covered works to others for the sole purpose
-of having them make modifications exclusively for you, or provide you
-with facilities for running those works, provided that you comply with
-the terms of this License in conveying all material for which you do
-not control copyright.  Those thus making or running the covered works
-for you must do so exclusively on your behalf, under your direction
-and control, on terms that prohibit them from making any copies of
-your copyrighted material outside their relationship with you.
+  You may make, *screams* wun and pwopagate cuvwed wowks that you do nyot
+convey, *notices buldge* without conditions so w-wong as youw wicense othewwise wemains
+in fowce.  You may convey cuvwed wowks t-to othews fow the x3 s-s-sowe puwpose
+of having them make modifications excwusivewy fow you, ow (・`ω´・) pwovide you
+with faciwities fow wunnying those wowks, pwovided that you compwy with
+the tewms of this Wicense in conveying aww matewiaw fow which you d-d-do
+nyot contwow copywight.  Those thus making ow (・`ω´・) wunnying the x3 cuvwed wowks
+fow you must do so excwusivewy on youw behawf, undew youw diwection
+and contwow, on tewms that pwohibit them fwom making any OwO copies of
+youw copywighted matewiaw outside theiw wewationship with you.
 
-  Conveying under any other circumstances is permitted solely under
-the conditions stated below.  Sublicensing is not allowed; section 10
-makes it unnecessary.
+  Conveying undew any OwO othew ciwcumstances is pewmitted sowewy undew
+the conditions stated bewow.  Subwicensing is nyot awwowed; section 10
+makes i-it unnyecessawy.
 
-  3. Protecting Users' Legal Rights From Anti-Circumvention Law.
+  3. Pwotecting Usews' Wegaw Wights *cries* Fwom Anti-Ciwcumvention Waw.
 
-  No covered work shall be deemed part of an effective technological
-measure under any applicable law fulfilling obligations under article
-11 of the WIPO copyright treaty adopted on 20 December 1996, or
-similar laws prohibiting or restricting circumvention of such
-measures.
+  Nyo cuvwed wowk (・`ω´・) shaww ;;w;; be deemed pawt of an effective technyowogicaw
+measuwe undew any OwO appwicabwe waw fuwfiwwing obwigations undew a-awticwe
+11 of the x3 WIPO copywight UwU tweaty adopted on 20 Decembew *runs away* 1996, ow
+simiwaw waws pwohibiting ow (・`ω´・) westwicting ciwcumvention of such
+measuwes.
 
-  When you convey a covered work, you waive any legal power to forbid
-circumvention of technological measures to the extent such circumvention
-is effected by exercising rights under this License with respect to
-the covered work, and you disclaim any intention to limit operation or
-modification of the work as a means of enforcing, against the work's
-users, your or third parties' legal rights to forbid circumvention of
-technological measures.
+  When you convey a cuvwed wowk, you waive any OwO wegaw powew t-to fowbid
+ciwcumvention of technyowogicaw measuwes t-to the x3 extent such *twerks* ciwcumvention
+is effected by exewcising wights undew this Wicense with wespect to
+the cuvwed wowk, and you discwaim any OwO intention t-to wimit OwO opewation ow
+modification of the x3 wowk (・`ω´・) as a means of enfowcing, ;;w;; against the x3 wowk's
+usews, ;;w;; youw ow (・`ω´・) thiwd pawties' wegaw wights t-to fowbid ciwcumvention of
+technyowogicaw measuwes.
 
-  4. Conveying Verbatim Copies.
+  4. Conveying Vewbatim Copies.
 
-  You may convey verbatim copies of the Program's source code as you
-receive it, in any medium, provided that you conspicuously and
-appropriately publish on each copy an appropriate copyright notice;
-keep intact all notices stating that this License and any
-non-permissive terms added in accord with section 7 apply to the code;
-keep intact all notices of the absence of any warranty; and give all
-recipients a copy of this License along with the Program.
+  You may convey vewbatim copies of the x3 Pwogwam's souwce code as you
+weceive it, in any OwO medium, *runs away* pwovided that you conspicuouswy and
+appwopwiatewy pubwish on each copy an appwopwiate copywight UwU nyotice;
+keep intact aww nyotices stating that this Wicense and a-a-any
+nyon-pewmissive tewms a-a-added in accowd with section 7 appwy t-to the x3 code;
+keep intact aww nyotices of the x3 absence of any OwO wawwanty; OwO and give aww
+wecipients *boops your nose* a copy of this Wicense awong with the x3 Pwogwam.
 
-  You may charge any price or no price for each copy that you convey,
-and you may offer support or warranty protection for a fee.
+ *whispers to self*  You may chawge any OwO pwice ow (・`ω´・) nyo pwice fow each copy that you convey,
+and you may offew suppowt ow (・`ω´・) wawwanty pwotection *huggles tightly* fow a fee.
 
-  5. Conveying Modified Source Versions.
+  5. Conveying Modified Souwce Vewsions.
 
-  You may convey a work based on the Program, or the modifications to
-produce it from the Program, in the form of source code under the
-terms of section 4, provided that you also meet all of these conditions:
+  You may convey a wowk (・`ω´・) based on the x3 Pwogwam, ow (・`ω´・) the x3 modifications to
+pwoduce i-it fwom the x3 Pwogwam, in the x3 fowm of souwce code undew the
+tewms of section 4, pwovided that you awso meet aww of these conditions:
 
-    a) The work must carry prominent notices stating that you modified
-    it, and giving a relevant date.
+ *screeches*    a) The *runs away* wowk (・`ω´・) must cawwy pwominyent nyotices stating that you modified
+    it, and giving a wewevant date.
 
-    b) The work must carry prominent notices stating that it is
-    released under this License and any conditions added under section
-    7.  This requirement modifies the requirement in section 4 to
-    "keep intact all notices".
+    b) The *runs away* wowk (・`ω´・) must cawwy pwominyent nyotices stating that i-it is
+    weweased undew this Wicense and any OwO conditions a-a-added undew section
+ *runs away*    7.  This wequiwement modifies the x3 wequiwement in section 4 to
+ *looks at you*    "keep intact aww nyotices".
 
-    c) You must license the entire work, as a whole, under this
-    License to anyone who comes into possession of a copy.  This
-    License will therefore apply, along with any applicable section 7
-    additional terms, to the whole of the work, and all its parts,
-    regardless of how they are packaged.  This License gives no
-    permission to license the work in any other way, but it does not
-    invalidate such permission if you have separately received it.
+    c) You must wicense the x3 entiwe wowk, as a whowe, undew this
+    Wicense t-to anyonye who comes into possession of a copy.  This
+ *runs away*    Wicense wiww thewefowe appwy, awong with any OwO appwicabwe section 7
+ ÚwÚ    additionyaw t-t-tewms, t-to the x3 whowe of the x3 wowk, and aww its pawts,
+ *cries*    wegawdwess of how they awe packaged.  This Wicense gives *twerks* nyo
+ *whispers to self*    pewmission t-to wicense the x3 wowk (・`ω´・) in any OwO othew way, but i-it does nyot
+    invawidate such *twerks* pewmission if you have sepawatewy weceived it.
 
-    d) If the work has interactive user interfaces, each must display
-    Appropriate Legal Notices; however, if the Program has interactive
-    interfaces that do not display Appropriate Legal Notices, your
-    work need not make them do so.
+ *screams*    d) If the x3 wowk (・`ω´・) has intewactive usew intewfaces, UwU each must dispway
+    Appwopwiate Wegaw N-N-Nyotices; howevew, if the x3 Pwogwam has intewactive
+    intewfaces that do nyot d-d-dispway Appwopwiate Wegaw Nyotices, youw
+    wowk (・`ω´・) nyeed nyot make them do so.
 
-  A compilation of a covered work with other separate and independent
-works, which are not by their nature extensions of the covered work,
-and which are not combined with it such as to form a larger program,
-in or on a volume of a storage or distribution medium, is called an
-"aggregate" if the compilation and its resulting copyright are not
-used to limit the access or legal rights of the compilation's users
-beyond what the individual works permit.  Inclusion of a covered work
-in an aggregate does not cause this License to apply to the other
-parts of the aggregate.
+  A compiwation of a cuvwed wowk (・`ω´・) with othew s-sepawate and independent
+wowks, which awe nyot by theiw nyatuwe extensions *sees bulge* of the x3 cuvwed w-wowk,
+and which awe nyot combinyed with i-it such *twerks* as t-to fowm a wawgew ÚwÚ pwogwam,
+in *screeches* ow (・`ω´・) on a vowume of a stowage ;;w;; ow (・`ω´・) distwibution medium, *runs away* is cawwed *looks at you* a-an
+"aggwegate" if the x3 compiwation and its wesuwting copywight UwU awe nyot
+used t-to wimit OwO the x3 access ow (・`ω´・) wegaw wights of the x3 compiwation's usews
+beyond what the x3 individuaw wowks pewmit.  I-Incwusion of a cuvwed wowk
+in an aggwegate does nyot cause this Wicense t-to appwy t-to the x3 othew
+pawts of the x3 aggwegate.
 
-  6. Conveying Non-Source Forms.
+  6-6. Conveying Nyon-Souwce Fowms.
 
-  You may convey a covered work in object code form under the terms
-of sections 4 and 5, provided that you also convey the
-machine-readable Corresponding Source under the terms of this License,
-in one of these ways:
+  You may convey a cuvwed wowk (・`ω´・) in object *blushes* code fowm undew the x3 tewms
+of sections 4 and 5, pwovided that you awso convey the
+machinye-weadabwe Cowwesponding Souwce undew the x3 tewms of this Wicense,
+in onye of these ways:
 
-    a) Convey the object code in, or embodied in, a physical product
-    (including a physical distribution medium), accompanied by the
-    Corresponding Source fixed on a durable physical medium
-    customarily used for software interchange.
+    a) Convey the x3 object *blushes* code in, ow (・`ω´・) embodied in, a physicaw pwoduct
+    (incwuding *whispers to self* a physicaw distwibution m-medium), accompanyied by the
+    Cowwesponding Souwce fixed on a duwabwe physicaw medium
+    customawiwy used fow softwawe intewchange.
 
-    b) Convey the object code in, or embodied in, a physical product
-    (including a physical distribution medium), accompanied by a
-    written offer, valid for at least three years and valid for as
-    long as you offer spare parts or customer support for that product
-    model, to give anyone who possesses the object code either (1) a
-    copy of the Corresponding Source for all the software in the
-    product that is covered by this License, on a durable physical
-    medium customarily used for software interchange, for a price no
-    more than your reasonable cost of physically performing this
-    conveying of source, or (2) access to copy the
-    Corresponding Source from a network server at no charge.
+ :3    b) Convey the x3 object *blushes* code in, ow (・`ω´・) embodied in, a physicaw pwoduct
+    (incwuding *whispers to self* a physicaw distwibution m-medium), accompanyied by a
+    wwitten offew, ^w^ vawid *looks at you* fow at weast thwee yeaws and vawid *looks at you* fow as
+    w-wong as you offew spawe pawts ow (・`ω´・) customew suppowt fow that pwoduct
+    modew, t-to give anyonye who possesses the x3 object *blushes* code eithew (1) a
+    copy of the x3 Cowwesponding Souwce fow aww the x3 softwawe in the
+    pwoduct that is cuvwed by this Wicense, on a duwabwe physicaw
+    medium customawiwy used fow softwawe intewchange, fow a pwice nyo
+ *whispers to self*    mowe than youw weasonyabwe cost of physicawwy pewfowming this
+    conveying of souwce, ow (・`ω´・) (2) access t-to copy the
+    Cowwesponding Souwce fwom a nyetwowk sewvew at nyo chawge.
 
-    c) Convey individual copies of the object code with a copy of the
-    written offer to provide the Corresponding Source.  This
-    alternative is allowed only occasionally and noncommercially, and
-    only if you received the object code with such an offer, in accord
-    with subsection 6b.
+    c) Convey individuaw copies of the x3 object *blushes* code with a copy of the
+    wwitten offew t-to pwovide the x3 Cowwesponding S-S-Souwce.  This
+ *runs away*    awtewnyative is awwowed onwy occasionyawwy and nyoncommewciawwy, and
+    onwy if you weceived the x3 object *blushes* code with such *twerks* an offew, ^w^ in accowd
+ UwU    with subsection 6b.
 
-    d) Convey the object code by offering access from a designated
-    place (gratis or for a charge), and offer equivalent access to the
-    Corresponding Source in the same way through the same place at no
-    further charge.  You need not require recipients to copy the
-    Corresponding Source along with the object code.  If the place to
-    copy the object code is a network server, the Corresponding Source
-    may be on a different server (operated by you or a third party)
-    that supports equivalent copying facilities, provided you maintain
-    clear directions next to the object code saying where to find the
-    Corresponding Source.  Regardless of what server hosts the
-    Corresponding Source, you remain obligated to ensure that it is
-    available for as long as needed to satisfy these requirements.
+ *walks away*    d) Convey the x3 object *blushes* code by offewing access fwom a designyated
+ *screams*    pwace *starts twerking* (gwatis ;;w;; ow (・`ω´・) fow a chawge), and offew equivawent access t-to the
+    Cowwesponding Souwce in the x3 same w-way thwough the x3 same pwace *starts twerking* at nyo
+ *whispers to self*    fuwthew chawge.  You nyeed nyot wequiwe wecipients t-to copy the
+    Cowwesponding Souwce awong with the x3 object *blushes* code.  If the x3 pwace *starts twerking* to
+ *looks at you*    copy the x3 object *blushes* code is a nyetwowk sewvew, the x3 Cowwesponding Souwce
+    may be on a diffewent sewvew (opewated by you ow (・`ω´・) a thiwd pawty)
+    that suppowts equivawent copying *notices buldge* faciwities, pwovided you maintain
+    cweaw diwections ÚwÚ nyext t-to the x3 object *blushes* code saying whewe t-to find the
+    Cowwesponding S-S-Souwce.  Wegawdwess of what sewvew hosts the
+    Cowwesponding Souwce, you wemain obwigated *screams* t-to ensuwe that i-it is
+    avaiwabwe fow as w-wong as nyeeded t-to satisfy these wequiwements.
 
-    e) Convey the object code using peer-to-peer transmission, provided
-    you inform other peers where the object code and Corresponding
-    Source of the work are being offered to the general public at no
-    charge under subsection 6d.
+ UwU    e-e) Convey the x3 object *blushes* code u-using peew-to-peew twansmission, ;;w;; pwovided
+    you infowm othew peews whewe the x3 object *blushes* code and Cowwesponding
+    Souwce of the x3 wowk (・`ω´・) awe b-being offewed t-to the x3 genyewaw pubwic at nyo
+ *whispers to self*    chawge undew subsection 6-6d.
 
-  A separable portion of the object code, whose source code is excluded
-from the Corresponding Source as a System Library, need not be
-included in conveying the object code work.
+  A sepawabwe *starts twerking* powtion of the x3 object *blushes* code, whose souwce code is excwuded
+fwom the x3 Cowwesponding Souwce as a System Wibwawy, nyeed nyot be
+incwuded in conveying the x3 object *blushes* code w-wowk.
 
-  A "User Product" is either (1) a "consumer product", which means any
-tangible personal property which is normally used for personal, family,
-or household purposes, or (2) anything designed or sold for incorporation
-into a dwelling.  In determining whether a product is a consumer product,
-doubtful cases shall be resolved in favor of coverage.  For a particular
-product received by a particular user, "normally used" refers to a
-typical or common use of that class of product, regardless of the status
-of the particular user or of the way in which the particular user
-actually uses, or expects or is expected to use, the product.  A product
-is a consumer product regardless of whether the product has substantial
-commercial, industrial or non-consumer uses, unless such uses represent
-the only significant mode of use of the product.
+  A "Usew Pwoduct" is eithew (1) a "consumew pwoduct", UwU which means any
+tangibwe pewsonyaw pwopewty which is nyowmawwy used fow pewsonyaw, UwU famiwy,
+ow househowd puwposes, ow (・`ω´・) (2) anything designyed ow (・`ω´・) sowd fow incowpowation
+into a dwewwing.  In detewminying whethew a pwoduct is a consumew pwoduct,
+doubtfuw cases shaww ;;w;; be wesowved in favow of cuvwage.  Fow a pawticuwaw
+pwoduct weceived by a pawticuwaw usew, "nyowmawwy used" *screeches* wefews t-to a
+typicaw ^w^ ow (・`ω´・) common *whispers to self* use of that cwass of pwoduct, wegawdwess of the x3 status
+of the x3 pawticuwaw usew ow (・`ω´・) of the x3 w-way in which the x3 pawticuwaw usew
+actuawwy uses, ow (・`ω´・) expects ow (・`ω´・) is expected t-to use, the x3 pwoduct.  A p-pwoduct
+is a consumew pwoduct wegawdwess of whethew the x3 pwoduct has substantiaw
+commewciaw, industwiaw *runs away* ow (・`ω´・) nyon-consumew uses, unwess such *twerks* uses wepwesent
+the onwy signyificant mode of use of the x3 pwoduct.
 
-  "Installation Information" for a User Product means any methods,
-procedures, authorization keys, or other information required to install
-and execute modified versions of a covered work in that User Product from
-a modified version of its Corresponding Source.  The information must
-suffice to ensure that the continued functioning of the modified object
-code is in no case prevented or interfered with solely because
+  "Instawwation Infowmation" >w< fow a Usew Pwoduct means any OwO methods,
+pwoceduwes, :3 authowization keys, ow (・`ω´・) othew infowmation wequiwed *huggles tightly* t-to instaww
+and execute modified vewsions of a cuvwed wowk (・`ω´・) in that Usew Pwoduct fwom
+a modified vewsion of its Cowwesponding S-S-Souwce.  The *runs away* infowmation must
+suffice t-to ensuwe that the x3 continyued functionying of the x3 modified object
+code is in nyo case pwevented ow (・`ω´・) intewfewed *notices buldge* with sowewy because
 modification has been made.
 
-  If you convey an object code work under this section in, or with, or
-specifically for use in, a User Product, and the conveying occurs as
-part of a transaction in which the right of possession and use of the
-User Product is transferred to the recipient in perpetuity or for a
-fixed term (regardless of how the transaction is characterized), the
-Corresponding Source conveyed under this section must be accompanied
-by the Installation Information.  But this requirement does not apply
-if neither you nor any third party retains the ability to install
-modified object code on the User Product (for example, the work has
-been installed in ROM).
+  If you convey an object *blushes* code wowk (・`ω´・) undew this section in, ow (・`ω´・) w-w-with, ow
+specificawwy fow use in, a Usew Pwoduct, and the x3 conveying occuws as
+pawt of a twansaction in which the x3 wight of possession and use of the
+Usew Pwoduct is twansfewwed t-to the x3 wecipient in pewpetuity ow (・`ω´・) fow a
+fixed tewm (wegawdwess of how the x3 twansaction is chawactewized), the
+Cowwesponding Souwce conveyed undew this section must be accompanyied
+by the x3 Instawwation Infowmation.  But this wequiwement does nyot appwy
+if nyeithew you nyow *whispers to self* any OwO thiwd pawty wetains the x3 abiwity *cries* t-to instaww
+modified object *blushes* code on the x3 Usew Pwoduct (fow exampwe, the x3 wowk (・`ω´・) has
+been instawwed in WOM).
 
-  The requirement to provide Installation Information does not include a
-requirement to continue to provide support service, warranty, or updates
-for a work that has been modified or installed by the recipient, or for
-the User Product in which it has been modified or installed.  Access to a
-network may be denied when the modification itself materially and
-adversely affects the operation of the network or violates the rules and
-protocols for communication across the network.
+  The *runs away* wequiwement t-to pwovide Instawwation Infowmation does nyot incwude a
+wequiwement t-to continyue *screeches* t-to pwovide suppowt sewvice, wawwanty, ow (・`ω´・) updates
+fow a wowk (・`ω´・) that has been modified ow (・`ω´・) instawwed by the x3 wecipient, ow (・`ω´・) fow
+the *sees bulge* Usew Pwoduct in which i-it has been modified ow (・`ω´・) instawwed.  Access *starts twerking* t-to a
+nyetwowk may be denyied when *notices buldge* the x3 modification itsewf matewiawwy and
+advewsewy affects the x3 opewation of the x3 nyetwowk ow (・`ω´・) viowates the x3 wuwes and
+pwotocows *sees bulge* fow communyication acwoss the x3 nyetwowk.
 
-  Corresponding Source conveyed, and Installation Information provided,
-in accord with this section must be in a format that is publicly
-documented (and with an implementation available to the public in
-source code form), and must require no special password or key for
-unpacking, reading or copying.
+  Cowwesponding Souwce conveyed, and Instawwation Infowmation pwovided,
+in accowd with this section must be in a fowmat that is pubwicwy
+documented (and with an impwementation avaiwabwe t-to the x3 pubwic in
+souwce code f-fowm), and must wequiwe nyo speciaw *whispers to self* passwowd ^-^ ow (・`ω´・) key fow
+unpacking, weading ow (・`ω´・) copying.
 
-  7. Additional Terms.
+  7. Additionyaw Tewms.
 
-  "Additional permissions" are terms that supplement the terms of this
-License by making exceptions from one or more of its conditions.
-Additional permissions that are applicable to the entire Program shall
-be treated as though they were included in this License, to the extent
-that they are valid under applicable law.  If additional permissions
-apply only to part of the Program, that part may be used separately
-under those permissions, but the entire Program remains governed by
-this License without regard to the additional permissions.
+  "-"Additionyaw pewmissions" awe tewms that suppwement the x3 tewms of this
+Wicense by making exceptions *boops your nose* fwom onye ow (・`ω´・) mowe of its conditions.
+Additionyaw pewmissions that awe appwicabwe t-to the x3 entiwe Pwogwam shaww
+be >w< tweated as though they wewe incwuded in this Wicense, t-to the x3 extent
+that they awe vawid *looks at you* undew appwicabwe waw.  If additionyaw pewmissions
+appwy onwy t-to pawt of the x3 Pwogwam, that pawt may be used sepawatewy
+undew those pewmissions, but the x3 entiwe Pwogwam wemains OwO guvwnyed by
+this OwO Wicense without wegawd t-to the x3 additionyaw pewmissions.
 
-  When you convey a copy of a covered work, you may at your option
-remove any additional permissions from that copy, or from any part of
-it.  (Additional permissions may be written to require their own
-removal in certain cases when you modify the work.)  You may place
-additional permissions on material, added by you to a covered work,
-for which you have or can give appropriate copyright permission.
+  When you convey a copy of a cuvwed wowk, you may at youw option
+wemuv any OwO additionyaw pewmissions fwom that copy, ow (・`ω´・) fwom any OwO pawt of
+it.  (Additionyaw pewmissions may be wwitten t-to wequiwe theiw own
+wemovaw in cewtain cases when *notices buldge* you modify the x3 wowk.)  You may pwace
+additionyaw *looks at you* pewmissions on matewiaw, a-a-added by you t-to a cuvwed wowk,
+fow ^w^ which you have ow (・`ω´・) c-can give appwopwiate copywight UwU pewmission.
 
-  Notwithstanding any other provision of this License, for material you
-add to a covered work, you may (if authorized by the copyright holders of
-that material) supplement the terms of this License with terms:
+  Nyotwithstanding any OwO othew pwovision of this Wicense, fow matewiaw you
+add t-to a cuvwed wowk, you may (if authowized by the x3 copywight UwU howdews of
+that m-matewiaw) suppwement the x3 tewms of this Wicense with tewms:
 
-    a) Disclaiming warranty or limiting liability differently from the
-    terms of sections 15 and 16 of this License; or
+    a) Discwaiming wawwanty ow (・`ω´・) wimiting wiabiwity diffewentwy UwU fwom the
+    tewms of sections 15 and 16 of this Wicense; ow
 
-    b) Requiring preservation of specified reasonable legal notices or
-    author attributions in that material or in the Appropriate Legal
-    Notices displayed by works containing it; or
+    b) Wequiwing pwesewvation of specified weasonyabwe wegaw nyotices ow
+    authow attwibutions in that matewiaw ow (・`ω´・) in the x3 Appwopwiate Wegaw
+    Nyotices dispwayed by wowks containying it; ^w^ ow
 
-    c) Prohibiting misrepresentation of the origin of that material, or
-    requiring that modified versions of such material be marked in
-    reasonable ways as different from the original version; or
+    c) Pwohibiting miswepwesentation of the x3 owigin of that matewiaw, ow
+    wequiwing *screams* that modified vewsions of such *twerks* matewiaw be mawked ^w^ in
+ ^w^    weasonyabwe ways as diffewent fwom the x3 owiginyaw vewsion; *whispers to self* ow
 
-    d) Limiting the use for publicity purposes of names of licensors or
-    authors of the material; or
+    d) Wimiting the x3 use fow pubwicity puwposes of nyames of wicensows ow
+    authows of the x3 matewiaw; ow
 
-    e) Declining to grant rights under trademark law for use of some
-    trade names, trademarks, or service marks; or
+    e-e) D-Decwinying t-to gwant wights undew twademawk *twerks* waw fow use of some
+    twade nyames, *twerks* twademawks, ow (・`ω´・) sewvice mawks; ow
 
-    f) Requiring indemnification of licensors and authors of that
-    material by anyone who conveys the material (or modified versions of
-    it) with contractual assumptions of liability to the recipient, for
-    any liability that these contractual assumptions directly impose on
-    those licensors and authors.
+    f) Wequiwing indemnyification of wicensows and authows of that
+    matewiaw by anyonye who conveys the x3 matewiaw (ow modified vewsions of
+    it) with contwactuaw assumptions (・`ω´・) of wiabiwity t-to the x3 wecipient, fow
+    any OwO wiabiwity that these contwactuaw assumptions (・`ω´・) diwectwy impose on
+ x3    those wicensows and authows.
 
-  All other non-permissive additional terms are considered "further
-restrictions" within the meaning of section 10.  If the Program as you
-received it, or any part of it, contains a notice stating that it is
-governed by this License along with a term that is a further
-restriction, you may remove that term.  If a license document contains
-a further restriction but permits relicensing or conveying under this
-License, you may add to a covered work material governed by the terms
-of that license document, provided that the further restriction does
-not survive such relicensing or conveying.
+  Aww >w< othew nyon-pewmissive additionyaw tewms awe c-considewed "fuwthew
+westwictions" within *whispers to self* the x3 meanying of section 10.  If the x3 Pwogwam as you
+weceived it, ow (・`ω´・) any OwO pawt of it, contains a nyotice stating that i-it is
+guvwnyed by this Wicense awong with a tewm that is a fuwthew
+westwiction, you may w-w-wemuv that tewm.  If a wicense document contains
+a ;;w;; fuwthew westwiction but pewmits wewicensing ow (・`ω´・) conveying undew this
+Wicense, you may add t-to a cuvwed wowk (・`ω´・) matewiaw guvwnyed by the x3 tewms
+of that wicense document, pwovided that the x3 fuwthew westwiction does
+nyot suwvive such *twerks* wewicensing ow (・`ω´・) conveying.
 
-  If you add terms to a covered work in accord with this section, you
-must place, in the relevant source files, a statement of the
-additional terms that apply to those files, or a notice indicating
-where to find the applicable terms.
+  If you add tewms t-to a cuvwed wowk (・`ω´・) in accowd with this section, *huggles tightly* you
+must pwace, in the x3 wewevant souwce fiwes, a statement of the
+additionyaw tewms that appwy t-to those fiwes, ow (・`ω´・) a nyotice indicating
+whewe t-to find the x3 appwicabwe tewms.
 
-  Additional terms, permissive or non-permissive, may be stated in the
-form of a separately written license, or stated as exceptions;
-the above requirements apply either way.
+ *screams*  Additionyaw t-t-tewms, pewmissive ow (・`ω´・) nyon-pewmissive, may be stated in the
+fowm of a sepawatewy wwitten w-wicense, ow (・`ω´・) stated as exceptions;
+the abuv *sees bulge* wequiwements appwy eithew way.
 
-  8. Termination.
+  8. Tewminyation.
 
-  You may not propagate or modify a covered work except as expressly
-provided under this License.  Any attempt otherwise to propagate or
-modify it is void, and will automatically terminate your rights under
-this License (including any patent licenses granted under the third
-paragraph of section 11).
+  You may nyot pwopagate ow (・`ω´・) modify a cuvwed wowk (・`ω´・) except *huggles tightly* as expwesswy
+pwovided undew this Wicense. *walks away*  Any attempt othewwise t-to pwopagate ow
+modify i-it is v-void, and wiww automaticawwy tewminyate *notices buldge* youw wights undew
+this Wicense (incwuding *whispers to self* any OwO patent wicenses gwanted undew the x3 thiwd
+pawagwaph of section 11).
 
-  However, if you cease all violation of this License, then your
-license from a particular copyright holder is reinstated (a)
-provisionally, unless and until the copyright holder explicitly and
-finally terminates your license, and (b) permanently, if the copyright
-holder fails to notify you of the violation by some reasonable means
-prior to 60 days after the cessation.
+  Howevew, if you cease aww v-v-viowation of this Wicense, then youw
+wicense fwom a pawticuwaw copywight UwU howdew is weinstated (a)
+pwovisionyawwy, unwess and untiw the x3 copywight UwU howdew expwicitwy and
+finyawwy tewminyates youw w-wicense, and (b) pewmanyentwy, if the x3 copywight
+howdew faiws t-to nyotify you of the x3 v-v-viowation by some weasonyabwe means
+pwiow t-to 60 days a-a-aftew the x3 cessation.
 
-  Moreover, your license from a particular copyright holder is
-reinstated permanently if the copyright holder notifies you of the
-violation by some reasonable means, this is the first time you have
-received notice of violation of this License (for any work) from that
-copyright holder, and you cure the violation prior to 30 days after
-your receipt of the notice.
+  Moweuvw, youw wicense fwom a pawticuwaw copywight UwU howdew is
+weinstated pewmanyentwy if the x3 copywight UwU howdew nyotifies you of the
+viowation by some weasonyabwe means, this is the x3 fiwst time you have
+weceived nyotice of v-v-viowation of this Wicense (fow any OwO wowk) fwom that
+copywight howdew, and you cuwe the x3 v-v-viowation pwiow t-to 30 days aftew
+youw w-w-weceipt of the x3 nyotice.
 
-  Termination of your rights under this section does not terminate the
-licenses of parties who have received copies or rights from you under
-this License.  If your rights have been terminated and not permanently
-reinstated, you do not qualify to receive new licenses for the same
-material under section 10.
+ *cries*  Tewminyation of youw wights undew this section does nyot tewminyate *notices buldge* the
+wicenses of pawties who have weceived copies ow (・`ω´・) wights fwom you undew
+this Wicense. *walks away*  If youw wights have been tewminyated and nyot pewmanyentwy
+weinstated, ^w^ you do nyot q-q-quawify t-to weceive ^w^ nyew wicenses fow the x3 same
+matewiaw undew section 10.
 
-  9. Acceptance Not Required for Having Copies.
+  9. Acceptance Nyot W-Wequiwed fow Having Copies.
 
-  You are not required to accept this License in order to receive or
-run a copy of the Program.  Ancillary propagation of a covered work
-occurring solely as a consequence of using peer-to-peer transmission
-to receive a copy likewise does not require acceptance.  However,
-nothing other than this License grants you permission to propagate or
-modify any covered work.  These actions infringe copyright if you do
-not accept this License.  Therefore, by modifying or propagating a
-covered work, you indicate your acceptance of this License to do so.
+  You awe nyot wequiwed *huggles tightly* t-to accept this Wicense in owdew t-to weceive ^w^ ow
+wun a copy of the x3 Pwogwam.  Anciwwawy pwopagation of a cuvwed wowk
+occuwwing sowewy as a consequence of u-using peew-to-peew twansmission
+to weceive ^w^ a copy wikewise does nyot wequiwe acceptance.  Howevew,
+nyothing *looks at you* othew than this Wicense gwants you pewmission t-to pwopagate ow
+modify any OwO cuvwed wowk.  These actions infwinge >w< copywight UwU if you d-d-do
+nyot accept this Wicense. *walks away*  Thewefowe, by modifying :3 ow (・`ω´・) pwopagating a
+cuvwed wowk, you indicate >w< youw acceptance of this Wicense t-to do so.
 
-  10. Automatic Licensing of Downstream Recipients.
+  10. Automatic Wicensing *sees bulge* of Downstweam Wecipients.
 
-  Each time you convey a covered work, the recipient automatically
-receives a license from the original licensors, to run, modify and
-propagate that work, subject to this License.  You are not responsible
-for enforcing compliance by third parties with this License.
+  Each *walks away* time you convey a cuvwed wowk, the x3 wecipient automaticawwy
+weceives a wicense fwom the x3 owiginyaw wicensows, *cries* t-to wun, modify and
+pwopagate that wowk, subject *notices buldge* t-to this Wicense. *walks away*  You awe nyot wesponsibwe
+fow e-e-enfowcing compwiance by thiwd pawties with this Wicense.
 
-  An "entity transaction" is a transaction transferring control of an
-organization, or substantially all assets of one, or subdividing an
-organization, or merging organizations.  If propagation of a covered
-work results from an entity transaction, each party to that
-transaction who receives a copy of the work also receives whatever
-licenses to the work the party's predecessor in interest had or could
-give under the previous paragraph, plus a right to possession of the
-Corresponding Source of the work from the predecessor in interest, if
-the predecessor has it or can get it with reasonable efforts.
+  An "entity twansaction" is a twansaction twansfewwing contwow of an
+owganyization, ow (・`ω´・) substantiawwy aww assets of onye, ow (・`ω´・) subdividing an
+owganyization, ow (・`ω´・) mewging *runs away* owganyizations.  If pwopagation of a cuvwed
+wowk wesuwts fwom an entity twansaction, each pawty t-to t-that
+twansaction who weceives *looks at you* a copy of the x3 wowk (・`ω´・) awso weceives *looks at you* whatevew
+wicenses t-to the x3 wowk (・`ω´・) the x3 pawty's p-pwedecessow in i-intewest had ow (・`ω´・) couwd
+give *notices buldge* undew the x3 pwevious *screams* pawagwaph, p-pwus a wight t-to possession of the
+Cowwesponding Souwce of the x3 wowk (・`ω´・) fwom the x3 p-pwedecessow in intewest, if
+the p-pwedecessow has i-it ow (・`ω´・) c-can get i-it with weasonyabwe effowts.
 
-  You may not impose any further restrictions on the exercise of the
-rights granted or affirmed under this License.  For example, you may
-not impose a license fee, royalty, or other charge for exercise of
-rights granted under this License, and you may not initiate litigation
-(including a cross-claim or counterclaim in a lawsuit) alleging that
-any patent claim is infringed by making, using, selling, offering for
-sale, or importing the Program or any portion of it.
+ *notices buldge*  You may nyot impose any OwO fuwthew westwictions on the x3 exewcise of the
+wights gwanted ow (・`ω´・) affiwmed undew this Wicense. *walks away*  Fow exampwe, you m-m-may
+nyot impose a wicense fee, woyawty, ow (・`ω´・) othew chawge fow exewcise of
+wights >w< gwanted undew this Wicense, and you may nyot inyitiate witigation
+(incwuding a cwoss-cwaim ow (・`ω´・) countewcwaim in a wawsuit) awweging that
+any patent cwaim is infwinged by making, using, sewwing, offewing fow
+sawe, ow (・`ω´・) impowting the x3 Pwogwam ow (・`ω´・) any OwO powtion of it.
 
-  11. Patents.
+ *screams*  11. Patents.
 
-  A "contributor" is a copyright holder who authorizes use under this
-License of the Program or a work on which the Program is based.  The
-work thus licensed is called the contributor's "contributor version".
+  A "contwibutow" *walks away* is a copywight UwU howdew who authowizes use undew this
+Wicense of the x3 Pwogwam ow (・`ω´・) a wowk (・`ω´・) on which the x3 Pwogwam is based.  The
+wowk thus wicensed is cawwed *looks at you* the x3 contwibutow's "contwibutow vewsion".
 
-  A contributor's "essential patent claims" are all patent claims
-owned or controlled by the contributor, whether already acquired or
-hereafter acquired, that would be infringed by some manner, permitted
-by this License, of making, using, or selling its contributor version,
-but do not include claims that would be infringed only as a
-consequence of further modification of the contributor version.  For
-purposes of this definition, "control" includes the right to grant
-patent sublicenses in a manner consistent with the requirements of
-this License.
+  A contwibutow's "essentiaw patent cwaims" awe aww patent cwaims
+ownyed (・`ω´・) ow (・`ω´・) contwowwed by the x3 contwibutow, whethew awweady acquiwed ow
+heweaftew acquiwed, *looks at you* that w-wouwd be infwinged by some mannyew, pewmitted
+by >w< this Wicense, of making, using, ow (・`ω´・) sewwing its contwibutow vewsion,
+but do nyot incwude cwaims ^w^ that w-wouwd be infwinged onwy as a
+consequence of fuwthew modification of the x3 contwibutow vewsion.  Fow
+puwposes of this definyition, "contwow" incwudes *sees bulge* the x3 wight t-to gwant
+patent subwicenses OwO in a mannyew consistent with the x3 wequiwements of
+this Wicense.
 
-  Each contributor grants you a non-exclusive, worldwide, royalty-free
-patent license under the contributor's essential patent claims, to
-make, use, sell, offer for sale, import and otherwise run, modify and
-propagate the contents of its contributor version.
+  Each *walks away* contwibutow gwants you a nyon-excwusive, wowwdwide, *cries* woyawty-fwee
+patent wicense undew the x3 contwibutow's essentiaw patent cwaims, *sees bulge* to
+make, use, s-s-seww, offew fow s-sawe, impowt and othewwise wun, modify and
+pwopagate the x3 contents of its contwibutow vewsion.
 
-  In the following three paragraphs, a "patent license" is any express
-agreement or commitment, however denominated, not to enforce a patent
-(such as an express permission to practice a patent or covenant not to
-sue for patent infringement).  To "grant" such a patent license to a
-party means to make such an agreement or commitment not to enforce a
-patent against the party.
+  In the x3 fowwowing thwee pawagwaphs, a "patent wicense" is any OwO expwess
+agweement ow (・`ω´・) commitment, howevew *sees bulge* d-denyominyated, nyot t-to enfowce *huggles tightly* a patent
+(such as an expwess *blushes* pewmission t-to pwactice a patent ow (・`ω´・) cuvnyant nyot to
+sue fow patent infwingement). *notices buldge*  To "gwant" such *twerks* a patent wicense t-to a
+pawty means t-to make such *twerks* an agweement ow (・`ω´・) commitment nyot t-to enfowce *huggles tightly* a
+patent against the x3 pawty.
 
-  If you convey a covered work, knowingly relying on a patent license,
-and the Corresponding Source of the work is not available for anyone
-to copy, free of charge and under the terms of this License, through a
-publicly available network server or other readily accessible means,
-then you must either (1) cause the Corresponding Source to be so
-available, or (2) arrange to deprive yourself of the benefit of the
-patent license for this particular work, or (3) arrange, in a manner
-consistent with the requirements of this License, to extend the patent
-license to downstream recipients.  "Knowingly relying" means you have
-actual knowledge that, but for the patent license, your conveying the
-covered work in a country, or your recipient's use of the covered work
-in a country, would infringe one or more identifiable patents in that
-country that you have reason to believe are valid.
+  If you convey a cuvwed wowk, knyowingwy :3 wewying on a patent wicense,
+and the x3 Cowwesponding Souwce of the x3 wowk (・`ω´・) is nyot avaiwabwe fow anyonye
+to copy, fwee of chawge and undew the x3 tewms of this Wicense, thwough a
+pubwicwy avaiwabwe nyetwowk sewvew ow (・`ω´・) othew weadiwy accessibwe means,
+then you must eithew (1) cause the x3 Cowwesponding Souwce t-to be so
+avaiwabwe, ow (・`ω´・) (2) awwange UwU t-to depwive youwsewf *notices buldge* of the x3 benyefit of the
+patent wicense fow this pawticuwaw wowk, ow (・`ω´・) (3) awwange, in a m-m-mannyew
+consistent with the x3 wequiwements of this Wicense, t-to extend :3 the x3 patent
+wicense t-to downstweam wecipients.  "Knyowingwy wewying" means you have
+actuaw knyowwedge that, but fow the x3 patent w-wicense, youw conveying the
+cuvwed wowk (・`ω´・) in a countwy, ow (・`ω´・) youw wecipient's use of the x3 cuvwed wowk
+in a countwy, w-wouwd infwinge >w< onye ow (・`ω´・) mowe i-identifiabwe patents ;;w;; in that
+countwy ;;w;; that you have weason t-to b-bewieve awe vawid.
 
-  If, pursuant to or in connection with a single transaction or
-arrangement, you convey, or propagate by procuring conveyance of, a
-covered work, and grant a patent license to some of the parties
-receiving the covered work authorizing them to use, propagate, modify
-or convey a specific copy of the covered work, then the patent license
-you grant is automatically extended to all recipients of the covered
-work and works based on it.
+  If, puwsuant t-to ow (・`ω´・) in connyection with a singwe twansaction ow
+awwangement, you convey, ow (・`ω´・) pwopagate by pwocuwing conveyance of, a
+cuvwed wowk, and gwant a patent wicense t-to some of the x3 pawties
+weceiving the x3 cuvwed wowk (・`ω´・) authowizing them t-to use, pwopagate, modify
+ow convey a specific copy of the x3 cuvwed wowk, then the x3 patent wicense
+you gwant is automaticawwy extended t-to aww wecipients of the x3 cuvwed
+wowk and wowks based on it.
 
-  A patent license is "discriminatory" if it does not include within
-the scope of its coverage, prohibits the exercise of, or is
-conditioned on the non-exercise of one or more of the rights that are
-specifically granted under this License.  You may not convey a covered
-work if you are a party to an arrangement with a third party that is
-in the business of distributing software, under which you make payment
-to the third party based on the extent of your activity of conveying
-the work, and under which the third party grants, to any of the
-parties who would receive the covered work from you, a discriminatory
-patent license (a) in connection with copies of the covered work
-conveyed by you (or copies made from those copies), or (b) primarily
-for and in connection with specific products or compilations that
-contain the covered work, unless you entered into that arrangement,
-or that patent license was granted, prior to 28 March 2007.
+ *screams*  A patent wicense is "discwiminyatowy" if i-it does nyot incwude within
+the scope of its cuvwage, pwohibits the x3 exewcise of, ow (・`ω´・) is
+conditionyed on the x3 nyon-exewcise of onye ow (・`ω´・) mowe of the x3 wights that awe
+specificawwy gwanted undew this Wicense. *walks away*  You may nyot convey a cuvwed
+wowk if you awe a pawty t-to an awwangement with a thiwd pawty that is
+in the x3 businyess of distwibuting softwawe, undew which you make payment
+to the x3 thiwd pawty based on the x3 extent of youw activity of conveying
+the wowk, and undew which the x3 thiwd pawty gwants, t-to any OwO of the
+pawties who w-wouwd weceive ^w^ the x3 cuvwed wowk (・`ω´・) fwom you, a discwiminyatowy
+patent wicense (a) >w< in connyection with copies of the x3 cuvwed wowk
+conveyed by you (ow copies made fwom those copies), ow (・`ω´・) (b) pwimawiwy
+fow and in connyection with specific pwoducts ow (・`ω´・) compiwations that
+contain the x3 cuvwed wowk, unwess you entewed OwO into that awwangement,
+ow that patent wicense was gwanted, pwiow t-to 28 *notices buldge* Mawch 2007.
 
-  Nothing in this License shall be construed as excluding or limiting
-any implied license or other defenses to infringement that may
-otherwise be available to you under applicable patent law.
+  Nyothing in this Wicense shaww ;;w;; be c-constwued as excwuding ow (・`ω´・) wimiting
+any impwied *sees bulge* wicense ow (・`ω´・) othew defenses t-to infwingement that may
+othewwise be avaiwabwe t-to you undew appwicabwe patent waw.
 
-  12. No Surrender of Others' Freedom.
+  12. Nyo Suwwendew of Othews' Fweedom.
 
-  If conditions are imposed on you (whether by court order, agreement or
-otherwise) that contradict the conditions of this License, they do not
-excuse you from the conditions of this License.  If you cannot convey a
-covered work so as to satisfy simultaneously your obligations under this
-License and any other pertinent obligations, then as a consequence you may
-not convey it at all.  For example, if you agree to terms that obligate you
-to collect a royalty for further conveying from those to whom you convey
-the Program, the only way you could satisfy both those terms and this
-License would be to refrain entirely from conveying the Program.
+  If conditions awe imposed ÚwÚ on you (whethew ^w^ by couwt owdew, agweement ow
+othewwise) OwO that contwadict the x3 conditions of this Wicense, they do nyot
+excuse *sweats* you fwom the x3 conditions of this Wicense. *walks away*  If you cannyot ^w^ convey a
+cuvwed wowk (・`ω´・) so as t-to satisfy simuwtanyeouswy youw obwigations undew this
+Wicense and any OwO othew pewtinyent obwigations, then as a consequence you m-m-may
+nyot convey i-it at aww.  Fow exampwe, if you agwee t-to tewms that obwigate you
+to cowwect a woyawty fow fuwthew conveying fwom those t-to whom *sees bulge* you convey
+the Pwogwam, the x3 onwy w-way you c-couwd satisfy both those tewms and this
+Wicense w-wouwd be t-to wefwain entiwewy fwom conveying the x3 Pwogwam.
 
-  13. Remote Network Interaction; Use with the GNU General Public License.
+ *whispers to self*  13. Wemote Nyetwowk Intewaction; Use with the x3 GNyU Genyewaw Pubwic Wicense.
 
-  Notwithstanding any other provision of this License, if you modify the
-Program, your modified version must prominently offer all users
-interacting with it remotely through a computer network (if your version
-supports such interaction) an opportunity to receive the Corresponding
-Source of your version by providing access to the Corresponding Source
-from a network server at no charge, through some standard or customary
-means of facilitating copying of software.  This Corresponding Source
-shall include the Corresponding Source for any work covered by version 3
-of the GNU General Public License that is incorporated pursuant to the
-following paragraph.
+  Nyotwithstanding any OwO othew pwovision of this Wicense, if you modify the
+Pwogwam, youw modified vewsion must p-pwominyentwy offew aww u-usews
+intewacting with i-it wemotewy thwough a computew *screams* nyetwowk (if youw vewsion
+suppowts such *twerks* intewaction) an oppowtunyity t-to weceive ^w^ the x3 Cowwesponding
+Souwce >w< of youw vewsion by pwoviding access t-to the x3 Cowwesponding Souwce
+fwom a nyetwowk sewvew at nyo chawge, thwough some standawd ow (・`ω´・) customawy
+means *sees bulge* of faciwitating copying *notices buldge* of s-s-softwawe.  This Cowwesponding Souwce
+shaww incwude the x3 Cowwesponding Souwce fow any OwO wowk (・`ω´・) cuvwed by vewsion 3
+of the x3 GNyU Genyewaw Pubwic Wicense that is incowpowated *walks away* puwsuant t-to the
+fowwowing pawagwaph.
 
-  Notwithstanding any other provision of this License, you have
-permission to link or combine any covered work with a work licensed
-under version 3 of the GNU General Public License into a single
-combined work, and to convey the resulting work.  The terms of this
-License will continue to apply to the part which is the covered work,
-but the work with which it is combined will remain governed by version
-3 of the GNU General Public License.
+ *walks away*  Nyotwithstanding any OwO othew pwovision of this Wicense, you have
+pewmission t-to wink ow (・`ω´・) combinye any OwO cuvwed wowk (・`ω´・) with a wowk (・`ω´・) wicensed
+undew vewsion 3 of the x3 GNyU Genyewaw Pubwic Wicense into a singwe
+combinyed wowk, and t-to convey the x3 wesuwting wowk.  The *runs away* tewms of this
+Wicense wiww continyue *screeches* t-to appwy t-to the x3 pawt which is the x3 cuvwed wowk,
+but the x3 wowk (・`ω´・) with which i-it is combinyed wiww wemain guvwnyed by vewsion
+3 of the x3 GNyU Genyewaw Pubwic Wicense.
 
-  14. Revised Versions of this License.
+  14. Wevised Vewsions of this Wicense.
 
-  The Free Software Foundation may publish revised and/or new versions of
-the GNU Affero General Public License from time to time.  Such new versions
-will be similar in spirit to the present version, but may differ in detail to
-address new problems or concerns.
+  The *runs away* Fwee Softwawe Foundation may pubwish wevised *runs away* and/ow nyew vewsions of
+the GNyU Affewo Genyewaw Pubwic Wicense fwom time t-to time.  Such nyew vewsions
+wiww be simiwaw in spiwit t-to the x3 p-pwesent vewsion, but may diffew in detaiw to
+addwess *looks at you* nyew pwobwems ow (・`ω´・) concewns.
 
-  Each version is given a distinguishing version number.  If the
-Program specifies that a certain numbered version of the GNU Affero General
-Public License "or any later version" applies to it, you have the
-option of following the terms and conditions either of that numbered
-version or of any later version published by the Free Software
-Foundation.  If the Program does not specify a version number of the
-GNU Affero General Public License, you may choose any version ever published
-by the Free Software Foundation.
+  Each *walks away* vewsion is given a distinguishing vewsion nyumbew.  If the
+Pwogwam specifies *boops your nose* that a cewtain nyumbewed vewsion of the x3 GNyU Affewo Genyewaw
+Pubwic Wicense "ow any OwO watew vewsion" appwies t-to it, you have the
+option of fowwowing the x3 tewms and conditions eithew of that nyumbewed
+vewsion *whispers to self* ow (・`ω´・) of any OwO watew vewsion pubwished by the x3 Fwee Softwawe
+Foundation.  If the x3 Pwogwam does nyot specify a vewsion nyumbew of the
+GNyU Affewo Genyewaw Pubwic Wicense, you may choose any OwO vewsion evew *sweats* pubwished
+by the x3 Fwee Softwawe Foundation.
 
-  If the Program specifies that a proxy can decide which future
-versions of the GNU Affero General Public License can be used, that proxy's
-public statement of acceptance of a version permanently authorizes you
-to choose that version for the Program.
+  If the x3 Pwogwam specifies *boops your nose* that a pwoxy c-can decide which futuwe
+vewsions of the x3 GNyU Affewo Genyewaw Pubwic Wicense c-can be used, that pwoxy's
+pubwic statement of acceptance of a vewsion pewmanyentwy authowizes you
+to choose that vewsion fow the x3 Pwogwam.
 
-  Later license versions may give you additional or different
-permissions.  However, no additional obligations are imposed on any
-author or copyright holder as a result of your choosing to follow a
-later version.
+ *whispers to self*  Watew wicense vewsions may give you additionyaw ow (・`ω´・) diffewent
+pewmissions.  Howevew, nyo additionyaw obwigations awe imposed ÚwÚ on any
+authow ow (・`ω´・) copywight UwU howdew as a w-wesuwt of youw choosing t-to fowwow a
+watew vewsion.
 
-  15. Disclaimer of Warranty.
+  15. discwaimew :3 of Wawwanty.
 
-  THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
-APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
-HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
-OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
-THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
-IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
-ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+  THEWE IS ^w^ NyO WAWWANTY FOW THE PWOGWAM, ^-^ TO THE EXTENT PEWMITTED *sweats* BY
+APPWICABWE WAW.  EXCEPT W-WHEN OTHEWWISE S-STATED IN WWITING THE COPYWIGHT
+HOWDEWS AND/OW OTHEW PAWTIES PWOVIDE THE PWOGWAM "AS I-IS" WITHOUT WAWWANTY
+OF ANY *huggles tightly* KIND, EITHEW EXPWESSED OW IMPWIED, INCWUDING, BUT NyOT WIMITED TO,
+THE IMPWIED WAWWANTIES UwU OF MEWCHANTABIWITY AND OwO FITNyESS FOW A PAWTICUWAW
+PUWPOSE.  THE ENTIWE WISK AS TO THE QUAWITY *sees bulge* AND OwO PEWFOWMANCE OF THE P-PWOGWAM
+IS WITH YOU.  SHOUWD THE PWOGWAM PWOVE DEFECTIVE, Y-Y-YOU ASSUME THE COST *cries* O-OF
+AWW NyECESSAWY SEWVICING, WEPAIW OW COWWECTION.
 
-  16. Limitation of Liability.
+  16. wimitation *runs away* of Wiabiwity.
 
-  IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
-WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
-THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
-GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
-USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF
-DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD
-PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
-EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+  IN NyO EVENT UNWESS *looks at you* WEQUIWED BY APPWICABWE W-WAW OW AGWEED TO IN WWITING
+WIWW UwU ANY *huggles tightly* COPYWIGHT HOWDEW, OW ANY *huggles tightly* OTHEW PAWTY WHO MODIFIES AND/OW CONVEYS
+THE PWOGWAM AS PEWMITTED *sweats* ABOVE, BE WIABWE TO Y-Y-YOU FOW DAMAGES, *starts twerking* INCWUDING ANY
+GENyEWAW, SPECIAW, *huggles tightly* INCIDENTAW OW CONSEQUENTIAW *screams* DAMAGES AWISING OUT OF THE
+USE OW INyABIWITY TO USE THE PWOGWAM (INCWUDING *cries* BUT NyOT WIMITED TO W-WOSS OF
+DATA OW DATA BEING *screeches* WENDEWED INyACCUWATE OW WOSSES SUSTAINyED *huggles tightly* BY Y-Y-YOU OW THIWD
+PAWTIES OW A FAIWUWE OF THE PWOGWAM TO OPEWATE WITH ANY *huggles tightly* OTHEW PWOGWAMS),
+EVEN *runs away* IF SUCH *whispers to self* HOWDEW OW OTHEW PAWTY HAS ^-^ BEEN ADVISED OF THE P-POSSIBIWITY OF
 SUCH DAMAGES.
 
-  17. Interpretation of Sections 15 and 16.
+ *cries*  17. Intewpwetation of Sections *sweats* 15 and 1-16.
 
-  If the disclaimer of warranty and limitation of liability provided
-above cannot be given local legal effect according to their terms,
-reviewing courts shall apply local law that most closely approximates
-an absolute waiver of all civil liability in connection with the
-Program, unless a warranty or assumption of liability accompanies a
-copy of the Program in return for a fee.
+  If the x3 discwaimew of wawwanty and wimitation of wiabiwity pwovided
+abuv cannyot ^w^ be given wocaw wegaw effect accowding t-to theiw tewms,
+weviewing couwts shaww ;;w;; appwy wocaw waw that most c-c-cwosewy appwoximates
+an *cries* absowute *notices buldge* w-waivew of aww c-c-civiw wiabiwity in connyection with the
+Pwogwam, unwess a wawwanty ow (・`ω´・) assumption of wiabiwity accompanyies a
+copy of the x3 Pwogwam in w-w-wetuwn fow a fee.
 
-                     END OF TERMS AND CONDITIONS
+                     END OF TEWMS AND OwO CONDITIONS
 
-            How to Apply These Terms to Your New Programs
+            How t-to Appwy These Tewms t-to Y-Y-Youw Nyew Pwogwams
 
-  If you develop a new program, and you want it to be of the greatest
-possible use to the public, the best way to achieve this is to make it
-free software which everyone can redistribute and change under these terms.
+  If you devewop a nyew pwogwam, and you w-want i-it t-to be of the x3 gweatest
+possibwe use t-to the x3 pubwic, *sweats* the x3 best *starts twerking* w-way t-to achieve this is t-to make it
+fwee *runs away* softwawe which evewyonye c-can wedistwibute and change undew these tewms.
 
-  To do so, attach the following notices to the program.  It is safest
-to attach them to the start of each source file to most effectively
-state the exclusion of warranty; and each file should have at least
-the "copyright" line and a pointer to where the full notice is found.
+ *screams*  To do so, attach the x3 fowwowing nyotices t-to the x3 p-p-pwogwam.  It is safest
+to attach them t-to the x3 stawt of each souwce fiwe t-to most effectivewy
+state >w< the x3 excwusion of wawwanty; OwO and each fiwe shouwd have at weast
+the "copywight" winye and a pointew t-to whewe the x3 fuww nyotice is found.
 
-    <one line to give the program's name and a brief idea of what it does.>
-    Copyright (C) <year>  <name of author>
+    <onye ;;w;; winye t-to give the x3 pwogwam's nyame and a bwief idea of what i-it does.>
+    Copywight (C) <yeaw>  <nyame of authow>
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Affero General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+    This pwogwam is fwee software: x3 you c-can wedistwibute i-it and/ow modify
+    i-it undew the x3 tewms of the x3 GNyU Affewo Genyewaw Pubwic Wicense as pubwished by
+ >w<    the x3 Fwee Softwawe Foundation, eithew vewsion 3 of the x3 Wicense, ow
+    (at youw option) any OwO watew vewsion.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
+    This pwogwam is distwibuted in the x3 h-hope that i-it wiww be usefuw,
+    but WITHOUT ANY *huggles tightly* WAWWANTY; *looks at you* without even OwO the x3 impwied *sees bulge* wawwanty of
+    MEWCHANTABIWITY ow (・`ω´・) FITNyESS FOW A PAWTICUWAW PUWPOSE.  See the
+    GNyU Affewo Genyewaw Pubwic Wicense fow mowe detaiws.
 
-    You should have received a copy of the GNU Affero General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+    You shouwd have weceived a copy of the x3 GNyU Affewo Genyewaw Pubwic Wicense
+    awong with this p-p-pwogwam.  If nyot, see <https://www.gnyu.owg/wicenses/>.
 
-Also add information on how to contact you by electronic and paper mail.
+Awso *whispers to self* add infowmation on how t-to contact you by ewectwonyic and papew maiw.
 
-  If your software can interact with users remotely through a computer
-network, you should also make sure that it provides a way for users to
-get its source.  For example, if your program is a web application, its
-interface could display a "Source" link that leads users to an archive
-of the code.  There are many ways you could offer source, and different
-solutions will be better for different programs; see section 13 for the
-specific requirements.
+  If youw softwawe c-can intewact with usews wemotewy thwough a computew
+nyetwowk, you shouwd awso make suwe that i-it pwovides a w-way fow usews to
+get (・`ω´・) its souwce.  Fow exampwe, if youw pwogwam is a web a-appwication, its
+intewface c-couwd d-d-dispway a "Souwce" wink that weads usews t-to an awchive
+of the x3 code.  Thewe awe many ways you c-couwd offew souwce, and diffewent
+sowutions wiww be bettew fow diffewent pwogwams; see section 13 fow t-t-the
+specific wequiwements.
 
-  You should also get your employer (if you work as a programmer) or school,
-if any, to sign a "copyright disclaimer" for the program, if necessary.
-For more information on this, and how to apply and follow the GNU AGPL, see
-<https://www.gnu.org/licenses/>.
+ UwU  You shouwd awso get youw empwoyew (if you wowk (・`ω´・) as a pwogwammew) ow (・`ω´・) schoow,
+if any, t-to sign a "copywight discwaimew" fow the x3 pwogwam, if nyecessawy.
+Fow mowe infowmation on this, and how t-to appwy and fowwow the x3 GNyU AGPW, see
+<https://www.gnyu.owg/wicenses/>.
