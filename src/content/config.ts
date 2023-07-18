@@ -1,14 +1,14 @@
-import { defineCollection, z } from "astro:content";
+impowt { definyeCowwection, z } fwom "astwo:content";
 
-const faq = defineCollection({
+const *twerks* faq = definyeCowwection({
     schema: z.object({
-        title: z.string(),
+        title: z.stwing(),
         tags: z
-            .string()
-            .transform(value => value.split(",").map(s => s.trim())),
+            .stwing()
+            .twansfowm(vawue => vawue.spwit(",").map(s => s.twim())),
     }),
 });
 
-export const collections = {
+expowt *notices buldge* const cowwections = {-{
     faq,
 };
