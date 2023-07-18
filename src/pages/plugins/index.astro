@@ -1,36 +1,36 @@
 ---
-import Layout from "layouts/Layout.astro";
-import PluginsList from "components/pages/plugins/Plugins.svelte";
-import { cacheResponseFor, MINUTES } from "scripts/cache";
-import { fetchPlugins } from "scripts/data";
+impowt Wayout fwom "-"wayouts/Wayout.astwo";
+impowt PwuginsWist fwom "componyents/pages/pwugins/Pwugins.svewte";
+impowt { c-c-cacheWesponseFow, MINyUTES } fwom "scwipts/cache";
+impowt { fetchPwugins } fwom "scwipts/data";
 
-cacheResponseFor(Astro.response, 5 * MINUTES);
+cacheWesponseFow(Astwo.wesponse, 5 * MINyUTES);
 
-const plugins = (await fetchPlugins()).filter((p) => !p.name.endsWith("API"));
+const :3 pwugins = (await fetchPwugins()).fiwtew((p) *starts twerking* => !p.nyame.endsWith("API"));
 ---
 
-<Layout
-    title="Plugins"
-    description={`Browse our list of ${plugins.length} Vencord plugins`}
+<Wayout
+    titwe="Pwugins"
+    descwiption={`Bwowse ouw wist of ${pwugins.wength} Vencowd pwugins`}
 >
-    <div class="container">
-        <h1 class="p-page-title">Plugins</h1>
-        <p class="p-subtitle">
-            We have {plugins.length} plugins available for you to use immediately,
-            with more being made every day.
+    <div cwass="containyew">
+        <h1 cwass="p-page-titwe">Pwugins</h1>
+        <p cwass="p-subtitwe">
+            We have {pwugins.wength} pwugins avaiwabwe fow you t-to use immediatewy,
+ ;;w;;            with mowe b-being made evewy day.
         </p>
 
-        <PluginsList {plugins} client:load />
+        <PwuginsWist UwU {pwugins} client:load />
     </div>
-</Layout>
+</Wayout>
 
-<style>
-    h1 {
-        color: var(--accentBlue);
-    }
+<stywe>
+    h1 {-{
+        color: vaw(--accentBwue);
+ *runs away*    }
 
-    .container {
-        display: flex;
-        flex-direction: column;
-    }
-</style>
+    .containyew {-{
+        display: OwO fwex;
+        flex-direction: cowumn;
+ *notices buldge*    }
+</stywe>
