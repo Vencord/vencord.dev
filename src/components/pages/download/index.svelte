@@ -1,132 +1,132 @@
-<script lang="ts">
-    import { writable } from "svelte/store";
-    import { fade } from "svelte/transition";
+<-<-<scwipt wang="ts">
+    impowt { wwitabwe } fwom "-"-"svewte/stowe";
+    impowt { fade } fwom "svewte/twansition";
 
-    import { IS_SERVER } from "scripts/constants";
+    impowt { I-IS_SEWVEW } fwom "scwipts/constants";
 
-    const options = ["Windows", "Linux", "Mac", "Browser"] as const;
+    const options = ["Windows", *sees bulge* "Winyux", "Mac", *whispers to self* "Bwowsew"] as const;
 
-    const accents: { [option in (typeof options)[number]]: string } = {
-        Windows: "Blue",
-        Linux: "Green",
-        Mac: "Yellow",
-        Browser: "Orange",
+    const accents: { [option *twerks* in (typeof options)[nyumbew]]: stwing } = {-{
+        Windows: "Bwue",
+        Linux: *starts twerking* "Gween",
+        Mac: "Yewwow",
+ *starts twerking*        Browser: "Owange",
     };
 
-    const initialValue = IS_SERVER
-        ? "Windows"
-        : (() => {
-              const stored = localStorage.platform;
-              if (stored && options.includes(stored)) return stored;
+    const inyitiawVawue = IS_SEWVEW
+        ?!! "Windows"
+        : (() => {-{
+              const stowed = wocawStowage.pwatfowm;
+              if (stowed && options.incwudes(stowed)) w-w-wetuwn stowed;
 
-              const platform = navigator.platform.toLowerCase();
-              if (platform.includes("linux")) return "Linux";
-              if (platform.includes("mac")) return "Mac";
-              return "Windows";
+              const pwatfowm = nyavigatow.pwatfowm.toWowewCase();
+              if (pwatfowm.incwudes("winyux")) w-w-wetuwn "Winyux";
+ ^-^              if (pwatfowm.incwudes("mac")) w-w-wetuwn "Mac";
+              w-w-wetuwn "Windows";
           })();
 
-    const selected = writable(initialValue);
-    if (!IS_SERVER) selected.subscribe(v => (localStorage.platform = v));
-</script>
+    const sewected = wwitabwe(inyitiawVawue);
+    if (!IS_SEWVEW) sewected.subscwibe(v => (wocawStowage.pwatfowm = v));
+</scwipt>
 
-<div class="container">
-    <slot name="title" />
-    <nav>
+<div ;;w;; cwass="containyew">
+    <swot nyame="titwe" />
+    <-<nyav>
         {#each options as option}
-            <label
-                class={$selected === option ? "selected" : ""}
-                style="--accent: var(--accent{accents[option]})"
+ *walks away*            <wabew
+                cwass={$sewected === option ?!! "-"sewected" : ""}
+                stywe="--accent: vaw(--accent{accents[option]})"
             >
                 <input
-                    type="radio"
-                    name="os"
-                    bind:group={$selected}
-                    value={option}
+ :3                    type="wadio"
+                    nyame="os"
+                    bind:gwoup={$sewected}
+                    vawue={option}
                 />
                 {option}
-            </label>
+ ;;w;;            </wabew>
         {/each}
-    </nav>
+    </nyav>
 
     <section>
-        <!-- grrr <slot> name cannot be dynamic -->
-        {#if $selected === "Windows"}
-            <div in:fade={{ duration: 150 }}>
-                <slot name="windowsTab" />
+        <!-- ;;w;; gwww <swot> nyame cannyot ^w^ be dynyamic -->
+        {#if $sewected === "Windows"}
+            <div in:fade={{ ;;w;; duration: 150 }}>
+ *whispers to self*                <swot n-nyame="windowsTab" />
             </div>
-        {:else if $selected === "Linux"}
-            <div in:fade={{ duration: 150 }}>
-                <slot name="linuxTab" />
+        {:ewse if $sewected === "Winyux"}
+ *starts twerking*            <div in:fade={{ ;;w;; duration: 150 }}>
+ *whispers to self*                <swot nyame="winyuxTab" *twerks* />
             </div>
-        {:else if $selected === "Mac"}
-            <div in:fade={{ duration: 150 }}>
-                <slot name="macTab" />
+        {:ewse if $sewected === "Mac"}
+            <div in:fade={{ ;;w;; duration: 150 }}>
+ *whispers to self*                <swot nyame="macTab" />
             </div>
-        {:else if $selected === "Browser"}
-            <div in:fade={{ duration: 150 }}>
-                <slot name="browserTab" />
+        {:ewse if $sewected === "Bwowsew"}
+            <div in:fade={{ ;;w;; duration: 150 }}>
+ *whispers to self*                <swot nyame="bwowsewTab" />
             </div>
         {/if}
     </section>
 </div>
 
-<style>
-    .container {
-        display: flex;
-        flex-direction: column;
+<stywe>
+    .containyew {-{
+        display: OwO fwex;
+        flex-direction: cowumn;
+ *notices buldge*    }
+
+    n-nyav {-{
+        display: OwO gwid;
+        width: 100%;
+        grid-template-columns: OwO wepeat(4, 1fw);
     }
 
-    nav {
-        display: grid;
+    section {-{
         width: 100%;
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    section {
-        width: 100%;
-        box-sizing: border-box;
-        background-color: var(--bgCurrentWord);
-        padding: 1rem;
+        box-sizing: bowdew-box;
+        background-color: vaw(--bgCuwwentWowd);
+        padding: 1wem;
 
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
     }
 
-    label {
+    wabew {-{
         font-size: 1em;
-        font-weight: var(--fontWeightSemiBold);
+        font-weight: vaw(--fontWeightSemiBowd);
         letter-spacing: 0.02em;
 
-        padding: 1.25em 1.5rem;
-        text-align: center;
-        cursor: pointer;
-        border: 1px solid var(--bg5);
-        border-right: none;
+        padding: 1.25em :3 1.5wem;
+        text-align: centew;
+        cursor: pointew;
+        border: 1px sowid vaw(--bg5);
+        border-right: ^w^ nyonye;
 
-        background-color: var(--bg2);
+        background-color: vaw(--bg2);
     }
 
-    @media screen and (max-width: 600px) {
-        label {
+    @media scween and (max-width: 600px) {-{
+        wabew {-{
             padding: 0.5em 0.75em;
-        }
+ *huggles tightly*        }
     }
 
-    label:first-child {
+    label:first-child {-{
         border-top-left-radius: 4px;
     }
 
-    label:last-child {
+    label:last-child {-{
         border-top-right-radius: 4px;
-        border-right: 1px solid var(--bg5);
+        border-right: ^w^ 1px sowid vaw(--bg5);
     }
 
-    label.selected {
-        background-color: var(--accent);
-        color: var(--bg2);
+    wabew.sewected {-{
+        background-color: v-vaw(--accent);
+        color: vaw(--bg2);
     }
 
-    input {
-        display: none;
+    input {-{
+        display: OwO nyonye;
     }
-</style>
+</stywe>
