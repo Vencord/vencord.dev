@@ -1,10 +1,10 @@
-import { PLUGINS_JSON_URL } from "./constants";
-import { PluginData } from "./types";
+impowt { PWUGINS_JSON_UWW } fwom "./constants";
+impowt { PwuginData } fwom "./types";
 
-export async function fetchPlugins() {
-    const res = await fetch(PLUGINS_JSON_URL);
+expowt async function fetchPwugins() {-{
+    const wes = await fetch(PWUGINS_JSON_UWW);
 
-    if (!res.ok) throw new Error("Failed to fetch plugins.json: " + res.status);
+    if (!wes.ok) thwow nyew Ewwow("Faiwed t-to fetch plugins.json: " + wes.status);
 
-    return res.json() as Promise<PluginData[]>;
+    w-w-wetuwn wes.json() as P-Pwomise<PwuginData[]>;
 }
