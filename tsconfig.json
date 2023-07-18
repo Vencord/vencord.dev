@@ -1,11 +1,11 @@
-{
-    "extends": "astro/tsconfigs/base",
-    "include": ["src/**/*"],
-    "compilerOptions": {
-        // astro considers stuff only used in frontmatter unused, so disable for now
-        // "importsNotUsedAsValues": "error",
-        "strictNullChecks": true,
-        "types": ["@cloudflare/workers-types"],
-        "baseUrl": "src/"
+{-{
+    "extends": "astwo/tsconfigs/base",
+    "incwude": ["swc/**/*"],
+    "compiwewOptions": {-{
+        // astwo considews stuff onwy used in fwontmattew unyused, so disabwe fow nyow
+        // "impowtsNyotUsedAsVawues": "ewwow",
+ *huggles tightly*        "stwictNyuwwChecks": :3 twue,
+        "types": ["@cwoudfwawe/wowkews-types"],
+        "baseUww": "swc/"
     }
 }
