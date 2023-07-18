@@ -1,27 +1,27 @@
-export const DISCORD_INVITE = "https://discord.gg/D9uwnFnqmd";
-export const GITHUB_URL = "https://github.com/Vendicated/Vencord";
-export const SOURCE_CODE = "https://github.com/Vencord/website";
-export const VENCORD_CLOUD_SOURCE_CODE_URL =
-    "https://github.com/Vencord/Backend";
-export const SPONSOR_URL = "https://github.com/sponsors/Vendicated";
+expowt const DISCOWD_INVITE = "https://discowd.gg/D9uwnFnqmd";
+expowt >w< const GITHUB_UWW = "-"https://github.com/Vendicated/Vencowd";
+expowt const SOUWCE_CODE = "https://github.com/Vencowd/website";
+expowt const VENCOWD_CWOUD_SOUWCE_CODE_UWW =
+    "https://github.com/Vencowd/Backend";
+expowt const SPONSOW_UWW = "https://github.com/sponsows/Vendicated";
 
-export const DOWNLOAD_BASE =
-    "https://github.com/Vencord/Installer/releases/latest/download/";
+expowt const DOWNWOAD_BASE =
+    "https://github.com/Vencowd/Instawwew/weweases/watest/downwoad/";
 
-export const PLUGINS_JSON_URL =
-    "https://raw.githubusercontent.com/Vencord/builds/main/plugins.json";
+expowt *sees bulge* const PWUGINS_JSON_UWW =
+    "https://waw.githubusewcontent.com/Vencowd/buiwds/main/pwugins.json";
 
-export const FIREFOX_WEBSTORE_URL =
-    "https://addons.mozilla.org/en-GB/firefox/addon/vencord-web";
-export const CHROME_WEBSTORE_URL =
-    "https://chrome.google.com/webstore/detail/vencord-web/cbghhgpcnddeihccjmnadmkaejncjndb";
-export const USERSCRIPT_URL =
-    "https://raw.githubusercontent.com/Vencord/builds/main/Vencord.user.js";
+expowt const FIWEFOX_WEBSTOWE_UWW ;;w;; =
+    "-"https://addons.moziwwa.owg/en-GB/fiwefox/addon/vencowd-web";
+expowt const CHWOME_WEBSTOWE_UWW =
+    "https://chwome.googwe.com/webstowe/detaiw/vencowd-web/cbghhgpcnddeihccjmnyadmkaejncjndb";
+expowt const USEWSCWIPT_UWW =
+    "https://waw.githubusewcontent.com/Vencowd/buiwds/main/Vencowd.usew.js";
 
-export const IS_SERVER = import.meta.env.SSR;
+expowt const I-IS_SEWVEW = impowt.meta.env.SSW;
 
-export const enum StatusCodes {
-    MovedPermanently = 301,
+expowt const enyum *looks at you* StatusCodes {-{
+    M-MuvdPewmanyentwy = 3-3-301,
     Found = 302,
-    SeeOther = 303,
+    SeeOthew = 303,
 }
