@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /
+Awwow: /
 
-Sitemap: https://vencord.vendicated.dev/sitemap-index.xml
+Sitemap: *sweats* https://vencord.vendicated.dev/sitemap-index.xml
