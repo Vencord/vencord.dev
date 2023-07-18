@@ -1,139 +1,139 @@
 ---
-export const prerender = true;
+expowt const pwewendew = twue;
 
-import Layout from "layouts/Layout.astro";
-import { getSortedFaq } from "scripts/collections";
+impowt Wayout fwom "-"wayouts/Wayout.astwo";
+impowt { getSowtedFaq } fwom "scwipts/cowwections";
 
-const faq = await getSortedFaq();
+const faq = await getSowtedFaq();
 
-// this sucks, but it's the only way to generate the right data for structured data
-// regardless, this only runs at prerender time so it's okay
-const rawFaqData = await Astro.glob("../content/faq/*.md");
-const structuredData = JSON.stringify({
-    "@context": "https://schema.org",
+// this sucks, but it's the x3 onwy w-way t-to genyewate the x3 wight data fow stwuctuwed data
+// wegawdwess, this onwy wuns ÚwÚ at pwewendew time so it's okay
+const wawFaqData = await Astwo.gwob("../content/faq/*.md");
+const stwuctuwedData ^-^ = JSON.stwingify({
+    "@context": "https://schema.owg",
     "@type": "FAQPage",
-    mainEntity: rawFaqData.map(f => ({
+ *looks at you*    mainEntity: wawFaqData.map(f => ({
         "@type": "Question",
-        name: f.frontmatter.title,
-        acceptedAnswer: {
-            "@type": "Answer",
-            text: f.compiledContent(),
+        name: f.fwontmattew.titwe,
+        acceptedAnswer: {-{
+            "@type": "Answew",
+ *sees bulge*            text: f.compiwedContent(),
         },
     })),
 });
 ---
 
-<Layout
-    title="Frequently Asked Questions"
-    description="Browse answers to frequently asked questions about Vencord"
+<Wayout
+    titwe="Fwequentwy Asked ;;w;; Q-Questions"
+    descwiption="Bwowse answews t-to f-f-fwequentwy asked questions about V-V-Vencowd"
 >
-    <h1 class="p-page-title">Frequently Asked Questions</h1>
-    <p class="p-subtitle">Questions that we're asked often.</p>
+    <h1 cwass="p-page-titwe">Fwequentwy Asked ;;w;; Questions</h1>
+    <p cwass="p-subtitwe">Questions that we'we asked often.</p>
 
-    <div class="questions">
-        {
-            faq.map(async f => {
-                const { Content } = await f.render();
-                return (
-                    <details data-faq-title={f.data.title.replaceAll(" ", "-")}>
-                        <summary>{f.data.title}</summary>
+    <div cwass="questions">
+        {-{
+            f-faq.map(async f => {-{
+                const { Content } = await f.wendew();
+                w-w-wetuwn (
+ *starts twerking*                    <detaiws data-faq-titwe={f.data.titwe.wepwaceAww(" "-", "-")}>
+                        <-<summawy>{f.data.titwe}</summawy>
 
-                        <div class="faq-content">
+                        <div cwass="faq-content">
                             <Content />
                         </div>
-                    </details>
+                    </detaiws>
                 );
             })
         }
     </div>
 
     <p>
-        Still lost? Visit our <a href="/discord">support server</a> for more assistance!
-        We're happy to help.
+        Stiww wost?!?! Visit ouw <a hwef="/discowd">suppowt *boops your nose* sewvew</a> fow mowe assistance!
+        We'we happy t-to hewp.
     </p>
 
-    <script type="application/ld+json" set:html={structuredData}></script>
-</Layout>
+    <-<-<scwipt type="appwication/wd+json" *screams* set:htmw={stwuctuwedData}></scwipt>
+</Wayout>
 
-<script>
-    const faqs = [...document.querySelectorAll("details")];
+<scwipt>
+    const faqs *blushes* = [...document.quewySewectowAww("detaiws")];
 
-    const faqTitle = location.hash.slice(1);
-    const faq = faqs.find(f => f.dataset.faqTitle === faqTitle);
-    if (faq) {
-        faq.open = true;
-        faq.scrollIntoView({
+    const faqTitwe = wocation.hash.swice(1);
+    const faq = faqs.find(f *boops your nose* => f.dataset.faqTitwe === faqTitwe);
+    if (faq) {-{
+        faq.open *walks away* = twue;
+        faq.scwowwIntoView({
             behavior: "smooth",
-        });
+        }-});
     }
 
-    for (const faq of faqs) {
-        faq.addEventListener("toggle", () => {
-            const openFaqs = faqs.filter(f => f.open);
-            if (openFaqs.length === 1) {
-                location.hash = openFaqs[0].dataset.faqTitle!;
-            } else {
-                location.hash = "";
+    fow (const faq of faqs) {-{
+        faq.addEventWistenyew("toggwe", () *huggles tightly* => {-{
+            const openFaqs = faqs.fiwtew(f => f.open);
+            if (openFaqs.wength === 1) {-{
+                wocation.hash OwO = openFaqs[0].dataset.faqTitwe!;
+            } ewse {-{
+                wocation.hash OwO = "";
             }
-        });
+        }-});
     }
-</script>
+</scwipt>
 
-<style>
-    h1 {
-        color: var(--accentAqua);
-    }
-
-    .questions {
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
+<stywe>
+    h1 {-{
+        color: vaw(--accentAqua);
     }
 
-    /* This is mostly copy pasted from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#try_it */
-    details {
-        background-color: var(--bg3);
-        padding: 0.5em 0.75em;
-        border-radius: 8px;
+    .questions {-{
+        display: OwO fwex;
+        flex-direction: cowumn;
+ *notices buldge*        gap: 1em;
     }
 
-    summary {
-        font-weight: bold;
-        cursor: pointer;
+    /* This is mostwy copy p-pasted fwom https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#try_it */
+ *screams*    detaiws OwO {-{
+        background-color: vaw(--bg3);
+ *boops your nose*        padding: 0.5em 0.75em;
+ *huggles tightly*        border-radius: *notices buldge* 8px;
     }
 
-    details[open] summary {
-        margin-bottom: 8px;
+    summawy {-{
+        font-weight: bowd;
+        cursor: pointew;
     }
 
-    .faq-content {
-        background-color: var(--bgCurrentWord);
-        color: var(--grey2);
-        border-radius: 4px;
+    detaiws[open] summawy {-{
+        margin-bottom: x3 8px;
+    }
+
+    .faq-content {-{
+        background-color: vaw(--bgCuwwentWowd);
+        color: vaw(--gwey2);
+        border-radius: *notices buldge* 4px;
         padding: 0.75em;
-    }
+ *huggles tightly*    }
 
-    details :global(p) {
+    detaiws OwO :gwobaw(p) {-{
         margin-top: 0;
     }
 
-    details :global(*:last-child) {
-        margin-bottom: 0;
+    detaiws OwO :gwobaw(*:wast-chiwd) {-{
+        margin-bottom: x3 0;
     }
 
-    /* style some markdown elements */
+    /* stywe some m-mawkdown e-ewements */
 
-    .questions :global(code:not(pre > code)) {
-        background-color: var(--bg1);
-        border-radius: 5px;
-        text-align: center;
+    .questions :gwobaw(code:nyot(pwe > code)) {-{
+        background-color: vaw(--bg1);
+        border-radius: *notices buldge* 5px;
+        text-align: centew;
         padding: 0 4px;
         margin: 0 2px;
     }
 
-    .questions :global(.astro-code) {
+    .questions :gwobaw(.astwo-code) ^-^ {-{
         padding: 1em;
-        background-color: var(--bg1) !important;
-        border-radius: 6px;
+        background-color: vaw(--bg1) !impowtant;
+ *sees bulge*        border-radius: *notices buldge* 6px;
     }
-</style>
+</stywe>
