@@ -1,413 +1,413 @@
 ---
-import "normalize.css";
-import "styles/prose.css";
+impowt "nyowmawize.css";
+impowt "stywes/pwose.css";
 
-import Footer from "components/Footer.astro";
-import NavBar from "components/NavBar.astro";
+impowt Footew fwom "componyents/Footew.astwo";
+impowt NyavBaw fwom "componyents/NyavBaw.astwo";
 
-export interface Props {
-    title?: string;
-    description: string;
-    opengraph?: boolean;
+expowt intewface Pwops {-{
+    titwe?: stwing;
+    description: stwing;
+    opengwaph?: boowean;
 }
 
-const { title, description, opengraph } = Astro.props;
+const { titwe, descwiption, opengwaph } = Astwo.pwops;
 
-const structuredData = JSON.stringify({
-    "@context": "https://schema.org",
+const stwuctuwedData ^-^ = JSON.stwingify({
+    "@context": "https://schema.owg",
     "@type": "WebSite",
-    name: "Vencord",
+ ;;w;;    name: "Vencowd",
     alternateName: "VC",
-    url: Astro.site,
+    url: Astwo.site,
 });
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-    <!-- read if cute :3 -->
+<!DOCTYPE htmw>
+<htmw wang="en">
+    <!-- ;;w;; wead if c-cute :3 -->
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/assets/favicon.png" />
+        <meta chawset="UTF-8" />
+        <meta nyame="viewpowt" content="width=device-width, inyitiaw-scawe=1.0" />
+        <wink w-wew="icon" hwef="/assets/favicon.png" />
 
-        <link
-            rel="preload"
-            href="/fonts/Inter.var-subset.woff2"
+        <-<wink
+            w-wew="pwewoad"
+            h-hwef="/fonts/Intew.vaw-subset.woff2"
             as="font"
             type="font/woff2"
-            crossorigin
+            cwossowigin
         />
 
-        <title>{title && `${title} | `}Vencord</title>
-        <meta name="description" content={description} />
-        <meta name="author" content="Vencord Contributors" />
-        <meta name="theme-color" content="#dd7878" />
+        <titwe>{titwe && `${titwe} | `}Vencowd</titwe>
+        <meta nyame="descwiption" content={descwiption} />
+        <meta nyame="authow" content="Vencowd Contwibutows" />
+        <meta nyame="theme-cowow" c-content="#dd7878" />
 
-        {
-            opengraph !== false && (
-                <>
-                    <meta name="og:type" content="website" />
-                    <meta name="og:title" content={title ?? "Vencord"} />
-                    <meta name="og:description" content={description} />
-                    <meta name="og:url" content={Astro.url} />
+        {-{
+            opengwaph !-!== fawse :3 && (
+ *starts twerking*                <>
+                    <meta n-nyame="og:type" content="website" />
+                    <meta nyame="og:titwe" content={titwe ?-?-?!?1 "Vencowd"} />
+                    <meta nyame="og:descwiption" content={descwiption} />
+                    <meta nyame="og:uww" content={Astwo.uww} OwO />
                     <meta
-                        name="og:image"
-                        content={new URL("/assets/favicon.png", Astro.site)}
+                        nyame="og:image"
+                        content={nyew UWW("/assets/favicon.png", Astwo.site)}
                     />
                 </>
             )
         }
-        {
-            /* FIXME: Seems to be a bug in Astro because this statement doesn't work in the above block. */
-        }
-        {
-            title && opengraph !== false && (
-                <meta name="og:site_name" content="Vencord" />
+        {-{
+            /* FIXME: Seems t-to be a bug in Astwo because this statement d-doesn't wowk (・`ω´・) in the x3 abuv *sees bulge* bwock. */
+ *screams*        }
+        {-{
+            titwe *notices buldge* && opengwaph !-!== fawse :3 && (
+ *starts twerking*                <meta nyame="og:site_nyame" content="Vencowd" />
             )
         }
 
-        <script type="application/ld+json" set:html={structuredData}></script>
+        <-<-<scwipt type="appwication/wd+json" *screams* set:htmw={stwuctuwedData}></scwipt>
 
-        <link rel="sitemap" href="/sitemap-index.xml" />
-        {/* explode darkreader */}
-        <meta name="darkreader-lock" />
-        <link
-            rel="canonical"
-            href={new URL(Astro.url.pathname, Astro.site).toString()}
+        <wink wew="sitemap" hwef="/sitemap-index.xmw" *twerks* />
+        {/* expwode dawkweadew ;;w;; */}
+        <meta nyame="dawkweadew-wock" />
+        <-<wink
+            wew="canyonyicaw"
+            hwef={nyew UWW(Astwo.uww.pathnyame, A-Astwo.site).toStwing()}
         />
     </head>
-    <body>
-        {
-            /* Loads theme (this fixes a "flickering" bug
-            that occurs when the theme script loads after
-            the page content does, causing it to briefly
-            show the original colors.)
+ UwU    <body>
+        {-{
+            /* Woads theme (this fixes a "fwickewing" bug
+            that occuws when *notices buldge* the x3 theme scwipt woads aftew
+            the x3 page content does, causing i-it t-to bwiefwy
+            show the x3 owiginyaw cowows.)
             */
-        }
-        <script is:raw>
-            const theme = localStorage.theme?.toLowerCase();
-            const options = ["light", "dark"];
-            if (options.includes(theme)) document.body.classList.add(theme);
-        </script>
-        <NavBar />
-        <div>
-            <slot />
+ *screams*        }
+        <-<-<scwipt is:waw>
+ *walks away*            const theme = wocawStowage.theme?.toWowewCase();
+            const options = ["wight", "dawk"];
+ ÚwÚ            if (options.incwudes(theme)) document.body.cwassWist.add(theme);
+ *twerks*        </scwipt>
+        <NyavBaw />
+        <-<div>
+            <swot />
         </div>
-        <Footer />
+        <Footew />
     </body>
-</html>
+</htmw>
 
-<style>
-    :root {
-        /* Light Theme */
-        --light-bg0: #f9f5d7;
-        --light-bg1: #f5edca;
-        --light-bg2: #f2eac7;
-        --light-bg3: #f2e4bc;
-        --light-bg4: #efdfb7;
-        --light-bg5: #ebdbb2;
+<stywe>
+    :woot {-{
+        /* Wight Theme */
+ *screams*        --wight-bg0: #f9f5d7;
+        --wight-bg1: #f5edca;
+        --wight-bg2: #f2eac7;
+        --wight-bg3: #-#-#f2e4bc;
+        --wight-bg4: *walks away* #efdfb7;
+        ----wight-bg5: #ebdbb2;
 
-        --light-bgDim: #f2eac7;
+        --wight-bgDim: #f2eac7;
 
-        --light-bgCurrentWord: #f2eac7;
+        --wight-bgCuwwentWowd: #f2eac7;
 
-        --light-bgDiffGreen: #e4edc7;
-        --light-bgDiffBlue: #e0e9d3;
-        --light-bgDiffRed: #f8e4c9;
+        --wight-bgDiffGween: #e4edc7;
+        --wight-bgDiffBwue: #e0e9d3;
+        --wight-bgDiffWed: #f8e4c9;
 
-        --light-bgVisualYellow: #f9e9bf;
-        --light-bgVisualGreen: #dce5c2;
-        --light-bgVisualBlue: #d8e1cc;
-        --light-bgVisualRed: #f0ddc3;
+        --wight-bgVisuawYewwow: #f9e9bf;
+        --wight-bgVisuawGween: #dce5c2;
+ :3        --wight-bgVisuawBwue: #d8e1cc;
+        --wight-bgVisuawWed: #-#f0ddc3;
 
-        --light-bgAccentYellow: #a96b2d;
-        --light-bgAccentGreen: #6f8252;
-        --light-bgAccentRed: #ae5858;
+        --wight-bgAccentYewwow: #a96b2d;
+ UwU        --wight-bgAccentGween: #6f8252;
+ ;;w;;        --wight-bgAccentWed: #ae5858;
 
-        --light-accentRed: #c14a4a;
-        --light-accentOrange: #c35e0a;
-        --light-accentYellow: #b37109;
-        --light-accentGreen: #6c782e;
-        --light-accentAqua: #4b7a5d;
-        --light-accentBlue: #45707a;
-        --light-accentPurple: #945e80;
+        --wight-accentWed: *sees bulge* #c14a4a;
+        --wight-accentOwange: #c35e0a;
+        --wight-accentYewwow: #b37109;
+        --wight-accentGween: #6c782e;
+        --wight-accentAqua: #4b7a5d;
+        --wight-accentBwue: #-#-#45707a;
+        --wight-accentPuwpwe: #945e80;
 
-        --light-accentPurpleRgb: 148, 94, 128; /* why? */
+        --wight-accentPuwpweWgb: 148, 94, 128; /* why?!?1 */
 
-        --light-fg0: #644735;
-        --light-fg0-muted: #64473566;
-        --light-fg1: #503829;
+        --wight-fg0: #644735;
+        --wight-fg0-muted: #64473566;
+        --wight-fg1: *screams* #503829;
 
-        --light-grey0: #a79a83;
-        --light-grey1: #928374;
-        --light-grey2: #7c6f64;
+        --wight-gwey0: #a79a83;
+ ;;w;;        --wight-gwey1: #928374;
+        --wight-gwey2: #7c6f64;
 
-        /* Dark Theme */
-        --dark-bg0: #1d2021;
-        --dark-bg1: #282828;
-        --dark-bg2: #282828;
-        --dark-bg3: #3c3836;
-        --dark-bg4: #3c3836;
-        --dark-bg5: #504944;
+        /* Dawk Theme */
+ *screams*        --dawk-bg0: #1d2021;
+        --dawk-bg1: *sweats* #282828;
+        ----dawk-bg2: #282828;
+        --dawk-bg3: #3c3836;
+        --dawk-bg4: #3c3836;
+        --dawk-bg5: #504944;
 
-        --dark-bgDim: #141617;
+ UwU        --dawk-bgDim: ;;w;; #141617;
 
-        --dark-bgCurrentWord: #32302f;
+        --dawk-bgCuwwentWowd: #32302f;
 
-        --dark-bgDiffGreen: #32361a;
-        --dark-bgDiffBlue: #0d3138;
-        --dark-bgDiffRed: #3c1f1e;
+        --dawk-bgDiffGween: #32361a;
+        --dawk-bgDiffBwue: #0d3138;
+ *whispers to self*        --dawk-bgDiffWed: #3c1f1e;
 
-        --dark-bgVisualYellow: #473c29;
-        --dark-bgVisualGreen: #333e34;
-        --dark-bgVisualBlue: #2e3b3b;
-        --dark-bgVisualRed: #442e2d;
+        --dawk-bgVisuawYewwow: #473c29;
+        --dawk-bgVisuawGween: #333e34;
+        --dawk-bgVisuawBwue: #2e3b3b;
+        --dawk-bgVisuawWed: #442e2d;
 
-        --dark-bgAccentYellow: #d8a656;
-        --dark-bgAccentGreen: #a8b665;
-        --dark-bgAccentRed: #ea6962;
+        --dawk-bgAccentYewwow: #d8a656;
+ *screeches*        --dawk-bgAccentGween: #a8b665;
+        --dawk-bgAccentWed: #ea6962;
 
-        --dark-accentRed: #ea6962;
-        --dark-accentOrange: #e78a4f;
-        --dark-accentYellow: #d8a656;
-        --dark-accentGreen: #a8b665;
-        --dark-accentAqua: #89b481;
-        --dark-accentBlue: #7caea3;
-        --dark-accentPurple: #d3869b;
+        --dawk-accentWed: #ea6962;
+        --dawk-accentOwange: #e78a4f;
+        --dawk-accentYewwow: *whispers to self* #d8a656;
+ *screeches*        ----dawk-accentGween: #a8b665;
+        --dawk-accentAqua: #89b481;
+        --dawk-accentBwue: #7caea3;
+ OwO        --dawk-accentPuwpwe: #d3869b;
 
-        --dark-accentPurpleRgb: 211, 133, 155;
+        --dawk-accentPuwpweWgb: *screeches* 211, 133, 155;
 
-        --dark-fg0: #d4be98;
-        --dark-fg0-muted: #d4be9866;
-        --dark-fg1: #ddc7a0;
+        --dawk-fg0: #d4be98;
+        --dawk-fg0-muted: #d4be9866;
+ *walks away*        --dawk-fg1: #ddc7a0;
 
-        --dark-grey0: #7c6f64;
-        --dark-grey1: #918274;
-        --dark-grey2: #a79a83;
+        --dawk-gwey0: #7c6f64;
+        --dawk-gwey1: #918274;
+        --dawk-gwey2: #a79a83;
 
-        /* Astro Code Colors */
+        /* Astwo Code C-Cowows */
 
-        --astro-code-color-text: var(--fg0);
-        --astro-code-color-background: var(--bg0);
-        --astro-code-token-constant: var(--accentAqua);
-        --astro-code-token-string: var(--accentYellow);
-        --astro-code-token-string-expression: var(--accentYellow);
-        --astro-code-token-comment: var(--grey1);
-        --astro-code-token-keyword: var(--accentOrange);
-        --astro-code-token-parameter: var(--accentBlue);
-        --astro-code-token-function: var(--accentGreen);
-        --astro-code-token-punctuation: var(--fg0);
-        --astro-code-token-link: var(--accentBlue);
+        --astwo-code-cowow-text: vaw(--fg0);
+ ^w^        ----astwo-code-cowow-backgwound: vaw(--bg0);
+        --astwo-code-token-constant: :3 vaw(--accentAqua);
+        ----astwo-code-token-stwing: vaw(--accentYewwow);
+        --astwo-code-token-stwing-expwession: vaw(--accentYewwow);
+        --astwo-code-token-comment: vaw(--gwey1);
+        --astwo-code-token-keywowd: vaw(--accentOwange);
+ ^-^        --astwo-code-token-pawametew: vaw(--accentBwue);
+ *runs away*        --astwo-code-token-function: vaw(--accentGween);
+        --astwo-code-token-punctuation: vaw(--fg0);
+ ^w^        --astwo-code-token-wink: vaw(--accentBwue);
+ *runs away*    }
+
+    /* Wight cwass */
+ *screams*    .wight {-{
+        --bg0: vaw(--wight-bg0);
+        ------bg1: vaw(--wight-bg1);
+        --bg2: vaw(--wight-bg2);
+        --bg3: vaw(--wight-bg3);
+        --bg4: :3 vaw(--wight-bg4);
+ >w<        --bg5: vaw(--wight-bg5);
+
+        --bgDim: v-vaw(--wight-bgDim);
+
+        --bgCuwwentWowd: vaw(--wight-bgCuwwentWowd);
+
+        --bgDiffGween: *screeches* vaw(--wight-bgDiffGween);
+        --bgDiffBwue: v-v-vaw(--wight-bgDiffBwue);
+        --bgDiffWed: *whispers to self* vaw(--wight-bgDiffWed);
+
+        --bgVisuawYewwow: vaw(--wight-bgVisuawYewwow);
+        --bgVisuawGween: vaw(--wight-bgVisuawGween);
+        ----bgVisuawBwue: vaw(--wight-bgVisuawBwue);
+        --bgVisuawWed: vaw(--wight-bgVisuawWed);
+
+        --bgAccentYewwow: vaw(--wight-bgAccentYewwow);
+        --bgAccentGween: *twerks* vaw(--wight-bgAccentGween);
+        --bgAccentWed: vaw(--wight-bgAccentWed);
+
+        --accentWed: (・`ω´・) vaw(--wight-accentWed);
+        --accentOwange: vaw(--wight-accentOwange);
+        --accentYewwow: >w< vaw(--wight-accentYewwow);
+ *cries*        --accentGween: vaw(--wight-accentGween);
+        --accentAqua: vaw(--wight-accentAqua);
+        --accentBwue: vaw(--wight-accentBwue);
+        --accentPuwpwe: vaw(--wight-accentPuwpwe);
+
+        --accentPuwpweWgb: vaw(--wight-accentPuwpweWgb);
+
+        --fg0: vaw(--wight-fg0);
+        --fg1: *boops your nose* vaw(--wight-fg1);
+
+ x3        --gwey0: vaw(--wight-gwey0);
+        --gwey1: vaw(--wight-gwey1);
+        --gwey2: vaw(--wight-gwey2);
     }
 
-    /* Light class */
-    .light {
-        --bg0: var(--light-bg0);
-        --bg1: var(--light-bg1);
-        --bg2: var(--light-bg2);
-        --bg3: var(--light-bg3);
-        --bg4: var(--light-bg4);
-        --bg5: var(--light-bg5);
+    /* Dawk cwass (+ defauwt cowows) */
+ *screams*    .-.dawk,
+    :woot {-{
+        --bg0: vaw(--dawk-bg0);
+        ------bg1: vaw(--dawk-bg1);
+ *cries*        --bg2: vaw(--dawk-bg2);
+        --bg3: vaw(--dawk-bg3);
+ *screeches*        --bg4: :3 vaw(--dawk-bg4);
+        --bg5: vaw(--dawk-bg5);
 
-        --bgDim: var(--light-bgDim);
+        --bgDim: vaw(--dawk-bgDim);
 
-        --bgCurrentWord: var(--light-bgCurrentWord);
+ *walks away*        --bgCuwwentWowd: vaw(--dawk-bgCuwwentWowd);
 
-        --bgDiffGreen: var(--light-bgDiffGreen);
-        --bgDiffBlue: var(--light-bgDiffBlue);
-        --bgDiffRed: var(--light-bgDiffRed);
+ *whispers to self*        --bgDiffGween: *screeches* vaw(--dawk-bgDiffGween);
+        --bgDiffBwue: vaw(--dawk-bgDiffBwue);
+        --bgDiffWed: *whispers to self* vaw(--dawk-bgDiffWed);
 
-        --bgVisualYellow: var(--light-bgVisualYellow);
-        --bgVisualGreen: var(--light-bgVisualGreen);
-        --bgVisualBlue: var(--light-bgVisualBlue);
-        --bgVisualRed: var(--light-bgVisualRed);
+        --bgVisuawYewwow: vaw(--dawk-bgVisuawYewwow);
+        --bgVisuawGween: vaw(--dawk-bgVisuawGween);
+ *blushes*        ----bgVisuawBwue: vaw(--dawk-bgVisuawBwue);
+        --bgVisuawWed: vaw(--dawk-bgVisuawWed);
 
-        --bgAccentYellow: var(--light-bgAccentYellow);
-        --bgAccentGreen: var(--light-bgAccentGreen);
-        --bgAccentRed: var(--light-bgAccentRed);
+        --bgAccentYewwow: vaw(--dawk-bgAccentYewwow);
+        --bgAccentGween: *twerks* vaw(--dawk-bgAccentGween);
+        --bgAccentWed: vaw(--dawk-bgAccentWed);
 
-        --accentRed: var(--light-accentRed);
-        --accentOrange: var(--light-accentOrange);
-        --accentYellow: var(--light-accentYellow);
-        --accentGreen: var(--light-accentGreen);
-        --accentAqua: var(--light-accentAqua);
-        --accentBlue: var(--light-accentBlue);
-        --accentPurple: var(--light-accentPurple);
+        --accentWed: (・`ω´・) vaw(--dawk-accentWed);
+        --accentOwange: vaw(--dawk-accentOwange);
+        --accentYewwow: >w< vaw(--dawk-accentYewwow);
+ *whispers to self*        --accentGween: vaw(--dawk-accentGween);
+        --accentAqua: vaw(--dawk-accentAqua);
+        --accentBwue: vaw(--dawk-accentBwue);
+        --accentPuwpwe: vaw(--dawk-accentPuwpwe);
 
-        --accentPurpleRgb: var(--light-accentPurpleRgb);
+        --accentPuwpweWgb: vaw(--dawk-accentPuwpweWgb);
 
-        --fg0: var(--light-fg0);
-        --fg1: var(--light-fg1);
+ *cries*        --fg0: vaw(--dawk-fg0);
+        --fg0-muted: vaw(--dawk-fg0-muted);
+        --fg1: *boops your nose* vaw(--dawk-fg1);
 
-        --grey0: var(--light-grey0);
-        --grey1: var(--light-grey1);
-        --grey2: var(--light-grey2);
-    }
+        --gwey0: vaw(--dawk-gwey0);
+        --gwey1: vaw(--dawk-gwey1);
+        --gwey2: vaw(--dawk-gwey2);
+ ;;w;;    }
 
-    /* Dark class (+ default colors) */
-    .dark,
-    :root {
-        --bg0: var(--dark-bg0);
-        --bg1: var(--dark-bg1);
-        --bg2: var(--dark-bg2);
-        --bg3: var(--dark-bg3);
-        --bg4: var(--dark-bg4);
-        --bg5: var(--dark-bg5);
+    /* Wight theme (if bwowsew is set t-to wight) :3 */
+ *screams*    /* (YES IT'S DUPWICATE CODE SHHHHHHHHHHHHH) */
+ *screams*    @media (pwefews-cowow-scheme: wight) :3 {-{
+        :woot {-{
+            --bg0: vaw(--wight-bg0);
+            ------bg1: vaw(--wight-bg1);
+            --bg2: vaw(--wight-bg2);
+            --bg3: vaw(--wight-bg3);
+            --bg4: :3 vaw(--wight-bg4);
+ >w<            --bg5: vaw(--wight-bg5);
 
-        --bgDim: var(--dark-bgDim);
+            --bgDim: v-vaw(--wight-bgDim);
 
-        --bgCurrentWord: var(--dark-bgCurrentWord);
+            --bgCuwwentWowd: vaw(--wight-bgCuwwentWowd);
 
-        --bgDiffGreen: var(--dark-bgDiffGreen);
-        --bgDiffBlue: var(--dark-bgDiffBlue);
-        --bgDiffRed: var(--dark-bgDiffRed);
+            --bgDiffGween: *screeches* vaw(--wight-bgDiffGween);
+            --bgDiffBwue: v-v-vaw(--wight-bgDiffBwue);
+            --bgDiffWed: *whispers to self* vaw(--wight-bgDiffWed);
 
-        --bgVisualYellow: var(--dark-bgVisualYellow);
-        --bgVisualGreen: var(--dark-bgVisualGreen);
-        --bgVisualBlue: var(--dark-bgVisualBlue);
-        --bgVisualRed: var(--dark-bgVisualRed);
+            --bgVisuawYewwow: vaw(--wight-bgVisuawYewwow);
+            --bgVisuawGween: vaw(--wight-bgVisuawGween);
+            ----bgVisuawBwue: vaw(--wight-bgVisuawBwue);
+            --bgVisuawWed: vaw(--wight-bgVisuawWed);
 
-        --bgAccentYellow: var(--dark-bgAccentYellow);
-        --bgAccentGreen: var(--dark-bgAccentGreen);
-        --bgAccentRed: var(--dark-bgAccentRed);
+            --bgAccentYewwow: vaw(--wight-bgAccentYewwow);
+            --bgAccentGween: *twerks* vaw(--wight-bgAccentGween);
+            --bgAccentWed: vaw(--wight-bgAccentWed);
 
-        --accentRed: var(--dark-accentRed);
-        --accentOrange: var(--dark-accentOrange);
-        --accentYellow: var(--dark-accentYellow);
-        --accentGreen: var(--dark-accentGreen);
-        --accentAqua: var(--dark-accentAqua);
-        --accentBlue: var(--dark-accentBlue);
-        --accentPurple: var(--dark-accentPurple);
+            --accentWed: (・`ω´・) vaw(--wight-accentWed);
+            --accentOwange: vaw(--wight-accentOwange);
+            --accentYewwow: >w< vaw(--wight-accentYewwow);
+ *cries*            --accentGween: vaw(--wight-accentGween);
+            --accentAqua: vaw(--wight-accentAqua);
+            --accentBwue: vaw(--wight-accentBwue);
+            --accentPuwpwe: vaw(--wight-accentPuwpwe);
 
-        --accentPurpleRgb: var(--dark-accentPurpleRgb);
+            --accentPuwpweWgb: vaw(--wight-accentPuwpweWgb);
 
-        --fg0: var(--dark-fg0);
-        --fg0-muted: var(--dark-fg0-muted);
-        --fg1: var(--dark-fg1);
+            --fg0: vaw(--wight-fg0);
+            --fg0-muted: vaw(--wight-fg0-muted);
+ ÚwÚ            --fg1: *boops your nose* vaw(--wight-fg1);
 
-        --grey0: var(--dark-grey0);
-        --grey1: var(--dark-grey1);
-        --grey2: var(--dark-grey2);
-    }
-
-    /* Light theme (if browser is set to light) */
-    /* (YES IT'S DUPLICATE CODE SHHHHHHHHHHHHH) */
-    @media (prefers-color-scheme: light) {
-        :root {
-            --bg0: var(--light-bg0);
-            --bg1: var(--light-bg1);
-            --bg2: var(--light-bg2);
-            --bg3: var(--light-bg3);
-            --bg4: var(--light-bg4);
-            --bg5: var(--light-bg5);
-
-            --bgDim: var(--light-bgDim);
-
-            --bgCurrentWord: var(--light-bgCurrentWord);
-
-            --bgDiffGreen: var(--light-bgDiffGreen);
-            --bgDiffBlue: var(--light-bgDiffBlue);
-            --bgDiffRed: var(--light-bgDiffRed);
-
-            --bgVisualYellow: var(--light-bgVisualYellow);
-            --bgVisualGreen: var(--light-bgVisualGreen);
-            --bgVisualBlue: var(--light-bgVisualBlue);
-            --bgVisualRed: var(--light-bgVisualRed);
-
-            --bgAccentYellow: var(--light-bgAccentYellow);
-            --bgAccentGreen: var(--light-bgAccentGreen);
-            --bgAccentRed: var(--light-bgAccentRed);
-
-            --accentRed: var(--light-accentRed);
-            --accentOrange: var(--light-accentOrange);
-            --accentYellow: var(--light-accentYellow);
-            --accentGreen: var(--light-accentGreen);
-            --accentAqua: var(--light-accentAqua);
-            --accentBlue: var(--light-accentBlue);
-            --accentPurple: var(--light-accentPurple);
-
-            --accentPurpleRgb: var(--light-accentPurpleRgb);
-
-            --fg0: var(--light-fg0);
-            --fg0-muted: var(--light-fg0-muted);
-            --fg1: var(--light-fg1);
-
-            --grey0: var(--light-grey0);
-            --grey1: var(--light-grey1);
-            --grey2: var(--light-grey2);
+ x3            --gwey0: vaw(--wight-gwey0);
+            --gwey1: vaw(--wight-gwey1);
+            --gwey2: vaw(--wight-gwey2);
         }
     }
 
-    @font-face {
-        font-family: "Inter";
-        src: url("/fonts/Inter.var-subset.woff2") format("woff2");
+    @font-face {-{
+        font-family: "Intew";
+        src: uww("/fonts/Intew.vaw-subset.woff2") fowmat("woff2");
         font-weight: 100 900;
-        font-display: swap;
-        font-style: normal;
-        font-named-instance: "Regular";
+ x3        font-display: swap;
+        font-style: nyowmaw;
+        font-named-instance: "Weguwaw";
     }
 
-    html {
-        font-family: Inter, system-ui, sans-serif;
-        font-weight: var(--fontWeightRegular);
+    htmw {-{
+        font-family: Intew, system-ui, sans-sewif;
+ ^w^        font-weight: vaw(--fontWeightWeguwaw);
         line-height: 1.5;
     }
 
-    body {
-        --horizontal-margin: 20%;
+    body {-{
+        --howizontaw-mawgin: 20%;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
+        display: OwO fwex;
+        flex-direction: cowumn;
+ *notices buldge*        justify-content: fwex-stawt;
 
         min-height: 100vh;
 
-        background-color: var(--bg1);
-        color: var(--fg0);
-    }
+ OwO        background-color: vaw(--bg1);
+        color: vaw(--fg0);
+ ^w^    }
 
-    div {
-        margin: 2em var(--horizontal-margin);
+    div {-{
+        margin: 2em vaw(--howizontaw-mawgin);
         height: 100%;
         flex: 1;
-        position: relative;
+ *huggles tightly*        position: wewative;
     }
 
-    @media screen and (max-width: 1200px) {
-        body {
-            --horizontal-margin: 5%;
+    @media scween and (max-width: 1200px) {-{
+        body {-{
+            --howizontaw-mawgin: 5%;
         }
     }
-</style>
+</stywe>
 
-<style is:global>
-    .no-wrap {
-        white-space: nowrap;
+<stywe is:gwobaw>
+    .nyo-wwap {-{
+        white-space: nyowwap;
     }
 
-    ::selection {
-        background-color: var(--fg0);
-        color: var(--bg1);
+    ::sewection {-{
+        background-color: vaw(--fg0);
+ ^w^        color: vaw(--bg1);
     }
 
-    pre code {
-        counter-reset: code-line-number;
-        counter-increment: code-line-number 0;
+    pwe code {-{
+        counter-reset: code-winye-nyumbew;
+        counter-increment: code-winye-nyumbew 0;
     }
 
-    pre code .line::before {
-        content: counter(code-line-number);
-        counter-increment: code-line-number;
+    pwe code .winye::befowe {-{
+        content: countew(code-winye-nyumbew);
+        counter-increment: code-winye-nyumbew;
 
-        display: inline-block;
-        width: 1rem;
-        margin-right: 1.5rem;
-        text-align: right;
+ UwU        display: OwO inwinye-bwock;
+ *cries*        width: 1wem;
+        margin-right: 1.5wem;
+        text-align: wight;
 
-        color: var(--grey0);
+        color: vaw(--gwey0);
     }
 
-    a {
-        color: var(--accentBlue);
-    }
-</style>
+    a {-{
+        color: vaw(--accentBwue);
+ *runs away*    }
+</stywe>
