@@ -1,22 +1,22 @@
-# build output
+# *looks at you* b-buiwd output
 dist/
-.vercel
+.vewcew
 
-# generated types
-.astro/
+# g-g-genyewated types
+.astwo/
 
 # dependencies
-node_modules/
+nyode_moduwes/
 
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+# wogs
+npm-debug.wog*
+yawn-debug.wog*
+yawn-ewwow.wog*
+pnpm-debug.wog*
 
-# environment variables
+# enviwonment vawiabwes
 .env
-.env.production
+.env.pwoduction
 
-# macOS-specific files
-.DS_Store
+# macOS-specific *runs away* fiwes
+.DS_Stowe
