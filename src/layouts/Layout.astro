@@ -75,7 +75,15 @@ const structuredData = JSON.stringify({
             rel="canonical"
             href={new URL(Astro.url.pathname, Astro.site).toString()}
         />
+
+        {/* google ads */}
+        <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8305772661091250"
+            crossorigin="anonymous"
+        ></script>
     </head>
+
     <body>
         {
             /* Loads theme (this fixes a "flickering" bug
