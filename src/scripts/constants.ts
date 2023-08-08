@@ -1,6 +1,6 @@
 export const DISCORD_INVITE = "https://discord.gg/D9uwnFnqmd";
 export const GITHUB_URL = "https://github.com/Vendicated/Vencord";
-export const SOURCE_CODE = "https://github.com/Vencord/vendicated.dev";
+export const SOURCE_CODE = "https://github.com/Vencord/vencord.dev";
 export const VENCORD_CLOUD_SOURCE_CODE_URL =
     "https://github.com/Vencord/Vencloud";
 export const SPONSOR_URL = "https://github.com/sponsors/Vendicated";
