@@ -5,9 +5,9 @@ tags: vencord.app, unofficial, official
 
 The only official website is `vencord.dev`, which can be confirmed on GitHub and the installer itself. We are not
 affiliated with any other website, and therefore we urge you to exercise caution when visiting sites that offer Vencord
-that aren't owned by us.
+that aren't owned by us. They are fake sites that are highly likely to be malicious.
 
-We are aware of another website, `vencord.app`, that currently looks like our site and offers our download links. We are
-unsure why it exists, and have attempted to contact the site's owners to no avail. If you have downloaded software from
-there, please delete it and download it from our official sources instead as we cannot confirm the safety of the
-software you have downloaded.
+We are currently aware of the following sites impersonating us:
+- `vencord.app`
+If you have downloaded software offered by these sites, please remove it as soon as possible as we cannot guarantee the
+safety of anything distributed via them.
