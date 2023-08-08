@@ -248,13 +248,12 @@
     }
 
     .author {
-        color: var(--grey1);
         white-space: nowrap;
     }
 
     .author::before {
         content: "by ";
-        color: var(--grey0);
+        color: var(--grey2);
     }
 
     .description {
