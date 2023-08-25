@@ -16,17 +16,19 @@ import Tab from "./Tab.astro";
             the UserScript.
         </p>
         <div class="buttons">
-            <a href={FIREFOX_WEBSTORE_URL}>
+            <a
+                href={FIREFOX_WEBSTORE_URL}
+                class="disabled"
+                onclick={"event.preventDefault()"}
+            >
                 <img
                     src="/assets/firefox-button.webp"
-                    alt="Get Vencord on the Firefox Webstore"
                     title="Get Vencord on the Firefox Webstore"
                 />
             </a>
             <a href={CHROME_WEBSTORE_URL}>
                 <img
                     src="/assets/chrome-button.png"
-                    alt="Get Vencord on the Chrome Webstore"
                     title="Get Vencord on the Chrome Webstore"
                 />
             </a>
@@ -36,15 +38,24 @@ import Tab from "./Tab.astro";
         </div>
     </Fragment>
 
-    <Card slot="footer" kind={Kind.Warning}>
-        <p>
-            Please note that due to Discord's
-            <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP"
-                >content security policy</a
-            >, the CSS Editor, custom themes and plugins making use of external
-            scripts will not work with the UserScript.
-        </p>
-    </Card>
+    <Fragment slot="footer">
+        <Card kind={Kind.Error}>
+            <p>
+                Mozilla have taken down the entire Vencord extension because
+                they were unable to compile it. Thus, it is not available for
+                now. Use the UserScript or a chromium browser.
+            </p>
+        </Card>
+        <Card kind={Kind.Warning}>
+            <p>
+                Please note that due to Discord's
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP"
+                    >content security policy</a
+                >, the CSS Editor, custom themes and plugins making use of
+                external scripts will not work with the UserScript.
+            </p>
+        </Card>
+    </Fragment>
 </Tab>
 
 <style>
@@ -55,5 +66,10 @@ import Tab from "./Tab.astro";
         gap: 1rem;
         padding: 1em;
         flex-wrap: wrap;
+    }
+
+    .disabled {
+        filter: grayscale(1);
+        cursor: not-allowed;
     }
 </style>
