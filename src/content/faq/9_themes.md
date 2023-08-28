@@ -15,5 +15,6 @@ It will
     Vencord.Settings.useQuickCss = false
     copy(Vencord.Settings.themeLinks.join("\n"))
     Vencord.Settings.themeLinks = []
+    Vencord.Settings.enabledThemes = []
 })()
 ```
