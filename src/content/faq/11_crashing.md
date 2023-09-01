@@ -7,4 +7,4 @@ Discord on Windows uses 32bit electron which has a hard memory limit of 2gb. Dis
 
 DevTools use a lot of memory so once you open them, they immediately push you over 2gb usage. Thus Discord runs out of memory and crashes
 
-**Solution**: use **Discord Browser** / **[Vencord Desktop](https://github.com/Vencord/Desktop)** 
+**Solution**: use **Discord Browser** / **[Vencord Desktop](https://github.com/Vencord/Vesktop)** 
