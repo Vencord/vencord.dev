@@ -30,7 +30,7 @@ const readmeHtml = readme && parseMarkdown(readme);
 
     {
         readmeHtml ? (
-            <section set:html={readmeHtml} />
+            <article set:html={readmeHtml} />
         ) : (
             <p class="desc">{p.description}</p>
         )
@@ -51,7 +51,7 @@ const readmeHtml = readme && parseMarkdown(readme);
         line-height: 1em;
     }
 
-    section {
+    article {
         background: var(--bg0);
         padding: 2em;
         border-radius: 8px;
@@ -64,7 +64,7 @@ const readmeHtml = readme && parseMarkdown(readme);
      * Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
      */
 
-    section :global(:is(h1, h2, h3, h4, h5, h6)) {
+    article :global(:is(h1, h2, h3, h4, h5, h6)) {
         margin-top: 24px;
         margin-bottom: 16px;
         font-weight: 600;
@@ -72,45 +72,45 @@ const readmeHtml = readme && parseMarkdown(readme);
         border-bottom: 1px solid var(--fg0-muted2);
     }
 
-    section :global(h1) {
+    article :global(h1) {
         margin: 0.67em 0;
         font-weight: 600;
         padding-bottom: 0.3em;
         font-size: 2em;
     }
 
-    section :global(h2) {
+    article :global(h2) {
         font-weight: 600;
         padding-bottom: 0.3em;
         font-size: 1.5em;
     }
 
-    section :global(h3) {
+    article :global(h3) {
         font-weight: 600;
         font-size: 1.25em;
     }
 
-    section :global(h4) {
+    article :global(h4) {
         font-weight: 600;
         font-size: 1em;
     }
 
-    section :global(h5) {
+    article :global(h5) {
         font-weight: 600;
         font-size: 0.875em;
     }
 
-    section :global(h6) {
+    article :global(h6) {
         font-weight: 600;
         font-size: 0.85em;
     }
 
-    section :global(p) {
+    article :global(p) {
         margin-top: 0;
         margin-bottom: 10px;
     }
 
-    section :global(img) {
+    article :global(img) {
         max-width: 100%;
     }
 </style>
