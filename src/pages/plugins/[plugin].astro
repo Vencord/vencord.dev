@@ -1,7 +1,8 @@
 ---
-import { cacheResponseFor, HOURS, DAYS } from "scripts/cache";
+import { parse as parseMarkdown } from "marked";
+import { cacheResponseFor, HOURS, MINUTES } from "scripts/cache";
 import Layout from "layouts/Layout.astro";
-import { fetchPlugins } from "scripts/data";
+import { fetchPluginReadme, fetchPlugins } from "scripts/data";
 import { humanFriendlyJoin } from "scripts/text";
 
 const pluginName = Astro.params.plugin;
@@ -10,11 +11,18 @@ const plugins = await fetchPlugins();
 
 const p = plugins.find(p => p.name === pluginName);
 if (!p) {
-    cacheResponseFor(Astro.response, 1 * HOURS);
+    cacheResponseFor(Astro.response, 5 * MINUTES);
     return new Response(null, { status: 404 });
 } else {
-    cacheResponseFor(Astro.response, 1 * DAYS);
+    cacheResponseFor(Astro.response, 1 * HOURS);
 }
+const readme = await fetchPluginReadme(p.name);
+const processedReadme = readme?.replace(
+    new RegExp(String.raw`\n(https://github\.com/\S+/assets/\d+/[\w-]+)`, "g"),
+    '\n<video controls><source src="$1" type="video/mp4"></video>\n'
+);
+
+const readmeHtml = processedReadme && parseMarkdown(processedReadme);
 ---
 
 <Layout title={p.name} description={p.description}>
@@ -25,9 +33,13 @@ if (!p) {
         </p>
     </div>
 
-    <p class="desc">
-        {p.description}
-    </p>
+    {
+        readmeHtml ? (
+            <article set:html={readmeHtml} />
+        ) : (
+            <p class="desc">{p.description}</p>
+        )
+    }
 
     <h2 class="h">Installation</h2>
     <p>
@@ -42,5 +54,68 @@ if (!p) {
         margin: 2em 0 0.5em;
         font-size: 2em;
         line-height: 1em;
+    }
+
+    article {
+        background: var(--bg0);
+        padding: 2em;
+        border-radius: 8px;
+        box-shadow: 0 0 0 1px var(--grey0);
+    }
+
+    /*
+     * most of these styles are adapted from https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown-dark.css
+     * SPDX-License-Identifier: MIT
+     * Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
+     */
+
+    article :global(:is(h1, h2, h3, h4, h5, h6)) {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+        border-bottom: 1px solid var(--fg0-muted2);
+    }
+
+    article :global(h1) {
+        margin: 0.67em 0;
+        font-weight: 600;
+        padding-bottom: 0.3em;
+        font-size: 2em;
+    }
+
+    article :global(h2) {
+        font-weight: 600;
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+    }
+
+    article :global(h3) {
+        font-weight: 600;
+        font-size: 1.25em;
+    }
+
+    article :global(h4) {
+        font-weight: 600;
+        font-size: 1em;
+    }
+
+    article :global(h5) {
+        font-weight: 600;
+        font-size: 0.875em;
+    }
+
+    article :global(h6) {
+        font-weight: 600;
+        font-size: 0.85em;
+    }
+
+    article :global(p) {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    article :global(:is(img, video)) {
+        max-width: 100%;
     }
 </style>
