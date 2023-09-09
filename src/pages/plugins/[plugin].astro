@@ -18,8 +18,8 @@ if (!p) {
 }
 const readme = await fetchPluginReadme(p.name);
 const processedReadme = readme?.replace(
-    /\n(https:\/\/github\.com\/\S+\/assets\/\d+\/[\w-]+)/g,
-    '<video controls><source src="$1" type="video/mp4"></video>'
+    new RegExp(String.raw`\n(https://github\.com/\S+/assets/\d+/[\w-]+)`, "g"),
+    '\n<video controls><source src="$1" type="video/mp4"></video>\n'
 );
 
 const readmeHtml = processedReadme && parseMarkdown(processedReadme);
