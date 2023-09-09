@@ -1,6 +1,6 @@
 ---
 import { parse as parseMarkdown } from "marked";
-import { cacheResponseFor, HOURS, DAYS } from "scripts/cache";
+import { cacheResponseFor, HOURS, MINUTES } from "scripts/cache";
 import Layout from "layouts/Layout.astro";
 import { fetchPluginReadme, fetchPlugins } from "scripts/data";
 import { humanFriendlyJoin } from "scripts/text";
@@ -11,13 +11,18 @@ const plugins = await fetchPlugins();
 
 const p = plugins.find(p => p.name === pluginName);
 if (!p) {
-    cacheResponseFor(Astro.response, 1 * HOURS);
+    cacheResponseFor(Astro.response, 5 * MINUTES);
     return new Response(null, { status: 404 });
 } else {
-    cacheResponseFor(Astro.response, 1 * DAYS);
+    cacheResponseFor(Astro.response, 1 * HOURS);
 }
 const readme = await fetchPluginReadme(p.name);
-const readmeHtml = readme && parseMarkdown(readme);
+const processedReadme = readme?.replace(
+    /\n(https:\/\/github\.com\/\S+\/assets\/\d+\/[\w-]+)/g,
+    '<video controls><source src="$1" type="video/mp4"></video>'
+);
+
+const readmeHtml = processedReadme && parseMarkdown(processedReadme);
 ---
 
 <Layout title={p.name} description={p.description}>
@@ -110,7 +115,7 @@ const readmeHtml = readme && parseMarkdown(readme);
         margin-bottom: 10px;
     }
 
-    article :global(img) {
+    article :global(:is(img, video)) {
         max-width: 100%;
     }
 </style>
