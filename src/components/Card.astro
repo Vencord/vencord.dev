@@ -13,7 +13,7 @@ export const enum Kind {
 
 const { kind } = Astro.props;
 const border = kind;
-const background = kind + Math.floor(0xff / 4).toString(16);
+const background = kind + Math.floor(0xff / 12).toString(16);
 ---
 
 <div>
@@ -22,9 +22,12 @@ const background = kind + Math.floor(0xff / 4).toString(16);
 
 <style define:vars={{ border, background }}>
     div {
+        width: 100%;
         border: 2px solid var(--border);
         border-radius: 8px;
-        background-color: var(--background);
         padding: 0 1rem;
+        margin: 0.5rem;
+        box-sizing: border-box;
+        background-color: var(--background);
     }
 </style>
