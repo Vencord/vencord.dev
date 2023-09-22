@@ -13,5 +13,6 @@ export interface PluginData {
     hasCommands: boolean;
     required: boolean;
     enabledByDefault: boolean;
-    target: "desktop" | "web" | "dev";
+    target: "discordDesktop" | "vencordDesktop" | "web" | "dev";
+    filePath: string;
 }

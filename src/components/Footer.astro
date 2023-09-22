@@ -112,10 +112,11 @@ import ThemeToggle from "./ThemeToggle.svelte";
         width: 1.5em;
         height: 1.5em;
         shape-rendering: auto;
-        color: var(--color);
+        color: var(--fg0);
+        transition: filter 0.2s ease-in-out;
     }
 
     a:hover svg {
-        color: var(--accent);
+        filter: brightness(1.2);
     }
 </style>
