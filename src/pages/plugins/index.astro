@@ -6,7 +6,9 @@ import { fetchPlugins } from "scripts/data";
 
 cacheResponseFor(Astro.response, 5 * MINUTES);
 
-const plugins = (await fetchPlugins()).filter((p) => !p.name.endsWith("API"));
+const plugins = (await fetchPlugins())
+    .filter(p => !p.name.endsWith("API"))
+    .sort((a, b) => a.name.localeCompare(b.name));
 ---
 
 <Layout
