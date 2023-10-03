@@ -11,6 +11,5 @@ In that case you will instead want to use one of the following mods focused on M
 Do note however that these mods are not related to / affiliated with Vencord, so we do not provide support for them in any way. Join their support servers for help & more info!
 
 - Vendetta (android/ios): [GitHub](https://github.com/vendetta-mod/Vendetta) - [Discord Server](https://discord.gg/n9QQ4XhhJP)
-- Enmity (ios only): [GitHub](https://github.com/enmity-mod/enmity) - [Discord Server](https://discord.gg/rMdzhWUaGT)
 - Aliucord (android only, very outdated but still works well if you like the old version of Discord):
 [GitHub](https://github.com/Aliucord/Aliucord) - [Discord Server](https://discord.gg/EsNDvBaHVU)
