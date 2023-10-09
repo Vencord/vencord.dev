@@ -11,9 +11,10 @@ import Tab from "./Tab.astro";
 <Tab>
     <Fragment slot="header">
         <p>
-            You can download Vencord from the Chrome or Firefox Store, or use
-            the UserScript.
+            You can download Vencord from the Chrome Store or use the
+            UserScript.
         </p>
+
         <div class="buttons">
             <a href={CHROME_WEBSTORE_URL}>
                 <img
@@ -21,22 +22,22 @@ import Tab from "./Tab.astro";
                     title="Get Vencord on the Chrome Webstore"
                 />
             </a>
-            <a href={FIREFOX_WEBSTORE_URL}>
-                <img
-                    src="/assets/firefox-button.webp"
-                    title="Get Vencord on the Firefox Webstore"
-                />
-            </a>
             <a href={USERSCRIPT_URL} title="Download Vencord.user.js">
                 <div class="userscript-badge">
                     <img src="/assets/monkey.png" aria-hidden="true" />
                     <div class="userscript-text">
                         <span>Get the</span>
-                        <span>UserScript</span>
+                        <span>Userscript</span>
                     </div>
                 </div>
             </a>
         </div>
+
+        <p>
+            To get the Userscript, you'll need a Userscript manager like <a
+                href="https://violentmonkey.github.io/">Violentmonkey</a
+            > or <a href="https://www.tampermonkey.net/">Tampermonkey</a>.
+        </p>
     </Fragment>
 
     <Fragment slot="footer">
@@ -46,7 +47,7 @@ import Tab from "./Tab.astro";
                 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP"
                     >content security policy</a
                 >, the CSS Editor, custom themes and plugins making use of
-                external scripts will not work with the UserScript.
+                external scripts will not work with the Userscript.
             </p>
         </Card>
     </Fragment>
