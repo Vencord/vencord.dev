@@ -2,6 +2,12 @@
 import Card, { Kind } from "components/Card.astro";
 import Code from "components/Code.astro";
 import Tab from "./Tab.astro";
+import { DOWNLOAD_BASE } from "scripts/constants";
+
+const CLI_COMMAND = `
+cd Downloads
+./VencordInstallerCli.exe --install
+`.trim();
 ---
 
 <Tab fileNames={["VencordInstaller.exe"]}>
@@ -25,24 +31,35 @@ import Tab from "./Tab.astro";
             </p>
         </Card>
 
+        <h3>If the normal installer does not open for you</h3>
         <p>
-            Alternatively, or if the normal installer doesn't work for you, open
-            Powershell and run the following command:
+            <a href={DOWNLOAD_BASE + "VencordInstallerCli.exe"}
+                >Download the cli installer</a
+            >
+            <b> to your Downloads folder</b>. Then, open powershell and run it
+            with the following command. Answer questions when prompted (usually
+            by typing a number)
         </p>
         <Card kind={Kind.Blank}>
-            <code
-                >iwr
-                "https://raw.githubusercontent.com/Vencord/Installer/main/install.ps1"
-                -UseBasicParsing | iex</code
-            >
+            <pre><code>{CLI_COMMAND}</code></pre>
         </Card>
-
-        <br />
+        <p>
+            To later uninstall, do the same but with --uninstall instead.
+            <br />
+             You can also run the installer with no arguments to get a full list
+            of available commands
+        </p>
     </div>
+    <br />
 </Tab>
 
 <style>
     code {
         overflow-wrap: anywhere;
+    }
+
+    h3 {
+        margin: 1em 0 0.5em;
+        font-size: 2em;
     }
 </style>
