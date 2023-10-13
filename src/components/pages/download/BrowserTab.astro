@@ -1,5 +1,5 @@
 ---
-import Card, { Kind } from "components/Card.astro";
+import Card, { CardKind } from "components/Card.svelte";
 import {
     CHROME_WEBSTORE_URL,
     FIREFOX_WEBSTORE_URL,
@@ -41,7 +41,7 @@ import Tab from "./Tab.astro";
     </Fragment>
 
     <Fragment slot="footer">
-        <Card kind={Kind.Warning}>
+        <Card kind={CardKind.Warning}>
             <p>
                 Please note that due to Discord's
                 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP"
