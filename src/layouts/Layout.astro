@@ -86,9 +86,9 @@ const structuredData = JSON.stringify({
             */
         }
         <script is:raw>
-            const theme = localStorage.theme?.toLowerCase();
-            const options = ["light", "dark"];
-            if (options.includes(theme)) document.body.classList.add(theme);
+        const theme = localStorage.theme?.toLowerCase();
+        const options = ["light", "dark"];
+        if (options.includes(theme)) document.body.classList.add(theme);
         </script>
         <NavBar />
         <div>
@@ -357,6 +357,8 @@ const structuredData = JSON.stringify({
         font-family: Inter, system-ui, sans-serif;
         font-weight: var(--fontWeightRegular);
         line-height: 1.5;
+
+        color-scheme: dark light;
     }
 
     body {
