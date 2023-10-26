@@ -14,6 +14,7 @@ const plugins = (await fetchPlugins())
 <Layout
     title="Plugins"
     description={`Browse our list of ${plugins.length} Vencord plugins`}
+    breadcrumbs={[["Plugins", "/plugins"]]}
 >
     <div class="container">
         <h1 class="p-page-title">Plugins</h1>
