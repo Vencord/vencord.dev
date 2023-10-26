@@ -26,7 +26,14 @@ const processedReadme = readme?.replace(
 const readmeHtml = processedReadme && parseMarkdown(processedReadme);
 ---
 
-<Layout title={p.name} description={p.description}>
+<Layout
+    title={p.name}
+    description={p.description}
+    breadcrumbs={[
+        ["Plugins", "/plugins"],
+        [p.name, "/plugins/" + pluginName],
+    ]}
+>
     <div class="header">
         <div>
             <h1 class="p-page-title">{p.name}</h1>

@@ -9,17 +9,69 @@ export interface Props {
     title?: string;
     description: string;
     opengraph?: boolean;
+    breadcrumbs?: [name: string, url: string][];
 }
 
-const { title, description, opengraph } = Astro.props;
+const { title, description, opengraph, breadcrumbs } = Astro.props;
 
-const structuredData = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Vencord",
-    alternateName: "VC",
-    url: Astro.site,
-});
+const structuredData = [
+    // General website information
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Vencord",
+        alternateName: "VC",
+        url: Astro.site,
+    },
+    // Application information
+    {
+        "@context": "https://schema.org",
+        "@type": ["WebApplication", "SoftwareApplication"],
+        name: "Vencord",
+        operatingSystem: "Windows,macOS,Linux",
+        applicationCategory: "UtilitiesApplication",
+        browserRequirements:
+            "Requires UserScript or extension support. Requires modern JavaScript support.",
+        offers: {
+            "@type": "Offer",
+            price: "0",
+        },
+    },
+] as any[];
+
+// Should show a nicer path for subpages.
+if (breadcrumbs) {
+    const breadcrumbList = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [] as any[],
+    };
+
+    for (let i = 0; i < breadcrumbs.length; i++) {
+        const crumb = breadcrumbs[i];
+
+        breadcrumbList.itemListElement.push({
+            "@type": "ListItem",
+            position: i + 1,
+            name: crumb[0],
+            item: new URL(crumb[1], Astro.site).toString(),
+        });
+    }
+
+    structuredData.push(breadcrumbList);
+}
+
+// SearchAction should only be on the homepage, according to Google.
+if (Astro.url.pathname === "/") {
+    structuredData[0].potentialAction = {
+        "@type": "SearchAction",
+        target: {
+            "@type": "EntryPoint",
+            urlTemplate: "https://vencord.dev/plugins#{plugin_name}",
+        },
+        "query-input": "required name=plugin_name",
+    };
+}
 ---
 
 <!DOCTYPE html>
@@ -66,7 +118,10 @@ const structuredData = JSON.stringify({
             )
         }
 
-        <script type="application/ld+json" set:html={structuredData}></script>
+        <script
+            type="application/ld+json"
+            set:html={JSON.stringify(structuredData)}
+        ></script>
 
         <link rel="sitemap" href="/sitemap-index.xml" />
         {/* explode darkreader */}

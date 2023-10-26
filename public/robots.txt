@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vencord.vendicated.dev/sitemap-index.xml
+Sitemap: https://vencord.dev/sitemap-index.xml
