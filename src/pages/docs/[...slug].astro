@@ -1,0 +1,237 @@
+---
+export const prerender = true;
+
+import { type CollectionEntry, getCollection } from "astro:content";
+
+import Layout from "layouts/Layout.astro";
+
+export async function getStaticPaths() {
+    const docs = await getCollection("docs");
+    return docs.map(doc => {
+        if (doc.slug.endsWith("index")) {
+            return {
+                params: {
+                    slug:
+                        doc.slug === "index"
+                            ? undefined
+                            : doc.slug.slice(0, -6),
+                },
+                props: {
+                    entry: doc,
+                },
+            };
+        }
+
+        return {
+            params: {
+                slug: doc.slug,
+            },
+            props: {
+                entry: doc,
+            },
+        };
+    });
+}
+
+export interface Props {
+    entry: CollectionEntry<"docs">;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const slug = Astro.params.slug!;
+
+const docCategories = await getCollection("docCategories");
+const docmentationPages = await getStaticPaths();
+
+const sidebarEntries: { [section: string]: CollectionEntry<"docs">[] } = {};
+
+for (const page of docmentationPages) {
+    const category = docCategories.find(
+        category => category.id === page.props.entry.data.category.id
+    );
+
+    if (!category) {
+        continue;
+    }
+
+    if (!sidebarEntries[category.id]) {
+        sidebarEntries[category.id] = [];
+    }
+
+    sidebarEntries[category.id].push(page.props.entry);
+}
+
+const activeCategory = docCategories.find(
+    c => c.id === entry.data.category.id
+)!;
+---
+
+<Layout
+    title={`${entry.data.title} | Docs`}
+    description={entry.data.description}
+    breadcrumbs={[
+        ["Docs", "/docs"],
+        [entry.data.title, "/docs/" + slug],
+    ]}
+>
+    <h1
+        class="p-page-title"
+        style={`--accent:var(--${activeCategory.data.accent})`}
+    >
+        {entry.data.title}
+    </h1>
+    <p class="p-subtitle">{entry.data.description}</p>
+    {
+        entry.data.author && (
+            <p class="p-subtitle">Authored by {entry.data.author}.</p>
+        )
+    }
+
+    <div id="doc-content">
+        <Content />
+    </div>
+
+    <div id="docs-picker">
+        {
+            Object.keys(sidebarEntries).map(categoryId => {
+                const category = docCategories.find(c => c.id === categoryId)!;
+
+                const isCategoryActive = sidebarEntries[categoryId].some(
+                    page =>
+                        page.slug === slug || (page.slug === "index" && !slug)
+                );
+
+                return (
+                    <details open={isCategoryActive}>
+                        <summary
+                            class="p-overline-l"
+                            style={`--accent:var(--${category.data.accent})`}
+                        >
+                            {category.data.name}
+                        </summary>
+                        <ul>
+                            {sidebarEntries[categoryId]
+                                .sort((a, b) => {
+                                    if (a.data.order < b.data.order) {
+                                        return -1;
+                                    }
+
+                                    if (a.data.order > b.data.order) {
+                                        return 1;
+                                    }
+
+                                    return 0;
+                                })
+                                .map(page => {
+                                    const active =
+                                        page.slug === slug ||
+                                        (page.slug === "index" && !slug);
+
+                                    return (
+                                        <li class={active ? "active" : ""}>
+                                            <a
+                                                class="p-m"
+                                                href={`/docs/${
+                                                    page.slug === "index"
+                                                        ? ""
+                                                        : page.slug
+                                                }`}
+                                            >
+                                                {page.data.title}
+                                            </a>
+                                        </li>
+                                    );
+                                })}
+                        </ul>
+                    </details>
+                );
+            })
+        }
+    </div>
+
+    <div id="edit">
+        pencil icon
+    </div>
+</Layout>
+
+<style>
+    h1 {
+        color: var(--accent);
+    }
+
+    #docs-picker {
+        display: flex;
+        flex-direction: column;
+
+        gap: 1em;
+
+        position: fixed;
+        top: 6.5em;
+        left: 2em;
+
+        width: calc(var(--horizontal-margin) - 4em);
+        height: calc(100% - 13em);
+
+        border-right: 1px solid var(--bg5);
+    }
+
+    #edit {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    ul {
+        padding: 0;
+        margin-top: 0.25em;
+        margin-bottom: 0;
+    }
+
+    li {
+        list-style: none;
+
+        padding: 0.25em 1em;
+    }
+
+    a {
+        color: var(--fg0) !important;
+        text-decoration: none;
+    }
+
+    .active {
+        font-weight: var(--fontWeightSemiBold);
+    }
+
+    summary {
+        color: var(--accent);
+        cursor: pointer;
+    }
+
+    @media (max-width: 1200px) {
+        #docs-picker {
+            position: unset;
+            width: 100%;
+
+            border-top: 1px solid var(--bg5);
+            border-right: 0;
+
+            padding-top: 1em;
+        }
+    }
+
+    #doc-content :global(code:not(pre > code)) {
+        background: var(--bg0);
+
+        border-radius: 5px;
+        text-align: center;
+        padding: 0 4px;
+        margin: 0 2px;
+    }
+
+    #doc-content :global(.astro-code) {
+        padding: 1em;
+        border-radius: 6px;
+    }
+</style>
