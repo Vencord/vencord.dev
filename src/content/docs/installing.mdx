@@ -1,0 +1,92 @@
+---
+title: Installation
+description: Before you can get started developing, you need a developer install.
+category: getting-started
+---
+
+import Card, { CardKind } from "components/Card.svelte";
+
+<Card kind={CardKind.Warning}>
+    These instructions are only for advanced users. If you're not a developer,
+    you should use our graphical installer instead. No support will be provided
+    for installing in this fashion. If you cannot figure it out, you should just
+    stick to a regular install.
+</Card>
+
+## Dependencies
+
+For a developer install, you will need the following tools before doing anything:
+
+-   [Git](https://git-scm.com/)
+-   [Node.js LTS](https://nodejs.org/en/)
+-   [pnpm](https://npm.im/pnpm)
+
+## Installing Vencord
+
+Clone Vencord:
+
+```shell
+git clone https://github.com/Vendicated/Vencord
+cd vencord
+```
+
+Install dependencies:
+
+```shell
+pnpm install --frozen-lockfile
+```
+
+Build Vencord:
+
+```shell
+pnpm build
+```
+
+Inject vencord into your client:
+
+```shell
+pnpm inject
+```
+
+Then fully close Discord from your taskbar or task manager, and restart it. Vencord should be injected - you can check
+this by looking for the Vencord section in Discord settings.
+
+## Updating Vencord
+
+If you're using Discord already, go into the `Updater` tab in settings.
+
+Sometimes it may be necessary to manually update if the GUI updater fails. To pull latest changes:
+
+```shell
+git pull
+```
+
+If this fails, you likely need to reset your local changes to vencord to resolve merge errors:
+
+<Card kind={CardKind.Warning}>
+    This command will remove any local changes you've made to Vencord. Make sure
+    you back up if you made any code changes you don't want to lose!
+</Card>
+
+```shell
+git reset --hard
+git pull
+```
+
+and then to build the changes:
+
+```shell
+pnpm build
+```
+
+Then just refresh your client
+
+## Uninstalling Vencord
+
+Simply run:
+
+```shell
+pnpm uninject
+```
+
+If you need more help, ask in the support channel in our [Discord Server](/discord).
