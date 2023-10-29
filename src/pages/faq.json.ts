@@ -1,9 +1,9 @@
-import { APIRoute } from "astro";
+import type { APIRoute } from "astro";
 import { getSortedFaq } from "scripts/collections";
 
 export const prerender = true;
 
-export const get: APIRoute = async ctx => {
+export const GET: APIRoute = async ctx => {
     const faq = (await getSortedFaq()).map(
         ({ data: { title, tags }, body }) => ({
             question: title,
