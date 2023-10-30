@@ -6,9 +6,8 @@ const Repos = {
     "vencord-desktop": "Vencord/Desktop",
 };
 
-export const GET: APIRoute = async ({ params, locals }) => {
+export const GET: APIRoute = async ({ params, locals: { runtime } }) => {
     const repo = Repos[params.repo as keyof typeof Repos];
-    const runtime = locals.runtime;
 
     if (!repo)
         return new Response(null, {
