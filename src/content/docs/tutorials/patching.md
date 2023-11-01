@@ -5,7 +5,16 @@ category: tutorials
 author: lewisakura
 ---
 
-Vencord includes a couple of cool things for patching.
+Vencord's plugins use patching for modifying the Discord source code and injecting custom functionality. It's a highly
+reliable method of adding features that is also performant! It's a win-win!
+
+...but, writing patches can be difficult. This tutorial is here to guide you through the basics of writing a patch for a
+plugin. <!-- TODO: cover how to find modules and stuff -->
+
+## Regex
+Regex is the core of the patcher; it's used to find the actual code to modify. I won't go into regex in this tutorial,
+but a good couple of resources for learning are https://regex101.com/ (a regex building assistant) and
+https://ihateregex.io/ (a cheatsheet with common regex patterns and some explanations on how they work).
 
 ## The `\i` placeholder
 
