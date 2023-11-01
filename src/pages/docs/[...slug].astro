@@ -292,10 +292,16 @@ const activeCategory = docCategories.find(
         border-right: 1px solid var(--bg5);
     }
 
-    #edit {
+    #edit a {
         position: absolute;
         top: 0;
         right: 0;
+
+        color: var(--fg0-muted);
+    }
+
+    #edit a:hover {
+        color: var(--fg0);
     }
 
     ul {
@@ -315,7 +321,7 @@ const activeCategory = docCategories.find(
     }
 
     a {
-        color: var(--fg0) !important;
+        color: var(--fg0);
         text-decoration: none;
     }
 
