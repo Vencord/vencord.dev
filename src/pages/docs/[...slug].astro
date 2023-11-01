@@ -202,6 +202,8 @@ const activeCategory = docCategories.find(
             "#doc-content h1,h2,h3,h4,h5,h6"
         );
 
+        const tocLinks = document.querySelectorAll("#docs-toc a");
+
         document.addEventListener("scroll", e => {
             for (const header of headings) {
                 const rect = header.getBoundingClientRect();
@@ -214,7 +216,7 @@ const activeCategory = docCategories.find(
                         location + "#" + header.id
                     );
 
-                    document.querySelectorAll("#docs-toc a").forEach(a => {
+                    tocLinks.forEach(a => {
                         a.classList.remove("active");
                     });
 
@@ -226,6 +228,30 @@ const activeCategory = docCategories.find(
                 }
             }
         });
+
+        for (const link of tocLinks) {
+            link.addEventListener("click", e => {
+                const location = window.location.toString().split("#")[0];
+                window.history.replaceState(
+                    {},
+                    "",
+                    location + link.getAttribute("href")!
+                );
+
+                tocLinks.forEach(a => {
+                    a.classList.remove("active");
+                });
+
+                link.classList.add("active");
+            });
+        }
+
+        const location = window.location.toString().split("#");
+        if (location.length > 1) {
+            document
+                .querySelector("a#toc-" + location[1])
+                ?.classList.add("active");
+        }
     });
 </script>
 
