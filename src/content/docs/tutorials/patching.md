@@ -2,6 +2,7 @@
 title: Patching
 description: Patching Discord modules is the heart of Vencord.
 category: tutorials
+author: lewisakura
 ---
 
 Vencord includes a couple of cool things for patching.
