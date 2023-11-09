@@ -27,4 +27,7 @@ export default defineConfig({
     ],
     output: "server",
     adapter: cloudflare(),
+    prefetch: {
+        prefetchAll: true,
+    },
 });
