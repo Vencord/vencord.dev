@@ -8,7 +8,7 @@ const CLI_COMMAND = `
 cd /tmp
 curl https://github.com/Vencord/Installer/releases/latest/download/VencordInstallerCli-linux -Lo vencord-installer
 chmod +x vencord-installer
-sudo ./vencord-installer --install
+sudo XDG_CONFIG_HOME="$XDG_CONFIG_HOME" ./vencord-installer --install
 `.trim();
 ---
 
