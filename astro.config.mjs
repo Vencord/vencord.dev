@@ -18,7 +18,7 @@ if (process.env.IS_PROD_BUILD) {
     );
     wasmKitJs = wasmKitJs
         .replace(/if\(.{0,3}\)(?={var fs=require\("fs"\))/, "if(false)")
-        .replace(/\).{0,3}(?=\?.{0,3}=self\.location\href)/, ")false");
+        .replace(/\).{0,3}(?=\?.{0,3}=self\.location\.href)/, ")false");
 
     writeFileSync("./node_modules/canvaskit-wasm/bin/canvaskit.js", wasmKitJs);
 }
