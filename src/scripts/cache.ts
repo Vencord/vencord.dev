@@ -4,6 +4,8 @@ export const HOURS = 60 * MINUTES;
 export const DAYS = 24 * HOURS;
 
 export function cacheResponseFor(req: { headers: Headers }, seconds: number) {
+    if (import.meta.env.DEV) return;
+
     req.headers.set(
         "Cache-Control",
         `public, max-age=${seconds}, s-maxage=${seconds}`
