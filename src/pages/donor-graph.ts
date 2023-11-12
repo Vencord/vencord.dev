@@ -80,7 +80,11 @@ async function fetchDonorPfps(
     return avatarUrls;
 }
 
-export const get: APIRoute = async ({ request }) => {
+export const get: APIRoute = async ({ url, request }) => {
+    const CanvasKit = await initCanvasKit({
+        locateFile: file => new URL(file, url).href,
+    });
+
     const runtime = getRuntime<{ GITHUB_TOKEN: string }>(request);
     const { GITHUB_TOKEN } = runtime?.env ?? import.meta.env;
 
@@ -106,7 +110,6 @@ export const get: APIRoute = async ({ request }) => {
     const rowCount = (imageCount / IMAGES_PER_ROW) * IMAGE_SIZE;
     const height = Math.ceil(rowCount / IMAGE_SIZE) * IMAGE_SIZE;
 
-    const CanvasKit = await initCanvasKit();
     const canvas = CanvasKit.MakeCanvas(width, height);
     const ctx = canvas.getContext("2d")!;
 

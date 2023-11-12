@@ -1,5 +1,6 @@
 # build output
 dist/
+public/canvaskit.wasm
 .vercel
 
 # generated types
