@@ -1,7 +1,7 @@
 import { getRuntime } from "@astrojs/cloudflare/runtime";
 import { APIRoute } from "astro";
 
-import initCanvasKit from "canvaskit-wasm";
+import initCanvasKit from "../canvasKit";
 import { HOURS, cacheResponseFor } from "scripts/cache";
 
 interface SponsorData {
