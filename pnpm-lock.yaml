@@ -21,7 +21,7 @@ dependencies:
     specifier: ^2.3.0
     version: 2.3.0
   canvaskit-wasm:
-    specifier: ^0.39.1
+    specifier: 0.39.1
     version: 0.39.1
   marked:
     specifier: ^8.0.1

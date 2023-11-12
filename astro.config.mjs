@@ -16,10 +16,13 @@ if (process.env.IS_PROD_BUILD) {
         "./node_modules/canvaskit-wasm/bin/canvaskit.js",
         "utf-8"
     );
-    wasmKitJs = wasmKitJs.replace(
-        /if\(.{0,3}\)(?={var fs=require\("fs"\))/,
-        "if(false)"
-    );
+    wasmKitJs = wasmKitJs
+        .replace(
+            /if\(.{0,3}\)(?={var fs=require\("fs"\))/,
+            "if(import.meta.env.DEV)"
+        )
+        .replace(/\).{0,3}(?=\?.{0,3}=self\.location\href)/, ")false");
+
     writeFileSync("./node_modules/canvaskit-wasm/bin/canvaskit.js", wasmKitJs);
 }
 
