@@ -99,6 +99,7 @@ const activeCategory = docCategories.find(
                             href={"#" + header.slug}
                             class="p-m"
                             id={`toc-${header.slug}`}
+                            style={`--depth:${header.depth - 2}`}
                         >
                             {header.text}
                         </a>
@@ -312,6 +313,10 @@ const activeCategory = docCategories.find(
 
     #docs-toc ul {
         margin-top: -0.75em; /* this is horrible */
+    }
+
+    #docs-toc a {
+        margin-left: calc(var(--depth) * 0.5em);
     }
 
     li {

@@ -16,7 +16,7 @@ Regex is the core of the patcher; it's used to find the actual code to modify. I
 but a good couple of resources for learning are https://regex101.com/ (a regex building assistant) and
 https://ihateregex.io/ (a cheatsheet with common regex patterns and some explanations on how they work).
 
-## The `\i` placeholder
+### The `\i` placeholder
 
 You may have already seen this during your adventures in trying to work out how plugins work, but we have a custom regex
 placeholder called `\i`. This stands for `identifier`, and will match any minified identifiers in Discord's module source
