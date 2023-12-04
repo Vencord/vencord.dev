@@ -14,6 +14,16 @@ sudo XDG_CONFIG_HOME="$XDG_CONFIG_HOME" ./vencord-installer --install
 
 <Tab>
     <div slot="header">
+        <div class="buttons">
+            <a href="https://flathub.org/apps/dev.vencord.Vesktop">
+                <img
+                    src="https://dl.flathub.org/assets/badges/flathub-badge-en.svg"
+                    width="240"
+                    title="Download on Flathub"
+                />
+            </a>
+        </div>
+
         <p>
             Most of the time, you can just use our automatic launcher script and
             it will figure everything out for you! To do so, just run the below
@@ -45,6 +55,20 @@ sudo XDG_CONFIG_HOME="$XDG_CONFIG_HOME" ./vencord-installer --install
 </Tab>
 
 <style>
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1em;
+        flex-wrap: wrap;
+    }
+
+    .buttons a {
+        text-decoration: none;
+        color: black;
+        transition: filter 0.2s ease-in-out;
+    }
+
     h3 {
         margin: 1em 0 0.5em;
         font-size: 2em;
