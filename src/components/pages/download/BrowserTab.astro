@@ -3,8 +3,10 @@ import Card, { CardKind } from "components/Card.svelte";
 import {
     CHROME_WEBSTORE_URL,
     FIREFOX_WEBSTORE_URL,
+    FIREFOX_ZIP_URL,
     USERSCRIPT_URL,
 } from "scripts/constants";
+import Code from "components/Code.astro";
 import Tab from "./Tab.astro";
 ---
 
@@ -38,6 +40,23 @@ import Tab from "./Tab.astro";
                 href="https://violentmonkey.github.io/">Violentmonkey</a
             > or <a href="https://www.tampermonkey.net/">Tampermonkey</a>.
         </p>
+        <b><br>You can install Vencord for Firefox by following these steps</b>
+        <ol>
+            <li>Keep in mind that you'll need <b>Firefox ESR/Dev Edition/Nightly</b> or <b>Librewolf</b>.</li>
+            <li>If you have one of these, download the zip file <a 
+                href="https://raw.githubusercontent.com/Vencord/builds/main/extension-firefox.zip">here</a>.
+            <li>Enter <Code>about:config</Code> to the address bar and press enter.</li>
+            <li>Search for <Code>xpinstall.signatures.required</Code> and set it to <b>false</b>.<br>
+                <b>This will allow other unsigned addons to be installed from file which could pose<br>
+                a security threat so be mindful about addons you're installing using the next step.</b>
+            </li>
+            <li>After that, go to <b>Settings->Extensions & Themes</b> and click on the cogwheel button.</li>
+            <li>Select <b>Install Add-On From File...</b> and search for the downloaded zip file.</li>
+            <li>Vencord should now be installed, if you receive a notification saying<br>
+                <b>This addon could not be installed because it has not been verified</b> double check<br>
+                that you have <b>Firefox ESR/Dev Edition/Nightly</b> or <b>Librewolf</b>.
+            </li>
+        </ol>
     </Fragment>
 
     <Fragment slot="footer">
