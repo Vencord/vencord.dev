@@ -51,7 +51,13 @@
 
     <section>
         <!-- grrr <slot> name cannot be dynamic -->
-        {#if $selected === "Windows"}
+        {#if !$selected}
+            <div in:fade={{ duration: 150 }}>
+                <div class="hidden">
+                    <slot name="windowsTab" />
+                </div>
+            </div>
+        {:else if $selected === "Windows"}
             <div in:fade={{ duration: 150 }}>
                 <slot name="windowsTab" />
             </div>
@@ -105,6 +111,10 @@
         border-right: none;
 
         background-color: var(--bg2);
+    }
+
+    .hidden {
+        visibility: hidden;
     }
 
     @media screen and (max-width: 600px) {
