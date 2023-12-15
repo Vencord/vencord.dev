@@ -1,8 +1,7 @@
 <script lang="ts">
+    import { onMount } from "svelte";
     import { writable } from "svelte/store";
     import { fade } from "svelte/transition";
-
-    import { IS_SERVER } from "scripts/constants";
 
     const options = ["Windows", "Linux", "Mac", "Browser"] as const;
 
@@ -13,20 +12,22 @@
         Browser: "Orange",
     };
 
-    const initialValue = IS_SERVER
-        ? "Windows"
-        : (() => {
-              const stored = localStorage.platform;
-              if (stored && options.includes(stored)) return stored;
+    const selected = writable<string | null>(null);
 
-              const platform = navigator.platform.toLowerCase();
-              if (platform.includes("linux")) return "Linux";
-              if (platform.includes("mac")) return "Mac";
-              return "Windows";
-          })();
+    onMount(() => {
+        const getInitialPlatform = (): string => {
+            const stored = localStorage.platform;
+            if (stored && options.includes(stored)) return stored;
 
-    const selected = writable(initialValue);
-    if (!IS_SERVER) selected.subscribe(v => (localStorage.platform = v));
+            const platform = navigator.platform.toLowerCase();
+            if (platform.includes("linux")) return "Linux";
+            if (platform.includes("mac")) return "Mac";
+            return "Windows";
+        };
+
+        selected.set(getInitialPlatform());
+        selected.subscribe(v => (localStorage.platform = v));
+    });
 </script>
 
 <div class="container">
