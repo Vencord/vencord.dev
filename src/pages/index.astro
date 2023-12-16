@@ -80,6 +80,21 @@ if (features.length % 3 !== 0)
     </section>
 </Layout>
 
+<script>
+    function setPlatformCookie() {
+        if (document.cookie.includes("platform")) {
+            return;
+        }
+
+        console.log("Setting platform cookie");
+        document.cookie = `platform=${navigator.platform}; path=/; max-age=2147483647`;
+    }
+
+    if (typeof window !== "undefined") {
+        setPlatformCookie();
+    }
+</script>
+
 <style>
     .tagline {
         display: flex;

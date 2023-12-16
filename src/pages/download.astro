@@ -7,16 +7,22 @@ import BrowserTab from "components/pages/download/BrowserTab.astro";
 import LinuxTab from "components/pages/download/LinuxTab.astro";
 import MacTab from "components/pages/download/MacTab.astro";
 import WindowsTab from "components/pages/download/WindowsTab.astro";
+import WindowsTabPlaceholder from "components/pages/download/WindowsTabPlaceholder.astro";
 import DownloadTabs from "components/pages/download/index.svelte";
+
+const platform = Astro.cookies.get('platform')?.value;
+
 ---
+
 
 <Layout
     title="Download Vencord"
     description="Download Vencord for Desktop or your favourite Browser"
     breadcrumbs={[["Download", "/download"]]}
 >
-    <DownloadTabs client:load>
+    <DownloadTabs client:load initialPlatform={platform}>
         <h1 class="p-page-title" slot="title">Download Vencord</h1>
+        <WindowsTabPlaceholder slot="windowsTabPlaceholder" />
         <WindowsTab slot="windowsTab" />
         <LinuxTab slot="linuxTab" />
         <MacTab slot="macTab" />

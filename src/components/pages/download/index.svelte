@@ -3,7 +3,16 @@
     import { writable } from "svelte/store";
     import { fade } from "svelte/transition";
 
+    export let initialPlatform;
+
     const options = ["Windows", "Linux", "Mac", "Browser"] as const;
+
+    const parsePlatform = (platform: string): (typeof options)[number] => {
+        if (platform.includes("linux")) return "Linux";
+        if (platform.includes("mac")) return "Mac";
+        if (platform.includes("win")) return "Windows";
+        return "Browser";
+    };
 
     const accents: { [option in (typeof options)[number]]: string } = {
         Windows: "Blue",
@@ -12,21 +21,22 @@
         Browser: "Orange",
     };
 
-    const selected = writable<string | null>(null);
+    const selected = writable<string | null>(
+        initialPlatform ? parsePlatform(initialPlatform.toLowerCase()) : null
+    );
 
     onMount(() => {
         const getInitialPlatform = (): string => {
-            const stored = localStorage.platform;
-            if (stored && options.includes(stored)) return stored;
-
             const platform = navigator.platform.toLowerCase();
-            if (platform.includes("linux")) return "Linux";
-            if (platform.includes("mac")) return "Mac";
-            return "Windows";
+            return parsePlatform(platform);
         };
 
-        selected.set(getInitialPlatform());
-        selected.subscribe(v => (localStorage.platform = v));
+        if (!$selected) {
+            selected.set(getInitialPlatform());
+        }
+        selected.subscribe(v => {
+            document.cookie = `platform=${v}; path=/; max-age=2147483647`;
+        });
     });
 </script>
 
@@ -53,9 +63,7 @@
         <!-- grrr <slot> name cannot be dynamic -->
         {#if !$selected}
             <div in:fade={{ duration: 150 }}>
-                <div class="hidden">
-                    <slot name="windowsTab" />
-                </div>
+                <slot name="windowsTabPlaceholder" />
             </div>
         {:else if $selected === "Windows"}
             <div in:fade={{ duration: 150 }}>
@@ -111,10 +119,6 @@
         border-right: none;
 
         background-color: var(--bg2);
-    }
-
-    .hidden {
-        visibility: hidden;
     }
 
     @media screen and (max-width: 600px) {
