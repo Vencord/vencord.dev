@@ -1,0 +1,17 @@
+/download/vesktop/amd64/windows https://github.com/Vencord/Vesktop/releases/download/v1.5.0/Vesktop-Setup-1.5.0.exe
+/download/vesktop/amd64/windows-portable https://github.com/Vencord/Vesktop/releases/download/v1.5.0/Vesktop-1.5.0-win.zip
+
+/download/vesktop/amd64/dmg https://github.com/Vencord/Vesktop/releases/download/v1.5.0/Vesktop-1.5.0.dmg
+
+/download/vesktop/amd64/tar https://github.com/Vencord/Vesktop/releases/download/v1.5.0/vesktop-1.5.0.tar.gz
+/download/vesktop/amd64/rpm https://github.com/Vencord/Vesktop/releases/download/v1.5.0/vesktop-1.5.0.x86_64.rpm
+/download/vesktop/amd64/deb https://github.com/Vencord/Vesktop/releases/download/v1.5.0/vesktop_1.5.0_amd64.deb
+/download/vesktop/amd64/appimage https://github.com/Vencord/Vesktop/releases/download/v1.5.0/Vesktop-1.5.0.AppImage
+
+
+/download/vesktop/arm64/dmg https://github.com/Vencord/Vesktop/releases/download/v1.5.0/Vesktop-1.5.0-arm64.dmg
+
+/download/vesktop/arm64/appimage https://github.com/Vencord/Vesktop/releases/download/v1.5.0/Vesktop-1.5.0-arm64.AppImage
+/download/vesktop/arm64/tar https://github.com/Vencord/Vesktop/releases/download/v1.5.0/vesktop-1.5.0-arm64.tar.gz
+/download/vesktop/arm64/deb https://github.com/Vencord/Vesktop/releases/download/v1.5.0/vesktop_1.5.0_arm64.deb
+/download/vesktop/arm64/rpm https://github.com/Vencord/Vesktop/releases/download/v1.5.0/vesktop-1.5.0.aarch64.rpm
