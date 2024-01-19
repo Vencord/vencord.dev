@@ -14,7 +14,7 @@ const BaseRedirects = {
 
 const VesktopDownloads = version => ({
     "/download/vesktop/amd64/windows": `https://github.com/Vencord/Vesktop/releases/download/v${version}/Vesktop-Setup-${version}.exe`,
-    "/download/vesktop/amd64/windows": `https://github.com/Vencord/Vesktop/releases/download/v${version}/Vesktop-${version}-win.zip`,
+    "/download/vesktop/amd64/windows-portable": `https://github.com/Vencord/Vesktop/releases/download/v${version}/Vesktop-${version}-win.zip`,
 
     "/download/vesktop/amd64/dmg": `https://github.com/Vencord/Vesktop/releases/download/v${version}/Vesktop-${version}.dmg`,
 
