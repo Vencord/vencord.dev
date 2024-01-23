@@ -16,8 +16,11 @@ const { fileNames } = Astro.props as Props;
     {
         fileNames && fileNames.length > 0 && (
             <AutoSizeGrid class="os-downloads">
-                {fileNames.map(f => (
-                    <LinkButton href={DOWNLOAD_BASE + f}>
+                {fileNames.map((f, i) => (
+                    <LinkButton
+                        href={DOWNLOAD_BASE + f}
+                        class:list={{ "main-btn": i === 0 }}
+                    >
                         Download {f}
                     </LinkButton>
                 ))}
@@ -37,5 +40,24 @@ const { fileNames } = Astro.props as Props;
 
     .os-downloads {
         margin-bottom: 1rem;
+    }
+
+    .main-btn {
+        background-color: var(--accentPurple);
+        color: var(--bgCurrentWord);
+        outline: none;
+    }
+
+    .main-btn:focus {
+        outline: 2px solid var(--accentBlue);
+    }
+
+    .main-btn:hover {
+        background-color: rgba(var(--accentPurpleRgb), 0.8);
+    }
+
+    .main-btn:active {
+        background-color: rgba(var(--accentPurpleRgb), 0.9);
+        outline: none;
     }
 </style>
