@@ -202,8 +202,6 @@
         flex-direction: column;
         background: var(--bg4);
 
-        border: 1px solid var(--fg0-muted);
-
         border-radius: 12px;
         padding: 1em;
         padding-bottom: 2em;
