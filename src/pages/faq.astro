@@ -53,7 +53,7 @@ const structuredData = JSON.stringify({
         We're happy to help.
     </p>
 
-    <script type="application/ld+json" set:html={structuredData}></script>
+    <script type="application/ld+json" set:html={structuredData} />
 </Layout>
 
 <script>
@@ -94,7 +94,7 @@ const structuredData = JSON.stringify({
     /* This is mostly copy pasted from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#try_it */
     details {
         background-color: var(--bg3);
-        padding: 0.5em 0.75em;
+        padding: 0.75em 1em;
         border-radius: 8px;
     }
 
@@ -104,7 +104,7 @@ const structuredData = JSON.stringify({
     }
 
     details[open] summary {
-        margin-bottom: 8px;
+        margin-bottom: 0.7em;
     }
 
     .faq-content {
@@ -112,13 +112,14 @@ const structuredData = JSON.stringify({
         color: var(--grey2);
         border-radius: 4px;
         padding: 0.75em;
+        margin-bottom: 0.25em;
     }
 
     details :global(p) {
         margin-top: 0;
     }
 
-    details :global(*:last-child) {
+    details .faq-content :global(*:last-child) {
         margin-bottom: 0;
     }
 

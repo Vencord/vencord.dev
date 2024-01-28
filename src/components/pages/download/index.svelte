@@ -78,8 +78,9 @@
 
     nav {
         display: grid;
-        width: 100%;
+        gap: 1rem;
         grid-template-columns: repeat(4, 1fr);
+        margin-bottom: 1rem;
     }
 
     section {
@@ -88,8 +89,7 @@
         background-color: var(--bgCurrentWord);
         padding: 1rem;
 
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
+        border-radius: 16px;
     }
 
     label {
@@ -100,25 +100,15 @@
         padding: 1.25em 1.5rem;
         text-align: center;
         cursor: pointer;
-        border: 1px solid var(--bg5);
-        border-right: none;
+        border-radius: 12px;
 
-        background-color: var(--bg2);
+        background-color: var(--bg3);
     }
 
     @media screen and (max-width: 600px) {
         label {
             padding: 0.5em 0.75em;
         }
-    }
-
-    label:first-child {
-        border-top-left-radius: 4px;
-    }
-
-    label:last-child {
-        border-top-right-radius: 4px;
-        border-right: 1px solid var(--bg5);
     }
 
     label.selected {
