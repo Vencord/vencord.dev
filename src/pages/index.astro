@@ -13,10 +13,10 @@ const features = [
         description: "Super easy to install thanks to our graphical installer",
     },
     {
-        icon: "rocket",
-        title: "Great Performance",
+        icon: "heart",
+        title: "User Friendly",
         description:
-            "Built with performance in mind. No more sluggish Discord!",
+            "Comes with all plugins preinstalled. Just enable what you like and you're done",
     },
     {
         icon: "globe",
@@ -112,8 +112,8 @@ if (features.length % 3 !== 0)
 
     h1,
     h2 {
-        line-height: 1;
-        margin: 0;
+        line-height: 1 !important;
+        margin: 0.5rem !important;
         text-align: center;
     }
 
@@ -137,7 +137,7 @@ if (features.length % 3 !== 0)
         outline: none;
     }
 
-    .main-btn:focus {
+    .main-btn:focus-visible {
         outline: 2px solid var(--accentBlue);
     }
 
@@ -196,6 +196,7 @@ if (features.length % 3 !== 0)
 
     .feature-title {
         font-size: var(--fg1);
+        line-height: 1rem;
     }
 
     .feature-desc {

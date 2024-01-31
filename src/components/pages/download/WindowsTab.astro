@@ -11,12 +11,23 @@ cd Downloads
 `.trim();
 ---
 
-<Tab fileNames={["VencordInstaller.exe"]}>
+<Tab fileNames={["VencordInstaller.exe", "VencordInstallerCli.exe"]}>
     <div slot="header">
-        <p>Download and run <Code>VencordInstaller.exe</Code></p>
+        <p>
+            Download <Code>VencordInstaller.exe</Code> and run it. It should list
+            all Discord installs on your System. Pick the one you would like to patch
+            and press Install.
+        </p>
     </div>
 
     <div slot="footer">
+        <p>
+            If the installer does not open for you, download <Code>
+                VencordInstallerCli.exe
+            </Code> instead. Run it and a terminal window should open. Just follow
+            the instructions in the terminal.
+        </p>
+
         <Card kind={CardKind.Warning}>
             <p>Do not run the installer as an Administrator!</p>
             <p>
@@ -31,25 +42,7 @@ cd Downloads
                 >.
             </p>
         </Card>
-
-        <h3>If the normal installer does not open for you</h3>
-        <p>
-            <a href={DOWNLOAD_BASE + "VencordInstallerCli.exe"}
-                >Download the cli installer</a
-            >
-            <b> to your Downloads folder</b>. Then, open powershell and run it
-            with the following command. Answer questions when prompted (usually
-            by typing a number)
-        </p>
-        <CodeBlock code={CLI_COMMAND} client:load />
-        <p>
-            To later uninstall, do the same but with --uninstall instead.
-            <br />
-            You can also run the installer with no arguments to get a full list of
-            available commands
-        </p>
     </div>
-    <br />
 </Tab>
 
 <style>

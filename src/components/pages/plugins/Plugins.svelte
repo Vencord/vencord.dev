@@ -173,6 +173,11 @@
 </div>
 
 <style>
+    h2 {
+        margin-block: 0.2em;
+        font-size: 2em;
+    }
+
     .plugins-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
