@@ -1,3 +1,5 @@
+export const WEBSITE_URL = "https://vencord.dev";
+
 export const DISCORD_INVITE = "https://discord.gg/D9uwnFnqmd";
 export const GITHUB_URL = "https://github.com/Vendicated/Vencord";
 export const SOURCE_CODE = "https://github.com/Vencord/vencord.dev";

@@ -4,9 +4,13 @@
 
     import { IS_SERVER } from "scripts/constants";
 
-    const options = ["Windows", "Linux", "Mac", "Browser"] as const;
+    export let exclusions: string[] = []; // Accept exclusions as a prop
+    const allOptions = ["Windows", "Linux", "Mac", "Browser"] as const;
 
-    const accents: { [option in (typeof options)[number]]: string } = {
+    // Filter options based on exclusions
+    const options = allOptions.filter(option => !exclusions.includes(option));
+
+    const accents: { [option in (typeof allOptions)[number]]: string } = {
         Windows: "Blue",
         Linux: "Green",
         Mac: "Yellow",
@@ -16,13 +20,16 @@
     const initialValue = IS_SERVER
         ? "Windows"
         : (() => {
-              const stored = localStorage.platform;
+              const stored: any = localStorage.platform;
               if (stored && options.includes(stored)) return stored;
 
               const platform = navigator.platform.toLowerCase();
-              if (platform.includes("linux")) return "Linux";
-              if (platform.includes("mac")) return "Mac";
-              return "Windows";
+              if (platform.includes("linux") && !exclusions.includes("Linux"))
+                  return "Linux";
+              if (platform.includes("mac") && !exclusions.includes("Mac"))
+                  return "Mac";
+              if (!exclusions.includes("Windows")) return "Windows";
+              return options[0]; // Fallback
           })();
 
     const selected = writable(initialValue);
@@ -31,7 +38,7 @@
 
 <div class="container">
     <slot name="title" />
-    <nav>
+    <nav style="grid-template-columns: repeat({options.length}, 1fr);">
         {#each options as option}
             <label
                 class={$selected === option ? "selected" : ""}
@@ -79,7 +86,7 @@
     nav {
         display: grid;
         width: 100%;
-        grid-template-columns: repeat(4, 1fr);
+        /* grid-template-columns: repeat(4, 1fr); */
     }
 
     section {

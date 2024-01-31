@@ -3,24 +3,44 @@ export const prerender = true;
 
 import Layout from "../layouts/Layout.astro";
 
-import BrowserTab from "components/pages/download/BrowserTab.astro";
-import LinuxTab from "components/pages/download/LinuxTab.astro";
-import MacTab from "components/pages/download/MacTab.astro";
-import WindowsTab from "components/pages/download/WindowsTab.astro";
+import VencordBrowserTab from "components/pages/download/vencord/BrowserTab.astro";
+import VencordLinuxTab from "components/pages/download/vencord/LinuxTab.astro";
+import VencordMacTab from "components/pages/download/vencord/MacTab.astro";
+import VencordWindowsTab from "components/pages/download/vencord/WindowsTab.astro";
+
+import VesktopLinuxTab from "components/pages/download/vesktop/LinuxTab.astro";
+import VesktopMacTab from "components/pages/download/vesktop/MacTab.astro";
+import VesktopWindowsTab from "components/pages/download/vesktop/WindowsTab.astro";
+
 import DownloadTabs from "components/pages/download/index.svelte";
+
+const vesktopTabExclusions = ["Browser"];
 ---
 
 <Layout
-    title="Download Vencord"
+    title="Download"
     description="Download Vencord for Desktop or your favourite Browser"
     breadcrumbs={[["Download", "/download"]]}
 >
-    <DownloadTabs client:load>
+    <DownloadTabs client:load id="vencord">
         <h1 class="p-page-title" slot="title">Download Vencord</h1>
-        <WindowsTab slot="windowsTab" />
-        <LinuxTab slot="linuxTab" />
-        <MacTab slot="macTab" />
-        <BrowserTab slot="browserTab" />
+        <VencordWindowsTab slot="windowsTab" />
+        <VencordLinuxTab slot="linuxTab" />
+        <VencordMacTab slot="macTab" />
+        <VencordBrowserTab slot="browserTab" />
+    </DownloadTabs>
+
+    <DownloadTabs client:load id="vesktop" exclusions={vesktopTabExclusions}>
+        <h1
+            class="p-page-title"
+            slot="title"
+            style={`color: var(--accentGreen)`}
+        >
+            Download Vesktop
+        </h1>
+        <VesktopWindowsTab slot="windowsTab" />
+        <VesktopLinuxTab slot="linuxTab" />
+        <VesktopMacTab slot="macTab" />
     </DownloadTabs>
 </Layout>
 

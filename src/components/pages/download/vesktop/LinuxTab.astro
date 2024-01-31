@@ -1,0 +1,35 @@
+---
+import Code from "components/Code.astro";
+import Tab from "../Tab.astro";
+import CodeBlock from "components/CodeBlock.svelte";
+import { WEBSITE_URL } from "scripts/constants";
+---
+
+<Tab
+    links={[
+        ["AppImage (amd64)", `${WEBSITE_URL}/download/vesktop/amd64/appimage`],
+        ["DEB (amd64)", `${WEBSITE_URL}/download/vesktop/amd64/deb`],
+        ["RPM (amd64)", `${WEBSITE_URL}/download/vesktop/amd64/rpm`],
+        ["tarball (amd64)", `${WEBSITE_URL}/download/vesktop/amd64/tar`],
+        ["AppImage (arm64)", `${WEBSITE_URL}/download/vesktop/arm64/appimage`],
+        ["DEB (arm64)", `${WEBSITE_URL}/download/vesktop/arm64/deb`],
+        ["RPM (arm64)", `${WEBSITE_URL}/download/vesktop/arm64/rpm`],
+        ["tarball (arm64)", `${WEBSITE_URL}/download/vesktop/arm64/tar`],
+    ]}
+>
+    <div slot="header">
+        <p>
+            Several packages are available for Vesktop Linux. Choose the
+            appropriate one for your distribution and architecture. If unsure,
+            choose one of the amd64 packages (depending on your Linux
+            distribution and/or preference).
+        </p>
+    </div>
+</Tab>
+
+<style>
+    h3 {
+        margin: 1em 0 0.5em;
+        font-size: 2em;
+    }
+</style>
