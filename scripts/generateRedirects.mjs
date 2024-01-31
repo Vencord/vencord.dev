@@ -12,6 +12,14 @@ const BaseRedirects = {
     "/donate": "https://github.com/sponsors/Vendicated",
 };
 
+const VesktopRedirects = {
+    "/vesktop/github": "https://github.com/Vencord/Vesktop",
+    "/vesktop/discord": "https://discord.gg/D9uwnFnqmd",
+    "/vesktop/support": "https://discord.gg/D9uwnFnqmd",
+    "/vesktop/install": "/download/#vesktop",
+    "/vesktop/donate": "https://github.com/sponsors/Vendicated",
+};
+
 const VesktopDownloads = version => ({
     "/download/vesktop/amd64/windows": `https://github.com/Vencord/Vesktop/releases/download/v${version}/Vesktop-Setup-${version}.exe`,
     "/download/vesktop/amd64/windows-portable": `https://github.com/Vencord/Vesktop/releases/download/v${version}/Vesktop-${version}-win.zip`,
@@ -33,6 +41,7 @@ const VesktopDownloads = version => ({
 
 const Redirects = {
     ...BaseRedirects,
+    ...VesktopRedirects,
     ...VesktopDownloads(
         readFileSync("scripts/_latestVesktopVersion.txt", "utf-8")
     ),

@@ -1,10 +1,18 @@
 ---
 import Card, { CardKind } from "components/Card.svelte";
 import Code from "components/Code.astro";
-import Tab from "./Tab.astro";
+import Tab from "../Tab.astro";
+import { DOWNLOAD_BASE } from "scripts/constants";
 ---
 
-<Tab fileNames={["VencordInstaller.MacOs.zip"]}>
+<Tab
+    links={[
+        [
+            "for MacOS (Installer)",
+            `${DOWNLOAD_BASE}/VencordInstaller.MacOs.zip`,
+        ],
+    ]}
+>
     <p slot="header">
         Download the zip, unzip it and run <Code>VencordInstaller.app</Code>! It
         should list all Discord installs on your System. Pick the one you would

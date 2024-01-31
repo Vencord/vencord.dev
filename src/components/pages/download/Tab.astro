@@ -1,27 +1,28 @@
 ---
 import AutoSizeGrid from "components/AutoSizeGrid.astro";
 import LinkButton from "components/LinkButton.astro";
-import { DOWNLOAD_BASE } from "scripts/constants";
+
+export type NameUrlTuple = [name: string, url: string];
 
 export interface Props {
-    fileNames?: string[];
+    links?: NameUrlTuple[];
 }
 
-const { fileNames } = Astro.props as Props;
+const { links } = Astro.props as Props;
 ---
 
 <div class="tab">
     <slot name="header" />
 
     {
-        fileNames && fileNames.length > 0 && (
+        links && links.length > 0 && (
             <AutoSizeGrid class="os-downloads">
-                {fileNames.map((f, i) => (
+                {links.map(([name, url], i) => (
                     <LinkButton
-                        href={DOWNLOAD_BASE + f}
+                        href={url}
                         class:list={{ "main-btn": i === 0 }}
                     >
-                        Download {f}
+                        Download {name}
                     </LinkButton>
                 ))}
             </AutoSizeGrid>

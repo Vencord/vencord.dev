@@ -1,0 +1,33 @@
+---
+import Card, { CardKind } from "components/Card.svelte";
+import Code from "components/Code.astro";
+import Tab from "../Tab.astro";
+import { WEBSITE_URL } from "scripts/constants";
+---
+
+<Tab
+    links={[
+        ["for MacOS (amd64)", `${WEBSITE_URL}/download/vesktop/amd64/dmg`],
+        ["for MacOS (arm64)", `${WEBSITE_URL}/download/vesktop/arm64/dmg`],
+    ]}
+>
+    <p slot="header">
+        Download the zip, unzip it and run <Code>VencordInstaller.app</Code>! It
+        should list all Discord installs on your System. Pick the one you would
+        like to patch and press Install.
+    </p>
+
+    <Card slot="footer" kind={CardKind.Warning}>
+        <p>
+            If you get a VencordInstaller can't be opened warning, right-click
+            VencordInstaller.app and click open
+        </p>
+        <p>
+            This warning is entirely harmless and only shows because the app is
+            not signed. Signing it would cost us <a
+                href="https://developer.apple.com/support/compare-memberships/"
+                >99€/year</a
+            >.
+        </p>
+    </Card>
+</Tab>
