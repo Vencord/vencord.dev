@@ -7,9 +7,10 @@
 </script>
 
 <script lang="ts">
+    import type { MutualResource, PluginData } from "scripts/types";
+
     export let type: ResourceTypes = ResourceTypes.Plugin;
     export let files;
-
     const resourceMap = {
         [ResourceTypes.Plugin]: files.plugins,
         [ResourceTypes.JS]: files.jsSnippet,
@@ -18,26 +19,114 @@
 
     let resources = resourceMap[type];
 
+    const criteria = [
+        {
+            name: "Desktop",
+            state: false,
+            check: (p: PluginData) => p.target !== "web",
+        },
+        {
+            name: "Web",
+            state: false,
+            check: (p: PluginData) => p.target === "web",
+        },
+    ];
+
+    let filter = "";
+    $: lowerFilter = filter.toLowerCase();
+    $: filteredResources = resources.filter(r => {
+        for (const c of criteria) {
+            if (c.state && !c.check(r)) return false;
+        }
+
+        if (r.name.toLowerCase().includes(lowerFilter)) return true;
+        if (r.description.toLowerCase().includes(lowerFilter)) return true;
+        if (r.authors.some(a => a.name.toLowerCase().includes(lowerFilter)))
+            return true;
+        return false;
+    });
+
+    function highlightMatches(text: string) {
+        if (!filter) return text;
+
+        return text.replace(
+            new RegExp(filter, "gi"),
+            match => `<mark>${match}</mark>`
+        );
+    }
+
+    function overflowTooltips(node: HTMLElement, _: MutualResource) {
+        const applyTitle = () => {
+            const hasOverflow =
+                node.scrollWidth > node.clientWidth ||
+                (!node.classList.contains("author") &&
+                    node.scrollHeight > node.clientHeight);
+
+            node.title = hasOverflow ? node.textContent! : "";
+        };
+
+        applyTitle();
+        return {
+            update() {
+                applyTitle();
+            },
+        };
+    }
 </script>
 
 <section class="resource-cards">
+
+    <section>
+        <h2>Filter</h2>
+
+        <div class="criteria">
+            {#each criteria as c}
+                <label>
+                    <input type="checkbox" bind:checked={c.state} />
+                    {c.name}
+                </label>
+            {/each}
+        </div>
+
+        <div class="search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                    fill="currentColor"
+                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+                />
+            </svg>
+            <input
+                type="text"
+                placeholder="Search by Name, Author or Description..."
+                bind:value={filter}
+            />
+        </div>
+    </section>
+
     <section class="resource-grid">
-        {#each resources as r}
+        {#each filteredResources as r}
             <div class="resource">
                 <a
                     class="resource-content resource-link"
                     href={`/third-party/${r.default.slug}`}
                 >
                     <h3 class="p-label-l">
-                        {r.name}
+                        {@html highlightMatches(r.name)}
                     </h3>
-                    <span class="author ellipsis-overflow">
-                        {r.authors.map(a => a.name).join(", ")}
+                    <span
+                        use:overflowTooltips={r} 
+                        class="author ellipsis-overflow"
+                    >
+                        {@html highlightMatches(r.authors.map(a => a.name).join(", "))}
                     </span>
-                    <p class="description ellipsis-overflow">
-                        {r.description}
+                    <p
+                        use:overflowTooltips={r}
+                        class="description ellipsis-overflow"
+                    >
+                        {@html highlightMatches(r.description)}
                     </p>
                 </a>
+
             </div>
         {/each}
     </section>
@@ -227,8 +316,8 @@
         color: var(--grey0);
     }
 
-    /* input[type="checkbox"] {
+    input[type="checkbox"] {
         height: 1em;
         width: 1em;
-    } */
+    }
 </style>

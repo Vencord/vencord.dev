@@ -19,10 +19,10 @@ export interface PluginData {
     github?: string;
 }
 
-export interface Snippet {
+export interface MutualResource {
     name: string;
     description: string;
-    code: string;
     tags: string[];
     authors: PluginDev[];
+    filePath: string;
 }

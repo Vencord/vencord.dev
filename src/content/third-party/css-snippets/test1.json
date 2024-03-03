@@ -1,7 +1,7 @@
 {
     "name": "Album as Spotify Controls Background",
     "description": "Use album cover as SpotifyControls background",
-    "tags": ["utility", "music"],
+    "tags": ["utility"],
     "authors": [{ "name": "Vee", "email": "author1@example.com" }],
     "dependencies": ["dependency1", "dependency2"],
     "hasPatches": true,
