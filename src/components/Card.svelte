@@ -4,7 +4,7 @@
         Error = "#ec4144",
         Success = "#2d7c46",
         Info = "#5865f2",
-        Blank = "#aaaaaa",
+        Blank = "#575757",
     }
 </script>
 

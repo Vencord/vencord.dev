@@ -1,0 +1,17 @@
+{
+    "name": "Random Plugin 1",
+    "description": "This is a random plugin with no specific purpose.",
+    "tags": ["random", "test", "utility"],
+    "authors": [{ "name": "Author1", "email": "author1@example.com" }],
+    "dependencies": ["dependency1", "dependency2"],
+    "hasPatches": true,
+    "hasCommands": false,
+    "required": false,
+    "enabledByDefault": true,
+    "target": "discordDesktop",
+    "github": "https://github.com/plugin1",
+    "code": "",
+
+    "slug": "random-plugin-1",
+    "type": "plugin"
+}

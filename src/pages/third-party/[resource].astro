@@ -1,0 +1,72 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { cacheResponseFor, HOURS, MINUTES } from "../../scripts/cache";
+import { humanFriendlyJoin } from "../../scripts/text";
+import { getHighlighter } from "shiki";
+
+import Shiki from "../../components/ShikiCodeBlocks.svelte";
+import Info from "../../components/pages/thirdParty/Information.svelte";
+
+const fileData = await Astro.glob("../../content/third-party/**/*.json");
+const slug = Astro.params.resource;
+
+const r = fileData.find(file => file.slug === slug);
+
+const resourceTypeBeautified = {
+    plugin: "Plugin",
+    "js-snippet": "JS Snippet",
+    "css-snippet": "CSS Snippet",
+};
+
+if (!r) {
+    cacheResponseFor(Astro.response, 5 * MINUTES);
+    return {
+        status: 404,
+    };
+} else {
+    cacheResponseFor(Astro.response, 1 * HOURS);
+}
+
+const highlighter = await getHighlighter({
+    themes: ["catppuccin-frappe", "github-light"],
+    langs: ["javascript", "css", "shell"],
+});
+---
+
+<Layout title={slug} description=`Information for the resource`>
+    <div class="header">
+        <div>
+            <h1 class="p-page-title">{r.name}</h1>
+            <p class="p-subtitle">
+                by {
+                    humanFriendlyJoin(
+                        r.authors,
+                        (p: { name: string }) => p.name
+                    )
+                } • <span class="resource-type"
+                    >{resourceTypeBeautified[r.type]}</span
+                >
+            </p>
+
+            <p>{r.description}</p>
+        </div>
+    </div>
+
+    <Info
+        githubRepo={r.github}
+        code={r.code}
+        type={r.type}
+        {highlighter}
+        client:load
+    />
+</Layout>
+
+<style>
+    .resource-type {
+        color: var(--accentAqua);
+    }
+
+    .p-subtitle {
+        margin-top: 3px;
+    }
+</style>
