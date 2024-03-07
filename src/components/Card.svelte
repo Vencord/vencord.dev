@@ -22,6 +22,7 @@
 <style define:vars={{ border, background }}>
     div {
         width: 100%;
+        overflow-x: auto;
         border: 2px solid var(--border);
         border-radius: 8px;
         padding: 0.5rem 1rem;

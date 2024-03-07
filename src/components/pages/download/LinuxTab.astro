@@ -11,7 +11,7 @@ const highlighter = await getHighlighter({
 ---
 
 <Tab>
-    <div slot="header">
+    <div class="tab-container" slot="header">
         <p>
             Open your terminal and run the following command. Then follow the
             instructions in your terminal. If you're using fish, switch to bash
@@ -20,7 +20,7 @@ const highlighter = await getHighlighter({
             <Code>bash</Code>)
         </p>
         <CodeBlock
-            code={'sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"'}
+            code={'sh -c "$(curl -sS\nhttps://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"'}
             lang="shell"
             {highlighter}
             client:load
@@ -32,5 +32,9 @@ const highlighter = await getHighlighter({
     h3 {
         margin: 1em 0 0.5em;
         font-size: 2em;
+    }
+
+    .tab-container {
+        max-width: 100%;
     }
 </style>

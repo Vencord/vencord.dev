@@ -7,7 +7,7 @@
 
     const highlightedCode = highlighter.codeToHtml(code, {
         lang: lang,
-        theme: 'catppuccin-frappe',
+        theme: 'catppuccin-frappe'
     })
 
     function copyCode() {
