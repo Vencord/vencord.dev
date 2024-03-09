@@ -8,6 +8,7 @@
 
 <script lang="ts">
     import type { MutualResource, PluginData } from "scripts/types";
+    import { fade } from "svelte/transition";
 
     export let type: ResourceTypes = ResourceTypes.Plugin;
     export let files;
@@ -105,7 +106,7 @@
 
     <section class="resource-grid">
         {#each filteredResources as r}
-            <div class="resource">
+            <div in:fade={{ duration: 150 }} class="resource">
                 <a
                     class="resource-content resource-link"
                     href={`/third-party/${r.default.slug}`}

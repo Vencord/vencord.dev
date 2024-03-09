@@ -2,7 +2,6 @@
     import Cards, { ResourceTypes } from "./ResourceCards.svelte";
 
     import { writable } from "svelte/store";
-    import { fade } from "svelte/transition";
     import { IS_SERVER } from "scripts/constants";
 
     export let files;
@@ -42,17 +41,11 @@
 
     <section>
         {#if $selected === "Plugins"}
-            <div in:fade={{ duration: 150 }}>
-                <Cards {files} type={ResourceTypes.Plugin} />
-            </div>
+            <Cards {files} type={ResourceTypes.Plugin} />
         {:else if $selected === "JS Snippets"}
-            <div in:fade={{ duration: 150 }}>
-                <Cards {files} type={ResourceTypes.JS} />
-            </div>
+            <Cards {files} type={ResourceTypes.JS} />
         {:else if $selected === "CSS Snippets"}
-            <div in:fade={{ duration: 150 }}>
-                <Cards {files} type={ResourceTypes.CSS} />
-            </div>
+            <Cards {files} type={ResourceTypes.CSS} />
         {/if}
     </section>
 </div>
@@ -72,7 +65,7 @@
         font-weight: var(--fontWeightSemiBold);
         letter-spacing: 0.02em;
 
-        padding: 0.3em 1.5rem;
+        padding: 0.4em 1.5rem;
         text-align: center;
         cursor: pointer;
         border: 1px solid var(--bg5);
