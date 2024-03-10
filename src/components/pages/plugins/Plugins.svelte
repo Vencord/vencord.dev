@@ -202,9 +202,7 @@
         flex-direction: column;
         background: var(--bg4);
 
-        border: 1px solid var(--fg0-muted);
-
-        border-radius: 8px;
+        border-radius: 12px;
         padding: 1em;
         padding-bottom: 2em;
 
@@ -324,7 +322,7 @@
         background: var(--bg0);
         color: var(--fg0);
         border: none;
-        border-radius: 8px;
+        border-radius: 12px;
         box-sizing: border-box;
         width: 100%;
         margin: 1em 0;
