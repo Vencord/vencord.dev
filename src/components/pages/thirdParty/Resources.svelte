@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Cards, { ResourceTypes } from "./ResourceCards.svelte";
+    import Cards from "./ResourceCards.svelte";
 
     import { writable } from "svelte/store";
     import { IS_SERVER } from "scripts/constants";
@@ -41,11 +41,11 @@
 
     <section>
         {#if $selected === "Plugins"}
-            <Cards {files} type={ResourceTypes.Plugin} />
+            <Cards files={files.plugins} />
         {:else if $selected === "JS Snippets"}
-            <Cards {files} type={ResourceTypes.JS} />
+            <Cards files={files.jsSnippet} />
         {:else if $selected === "CSS Snippets"}
-            <Cards {files} type={ResourceTypes.CSS} />
+            <Cards files={files.cssSnippet} />
         {/if}
     </section>
 </div>

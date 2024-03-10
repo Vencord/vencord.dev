@@ -3,11 +3,16 @@ export const prerender = true;
 import Layout from "../../layouts/Layout.astro";
 import ResourceTabs from "../../components/pages/thirdParty/Resources.svelte";
 
-const fileData = await Astro.glob("../../content/third-party/**/*.json");
+const fileData = await Astro.glob("../../content/thirdParty/**/*.md");
+
 const files = {
-    plugins: fileData.filter(file => file.type === "plugin"),
-    jsSnippet: fileData.filter(file => file.type === "js-snippet"),
-    cssSnippet: fileData.filter(file => file.type === "css-snippet"),
+    plugins: fileData.filter(f => f.file.split("/").reverse()[1] === "plugins"),
+    jsSnippet: fileData.filter(
+        f => f.file.split("/").reverse()[1] === "js-snippets"
+    ),
+    cssSnippet: fileData.filter(
+        f => f.file.split("/").reverse()[1] === "css-snippets"
+    ),
 };
 ---
 

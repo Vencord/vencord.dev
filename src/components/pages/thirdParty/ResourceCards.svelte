@@ -1,49 +1,34 @@
-<script context="module" lang="ts">
-    export const enum ResourceTypes {
-        Plugin = "Plugins",
-        JS = "JS Snippets",
-        CSS = "CSS Snippets",
-    }
-</script>
-
 <script lang="ts">
     import type { MutualResource, PluginData } from "scripts/types";
     import { fade } from "svelte/transition";
 
-    export let type: ResourceTypes = ResourceTypes.Plugin;
     export let files;
-    const resourceMap = {
-        [ResourceTypes.Plugin]: files.plugins,
-        [ResourceTypes.JS]: files.jsSnippet,
-        [ResourceTypes.CSS]: files.cssSnippet,
-    };
-
-    let resources = resourceMap[type];
+    let resources = files;
 
     const criteria = [
         {
             name: "Desktop",
             state: false,
-            check: (p: PluginData) => p.target !== "web",
+            check: (r) => r.frontmatter.target !== "web",
         },
         {
             name: "Web",
             state: false,
-            check: (p: PluginData) => p.target === "web",
+            check: (r) => r.frontmatter.target === "web",
         },
     ];
 
-    let filter = "";
+    let filter = ""
+
     $: lowerFilter = filter.toLowerCase();
     $: filteredResources = resources.filter(r => {
         for (const c of criteria) {
             if (c.state && !c.check(r)) return false;
         }
 
-        if (r.name.toLowerCase().includes(lowerFilter)) return true;
-        if (r.description.toLowerCase().includes(lowerFilter)) return true;
-        if (r.authors.some(a => a.name.toLowerCase().includes(lowerFilter)))
-            return true;
+        if (r.frontmatter.title.toLowerCase().includes(lowerFilter)) return true;
+        if (r.frontmatter.description.toLowerCase().includes(lowerFilter)) return true;
+        if (r.frontmatter.author.toLowerCase().includes(lowerFilter)) return true;
         return false;
     });
 
@@ -56,7 +41,7 @@
         );
     }
 
-    function overflowTooltips(node: HTMLElement, _: MutualResource) {
+    function overflowTooltips(node: HTMLElement, _: PluginData) {
         const applyTitle = () => {
             const hasOverflow =
                 node.scrollWidth > node.clientWidth ||
@@ -73,13 +58,18 @@
             },
         };
     }
+
+    function getRedirect(file: string): string {
+        const reversedFile = file.split("/").reverse();
+        const fileName = reversedFile[0].split(".")[0];
+        return `/third-party/${reversedFile[1]}/${fileName}`;
+    }
+    
 </script>
 
 <section class="resource-cards">
-
     <section>
         <h2>Filter</h2>
-
         <div class="criteria">
             {#each criteria as c}
                 <label>
@@ -109,22 +99,22 @@
             <div in:fade={{ duration: 150 }} class="resource">
                 <a
                     class="resource-content resource-link"
-                    href={`/third-party/${r.default.slug}`}
+                    href={getRedirect(r.file)}
                 >
                     <h3 class="p-label-l">
-                        {@html highlightMatches(r.name)}
+                        {@html highlightMatches(r.frontmatter.title)}
                     </h3>
                     <span
                         use:overflowTooltips={r} 
                         class="author ellipsis-overflow"
                     >
-                        {@html highlightMatches(r.authors.map(a => a.name).join(", "))}
+                        {@html highlightMatches(r.frontmatter.author)}
                     </span>
                     <p
                         use:overflowTooltips={r}
                         class="description ellipsis-overflow"
                     >
-                        {@html highlightMatches(r.description)}
+                        {@html highlightMatches(r.frontmatter.description)}
                     </p>
                 </a>
 

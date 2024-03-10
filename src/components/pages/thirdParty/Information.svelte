@@ -10,7 +10,7 @@
 <section>
     <hr/>
     <h3 class="install-header">Install</h3>
-    {#if type === "plugin"}
+    {#if type === "plugins"}
         <div class="instruction">
             <p>Run the following command inside of your Vencord's <code class="highlight">src/userplugins</code>:</p>
             <Shiki {highlighter} lang="shell" code={`git clone ${githubRepo}`}></Shiki>
@@ -20,11 +20,11 @@
             <Shiki {highlighter} lang="shell" code={`pnpm build\npnpm inject`}></Shiki>
         </div>
 
-    {:else if type === "js-snippet"}
+    {:else if type === "js-snippets"}
         <p>Run the following snippet in your Developer tools (<code class="highlight">Control + Shift + I</code>)</p>
         <Shiki {highlighter} lang="javascript" {code}></Shiki>
         
-    {:else if type === "css-snippet"}
+    {:else if type === "css-snippets"}
         <section>
             <p class="install-info">Copy this snippet and put it into your <code class="highlight">Quick CSS</code></p>
             <Shiki {highlighter} lang="css" {code}></Shiki>

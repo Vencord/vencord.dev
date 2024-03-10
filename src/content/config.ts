@@ -1,4 +1,4 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 
 const faq = defineCollection({
     schema: z.object({
@@ -9,6 +9,25 @@ const faq = defineCollection({
     }),
 });
 
+/*
+title: "Album as Spotify Controls Background"
+description: "Use album cover as SpotifyControls background"
+author: Ethan, ImSkully
+target: "discordDesktop"
+github: "https://ethan-davies.co.uk"
+*/
+
+const thirdParty = defineCollection({
+    schema: z.object({
+        title: z.string(),
+        description: z.string(),
+        target: z.string(),
+        type: z.string(),
+        author: z.string().optional(),
+    }),
+});
+
 export const collections = {
     faq,
+    thirdParty,
 };
