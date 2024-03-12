@@ -34,7 +34,7 @@ const VesktopDownloads = version => ({
 const Redirects = {
     ...BaseRedirects,
     ...VesktopDownloads(
-        readFileSync("scripts/_latestVesktopVersion.txt", "utf-8")
+        readFileSync("scripts/_latestVesktopVersion.txt", "utf-8").trim()
     ),
 };
 
