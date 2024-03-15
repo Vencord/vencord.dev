@@ -39,9 +39,9 @@ h3 {
 
 h4,
 .p-page-title {
-    font-size: 2.25em;
+    font-size: clamp(2rem, 4vw + .1rem, 10rem);
     line-height: 2.75rem;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
 }
 
 h5 {
