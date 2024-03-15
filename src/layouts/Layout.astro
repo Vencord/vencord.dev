@@ -121,7 +121,7 @@ if (Astro.url.pathname === "/") {
         <script
             type="application/ld+json"
             set:html={JSON.stringify(structuredData)}
-        ></script>
+        />
 
         <link rel="sitemap" href="/sitemap-index.xml" />
         {/* explode darkreader */}
@@ -141,19 +141,21 @@ if (Astro.url.pathname === "/") {
             */
         }
         <script is:raw>
-        const theme = localStorage.theme?.toLowerCase();
-        const options = ["light", "dark"];
-        if (options.includes(theme)) document.body.classList.add(theme);
+            const theme = localStorage.theme?.toLowerCase();
+            const options = ["light", "dark"];
+            if (options.includes(theme)) document.body.classList.add(theme);
         </script>
-        <NavBar />
-        <div>
-            <slot />
-        </div>
-        <Footer />
+        <main class="container">
+            <NavBar />
+            <div class="main-content">
+                <slot />
+            </div>
+            <Footer />
+        </main>
     </body>
 </html>
 
-<style>
+<style is:global>
     :root {
         /* Light Theme */
         --light-bg0: #f9f5d7;
@@ -187,6 +189,7 @@ if (Astro.url.pathname === "/") {
         --light-accentAqua: #4b7a5d;
         --light-accentBlue: #45707a;
         --light-accentPurple: #945e80;
+        --light-accentpurpleDark: #81436b;
 
         --light-accentPurpleRgb: 148, 94, 128; /* why? */
 
@@ -198,6 +201,8 @@ if (Astro.url.pathname === "/") {
         --light-grey0: #a79a83;
         --light-grey1: #928374;
         --light-grey2: #7c6f64;
+        --light-borderClr: #00000029;
+        --light-light: #868686;
 
         /* Dark Theme */
         --dark-bg0: #1d2021;
@@ -206,7 +211,6 @@ if (Astro.url.pathname === "/") {
         --dark-bg3: #3c3836;
         --dark-bg4: #3c3836;
         --dark-bg5: #504944;
-
         --dark-bgDim: #141617;
 
         --dark-bgCurrentWord: #32302f;
@@ -231,7 +235,7 @@ if (Astro.url.pathname === "/") {
         --dark-accentAqua: #89b481;
         --dark-accentBlue: #7caea3;
         --dark-accentPurple: #d3869b;
-
+        --dark-accentpurpleDark: #cf748c;
         --dark-accentPurpleRgb: 211, 133, 155;
 
         --dark-fg0: #d4be98;
@@ -242,6 +246,8 @@ if (Astro.url.pathname === "/") {
         --dark-grey0: #7c6f64;
         --dark-grey1: #918274;
         --dark-grey2: #a79a83;
+        --dark-borderClr: #ffffff29;
+        --dark-light: #ffffff;
 
         /* Astro Code Colors */
 
@@ -272,7 +278,7 @@ if (Astro.url.pathname === "/") {
         --bgCurrentWord: var(--light-bgCurrentWord);
 
         --bgDiffGreen: var(--light-bgDiffGreen);
-        --bgDiffBlue: var(--light-bgDiffBlue);
+        --bgDiffBlue: var(--light-bgDidisclaimerffBlue);
         --bgDiffRed: var(--light-bgDiffRed);
 
         --bgVisualYellow: var(--light-bgVisualYellow);
@@ -291,7 +297,7 @@ if (Astro.url.pathname === "/") {
         --accentAqua: var(--light-accentAqua);
         --accentBlue: var(--light-accentBlue);
         --accentPurple: var(--light-accentPurple);
-
+        --accentpurpleDark: var(--light-accentpurpleDark);
         --accentPurpleRgb: var(--light-accentPurpleRgb);
 
         --fg0: var(--light-fg0);
@@ -302,6 +308,8 @@ if (Astro.url.pathname === "/") {
         --grey0: var(--light-grey0);
         --grey1: var(--light-grey1);
         --grey2: var(--light-grey2);
+        --borderClr: var(--light-borderClr);
+        --light: var(--light-light);
     }
 
     /* Dark class (+ default colors) */
@@ -338,7 +346,7 @@ if (Astro.url.pathname === "/") {
         --accentAqua: var(--dark-accentAqua);
         --accentBlue: var(--dark-accentBlue);
         --accentPurple: var(--dark-accentPurple);
-
+        --accentpurpleDark: var(--dark-accentpurpleDark);
         --accentPurpleRgb: var(--dark-accentPurpleRgb);
 
         --fg0: var(--dark-fg0);
@@ -349,8 +357,9 @@ if (Astro.url.pathname === "/") {
         --grey0: var(--dark-grey0);
         --grey1: var(--dark-grey1);
         --grey2: var(--dark-grey2);
+        --borderClr: var(--dark-borderClr);
+        --light: var(--dark-light);
     }
-
     /* Light theme (if browser is set to light) */
     /* (YES IT'S DUPLICATE CODE SHHHHHHHHHHHHH) */
     @media (prefers-color-scheme: light) {
@@ -367,7 +376,7 @@ if (Astro.url.pathname === "/") {
             --bgCurrentWord: var(--light-bgCurrentWord);
 
             --bgDiffGreen: var(--light-bgDiffGreen);
-            --bgDiffBlue: var(--light-bgDiffBlue);
+            --bgDiffBlue: var(--light-bgDidisclaimerffBlue);
             --bgDiffRed: var(--light-bgDiffRed);
 
             --bgVisualYellow: var(--light-bgVisualYellow);
@@ -386,19 +395,21 @@ if (Astro.url.pathname === "/") {
             --accentAqua: var(--light-accentAqua);
             --accentBlue: var(--light-accentBlue);
             --accentPurple: var(--light-accentPurple);
-
+            --accentpurpleDark: var(--light-accentpurpleDark);
             --accentPurpleRgb: var(--light-accentPurpleRgb);
 
             --fg0: var(--light-fg0);
             --fg0-muted: var(--light-fg0-muted);
+            --fg0-muted2: var(--light-fg0-muted2);
             --fg1: var(--light-fg1);
 
             --grey0: var(--light-grey0);
             --grey1: var(--light-grey1);
             --grey2: var(--light-grey2);
+            --borderClr: var(--light-borderClr);
+            --light: var(--light-light);
         }
     }
-
     @font-face {
         font-family: "Inter";
         src: url("/fonts/Inter.var-subset.woff2") format("woff2");
@@ -417,33 +428,29 @@ if (Astro.url.pathname === "/") {
     }
 
     body {
-        --horizontal-margin: 20%;
-
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-
         min-height: 100vh;
-
         background-color: var(--bg1);
         color: var(--fg0);
     }
-
-    div {
-        margin: 2em var(--horizontal-margin);
-        height: 100%;
-        flex: 1;
-        position: relative;
+    .main-content {
+        margin-bottom: 2rem;
     }
-
-    @media screen and (max-width: 1200px) {
-        body {
-            --horizontal-margin: 5%;
+    .container {
+        padding: 1rem 2rem;
+    }
+    @media (min-width: 640px) {
+        .container {
+            padding: 1rem 3rem;
         }
     }
-</style>
-
-<style is:global>
+    @media (min-width: 768px) {
+        .container {
+            padding: 1rem 5rem;
+        }
+    }
     .no-wrap {
         white-space: nowrap;
     }
@@ -461,17 +468,16 @@ if (Astro.url.pathname === "/") {
     pre code .line::before {
         content: counter(code-line-number);
         counter-increment: code-line-number;
-
         display: inline-block;
         width: 1rem;
         margin-right: 1.5rem;
         text-align: right;
-
         color: var(--grey0);
     }
 
     a {
         color: var(--accentBlue);
+        text-decoration: none;
     }
 
     mark {

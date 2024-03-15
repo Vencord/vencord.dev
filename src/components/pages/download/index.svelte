@@ -2,9 +2,7 @@
     import { writable } from "svelte/store";
     import { fade } from "svelte/transition";
 
-    import { IS_SERVER } from "scripts/constants";
-
-    const options = ["Windows", "Linux", "Mac", "Browser"] as const;
+    import { IS_SERVER } from "../../../scripts/constants";
 
     const accents: { [option in (typeof options)[number]]: string } = {
         Windows: "Blue",
@@ -12,21 +10,23 @@
         Mac: "Yellow",
         Browser: "Orange",
     };
+    const options = ["Windows", "Linux", "Mac", "Browser"] as const;
 
-    const initialValue = IS_SERVER
-        ? "Windows"
-        : (() => {
-              const stored = localStorage.platform;
-              if (stored && options.includes(stored)) return stored;
+const isWindows = () => navigator.userAgent.toLowerCase().includes("win");
+const isMac = () => navigator.userAgent.toLowerCase().includes("mac");
+const isLinux = () => navigator.userAgent.toLowerCase().includes("linux");
 
-              const platform = navigator.platform.toLowerCase();
-              if (platform.includes("linux")) return "Linux";
-              if (platform.includes("mac")) return "Mac";
-              return "Windows";
-          })();
+const getPlatform = () => {
+  if (isWindows()) return "Windows";
+  if (isMac()) return "Mac";
+  if (isLinux()) return "Linux";
+  return "Browser";
+};
 
-    const selected = writable(initialValue);
-    if (!IS_SERVER) selected.subscribe(v => (localStorage.platform = v));
+const initialValue = IS_SERVER ? "Windows" : getPlatform();
+const selected = writable(initialValue);
+if (!IS_SERVER) selected.subscribe(v => (localStorage.platform = v));
+
 </script>
 
 <div class="container">
@@ -74,35 +74,44 @@
     .container {
         display: flex;
         flex-direction: column;
-    }
+        margin-bottom: 4.4rem;
+        }
 
     nav {
         display: grid;
-        gap: 1rem;
-        grid-template-columns: repeat(4, 1fr);
-        margin-bottom: 1rem;
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .8rem;
     }
-
+    @media (min-width: 768px) {
+        nav{
+            gap: 1rem;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+}
     section {
         width: 100%;
         box-sizing: border-box;
         background-color: var(--bgCurrentWord);
         padding: 1rem;
-
-        border-radius: 16px;
+        border-radius: .5rem;
     }
 
     label {
         font-size: 1em;
         font-weight: var(--fontWeightSemiBold);
         letter-spacing: 0.02em;
-
         padding: 1.25em 1.5rem;
         text-align: center;
         cursor: pointer;
-        border-radius: 12px;
-
+        border: 1px solid var(--bg5);
+        border-radius: 1rem;
         background-color: var(--bg3);
+        margin-bottom: 1rem;
+        transition: background 250ms;
+    }
+    label:hover{
+        background: var(--bg2);
     }
 
     @media screen and (max-width: 600px) {

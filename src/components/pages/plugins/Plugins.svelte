@@ -71,17 +71,6 @@
 
 <div>
     <section>
-        <h2>Filter</h2>
-
-        <div class="criteria">
-            {#each criteria as c}
-                <label>
-                    <input type="checkbox" bind:checked={c.state} />
-                    {c.name}
-                </label>
-            {/each}
-        </div>
-
         <div class="search">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path
@@ -94,6 +83,14 @@
                 placeholder="Search by Name, Author or Description..."
                 bind:value={filter}
             />
+        </div>
+        <div class="criteria">
+            {#each criteria as c}
+                <label>
+                    <input type="checkbox" bind:checked={c.state} />
+                    {c.name}
+                </label>
+            {/each}
         </div>
     </section>
 
@@ -173,9 +170,9 @@
 </div>
 
 <style>
-    h2 {
-        margin-block: 0.2em;
-        font-size: 2em;
+    input:focus{
+        outline: var(--fg0-muted);
+        border: var(--borderClr);
     }
 
     .plugins-grid {
@@ -201,11 +198,9 @@
         display: flex;
         flex-direction: column;
         background: var(--bg4);
-
         border-radius: 12px;
         padding: 1em;
         padding-bottom: 2em;
-
         transition: 200ms box-shadow cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
@@ -217,13 +212,13 @@
         color: unset;
         text-decoration: unset;
     }
-
+/* 
     .plugin-screenshot {
         object-fit: cover;
         width: 100%;
         border-radius: 4px;
         margin-bottom: 1em;
-    }
+    } */
 
     .plugin-content {
         display: flex;
@@ -237,13 +232,13 @@
         line-height: normal;
     }
 
-    .plugin-badges {
+    /* .plugin-badges {
         display: flex;
         gap: 0.5em;
 
         position: absolute;
         bottom: 1em;
-    }
+    } */
 
     .ellipsis-overflow {
         overflow: hidden;
@@ -266,8 +261,6 @@
         display: -webkit-box;
         -webkit-line-clamp: 3;
         line-clamp: 3;
-        -webkit-box-orient: vertical;
-        box-orient: vertical;
     }
 
     svg {
@@ -280,6 +273,7 @@
     .criteria {
         display: flex;
         flex-direction: row;
+margin-bottom: 1rem;
     }
 
     @media screen and (max-width: 400px) {

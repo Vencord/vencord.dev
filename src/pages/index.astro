@@ -1,14 +1,8 @@
 ---
-export const prerender = true;
-
-import Layout from "layouts/Layout.astro";
-
-import LinkButton from "components/LinkButton.astro";
-import AutoSizeGrid from "components/AutoSizeGrid.astro";
-
+import Layout from "../layouts/Layout.astro";
 const features = [
     {
-        icon: "light-bulb",
+        icon: "bulb",
         title: "Easy Install",
         description: "Super easy to install thanks to our graphical installer",
     },
@@ -20,11 +14,11 @@ const features = [
     },
     {
         icon: "globe",
-        title: "Excellent Browser Support",
+        title: "Browser Support",
         description: "Works just as well inside your favourite Browser!",
     },
     {
-        icon: "locked",
+        icon: "lock",
         title: "Privacy Friendly",
         description: "Blocks Discord analytics & crash reports out of the box",
     },
@@ -35,7 +29,7 @@ const features = [
             "No more broken plugins! Bugs are usually fixed within a day",
     },
     {
-        icon: "hammer-and-wrench",
+        icon: "tools",
         title: "Developer Friendly",
         description:
             "Flexible and robust plugin system with many APIs empowering you",
@@ -47,152 +41,154 @@ if (features.length % 3 !== 0)
 ---
 
 <Layout description="Vencord is the cutest modification for Discord">
-    <header>
-        <section class="tagline">
-            <h1 class="p-display">Vencord</h1>
-            <h2>The cutest Discord client mod</h2>
-        </section>
-
-        <section class="buttons">
-            <AutoSizeGrid>
-                <LinkButton href="/download" class="main-btn">
-                    Download Vencord
-                </LinkButton>
-                <LinkButton href="/discord">Join our Support Server</LinkButton>
-                <LinkButton href="/github">View on GitHub</LinkButton>
-            </AutoSizeGrid>
-        </section>
+    <header class="header">
+        <h1 class="header-text font-bold">Vencord</h1>
+        <p class="header-paragraph font-sbold">The cutest Discord client mod</p>
+        <div class="header-links">
+            <a class="download-link font-sbold" href="./download"
+                >Download Vencord</a
+            >
+            <a class="support-link" href="/discord">Join our Support Server</a>
+            <a class="github-link" href="/github">View on GitHub</a>
+        </div>
     </header>
-
-    <!-- Heavily inspired by Vite's homepage https://vitejs.dev/ (or if they changed it, https://archive.ph/o6Lmn) -->
     <section class="features">
         {
             features.map(({ icon, title, description }) => (
                 <div class="feature-card">
-                    <div class="feature-icon" aria-hidden="true">
-                        <img src={`/assets/${icon}.png`} alt="" />
+                    <div class="feature-info">
+                        <div class="feature-icon" aria-hidden="true">
+                            <img
+                                decoding="async"
+                                loading="eager"
+                                draggable="false"
+                                src={`./assets/${icon}.svg`}
+                                alt={icon + " icon"}
+                            />
+                        </div>
+                        <h2 class="feature-title">{title}</h2>
                     </div>
-                    <h3 class="feature-title">{title}</h3>
                     <p class="feature-desc">{description}</p>
                 </div>
             ))
         }
     </section>
+    <style>
+        .feature-icon img {
+            user-select: none;
+            width: 3.125rem;
+            height: 3.125rem;
+        }
+        .feature-card {
+            padding: 1rem;
+            border-radius: 1rem;
+            background: var(--bg3);
+            border: 1px solid var(--borderClr);
+            transition: border 250ms, background 250ms ease,
+                box-shadow 500ms ease;
+        }
+        .feature-card:hover {
+            background: var(--bg4);
+            border: 1px solid var(--fg0-muted);
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        .feature-info {
+            display: flex;
+            gap: 1rem;
+        }
+        .feature-title {
+            margin: auto 0;
+            line-height: 120%;
+            color: var(--fg0);
+            font-size: clamp(1.5rem, 2vw + 0.1rem, 3rem);
+        }
+        .feature-desc {
+            color: var(--fg0);
+        }
+        .features {
+            gap: 1rem;
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+        @media (min-width: 768px) {
+            .features {
+                position: relative;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        @media (min-width: 1024px) {
+            .features {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+        .download-link {
+            background: var(--accentPurple);
+            color: var(--bgCurrentWord);
+            transition: background 250ms ease, color 250ms ease,
+                opacity 250ms ease, transform 250ms linear;
+        }
+        .github-link,
+        .support-link {
+            color: var(--fg0);
+            background: var(--bg3);
+            border: 1px solid var(--fg0-muted);
+            transition: opacity 250ms ease;
+        }
+        .github-link:hover,
+        .support-link:hover {
+            opacity: 0.8;
+        }
+        .download-link:hover {
+            background: var(--accentpurpleDark);
+            color: var(--bgCurrentWord);
+            opacity: 0.9;
+            transform: translateY(-0.125rem);
+        }
+        .header-links {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 15rem;
+            margin: 0 auto;
+            gap: 1rem;
+        }
+        .header-links a {
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: var(--fontWeightSemiBold);
+            padding: 0.8rem 1.5rem;
+        }
+        @media (min-width: 720px) {
+            .header-links {
+                flex-direction: row;
+                max-width: fit-content;
+                gap: 1rem;
+            }
+        }
+
+        .header {
+            margin: 3rem 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        .header-text {
+            color: var(--accentPurple);
+            margin: 0;
+        }
+        .header-paragraph {
+            margin: 1.5rem 0;
+            font-weight: var(--fontWeightSemiBold);
+            font-size: clamp(2rem, 3vw + 0.1rem, 4rem);
+            line-height: 2rem;
+            color: var(--grey1);
+        }
+        @media (min-width: 640px) {
+            .header-paragraph {
+                margin: 2rem 0;
+            }
+        }
+    </style>
 </Layout>
-
-<style>
-    .tagline {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    section {
-        margin-bottom: 2em;
-    }
-
-    .tagline {
-        margin-bottom: 1em;
-    }
-
-    h1,
-    h2 {
-        line-height: 1 !important;
-        margin: 0.5rem !important;
-        text-align: center;
-    }
-
-    h1 {
-        color: var(--accentPurple);
-    }
-
-    h2 {
-        color: var(--grey1);
-        font-size: 2.25em;
-    }
-
-    .buttons {
-        display: flex;
-        justify-content: center;
-    }
-
-    .main-btn {
-        background-color: var(--accentPurple);
-        color: var(--bgCurrentWord);
-        outline: none;
-    }
-
-    .main-btn:focus-visible {
-        outline: 2px solid var(--accentBlue);
-    }
-
-    .main-btn:hover {
-        background-color: rgba(var(--accentPurpleRgb), 0.8);
-    }
-
-    .main-btn:active {
-        background-color: rgba(var(--accentPurpleRgb), 0.9);
-        outline: none;
-    }
-
-    .features {
-        display: grid;
-        gap: 1em;
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    @media screen and (max-width: 1000px) {
-        .features {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media screen and (max-width: 600px) {
-        .features {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    .feature-card {
-        background-color: var(--bg4);
-        padding: 16px;
-        border-radius: 12px;
-
-        transition: 200ms box-shadow cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-
-    .feature-card:hover {
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    }
-
-    .feature-icon {
-        padding: 0.7em;
-        width: 1.5em;
-        height: 1.5em;
-        background-color: var(--bgCurrentWord);
-        border-radius: 8px;
-    }
-
-    .feature-icon img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
-
-    .feature-title {
-        font-size: var(--fg1);
-        line-height: 1rem;
-    }
-
-    .feature-desc {
-        font-size: 0.9em;
-        filter: brightness(90%);
-        margin: 0;
-    }
-
-    svg {
-        width: 1.5em;
-        height: 1.5em;
-    }
-</style>

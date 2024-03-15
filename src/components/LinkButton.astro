@@ -14,7 +14,6 @@ export interface Props extends HTMLAttributes<"a"> {
         display: inline-flex;
         justify-content: center;
         align-items: center;
-
         text-decoration: none;
         text-align: center;
         background-color: var(--bg3);
@@ -23,8 +22,7 @@ export interface Props extends HTMLAttributes<"a"> {
         outline: 2px solid var(--fg0-muted);
         padding: 0.8em 2em;
         border-radius: 12px;
-
-        transition: 200ms color ease;
+        transition: background-color 250ms;
     }
 
     a:focus {
