@@ -147,9 +147,7 @@ if (Astro.url.pathname === "/") {
         </script>
         <main class="container">
             <NavBar />
-            <div class="main-content">
-                <slot />
-            </div>
+            <slot />
             <Footer />
         </main>
     </body>
@@ -428,17 +426,15 @@ if (Astro.url.pathname === "/") {
     }
 
     body {
+        background-color: var(--bg1);
+        color: var(--fg0);
+    }
+
+    .container {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         min-height: 100vh;
-        background-color: var(--bg1);
-        color: var(--fg0);
-    }
-    .main-content {
-        margin-bottom: 2rem;
-    }
-    .container {
         padding: 1rem 2rem;
     }
     @media (min-width: 640px) {

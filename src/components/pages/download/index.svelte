@@ -29,7 +29,7 @@ if (!IS_SERVER) selected.subscribe(v => (localStorage.platform = v));
 
 </script>
 
-<div class="container">
+<div class="download-container">
     <slot name="title" />
     <nav>
         {#each options as option}
@@ -71,10 +71,10 @@ if (!IS_SERVER) selected.subscribe(v => (localStorage.platform = v));
 </div>
 
 <style>
-    .container {
+    .download-container {
+        margin-bottom: 2rem;
         display: flex;
         flex-direction: column;
-        margin-bottom: 4.4rem;
         }
 
     nav {
