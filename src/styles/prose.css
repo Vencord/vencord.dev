@@ -39,7 +39,7 @@ h3 {
 
 h4,
 .p-page-title {
-    font-size: clamp(2rem, 4vw + .1rem, 10rem);
+    font-size: clamp(2.5rem, 4vw + .1rem, 6rem);
     line-height: 2.75rem;
     margin-bottom: 1rem;
 }
