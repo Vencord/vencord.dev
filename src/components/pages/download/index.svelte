@@ -2,7 +2,9 @@
     import { writable } from "svelte/store";
     import { fade } from "svelte/transition";
 
-    import { IS_SERVER } from "../../../scripts/constants";
+    import { IS_SERVER } from "scripts/constants";
+
+    const options = ["Windows", "Linux", "Mac", "Browser"] as const;
 
     const accents: { [option in (typeof options)[number]]: string } = {
         Windows: "Blue",
@@ -10,22 +12,21 @@
         Mac: "Yellow",
         Browser: "Orange",
     };
-    const options = ["Windows", "Linux", "Mac", "Browser"] as const;
 
-const isWindows = () => navigator.userAgent.toLowerCase().includes("win");
-const isMac = () => navigator.userAgent.toLowerCase().includes("mac");
-const isLinux = () => navigator.userAgent.toLowerCase().includes("linux");
+    const initialValue = IS_SERVER
+        ? "Windows"
+        : (() => {
+              const stored = localStorage.platform;
+              if (stored && options.includes(stored)) return stored;
 
-const getPlatform = () => {
-  if (isWindows()) return "Windows";
-  if (isMac()) return "Mac";
-  if (isLinux()) return "Linux";
-  return "Browser";
-};
+              const platform = navigator.platform.toLowerCase();
+              if (platform.includes("linux")) return "Linux";
+              if (platform.includes("mac")) return "Mac";
+              return "Windows";
+          })();
 
-const initialValue = IS_SERVER ? "Windows" : getPlatform();
-const selected = writable(initialValue);
-if (!IS_SERVER) selected.subscribe(v => (localStorage.platform = v));
+    const selected = writable(initialValue);
+    if (!IS_SERVER) selected.subscribe(v => (localStorage.platform = v));
 
 </script>
 
