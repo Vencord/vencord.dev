@@ -76,8 +76,16 @@ if (features.length % 3 !== 0)
     <style>
         .feature-icon img {
             user-select: none;
-            width: 3.125rem;
-            height: 3.125rem;
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+        .feature-icon {
+            background: var(--bgCurrentWord);
+            padding: 0.5rem 0.5rem;
+            border-radius: 8px;
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-bottom: 0.5rem;
         }
         .feature-card {
             padding: 1rem;
@@ -92,10 +100,6 @@ if (features.length % 3 !== 0)
             border: 1px solid var(--fg0-muted);
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         }
-        .feature-info {
-            display: flex;
-            gap: 1rem;
-        }
         .feature-title {
             margin: auto 0;
             line-height: 120%;
@@ -104,6 +108,7 @@ if (features.length % 3 !== 0)
         }
         .feature-desc {
             color: var(--fg0);
+            margin: 1rem 0;
         }
         .features {
             margin-bottom: 2rem;
