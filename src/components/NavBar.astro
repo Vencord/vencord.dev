@@ -9,19 +9,20 @@ const navLinks = {
 const page = Astro.url.pathname.split("/")[1];
 ---
 
-<nav>
+<nav class="mainNav">
     <div class="nav-content">
         <div id="logo">
             <a href="/" id="title">
                 <img
+                    class="onekoImg"
                     src="/assets/logo-nav-oneko-padding.png"
                     alt="Vencord Home"
                 />
                 <div id="oneko" aria-hidden="true"></div>
             </a>
         </div>
-        <div id="btns" class="p-label-m">
-            <ul id="right">
+        <div>
+            <ul class="navLinks">
                 {
                     Object.entries(navLinks).map(([link, [display, color]]) => (
                         <li>
@@ -41,64 +42,53 @@ const page = Astro.url.pathname.split("/")[1];
 </nav>
 
 <style>
-    nav {
-        background-color: var(--bg0);
-
+    .mainNav {
         position: sticky;
+        padding: 1rem 0 0 0;
         top: 0;
         z-index: 999;
     }
 
     .nav-content {
+        --horizontal-margin: 10%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        background-color: var(--bg0);
+        border-radius: 1rem;
         margin: 0 var(--horizontal-margin);
+        padding: 0.5rem 1.5rem;
     }
-
-    h4 {
-        margin: 0;
-    }
-
-    #btns {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-
-    ul {
+    .navLinks {
         list-style-type: none;
-        overflow: hidden;
         padding: 0;
     }
-
-    #btnsleft {
-        flex: 1;
+    .navLinks {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
     }
 
-    img {
+    .onekoImg {
         vertical-align: middle;
-    }
-
-    li {
-        float: left;
-    }
-
-    a {
-        text-decoration: none;
-        text-align: center;
-        padding: 0.5em;
-        color: var(--fg0) !important;
-        transition: 0.15s ease;
-        transition-property: color, text-decoration;
     }
 
     .active {
         color: var(--accent) !important;
     }
 
-    a:not(#title):where(:hover, :focus) {
+    .navLinks a {
+        text-align: center;
+        color: var(--fg0);
+        text-decoration: underline transparent; /* Initial invisible underline for it to animate. */
+        transition:
+            color 250ms ease,
+            text-decoration 250ms ease;
+    }
+
+    .navLinks a:not(#title):where(:hover, :focus) {
         text-decoration: underline;
         text-decoration-thickness: 2px;
         outline: none;
@@ -108,13 +98,10 @@ const page = Astro.url.pathname.split("/")[1];
     #logo {
         position: relative;
     }
-
     #oneko {
         position: absolute;
-
         top: -3px;
-        right: 7px;
-
+        right: -5px;
         display: inline-block;
         width: 32px;
         height: 32px;
