@@ -71,17 +71,6 @@
 
 <div>
     <section>
-        <h2>Filter</h2>
-
-        <div class="criteria">
-            {#each criteria as c}
-                <label>
-                    <input type="checkbox" bind:checked={c.state} />
-                    {c.name}
-                </label>
-            {/each}
-        </div>
-
         <div class="search">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path
@@ -95,7 +84,16 @@
                 bind:value={filter}
             />
         </div>
+        <div class="criteria">
+            {#each criteria as c}
+                <label>
+                    <input type="checkbox" bind:checked={c.state} />
+                    {c.name}
+                </label>
+            {/each}
+        </div>
     </section>
+
 
     <section class="plugins-grid">
         {#each filteredPlugins as p}
@@ -218,12 +216,12 @@
         text-decoration: unset;
     }
 
-    .plugin-screenshot {
+    /* .plugin-screenshot {
         object-fit: cover;
         width: 100%;
         border-radius: 4px;
         margin-bottom: 1em;
-    }
+    } */
 
     .plugin-content {
         display: flex;
@@ -237,13 +235,13 @@
         line-height: normal;
     }
 
-    .plugin-badges {
+    /* .plugin-badges {
         display: flex;
         gap: 0.5em;
 
         position: absolute;
         bottom: 1em;
-    }
+    } */
 
     .ellipsis-overflow {
         overflow: hidden;
@@ -280,6 +278,7 @@
     .criteria {
         display: flex;
         flex-direction: row;
+        margin: .5rem 0 1rem 0;
     }
 
     @media screen and (max-width: 400px) {
@@ -328,7 +327,9 @@
         margin: 1em 0;
         padding: 1em;
     }
-
+.search input:focus{
+    outline: none;
+}
     .search input::placeholder {
         color: var(--grey0);
     }
@@ -336,5 +337,6 @@
     input[type="checkbox"] {
         height: 1em;
         width: 1em;
+        background: transparent;
     }
 </style>
