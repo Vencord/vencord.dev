@@ -8,7 +8,7 @@ import AutoSizeGrid from "components/AutoSizeGrid.astro";
 
 const features = [
     {
-        icon: "light-bulb",
+        icon: "bulb",
         title: "Easy Install",
         description: "Super easy to install thanks to our graphical installer",
     },
@@ -24,7 +24,7 @@ const features = [
         description: "Works just as well inside your favourite Browser!",
     },
     {
-        icon: "locked",
+        icon: "lock",
         title: "Privacy Friendly",
         description: "Blocks Discord analytics & crash reports out of the box",
     },
@@ -35,7 +35,7 @@ const features = [
             "No more broken plugins! Bugs are usually fixed within a day",
     },
     {
-        icon: "hammer-and-wrench",
+        icon: "tools",
         title: "Developer Friendly",
         description:
             "Flexible and robust plugin system with many APIs empowering you",
@@ -70,7 +70,7 @@ if (features.length % 3 !== 0)
             features.map(({ icon, title, description }) => (
                 <div class="feature-card">
                     <div class="feature-icon" aria-hidden="true">
-                        <img src={`/assets/${icon}.png`} alt="" />
+                        <img src={`/assets/${icon}.svg`} alt={`${icon} icon`} />
                     </div>
                     <h3 class="feature-title">{title}</h3>
                     <p class="feature-desc">{description}</p>

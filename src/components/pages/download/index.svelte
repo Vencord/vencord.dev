@@ -78,31 +78,39 @@
 
     nav {
         display: grid;
-        gap: 1rem;
-        grid-template-columns: repeat(4, 1fr);
-        margin-bottom: 1rem;
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .8rem;
     }
-
+    @media (min-width: 768px) {
+        nav{
+            gap: 1rem;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+}
     section {
         width: 100%;
         box-sizing: border-box;
         background-color: var(--bgCurrentWord);
         padding: 1rem;
-
-        border-radius: 16px;
+        border-radius: .5rem;
     }
 
     label {
         font-size: 1em;
         font-weight: var(--fontWeightSemiBold);
         letter-spacing: 0.02em;
-
         padding: 1.25em 1.5rem;
         text-align: center;
         cursor: pointer;
-        border-radius: 12px;
-
+        border: 1px solid var(--bg5);
+        border-radius: 1rem;
         background-color: var(--bg3);
+        margin-bottom: 1rem;
+        transition: background 250ms;
+    }
+    label:hover{
+        background: var(--bg2);
     }
 
     @media screen and (max-width: 600px) {
