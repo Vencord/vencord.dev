@@ -1,5 +1,5 @@
 import { PLUGINS_JSON_URL, PLUGIN_READMES_JSON_URL } from "./constants";
-import { PluginData } from "./types";
+import type { PluginData } from "./types";
 
 export async function fetchPlugins() {
     const res = await fetch(PLUGINS_JSON_URL);
