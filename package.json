@@ -22,6 +22,7 @@
         "svelte": "^3.54.0"
     },
     "devDependencies": {
-        "@cloudflare/workers-types": "^4.20230404.0"
+        "@cloudflare/workers-types": "^4.20230404.0",
+        "shiki": "^1.1.7"
     }
 }

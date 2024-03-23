@@ -1,0 +1,33 @@
+---
+export const prerender = true;
+import Layout from '../../layouts/Layout.astro';
+import ResourceTabs from '../../components/pages/thirdParty/Resources.svelte';
+
+const fileData = await Astro.glob('../../content/thirdParty/**/*.md');
+
+const files = {
+    plugins: fileData.filter(f => f.file.split('/').reverse()[1] === 'plugins'),
+    themes: fileData.filter(f => f.file.split('/').reverse()[1] === 'themes'),
+    jsSnippet: fileData.filter(
+        f => f.file.split('/').reverse()[1] === 'js-snippets'
+    ),
+    cssSnippet: fileData.filter(
+        f => f.file.split('/').reverse()[1] === 'css-snippets'
+    ),
+};
+---
+
+<Layout
+    title="Third-Party"
+    description="Browse third-party resources such as snippets or plugins"
+    breadcrumbs={[['Third-Party', '/third-party']]}
+>
+    <div>
+        <h1 class="p-page-title">Third-Party Resources</h1>
+        <p class="p-subtitle">
+            Discover a plethora of resources uploaded by the community wether
+            that be snippers or plugins
+        </p>
+    </div>
+    <ResourceTabs {files} client:load />
+</Layout>

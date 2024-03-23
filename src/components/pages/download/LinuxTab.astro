@@ -1,11 +1,17 @@
 ---
 import Code from "components/Code.astro";
 import Tab from "./Tab.astro";
-import CodeBlock from "components/CodeBlock.svelte";
+import CodeBlock from "components/ShikiCodeBlocks.svelte";
+import { getHighlighter } from "shiki";
+
+const highlighter = await getHighlighter({
+    themes: ["catppuccin-frappe"],
+    langs: ["shell"],
+});
 ---
 
 <Tab>
-    <div slot="header">
+    <div class="tab-container" slot="header">
         <p>
             Open your terminal and run the following command. Then follow the
             instructions in your terminal. If you're using fish, switch to bash
@@ -14,7 +20,9 @@ import CodeBlock from "components/CodeBlock.svelte";
             <Code>bash</Code>)
         </p>
         <CodeBlock
-            code={'sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"'}
+            code={'sh -c "$(curl -sS\nhttps://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"'}
+            lang="shell"
+            {highlighter}
             client:load
         />
     </div>
@@ -24,5 +32,9 @@ import CodeBlock from "components/CodeBlock.svelte";
     h3 {
         margin: 1em 0 0.5em;
         font-size: 2em;
+    }
+
+    .tab-container {
+        max-width: 100%;
     }
 </style>
