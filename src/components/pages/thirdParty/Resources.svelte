@@ -6,10 +6,11 @@
 
     export let files;
 
-    const options = ["Plugins", "JS Snippets", "CSS Snippets"] as const;
+    const options = ["Plugins", "Themes", "JS Snippets", "CSS Snippets"] as const;
 
     const accents: { [option in (typeof options)[number]]: string } = {
         "Plugins": "Blue",
+        "Themes": "Purple",
         "JS Snippets": "Yellow",
         "CSS Snippets": "Green",
     };
@@ -42,6 +43,8 @@
     <section>
         {#if $selected === "Plugins"}
             <Cards files={files.plugins} />
+        {:else if $selected === "Themes"}
+            <Cards files={files.themes} />
         {:else if $selected === "JS Snippets"}
             <Cards files={files.jsSnippet} />
         {:else if $selected === "CSS Snippets"}
