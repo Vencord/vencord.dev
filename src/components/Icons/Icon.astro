@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+export interface Props extends HTMLAttributes<"svg"> {
+    viewBox: string;
+    title: string;
+    children: any;
+}
+
+const { title, ...svgProps } = Astro.props;
+---
+
+<svg role="img" aria-hidden="true" {...svgProps}>
+    <title>{title}</title>
+    <slot />
+</svg>
+
+<style>
+    svg {
+        width: 24px;
+        height: 24px;
+        margin-right: 0.5em;
+        shape-rendering: auto;
+    }
+</style>

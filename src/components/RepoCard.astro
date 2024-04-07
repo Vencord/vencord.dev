@@ -1,0 +1,138 @@
+---
+import { getLanguageColor } from "scripts/languageColors";
+import OpenExternalIcon from "./Icons/OpenExternalIcon.astro";
+
+import Star from "./Icons/Star.astro";
+
+const {
+    name,
+    description,
+    data: { language, owner, stars_count, stargazers_count, html_url },
+} = Astro.props;
+
+const starCount = stars_count ?? stargazers_count;
+const stars =
+    starCount > 1000 ? `${(starCount / 1000).toFixed(1)}k` : starCount;
+
+const avatarUrl = new URL(owner.avatar_url);
+avatarUrl.searchParams.set("size", "64");
+---
+
+<a href={html_url}>
+    <span class="open-external">
+        <OpenExternalIcon />
+    </span>
+
+    <div class="author">
+        <img src={avatarUrl.toString()} alt="" />
+        <span>{owner.login}</span>
+    </div>
+
+    <h3>{name}</h3>
+    <span class="description">{description}</span>
+
+    <div class="info">
+        <span
+            class="language"
+            style={`--lang-color: ${getLanguageColor(language)};`}
+        >
+            {language}
+        </span>
+        <div class="stars">
+            <Star />
+            <span>{stars}</span>
+        </div>
+    </div>
+</a>
+
+<style>
+    a {
+        all: unset;
+        cursor: pointer;
+
+        position: relative;
+        background: var(--bg4);
+        border: 1px solid var(--color-semi-trans);
+        padding: 1em;
+        border-radius: 8px;
+        display: grid;
+
+        transition: 200ms box-shadow cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    a:is(:hover, :active) {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    h3 {
+        margin: 0;
+        font-size: 1.25em;
+        line-height: 1.25em;
+    }
+
+    span {
+        font-size: 0.9em;
+    }
+
+    .description {
+        margin-top: 0.3em;
+        margin-bottom: 0.8em;
+    }
+
+    .author,
+    .info,
+    .stars {
+        display: flex;
+        align-items: center;
+    }
+
+    .author {
+        margin-bottom: 1em;
+    }
+
+    .author img {
+        width: 1.2em;
+        height: 1.2em;
+        border-radius: 50%;
+        margin-right: 0.3em;
+    }
+
+    .info {
+        line-height: 1.2em;
+    }
+
+    .stars :global(svg) {
+        width: 1.2em;
+        height: 1.2em;
+        transform: translateY(-0.05em);
+        margin-right: 0.1em;
+    }
+
+    .language {
+        margin-right: 0.6em;
+    }
+
+    .language::before {
+        content: "";
+        display: inline-block;
+        width: 0.8em;
+        height: 0.8em;
+        transform: translateY(0.05em);
+        border-radius: 50%;
+        background: var(--lang-color);
+    }
+
+    .open-external {
+        all: unset;
+        cursor: pointer;
+        position: absolute;
+        top: 1em;
+        right: 0.5em;
+        transition: 200ms color;
+    }
+
+    .open-external :global(svg) {
+        width: 1.2em;
+        height: 1.2em;
+    }
+</style>

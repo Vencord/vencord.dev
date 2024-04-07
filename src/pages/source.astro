@@ -1,0 +1,109 @@
+---
+import Layout from "layouts/Layout.astro";
+import RepoCard from "components/RepoCard.astro";
+import { SOURCE_CODE } from "scripts/constants";
+import { getEnv } from "scripts/env";
+import { MINUTES, cacheResponseFor } from "scripts/cache";
+
+const Repos = [
+    {
+        name: "Vencord",
+        description: "Vencord's main repository containing all inbuilt plugins",
+        repo: "Vendicated/Vencord",
+    },
+    {
+        name: "Vencord Installer",
+        description: "Vencord's Installer",
+        repo: "Vencord/Installer",
+    },
+    {
+        name: "vencord.dev",
+        description: "Vencord's official website (the one you're currently on)",
+        repo: "Vencord/vencord.dev",
+    },
+    {
+        name: "Vesktop",
+        description:
+            "Vencord's standalone desktop app, offering you a more lightweight, faster and more secure solution for using Vencord",
+        repo: "Vencord/Vesktop",
+    },
+    {
+        name: "Vencloud",
+        description:
+            "Vencord's Backend providing you with features like settings sync",
+        repo: "Vencord/Vencloud",
+    },
+    {
+        name: "venmic",
+        description:
+            "Native node module that powers Linux Audio screenshare on Vesktop",
+        repo: "Vencord/venmic",
+    },
+] satisfies Record<"name" | "description" | "repo", string>[];
+
+const env = import.meta.env;
+const token = getEnv(Astro.locals, env, "GITHUB_TOKEN");
+
+const repoData = await Promise.all(
+    Repos.map(async ({ repo, ...data }) => {
+        const requestInit = {
+            headers: new Headers({
+                "User-Agent": SOURCE_CODE,
+            }),
+        } satisfies RequestInit;
+
+        requestInit.headers.set("Accept", "application/vnd.github.v3+json");
+        requestInit.headers.set("Authorization", `Bearer ${token}`);
+
+        return fetch("https://api.github.com/repos/" + repo, requestInit)
+            .then(async r => {
+                if (!r.ok) {
+                    const e = await r.text().catch(() => "Unknown Error");
+                    throw new Error(
+                        `Failed to fetch repo info for ${repo}: ${r.status} ${r.statusText}\n${e}`
+                    );
+                }
+                return { ...data, data: await r.json() };
+            })
+            .catch(e => {
+                console.error(e);
+                return null;
+            });
+    })
+);
+
+cacheResponseFor(Astro.response, 20 * MINUTES);
+---
+
+<Layout
+    title="Source Code"
+    description="List of Source Code repositories for all Vencord projects"
+>
+    <h1 class="p-page-title">Source Code</h1>
+    <p class="p-subtitle">Vencord's git repositories</p>
+
+    <div>
+        {repoData.map(data => (data ? <RepoCard {...data} /> : null))}
+    </div>
+</Layout>
+
+<style>
+    div {
+        --cols: 3;
+        display: grid;
+        grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+        gap: 0.75em;
+    }
+
+    @media screen and (max-width: 1400px) {
+        div {
+            --cols: 2;
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+        div {
+            --cols: 1;
+        }
+    }
+</style>
