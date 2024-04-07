@@ -15,4 +15,14 @@ export interface PluginData {
     enabledByDefault: boolean;
     target: "discordDesktop" | "vencordDesktop" | "web" | "dev";
     filePath: string;
+
+    github?: string;
+}
+
+export interface MutualResource {
+    name: string;
+    description: string;
+    tags: string[];
+    authors: PluginDev[];
+    filePath: string;
 }

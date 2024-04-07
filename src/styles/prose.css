@@ -137,3 +137,7 @@ p {
         font-size: 4.5em;
     }
 }
+
+pre.shiki {
+    background-color: transparent !important;
+}

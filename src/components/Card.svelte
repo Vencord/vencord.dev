@@ -4,7 +4,7 @@
         Error = "#ec4144",
         Success = "#2d7c46",
         Info = "#5865f2",
-        Blank = "#aaaaaa",
+        Blank = "#575757",
     }
 </script>
 
@@ -22,6 +22,7 @@
 <style define:vars={{ border, background }}>
     div {
         width: 100%;
+        overflow-x: auto;
         border: 2px solid var(--border);
         border-radius: 12px;
         padding: 0.5rem 1rem;
