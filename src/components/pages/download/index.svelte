@@ -111,6 +111,15 @@
         }
     }
 
+    @media screen and (max-width: 400px) {
+        nav {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        label {
+            padding: 1em 0.75em;
+        }
+    }
+
     label.selected {
         background-color: var(--accent);
         color: var(--bg2);
