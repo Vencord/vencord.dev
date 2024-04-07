@@ -1,5 +1,5 @@
-import { getRuntime } from "@astrojs/cloudflare/runtime";
 import { APIRoute } from "astro";
+import { getEnv } from "scripts/env";
 
 const Repos = {
     installer: "Vencord/Installer",
@@ -7,7 +7,7 @@ const Repos = {
     "vencord-desktop": "Vencord/Desktop",
 };
 
-export const get: APIRoute = async ({ params, request }) => {
+export const get: APIRoute = async ({ params, request, locals }) => {
     const repo = Repos[params.repo as keyof typeof Repos];
 
     if (!repo)
@@ -19,7 +19,8 @@ export const get: APIRoute = async ({ params, request }) => {
             },
         });
 
-    const { GITHUB_TOKEN } = getRuntime<{ GITHUB_TOKEN: string }>(request).env;
+    const env = import.meta.env;
+    const GITHUB_TOKEN = getEnv(locals, env, "GITHUB_TOKEN");
 
     const data = await fetch(
         `https://api.github.com/repos/${repo}/releases/latest`,
