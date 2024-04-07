@@ -3,6 +3,7 @@ import Layout from "layouts/Layout.astro";
 import RepoCard from "components/RepoCard.astro";
 import { SOURCE_CODE } from "scripts/constants";
 import { getEnv } from "scripts/env";
+import { MINUTES, cacheResponseFor } from "scripts/cache";
 
 const Repos = [
     {
@@ -70,6 +71,8 @@ const repoData = await Promise.all(
             });
     })
 );
+
+cacheResponseFor(Astro.response, 20 * MINUTES);
 ---
 
 <Layout
