@@ -1,18 +1,25 @@
 ---
 import Card, { CardKind } from "components/Card.svelte";
-import {
-    CHROME_WEBSTORE_URL,
-    FIREFOX_WEBSTORE_URL,
-    USERSCRIPT_URL,
-} from "scripts/constants";
+import { CHROME_WEBSTORE_URL, USERSCRIPT_URL } from "scripts/constants";
 import Tab from "./Tab.astro";
+import BrowserLogo from "./BrowserLogo.astro";
+
+const Chromiums = [
+    "brave",
+    "chrome",
+    "chromium",
+    "edge",
+    "opera",
+    "opera-gx",
+    "vivaldi",
+];
 ---
 
 <Tab>
     <Fragment slot="header">
         <p>
             You can download Vencord from the Chrome Store or use the
-            UserScript.
+            Userscript.
         </p>
 
         <div class="buttons">
@@ -34,14 +41,6 @@ import Tab from "./Tab.astro";
             </a>
         </div>
 
-        <p>
-            To get the Userscript, you'll need a Userscript manager like <a
-                href="https://violentmonkey.github.io/">Violentmonkey</a
-            > or <a href="https://www.tampermonkey.net/">Tampermonkey</a>.
-        </p>
-    </Fragment>
-
-    <Fragment slot="footer">
         <Card kind={CardKind.Warning}>
             <p>
                 Please note that due to Discord's
@@ -50,6 +49,93 @@ import Tab from "./Tab.astro";
                 >, the CSS Editor, custom themes and plugins making use of
                 external scripts will not work with the Userscript.
             </p>
+        </Card>
+
+        <Card kind={CardKind.Error}>
+            <p>
+                If the extension is ever broken, please use our <a
+                    href="/discord">support channel</a
+                > instead of leaving a negative Review on the Chrome Web Store. We
+                are likely already working on fixing it, or even just waiting for
+                Google to approve the update. Receiving negative reviews for a temporary
+                breakage that we have no control over is very frustrating.
+            </p>
+            <p>
+                Additionally, don't use the support hub on the Chrome Web Store.
+                We will not answer there. Instead, use our <a href="/discord"
+                    >Discord server</a
+                >.
+            </p>
+        </Card>
+
+        <Card kind={CardKind.Info}>
+            <h2>How to install</h2>
+
+            <div class="browser-sections">
+                <section>
+                    <div class="browser-logos">
+                        {Chromiums.map(c => <BrowserLogo browser={c} />)}
+                    </div>
+                    <p class="browser-instruction">
+                        Install the extension from the <a
+                            href={CHROME_WEBSTORE_URL}>Chrome Webstore</a
+                        >.
+
+                        <br />
+                        <br />
+                        Alternatively, install a Userscript manager like <a
+                            href="https://chromewebstore.google.com/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag"
+                            >Violentmonkey</a
+                        > or <a
+                            href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo"
+                            >Tampermonkey</a
+                        >. Then, open the <a href={USERSCRIPT_URL}
+                            >Vencord.user.js</a
+                        > link and your Userscript manager should automatically prompt
+                        you to install it.
+                    </p>
+                </section>
+
+                <section>
+                    <BrowserLogo browser="firefox" />
+                    <div class="browser-instruction">
+                        <ol>
+                            <li>
+                                Install the Tampermonkey extension <a
+                                    href="https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/"
+                                    >from the Firefox Add-ons store</a
+                                >. (Other Userscript managers like Violentmonkey
+                                are sadly not supported due to a Firefox bug
+                                that only Tampermonkey works around)
+                            </li>
+                            <li>
+                                Open the <a href={USERSCRIPT_URL}
+                                    >Vencord.user.js</a
+                                > link and Tampermonkey should prompt you to install
+                                it
+                            </li>
+                        </ol>
+                        <p>
+                            Unfortunately, publishing to the Mozilla extension
+                            store is a nightmare and forces us to limit
+                            Vencord's features due to their strict guidelines.
+                            Firefox does not let you install third party
+                            extensions unless they are signed (which also
+                            requires store approval). As such, it is no longer
+                            possible for us to offer a Firefox extension.
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <BrowserLogo browser="safari" />
+                    <p class="browser-instruction">
+                        We do not currently support Safari, sorry. Please use a
+                        different Browser if you are interested in using Vencord
+                        Web.
+                    </p>
+                </section>
+            </div>
         </Card>
     </Fragment>
 </Tab>
@@ -88,8 +174,16 @@ import Tab from "./Tab.astro";
     .userscript-badge img {
         height: 90%;
     }
-
-    .userscript-text {
+    party
+        extensions
+        unless
+        they
+        are
+        signed
+        (which also requires store approval).
+        As
+        such,
+    it is not possible for us to offer a Firefox extension. .userscript-text {
         margin-left: 12px;
     }
 
@@ -103,5 +197,31 @@ import Tab from "./Tab.astro";
     .userscript-text span:nth-child(2) {
         font-size: 1.2em;
         font-weight: bold;
+    }
+
+    .browser-sections {
+        display: grid;
+        gap: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        line-height: 1.5em;
+        margin-block: 0.25em 0.5em;
+    }
+
+    .browser-logos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+    }
+
+    .browser-instruction {
+        margin: 0.5em 0;
+    }
+
+    ol {
+        padding: 0 0 0 1em;
+        margin-top: 0;
     }
 </style>
