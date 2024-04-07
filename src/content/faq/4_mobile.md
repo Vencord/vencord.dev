@@ -3,12 +3,9 @@ title: Is there a mobile version of Vencord?
 tags: android, ios, mobile, phone
 ---
 
-Yes actually! We have an [Android app](https://github.com/Vencord/Android) embedding the Discord website
+Technically yes, we have a very barebones app for android: [Vendroid](<https://github.com/Vencord/Vendroid>)
+However, it suffers from many issues and thus is not recommended for daily use (nor is it actively being worked on)
 
-However, as Discord's mobile website has some issues (performance, usability, etc), chances are you won't like it.
-In that case you will instead want to use one of the following mods focused on Mobile.
-
-Do note however that these mods are not related to / affiliated with Vencord, so we do not provide support for them in any way. Join their support servers for help & more info!
-
-- Vendetta (android/ios): [GitHub](https://github.com/vendetta-mod/Vendetta) - [Discord Server](https://discord.gg/n9QQ4XhhJP)
-- Aliucord (android only, very outdated but still works well if you like the old version of Discord): [GitHub](https://github.com/Aliucord/Aliucord) - [Discord Server](https://discord.gg/EsNDvBaHVU)
+Instead, we recommend the following alternatives:
+- [Pyoncord](<https://github.com/pyoncord/Pyoncord>) ([discord server](<https://discord.gg/XjYgWXHb9Q>)) ~ supports both android & ios. uses the latest discord mobile app
+- [Aliucord](<https://aliucord.com>) ([discord server](<https://discord.gg/EsNDvBaHVU>)) ~ android only. uses the old (now ~2 years old) version of the discord android app

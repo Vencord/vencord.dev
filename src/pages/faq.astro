@@ -53,7 +53,7 @@ const structuredData = JSON.stringify({
         We're happy to help.
     </p>
 
-    <script type="application/ld+json" set:html={structuredData} />
+    <script type="application/ld+json" set:html={structuredData}></script>
 </Layout>
 
 <script>
@@ -86,15 +86,14 @@ const structuredData = JSON.stringify({
     }
 
     .questions {
-        display: flex;
-        flex-direction: column;
+        display: grid;
         gap: 1em;
     }
 
     /* This is mostly copy pasted from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#try_it */
     details {
         background-color: var(--bg3);
-        padding: 0.75em 1em;
+        padding: 1em 1em;
         border-radius: 12px;
     }
 
