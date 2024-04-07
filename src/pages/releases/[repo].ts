@@ -1,4 +1,4 @@
-import { APIRoute } from "astro";
+import type { APIRoute } from "astro";
 import { getEnv } from "scripts/env";
 
 const Repos = {
@@ -7,7 +7,7 @@ const Repos = {
     "vencord-desktop": "Vencord/Desktop",
 };
 
-export const get: APIRoute = async ({ params, request, locals }) => {
+export const GET: APIRoute = async ({ params, locals }) => {
     const repo = Repos[params.repo as keyof typeof Repos];
 
     if (!repo)
