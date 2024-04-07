@@ -89,7 +89,7 @@
         background-color: var(--bgCurrentWord);
         padding: 1rem;
 
-        border-radius: 16px;
+        border-radius: var(--br-xl);
     }
 
     label {
@@ -100,7 +100,7 @@
         padding: 1.25em 1.5rem;
         text-align: center;
         cursor: pointer;
-        border-radius: 12px;
+        border-radius: var(--br-lg);
 
         background-color: var(--bg3);
     }
@@ -127,5 +127,9 @@
 
     input {
         display: none;
+    }
+
+    :global(.card:last-of-type) {
+        margin-bottom: 0;
     }
 </style>

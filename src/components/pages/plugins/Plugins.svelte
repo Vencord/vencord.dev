@@ -202,7 +202,7 @@
         flex-direction: column;
         background: var(--bg4);
 
-        border-radius: 12px;
+        border-radius: var(--br-lg);
         padding: 1em;
         padding-bottom: 2em;
 
@@ -221,7 +221,7 @@
     .plugin-screenshot {
         object-fit: cover;
         width: 100%;
-        border-radius: 4px;
+        border-radius: var(--br-sm);
         margin-bottom: 1em;
     }
 
@@ -322,7 +322,7 @@
         background: var(--bg0);
         color: var(--fg0);
         border: none;
-        border-radius: 12px;
+        border-radius: var(--br-lg);
         box-sizing: border-box;
         width: 100%;
         margin: 1em 0;

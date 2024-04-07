@@ -15,7 +15,7 @@
     const background = kind + Math.floor(0xff / 12).toString(16);
 </script>
 
-<div style="--border:{border};--background:{background}">
+<div class="card" style="--border:{border};--background:{background}">
     <slot />
 </div>
 
@@ -23,7 +23,7 @@
     div {
         width: 100%;
         border: 2px solid var(--border);
-        border-radius: 12px;
+        border-radius: var(--br-md);
         padding: 0.5rem 1rem;
         margin: 0.5rem 0;
         box-sizing: border-box;
