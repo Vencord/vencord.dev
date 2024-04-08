@@ -15,7 +15,7 @@
     const background = kind + Math.floor(0xff / 12).toString(16);
 </script>
 
-<div class="card" style="--border:{border};--background:{background}">
+<div style="--border:{border};--background:{background}">
     <slot />
 </div>
 
@@ -30,7 +30,7 @@
         background-color: var(--background);
     }
 
-    :global(.card:last-child) {
+    div:last-child {
         margin-bottom: 0;
     }
 </style>
