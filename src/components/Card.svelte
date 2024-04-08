@@ -23,7 +23,7 @@
     div {
         width: 100%;
         border: 2px solid var(--border);
-        border-radius: var(--br-md);
+        border-radius: var(--border-md);
         padding: 0.5rem 1rem;
         margin: 0.5rem 0;
         box-sizing: border-box;
