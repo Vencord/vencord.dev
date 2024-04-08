@@ -128,8 +128,4 @@
     input {
         display: none;
     }
-
-    :global(.card:last-of-type) {
-        margin-bottom: 0;
-    }
 </style>

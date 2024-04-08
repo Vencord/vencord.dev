@@ -29,4 +29,8 @@
         box-sizing: border-box;
         background-color: var(--background);
     }
+
+    :global(.card:last-child) {
+        margin-bottom: 0;
+    }
 </style>
