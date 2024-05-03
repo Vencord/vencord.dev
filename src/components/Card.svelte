@@ -23,10 +23,14 @@
     div {
         width: 100%;
         border: 2px solid var(--border);
-        border-radius: 12px;
+        border-radius: var(--border-md);
         padding: 0.5rem 1rem;
         margin: 0.5rem 0;
         box-sizing: border-box;
         background-color: var(--background);
+    }
+
+    div:last-child {
+        margin-bottom: 0;
     }
 </style>
