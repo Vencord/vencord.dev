@@ -49,7 +49,7 @@ if (features.length % 3 !== 0)
 <Layout description="Vencord is the cutest modification for Discord">
     <header>
         <section class="tagline">
-            <h1 class="p-display">Vencord</h1>
+            <img id="cute-logo" src="/assets/cute-logo.avif" alt="Vencord cute wordmark" />
             <h2>The cutest Discord client mod</h2>
         </section>
 
@@ -81,6 +81,10 @@ if (features.length % 3 !== 0)
 </Layout>
 
 <style>
+    #cute-logo {
+        width: 100%;
+        max-width: 500px;
+    }
     .tagline {
         display: flex;
         flex-direction: column;
