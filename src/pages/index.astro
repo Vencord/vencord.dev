@@ -49,8 +49,10 @@ if (features.length % 3 !== 0)
 <Layout description="Vencord is the cutest modification for Discord">
     <header>
         <section class="tagline">
-            <h1 id="vencord-title" class="p-display">Vencord</h1>
-            <img id="cute-logo" src="/assets/cute-logo.png" alt="Vencord Cute Logo" />
+            <picture id="cute-logo">
+                <source srcset="/assets/cute-logo.avif" type="image/avif" />
+                <img src="/assets/cute-logo.png" />
+            </picture>
             <h2>The cutest Discord client mod</h2>
         </section>
 
@@ -81,19 +83,10 @@ if (features.length % 3 !== 0)
     </section>
 </Layout>
 
-<script defer>
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('uwu')) {
-        document.getElementById('cute-logo').style.display = 'block';
-        document.getElementById('vencord-title').style.display = 'none';
-    }
-</script>
-
 <style>
-    #cute-logo {
+    #cute-logo img {
         width: 100%;
         max-width: 500px;
-        display: none;
     }
     .tagline {
         display: flex;
