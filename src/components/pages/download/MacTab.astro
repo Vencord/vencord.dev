@@ -14,8 +14,12 @@ import Tab from "./Tab.astro";
     <Card slot="footer" kind={CardKind.Warning}>
         <p>
             If you get a VencordInstaller can't be opened warning, right-click
-            VencordInstaller.app and click open
+            VencordInstaller.app and click open (macOS Sonoma and earlier)
         </p>
+        <p>
+            If you are using the developer build of macOS Seqouia, you will need
+            to scroll to the bottom of <i>Privacy & Security</i> in your System 
+            Settings, and click "Open Anyway" for VencordInstaller.app
         <p>
             This warning is entirely harmless and only shows because the app is
             not signed. Signing it would cost us <a
