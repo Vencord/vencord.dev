@@ -21,31 +21,25 @@ import Tab from "./Tab.astro";
             to scroll to the bottom of <i>Privacy & Security</i> in your System Settings,
             and click "Open Anyway" for VencordInstaller.app
         </p>
-        <details>
-            <summary class="seqouia-summary"
-                >Having trouble or using macOS Seqouia?</summary
-            >
-
-            <p>
-                You can allow the app to run through your System Settings, in
-                the Privacy & Settings tab. This works whether or not you are
-                using the macOS 15 Developer Build. <a
-                    href="https://support.apple.com/102445#openanyway"
-                    rel="noopener noreferrer"
-                    >Learn more
-                </a>
-            </p>
-
-            <a href="/assets/seqouia-install.png" target="_blank">
-                <img
-                    class="sequoia-install-img"
-                    width="700"
-                    height="auto"
-                    src="/assets/seqouia-install.png"
-                    alt="macOS System Settings, showing the Privacy & Security section with a card about VencordInstaller.app."
-                />
+        <p>
+            You can allow the app to run through your System Settings, in the
+            Privacy & Settings tab. This works whether or not you are using the
+            macOS 15 Developer Build. <a
+                href="https://support.apple.com/102445#openanyway"
+                rel="noopener noreferrer"
+                >Learn more
             </a>
-        </details>
+        </p>
+
+        <a href="/assets/seqouia-install.jpg" target="_blank">
+            <img
+                class="sequoia-install-img"
+                width="700"
+                height="auto"
+                src="/assets/seqouia-install.jpg"
+                alt="macOS System Settings, showing the Privacy & Security section with a card about VencordInstaller.app."
+            />
+        </a>
         <p>
             This warning is entirely harmless and only shows because the app is
             not signed. Signing it would cost us <a
@@ -57,12 +51,7 @@ import Tab from "./Tab.astro";
 </Tab>
 
 <style>
-    .seqouia-summary {
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    .sequoia-install-img {
+    img {
         margin-top: 1rem;
         border-radius: 0.5rem;
         max-width: 100%;
