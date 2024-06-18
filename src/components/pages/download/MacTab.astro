@@ -42,7 +42,7 @@ import Tab from "./Tab.astro";
                     width="700"
                     height="auto"
                     src="/assets/seqouia-install.png"
-                    alt="An image showing how to allow VencordInstaller.app to Open Anyway in Privacy & Security settings, on macOS Seqouia."
+                    alt="macOS System Settings, showing the Privacy & Security section with a card about VencordInstaller.app."
                 />
             </a>
         </details>
@@ -65,11 +65,6 @@ import Tab from "./Tab.astro";
     .sequoia-install-img {
         margin-top: 1rem;
         border-radius: 0.5rem;
-    }
-
-    @media (max-width: 1300px) {
-        .sequoia-install-img {
-            width: 50vw;
-        }
+        max-width: 100%;
     }
 </style>
