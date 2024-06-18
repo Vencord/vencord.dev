@@ -13,9 +13,33 @@ import Tab from "./Tab.astro";
 
     <Card slot="footer" kind={CardKind.Warning}>
         <p>
-            If you get a VencordInstaller can't be opened warning, right-click
-            VencordInstaller.app and click open
+            If you get a VencordInstaller can"t be opened warning, right-click
+            VencordInstaller.app and click open (macOS Sonoma and earlier)
         </p>
+        <p>
+            If you are using the developer build of macOS Seqouia, you will need
+            to scroll to the bottom of <i>Privacy & Security</i> in your System Settings,
+            and click "Open Anyway" for VencordInstaller.app
+        </p>
+        <p>
+            You can allow the app to run through your System Settings, in the
+            Privacy & Settings tab. This works whether or not you are using the
+            macOS 15 Developer Build. <a
+                href="https://support.apple.com/102445#openanyway"
+                rel="noopener noreferrer"
+                >Learn more
+            </a>
+        </p>
+
+        <a href="/assets/seqouia-install.jpg" target="_blank">
+            <img
+                class="sequoia-install-img"
+                width="700"
+                height="auto"
+                src="/assets/seqouia-install.jpg"
+                alt="macOS System Settings, showing the Privacy & Security section with a card about VencordInstaller.app."
+            />
+        </a>
         <p>
             This warning is entirely harmless and only shows because the app is
             not signed. Signing it would cost us <a
@@ -25,3 +49,11 @@ import Tab from "./Tab.astro";
         </p>
     </Card>
 </Tab>
+
+<style>
+    img {
+        margin-top: 1rem;
+        border-radius: 0.5rem;
+        max-width: 100%;
+    }
+</style>
