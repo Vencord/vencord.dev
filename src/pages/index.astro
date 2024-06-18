@@ -5,6 +5,7 @@ import Layout from "layouts/Layout.astro";
 
 import LinkButton from "components/LinkButton.astro";
 import AutoSizeGrid from "components/AutoSizeGrid.astro";
+import Card, { CardKind } from "components/Card.svelte";
 
 const features = [
     {
@@ -48,8 +49,27 @@ if (features.length % 3 !== 0)
 
 <Layout description="Vencord is the cutest modification for Discord">
     <header>
+        <Card kind={CardKind.Error}>
+            <div class="breakage-card">
+                <h3>Important Notice</h3>
+                <p>
+                    Vencord is currently broken! We are working on fixing it,
+                    please have patience.
+
+                    <br />
+
+                    If you are experiencing issues, please just uninstall for
+                    now!
+                </p>
+            </div>
+        </Card>
+
         <section class="tagline">
-            <img id="cute-logo" src="/assets/cute-logo.avif" alt="Vencord cute wordmark" />
+            <img
+                id="cute-logo"
+                src="/assets/cute-logo.avif"
+                alt="Vencord cute wordmark"
+            />
             <h2>The cutest Discord client mod</h2>
         </section>
 
@@ -81,6 +101,14 @@ if (features.length % 3 !== 0)
 </Layout>
 
 <style>
+    .breakage-card {
+        text-align: center;
+
+        & h3 {
+            margin: 0.5em 0;
+        }
+    }
+
     #cute-logo {
         width: 100%;
         max-width: 500px;
