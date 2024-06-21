@@ -13,7 +13,10 @@ It will
 ```js
 (() => {
     Vencord.Settings.useQuickCss = false
-    copy(Vencord.Settings.themeLinks.join("\n"))
+    try {
+        const copy = window.copy ?? Vencord.Webpack.Common.Clipboard.copy
+        copy(Vencord.Settings.themeLinks.join("\n"))
+    } catch { }
     Vencord.Settings.themeLinks = []
     Vencord.Settings.enabledThemes = []
 })()
