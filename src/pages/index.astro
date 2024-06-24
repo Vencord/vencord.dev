@@ -5,7 +5,6 @@ import Layout from "layouts/Layout.astro";
 
 import LinkButton from "components/LinkButton.astro";
 import AutoSizeGrid from "components/AutoSizeGrid.astro";
-import Card, { CardKind } from "components/Card.svelte";
 
 const features = [
     {
@@ -49,20 +48,6 @@ if (features.length % 3 !== 0)
 
 <Layout description="Vencord is the cutest modification for Discord">
     <header>
-        <Card kind={CardKind.Warning}>
-            <div class="breakage-card">
-                <h3>Important Notice</h3>
-                <p>
-                    Discord recently released a huge update that broke Vencord.
-                    <br />
-                    We have already fixed it, please update to the latest version!
-                    <br />
-                    Join our <a href="/support">Support Server</a> if you need further
-                    help.
-                </p>
-            </div>
-        </Card>
-
         <section class="tagline">
             <img
                 id="cute-logo"
