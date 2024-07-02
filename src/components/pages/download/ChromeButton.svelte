@@ -9,8 +9,6 @@
             b => b.brand === "Chromium" || b.brand === "Google Chrome"
         )?.version;
 
-        console.log(chromeVersion);
-
         if (chromeVersion && Number(chromeVersion) < 111) {
             e.preventDefault();
             dialog.showModal();
@@ -22,17 +20,8 @@
     }
 </script>
 
-<a
-    id="chrome-download-button"
-    href={CHROME_WEBSTORE_URL}
-    on:click={checkDownloadPrerequisites}
->
-    <img
-        class="chrome-badge"
-        src="/assets/chrome-button.png"
-        title="Get Vencord on the Chrome Webstore"
-        alt=""
-    />
+<a href={CHROME_WEBSTORE_URL} on:click={checkDownloadPrerequisites}>
+    <slot />
 </a>
 <dialog bind:this={dialog}>
     <h1>Chrome Version too old!</h1>
@@ -48,9 +37,3 @@
 
     <button role="dialog" on:click={closeDialog}>Close</button>
 </dialog>
-
-<style>
-    .chrome-badge {
-        border-radius: var(--border-lg);
-    }
-</style>
