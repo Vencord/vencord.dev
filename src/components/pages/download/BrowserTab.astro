@@ -3,6 +3,7 @@ import Card, { CardKind } from "components/Card.svelte";
 import { CHROME_WEBSTORE_URL, USERSCRIPT_URL } from "scripts/constants";
 import Tab from "./Tab.astro";
 import BrowserLogo from "./BrowserLogo.astro";
+import ChromeButton from "./ChromeButton.svelte";
 
 const Chromiums = [
     "brave",
@@ -23,13 +24,7 @@ const Chromiums = [
         </p>
 
         <div class="buttons">
-            <a href={CHROME_WEBSTORE_URL}>
-                <img
-                    class="chrome-badge"
-                    src="/assets/chrome-button.png"
-                    title="Get Vencord on the Chrome Webstore"
-                />
-            </a>
+            <ChromeButton client:load />
             <a href={USERSCRIPT_URL} title="Download Vencord.user.js">
                 <div class="userscript-badge">
                     <img src="/assets/monkey.png" aria-hidden="true" />
@@ -153,10 +148,6 @@ const Chromiums = [
         text-decoration: none;
         color: black;
         transition: filter 0.2s ease-in-out;
-    }
-
-    .chrome-badge {
-        border-radius: var(--border-lg);
     }
 
     .userscript-badge {
