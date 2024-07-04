@@ -19,7 +19,7 @@ const VesktopDownloads = version => ({
     "/download/vesktop/amd64/windows-portable": `https://github.com/Vencord/Vesktop/releases/download/v${version}/Vesktop-${version}-win.zip`,
     "/download/vesktop/arm64/windows-portable": `https://github.com/Vencord/Vesktop/releases/download/v${version}/Vesktop-${version}-arm64-win.zip`,
 
-    "/download/vesktop/universal/dmg": `https://github.com/Vencord/Vesktop/releases/download/v${version}/Vesktop-${version}.dmg`,
+    "/download/vesktop/universal/dmg": `https://github.com/Vencord/Vesktop/releases/download/v${version}/Vesktop-${version}-universal.dmg`,
 
     "/download/vesktop/amd64/tar": `https://github.com/Vencord/Vesktop/releases/download/v${version}/vesktop-${version}.tar.gz`,
     "/download/vesktop/amd64/rpm": `https://github.com/Vencord/Vesktop/releases/download/v${version}/vesktop-${version}.x86_64.rpm`,
