@@ -10,6 +10,7 @@ const BaseRedirects = {
     "/plugin-readmes.json":
         "https://raw.githubusercontent.com/Vencord/builds/main/plugin-readmes.json",
     "/donate": "https://github.com/sponsors/Vendicated",
+    "/click-to-help/vencord": "https://github.com/sponsors/Vendicated",
     "/docs/plugin-requests":
         "https://github.com/Vencord/plugin-requests/issues/new?template=request.yml",
 };
