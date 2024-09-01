@@ -2,8 +2,8 @@ import { readFileSync, writeFileSync } from "fs";
 
 const BaseRedirects = {
     "/github": "https://github.com/Vendicated/Vencord",
-    "/discord": "https://discord.gg/D9uwnFnqmd",
-    "/support": "https://discord.gg/D9uwnFnqmd",
+    "/discord": "https://discord.gg/vencord",
+    "/support": "https://discord.gg/vencord",
     "/install": "/download",
     "/plugins.json":
         "https://raw.githubusercontent.com/Vencord/builds/main/plugins.json",
