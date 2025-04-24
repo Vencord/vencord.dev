@@ -1,10 +1,18 @@
 <script lang="ts">
+    import { onMount } from "svelte";
     import { writable } from "svelte/store";
     import { fade } from "svelte/transition";
 
-    import { IS_SERVER } from "scripts/constants";
+    export let initialPlatform;
 
     const options = ["Windows", "Linux", "Mac", "Browser"] as const;
+
+    const parsePlatform = (platform: string): (typeof options)[number] => {
+        if (platform.includes("linux")) return "Linux";
+        if (platform.includes("mac")) return "Mac";
+        if (platform.includes("win")) return "Windows";
+        return "Browser";
+    };
 
     const accents: { [option in (typeof options)[number]]: string } = {
         Windows: "Blue",
@@ -13,20 +21,23 @@
         Browser: "Orange",
     };
 
-    const initialValue = IS_SERVER
-        ? "Windows"
-        : (() => {
-              const stored = localStorage.platform;
-              if (stored && options.includes(stored)) return stored;
+    const selected = writable<string | null>(
+        initialPlatform ? parsePlatform(initialPlatform.toLowerCase()) : null
+    );
 
-              const platform = navigator.platform.toLowerCase();
-              if (platform.includes("linux")) return "Linux";
-              if (platform.includes("mac")) return "Mac";
-              return "Windows";
-          })();
+    onMount(() => {
+        const getInitialPlatform = (): string => {
+            const platform = navigator.platform.toLowerCase();
+            return parsePlatform(platform);
+        };
 
-    const selected = writable(initialValue);
-    if (!IS_SERVER) selected.subscribe(v => (localStorage.platform = v));
+        if (!$selected) {
+            selected.set(getInitialPlatform());
+        }
+        selected.subscribe(v => {
+            document.cookie = `platform=${v}; path=/; max-age=2147483647`;
+        });
+    });
 </script>
 
 <div class="container">
@@ -50,7 +61,11 @@
 
     <section>
         <!-- grrr <slot> name cannot be dynamic -->
-        {#if $selected === "Windows"}
+        {#if !$selected}
+            <div in:fade={{ duration: 150 }}>
+                <slot name="windowsTabPlaceholder" />
+            </div>
+        {:else if $selected === "Windows"}
             <div in:fade={{ duration: 150 }}>
                 <slot name="windowsTab" />
             </div>
