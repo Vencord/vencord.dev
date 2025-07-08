@@ -5,6 +5,8 @@ import Layout from "layouts/Layout.astro";
 
 import LinkButton from "components/LinkButton.astro";
 import AutoSizeGrid from "components/AutoSizeGrid.astro";
+import OptimizedImage from "components/OptimizedImage.astro";
+import Card, { CardKind } from "components/Card.svelte";
 
 const features = [
     {
@@ -49,9 +51,9 @@ if (features.length % 3 !== 0)
 <Layout description="Vencord is the cutest modification for Discord">
     <header>
         <section class="tagline">
-            <img
+            <OptimizedImage
                 id="cute-logo"
-                src="/assets/cute-logo.avif"
+                src="/assets/cute-logo"
                 alt="Vencord cute wordmark"
             />
             <h2>The cutest Discord client mod</h2>

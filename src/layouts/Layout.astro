@@ -83,6 +83,7 @@ if (Astro.url.pathname === "/") {
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/assets/favicon.png" />
+        <link rel="icon" href="/assets/favicon-dark.png" media="(prefers-color-scheme: dark)" />
 
         <link
             rel="preload"
@@ -105,7 +106,7 @@ if (Astro.url.pathname === "/") {
                     <meta name="og:url" content={Astro.url} />
                     <meta
                         name="og:image"
-                        content={new URL("/assets/favicon.png", Astro.site)}
+                        content={new URL("/assets/logo.png", Astro.site)}
                     />
                 </>
             )

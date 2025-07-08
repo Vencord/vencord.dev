@@ -1,4 +1,6 @@
 ---
+import OptimizedImage from "./OptimizedImage.astro";
+
 const navLinks = {
     download: ["Download", "accentPurple"],
     plugins: ["Plugins", "accentBlue"],
@@ -13,10 +15,7 @@ const page = Astro.url.pathname.split("/")[1];
     <div class="nav-content">
         <div id="logo">
             <a href="/" id="title">
-                <img
-                    src="/assets/logo-nav-oneko-padding.png"
-                    alt="Vencord Home"
-                />
+                <OptimizedImage src="/assets/logo-nav" id="logo-img" alt="Vencord Home" />
                 <div id="oneko" aria-hidden="true"></div>
             </a>
         </div>
@@ -109,11 +108,15 @@ const page = Astro.url.pathname.split("/")[1];
         position: relative;
     }
 
+    #logo-img {
+        height: 27px;
+    }
+
     #oneko {
         position: absolute;
 
         top: -3px;
-        right: 7px;
+        right: -20px;
 
         display: inline-block;
         width: 32px;
