@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from "fs";
 
 const BaseRedirects = {
+    "/vesktop": "https://vesktop.dev",
     "/github": "https://github.com/Vendicated/Vencord",
     "/discord": "https://discord.gg/D9uwnFnqmd",
     "/twitter": "https://x.com/vencordapp",
