@@ -182,15 +182,9 @@
 
     .plugins-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
         grid-auto-columns: 1fr;
         grid-gap: 1em;
-    }
-
-    @media screen and (max-width: 800px) {
-        .plugins-grid {
-            grid-template-columns: minmax(0, 1fr);
-        }
     }
 
     .plugin {
