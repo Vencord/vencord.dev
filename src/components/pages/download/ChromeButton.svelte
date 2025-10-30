@@ -35,5 +35,5 @@
         </li>
     </ol>
 
-    <button role="dialog" on:click={closeDialog}>Close</button>
+    <button on:click={closeDialog}>Close</button>
 </dialog>
