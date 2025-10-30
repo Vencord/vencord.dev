@@ -15,7 +15,7 @@ import Card, { CardKind } from "components/Card.svelte";
             <Code>bash</Code>)
         </p>
         <CodeBlock
-            code={'sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"'}
+            code={`sh -c "$(curl -sS ${Astro.url.origin}/install.sh)"`}
             client:load
         />
     </div>
