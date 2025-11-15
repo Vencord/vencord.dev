@@ -1,5 +1,4 @@
 ---
-import Code from "components/Code.astro";
 import Tab from "./Tab.astro";
 import CodeBlock from "components/CodeBlock.svelte";
 import Card, { CardKind } from "components/Card.svelte";
@@ -9,10 +8,7 @@ import Card, { CardKind } from "components/Card.svelte";
     <div slot="header">
         <p class="instruction">
             Open your terminal and run the following command. Then follow the
-            instructions in your terminal. If you're using fish, switch to bash
-            first (by running
-            {}
-            <Code>bash</Code>)
+            instructions in your terminal.
         </p>
         <CodeBlock
             code={`curl -sS ${Astro.url.origin}/install.sh | sh`}
