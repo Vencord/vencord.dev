@@ -11,7 +11,7 @@ import Card, { CardKind } from "components/Card.svelte";
             instructions in your terminal.
         </p>
         <CodeBlock
-            code={`curl -sS ${Astro.url.origin}/install.sh | sh`}
+            code={`sh -c "$(curl -sS ${Astro.url.origin}/install.sh)"`}
             client:load
         />
     </div>
