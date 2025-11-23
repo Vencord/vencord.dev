@@ -13,7 +13,11 @@ const Chromiums = [
     "opera",
     "opera-gx",
     "vivaldi",
+    "duckduckgo",
+    "arc",
 ];
+
+const Geckos = ["firefox", "zen", "floorp"];
 ---
 
 <Tab>
@@ -101,7 +105,9 @@ const Chromiums = [
                 </section>
 
                 <section>
-                    <BrowserLogo browser="firefox" />
+                    <div class="browser-logos">
+                        {Geckos.map(c => <BrowserLogo browser={c} />)}
+                    </div>
                     <div class="browser-instruction">
                         <ol>
                             <li>
