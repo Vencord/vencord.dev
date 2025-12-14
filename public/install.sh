@@ -17,8 +17,6 @@ trap 'rm -f "$outfile"' EXIT
 
 echo "Downloading Installer..."
 
-set -- "XDG_CONFIG_HOME=$XDG_CONFIG_HOME" "SUDO_USER=$(whoami)"
-
 curl -sS https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux \
     --output "$outfile" \
     --location \
@@ -26,18 +24,12 @@ curl -sS https://github.com/Vendicated/VencordInstaller/releases/latest/download
 
 chmod +x "$outfile"
 
-if command -v sudo >/dev/null; then
-    echo "Running with sudo"
-    sudo env "$@" "$outfile"
-elif command -v doas >/dev/null; then
-    echo "Running with doas"
-    doas env "$@" "$outfile"
-elif command -v run0 >/dev/null; then
-    echo "Running with run0"
-    run0 env "$@" "$outfile"
-elif command -v pkexec >/dev/null; then
-    echo "Running with pkexec"
-    pkexec env "$@" "$outfile"
-else
-    echo "Please install sudo, doas, run0 (systemd), or pkexec (polkit) to continue."
-fi
+for elevate in sudo doas run0 pkexec; do
+	if command -v $elevate >/dev/null; then
+		echo "Elevating with $elevate"
+		exec $elevate env "XDG_CONFIG_HOME=$XDG_CONFIG_HOME" "SUDO_USER=$(whoami)" "$outfile" "$@"
+	fi
+done
+
+echo "Please install sudo, doas, run0 (systemd), or pkexec (polkit) to continue."
+exit 1
