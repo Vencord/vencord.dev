@@ -5,6 +5,7 @@ import Layout from "layouts/Layout.astro";
 import { fetchPluginReadme, fetchPlugins } from "scripts/data";
 import { humanFriendlyJoin } from "scripts/text";
 import { GITHUB_URL } from "scripts/constants";
+import Card, { CardKind } from "components/Card.svelte";
 
 const pluginName = Astro.params.plugin;
 
@@ -66,6 +67,18 @@ const readmeHtml = processedReadme && parseMarkdown(processedReadme);
         haven't already done so. Then open the Plugins section in settings, search
         for {p.name}, and enable it.
     </p>
+    {p.target &&
+        <Card kind={CardKind.Error}>
+        {
+        p.target === "dev" ?
+            (<p>
+                This plugin is a development only plugin.
+            </p>):(<p>
+                This plugin works only in the {p.target === "discordDesktop" && "official Discord client" || p.target === "desktop" && "Vesktop client" || p.target === "web" && "Browser"}.
+            </p>)
+        }
+        </Card>
+   }
 </Layout>
 
 <style>
