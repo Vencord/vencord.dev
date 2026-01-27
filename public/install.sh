@@ -27,7 +27,8 @@ chmod +x "$outfile"
 for elevate in sudo doas run0 pkexec; do
 	if command -v $elevate >/dev/null; then
 		echo "Elevating with $elevate"
-		exec $elevate env "XDG_CONFIG_HOME=$XDG_CONFIG_HOME" "SUDO_USER=$(whoami)" "$outfile" "$@"
+		$elevate env "XDG_CONFIG_HOME=$XDG_CONFIG_HOME" "SUDO_USER=$(whoami)" "$outfile" "$@"
+		exit 0
 	fi
 done
 
