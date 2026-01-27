@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { IS_SERVER } from "scripts/constants";
+    import { onMount } from "svelte";
     import type { PluginData } from "scripts/types";
 
     export let plugins: PluginData[];
@@ -22,9 +22,18 @@
         },
     ];
 
-    let filter = IS_SERVER ? "" : location.hash.slice(1);
+    let filter = "";
+    let loaded = false;
 
-    $: !IS_SERVER && (location.hash = filter);
+    onMount(() => {
+        try {
+            const hash = location.hash.slice(1);
+            if (hash) filter = decodeURIComponent(hash);
+        } catch {}
+        loaded = true;
+    });
+
+    $: if (loaded) location.hash = filter;
 
     $: lowerFilter = filter.toLowerCase();
     $: filteredPlugins = plugins.filter(p => {
