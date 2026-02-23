@@ -8,4 +8,4 @@ Vencord's official website, written in Astro + Svelte ❤️
 
 ## Credits
 
-Main page splash logo created by Samara ([@ssalggnikool](https://github.com/ssalggnikool))
+Main page splash logo created by Samara ([@claration](https://github.com/claration))
