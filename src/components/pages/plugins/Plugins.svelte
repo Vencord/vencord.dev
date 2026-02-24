@@ -11,14 +11,19 @@
             check: (p: PluginData) => p.hasCommands,
         },
         {
-            name: "Desktop",
+            name: "Official Discord client",
             state: false,
-            check: (p: PluginData) => p.target !== "web",
+            check: (p: PluginData) => p.target == "discordDesktop" || !p.target,
+        },
+        {
+            name: "Vesktop",
+            state: false,
+            check: (p: PluginData) => p.target == "desktop" || !p.target,
         },
         {
             name: "Web",
             state: false,
-            check: (p: PluginData) => p.target === "web",
+            check: (p: PluginData) => p.target === "web" || !p.target,
         },
     ];
 
