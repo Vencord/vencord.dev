@@ -108,14 +108,16 @@
 
     <section class="plugins-grid">
         {#each filteredPlugins as p}
-            <div class="plugin">
-                <!--
-                    <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
-                -->
-                <a
-                    class="plugin-content plugin-link"
-                    href={`/plugins/${encodeURIComponent(p.name)}`}
-                >
+            <a
+                class="plugin plugin-link"
+                href={`/plugins/${encodeURIComponent(p.name)}`}
+            >
+                <img
+                    src={p.screenshot || "/assets/screenshot-placeholder.png"}
+                    class="plugin-screenshot"
+                    alt={p.screenshotDescription}
+                />
+                <div class="plugin-content">
                     <h3 class="p-label-l">
                         {@html highlightMatches(p.name)}
                     </h3>
@@ -175,8 +177,8 @@
                             )}
                         </span>
                     -->
-                </a>
-            </div>
+                </div>
+            </a>
         {/each}
     </section>
 </div>
@@ -189,21 +191,9 @@
 
     .plugins-grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
         grid-auto-columns: 1fr;
         grid-gap: 1em;
-    }
-
-    @media screen and (max-width: 1200px) {
-        .plugins-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-    }
-
-    @media screen and (max-width: 800px) {
-        .plugins-grid {
-            grid-template-columns: minmax(0, 1fr);
-        }
     }
 
     .plugin {
@@ -213,7 +203,6 @@
 
         border-radius: var(--border-lg);
         padding: 1em;
-        padding-bottom: 2em;
 
         transition: 200ms box-shadow cubic-bezier(0.25, 0.8, 0.25, 1);
     }
@@ -228,10 +217,13 @@
     }
 
     .plugin-screenshot {
-        object-fit: cover;
         width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
         border-radius: var(--border-sm);
         margin-bottom: 1em;
+        background: var(--bg2);
+        display: block;
     }
 
     .plugin-content {
@@ -272,6 +264,7 @@
         font-size: 0.9em;
         filter: brightness(90%);
         margin-bottom: 0;
+        padding-bottom: 0;
         display: -webkit-box;
         -webkit-line-clamp: 3;
         line-clamp: 3;
