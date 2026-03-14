@@ -14,7 +14,7 @@ It will
 (() => {
     Vencord.Settings.useQuickCss = false
     try {
-        const copy = window.copy ?? Vencord.Webpack.Common.Clipboard.copy
+        const copy = window.copy ?? Vencord.Util.copyToClipboard
         copy(Vencord.Settings.themeLinks.join("\n"))
     } catch { }
     Vencord.Settings.themeLinks = []
