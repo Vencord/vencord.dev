@@ -15,4 +15,7 @@ export interface PluginData {
     enabledByDefault: boolean;
     target: "discordDesktop" | "vencordDesktop" | "web" | "dev";
     filePath: string;
+    screenshot?: string;
+    screenshotDescription?: string;
+    readme?: string;
 }
