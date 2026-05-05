@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import type { PluginData } from "scripts/types";
+    import type { PluginData } from "@scripts/types";
 
     export let plugins: PluginData[];
 

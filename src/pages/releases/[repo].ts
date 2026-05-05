@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { getEnv } from "scripts/env";
+import { getEnv } from "@scripts/env";
 
 const Repos = {
     installer: "Vencord/Installer",
@@ -7,7 +7,7 @@ const Repos = {
     "vencord-desktop": "Vencord/Desktop",
 };
 
-export const GET: APIRoute = async ({ params, locals }) => {
+export const GET: APIRoute = async ({ params }) => {
     const repo = Repos[params.repo as keyof typeof Repos];
 
     if (!repo)
@@ -20,7 +20,7 @@ export const GET: APIRoute = async ({ params, locals }) => {
         });
 
     const env = import.meta.env;
-    const GITHUB_TOKEN = getEnv(locals, env, "GITHUB_TOKEN");
+    const GITHUB_TOKEN = getEnv(env, "GITHUB_TOKEN");
 
     const data = await fetch(
         `https://api.github.com/repos/${repo}/releases/latest`,

@@ -1,28 +1,37 @@
 {
-    "name": "vencord-site",
-    "type": "module",
-    "private": true,
-    "license": "AGPL-3.0",
-    "version": "0.0.1",
-    "scripts": {
-        "dev": "astro dev",
-        "start": "astro dev",
-        "build": "node scripts/generateRedirects.mjs && astro build",
-        "preview": "astro preview",
-        "astro": "astro"
-    },
-    "dependencies": {
-        "@astrojs/cloudflare": "^10.0.2",
-        "@astrojs/mdx": "^2.2.4",
-        "@astrojs/sitemap": "3.1.2",
-        "@astrojs/svelte": "^5.3.0",
-        "astro": "^4.5.16",
-        "marked": "^12.0.1",
-        "normalize.css": "^8.0.1",
-        "svelte": "^4.2.12"
-    },
-    "devDependencies": {
-        "@cloudflare/workers-types": "^4.20240405.0"
-    },
-    "packageManager": "pnpm@10.33.2"
+  "name": "vencord-site",
+  "type": "module",
+  "private": true,
+  "license": "AGPL-3.0",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "node scripts/generateRedirects.mjs && astro build",
+    "preview": "pnpm run build && wrangler dev",
+    "test": "astro check",
+    "astro": "astro",
+    "generate-types": "wrangler types",
+    "deploy": "pnpm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^13.3.1",
+    "@astrojs/mdx": "^5.0.4",
+    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/svelte": "^8.1.0",
+    "astro": "^6.2.2",
+    "marked": "^18.0.3",
+    "normalize.css": "^8.0.1",
+    "svelte": "^5.55.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@cloudflare/workers-types": "^4.20260505.1",
+    "typescript": "^5.8.3",
+    "wrangler": "^4.87.0"
+  },
+  "packageManager": "pnpm@10.33.2",
+  "overrides": {
+    "vite": "^7"
+  }
 }

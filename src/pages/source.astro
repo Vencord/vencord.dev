@@ -1,9 +1,9 @@
 ---
-import Layout from "layouts/Layout.astro";
-import RepoCard from "components/RepoCard.astro";
-import { SOURCE_CODE } from "scripts/constants";
-import { getEnv } from "scripts/env";
-import { MINUTES, cacheResponseFor } from "scripts/cache";
+import Layout from "@layouts/Layout.astro";
+import RepoCard from "@components/RepoCard.astro";
+import { SOURCE_CODE } from "@scripts/constants";
+import { getEnv } from "@scripts/env";
+import { MINUTES, cacheResponseFor } from "@scripts/cache";
 
 const Repos = [
     {
@@ -42,7 +42,7 @@ const Repos = [
 ] satisfies Record<"name" | "description" | "repo", string>[];
 
 const env = import.meta.env;
-const token = getEnv(Astro.locals, env, "GITHUB_TOKEN");
+const token = getEnv(env, "GITHUB_TOKEN");
 
 const repoData = await Promise.all(
     Repos.map(async ({ repo, ...data }) => {

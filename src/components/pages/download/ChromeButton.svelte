@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { CHROME_WEBSTORE_URL } from "scripts/constants";
+    import { CHROME_WEBSTORE_URL } from "@scripts/constants";
 
     let dialog: HTMLDialogElement;
 

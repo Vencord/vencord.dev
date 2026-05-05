@@ -1,23 +1,22 @@
 ---
 export const prerender = true;
 
-import Layout from "layouts/Layout.astro";
-import { getSortedFaq } from "scripts/collections";
+import Layout from "@layouts/Layout.astro";
+import { render } from "astro:content";
+import { getSortedFaq } from "@scripts/collections";
+import { marked } from "marked";
 
 const faq = await getSortedFaq();
 
-// this sucks, but it's the only way to generate the right data for structured data
-// regardless, this only runs at prerender time so it's okay
-const rawFaqData = await Astro.glob("../content/faq/*.md");
 const structuredData = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: rawFaqData.map(f => ({
+    mainEntity: faq.map(f => ({
         "@type": "Question",
-        name: f.frontmatter.title,
+        name: f.data.title,
         acceptedAnswer: {
             "@type": "Answer",
-            text: f.compiledContent(),
+            text: marked.parse(f.body ?? ""),
         },
     })),
 });
@@ -34,7 +33,7 @@ const structuredData = JSON.stringify({
     <div class="questions">
         {
             faq.map(async f => {
-                const { Content } = await f.render();
+                const { Content } = await render(f);
                 return (
                     <details data-faq-title={f.data.title.replaceAll(" ", "-")}>
                         <summary>{f.data.title}</summary>
