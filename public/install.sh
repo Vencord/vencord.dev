@@ -24,6 +24,22 @@ curl -sS https://github.com/Vendicated/VencordInstaller/releases/latest/download
 
 chmod +x "$outfile"
 
+new_app_dirs=""
+for branch in discord discordcanary discordptb; do
+    for d in "$HOME/.config/$branch/app-"*/; do
+        [ -d "$d" ] && new_app_dirs="${new_app_dirs}!  ${d}
+"
+    done
+done
+
+if [ -n "$new_app_dirs" ]; then
+    echo
+    echo "!  Detected Discord installations at the following paths."
+    echo "!  If the Installer doesn't detect these, choose 'Custom Location' and paste the path in."
+    printf '%s' "$new_app_dirs"
+    echo
+fi
+
 for elevate in sudo doas run0 pkexec; do
 	if command -v $elevate >/dev/null; then
 		echo "Elevating with $elevate"
