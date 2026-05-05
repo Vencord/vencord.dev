@@ -1,16 +1,27 @@
 {
-    "extends": "astro/tsconfigs/base",
-    "include": ["src/**/*"],
-    "compilerOptions": {
-        // astro considers stuff only used in frontmatter unused, so disable for now
-        // "importsNotUsedAsValues": "error",
-        "strictNullChecks": true,
-        "types": ["@cloudflare/workers-types"],
-        "paths": {
-            "@components/*": ["./src/components/*"],
-            "@scripts/*": ["./src/scripts/*"],
-            "@layouts/*": ["./src/layouts/*"],
-            "@styles/*": ["./src/styles/*"]
-        }
+  "extends": "astro/tsconfigs/base",
+  "include": [
+    "src/**/*",
+    "./worker-configuration.d.ts"
+  ],
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "types": [
+      "@cloudflare/workers-types"
+    ],
+    "paths": {
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@scripts/*": [
+        "./src/scripts/*"
+      ],
+      "@layouts/*": [
+        "./src/layouts/*"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ]
     }
+  }
 }

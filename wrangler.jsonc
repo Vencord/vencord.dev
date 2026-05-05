@@ -1,17 +1,15 @@
 {
-    "$schema": "node_modules/wrangler/config-schema.json",
-    "name": "vencord-website",
-    "main": "./dist/_worker.js/index.js",
-    // Update to today's date
-    "compatibility_date": "2026-05-05",
-    "compatibility_flags": [
-        "nodejs_compat"
-    ],
-    "assets": {
-        "binding": "ASSETS",
-        "directory": "./dist"
-    },
-    "observability": {
-        "enabled": true
-    }
+	"compatibility_date": "2026-05-05",
+	"compatibility_flags": [
+		"global_fetch_strictly_public"
+	],
+	"name": "vencord-site",
+	"main": "@astrojs/cloudflare/entrypoints/server",
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
+	"observability": {
+		"enabled": true
+	}
 }
