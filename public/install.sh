@@ -26,7 +26,7 @@ chmod +x "$outfile"
 
 new_app_dirs=""
 for branch in discord discordcanary discordptb; do
-    for d in "$HOME/.config/$branch/app-"*/; do
+    for d in "$HOME/.config/$branch/app-"*/ "$HOME/.var/app/com.discordapp."*"/config/$branch/app-"*; do
         [ -d "$d" ] && new_app_dirs="${new_app_dirs}!  ${d}
 "
     done

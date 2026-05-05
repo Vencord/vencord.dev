@@ -6,7 +6,7 @@
     function checkDownloadPrerequisites(e: MouseEvent) {
         const { userAgentData } = navigator as any;
         const chromeVersion = userAgentData?.brands?.find(
-            b => b.brand === "Chromium" || b.brand === "Google Chrome"
+            (b: any) => b.brand === "Chromium" || b.brand === "Google Chrome"
         )?.version;
 
         if (chromeVersion && Number(chromeVersion) < 111) {

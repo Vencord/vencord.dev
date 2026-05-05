@@ -14,8 +14,7 @@
         children?: Snippet;
     }
 
-    const { title, windowsTab, linuxTab, macTab, browserTab }: Props =
-        $props();
+    const { title, windowsTab, linuxTab, macTab, browserTab }: Props = $props();
 
     const options = ["Windows", "Linux", "Mac", "Browser"] as const;
 
