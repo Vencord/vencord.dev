@@ -27,7 +27,7 @@ chmod +x "$outfile"
 new_app_dirs=""
 for branch in discord discordcanary discordptb; do
     for d in "$HOME/.config/$branch/app-"*/ "$HOME/.var/app/com.discordapp."*"/config/$branch/app-"*; do
-        [ -d "$d" ] && new_app_dirs="${new_app_dirs}!  ${d}
+        [ -d "$d" ] && new_app_dirs="${new_app_dirs}   - ${d}
 "
     done
 done
@@ -35,9 +35,12 @@ done
 if [ -n "$new_app_dirs" ]; then
     echo
     echo "!  Detected Discord installations at the following paths."
-    echo "!  If the Installer doesn't detect these, choose 'Custom Location' and paste the path in."
+    echo "!  If the Installer doesn't detect your install or errors while trying to install Vencord:"
+    echo "!  Choose 'Custom Location' and paste one of the following paths when prompted."
     printf '%s' "$new_app_dirs"
     echo
+    echo "Press Enter to continue..."
+    read -r _ignored
 fi
 
 for elevate in sudo doas run0 pkexec; do
