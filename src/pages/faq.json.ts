@@ -8,7 +8,7 @@ export const GET: APIRoute = async ctx => {
         ({ data: { title, tags }, body }) => ({
             question: title,
             // fix [text](/relativeurl) to have full urls
-            answer: body.replace(
+            answer: (body ?? "").replace(
                 /\[(.+?)\]\((\/.+?)\)/g,
                 `[$1](${ctx.url.origin}$2)`
             ),

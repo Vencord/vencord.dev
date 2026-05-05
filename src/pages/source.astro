@@ -42,7 +42,7 @@ const Repos = [
 ] satisfies Record<"name" | "description" | "repo", string>[];
 
 const env = import.meta.env;
-const token = getEnv(Astro.locals, env, "GITHUB_TOKEN");
+const token = getEnv(env, "GITHUB_TOKEN");
 
 const repoData = await Promise.all(
     Repos.map(async ({ repo, ...data }) => {

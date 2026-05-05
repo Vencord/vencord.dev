@@ -1,8 +1,21 @@
 <script lang="ts">
+    import type { Snippet } from "svelte";
     import { writable } from "svelte/store";
     import { fade } from "svelte/transition";
 
     import { IS_SERVER } from "scripts/constants";
+
+    interface Props {
+        title?: Snippet;
+        windowsTab?: Snippet;
+        linuxTab?: Snippet;
+        macTab?: Snippet;
+        browserTab?: Snippet;
+        children?: Snippet;
+    }
+
+    const { title, windowsTab, linuxTab, macTab, browserTab }: Props =
+        $props();
 
     const options = ["Windows", "Linux", "Mac", "Browser"] as const;
 
@@ -30,7 +43,7 @@
 </script>
 
 <div class="container">
-    <slot name="title" />
+    {@render title?.()}
     <nav>
         {#each options as option}
             <label
@@ -49,22 +62,21 @@
     </nav>
 
     <section>
-        <!-- grrr <slot> name cannot be dynamic -->
         {#if $selected === "Windows"}
             <div in:fade={{ duration: 150 }}>
-                <slot name="windowsTab" />
+                {@render windowsTab?.()}
             </div>
         {:else if $selected === "Linux"}
             <div in:fade={{ duration: 150 }}>
-                <slot name="linuxTab" />
+                {@render linuxTab?.()}
             </div>
         {:else if $selected === "Mac"}
             <div in:fade={{ duration: 150 }}>
-                <slot name="macTab" />
+                {@render macTab?.()}
             </div>
         {:else if $selected === "Browser"}
             <div in:fade={{ duration: 150 }}>
-                <slot name="browserTab" />
+                {@render browserTab?.()}
             </div>
         {/if}
     </section>

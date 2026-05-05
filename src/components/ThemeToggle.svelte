@@ -1,7 +1,16 @@
 <script lang="ts">
+    import type { Snippet } from "svelte";
     import { writable } from "svelte/store";
 
     import { IS_SERVER } from "scripts/constants";
+
+    interface Props {
+        light?: Snippet;
+        dark?: Snippet;
+        children?: Snippet;
+    }
+
+    const { light, dark }: Props = $props();
 
     const options = ["Light", "Dark"] as const;
 
@@ -32,11 +41,11 @@
     }
 </script>
 
-<button on:click={themeSwitch}>
+<button onclick={themeSwitch}>
     {#if $selected === "Light"}
-        <slot name="dark" />
+        {@render dark?.()}
     {:else if $selected === "Dark"}
-        <slot name="light" />
+        {@render light?.()}
     {/if}
 </button>
 

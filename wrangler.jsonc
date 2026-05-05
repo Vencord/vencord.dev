@@ -1,0 +1,7 @@
+{
+    // Wrangler configuration for Cloudflare Pages + Astro SSR
+    // https://developers.cloudflare.com/workers/wrangler/configuration/
+    // Deploy with: wrangler pages deploy dist
+    "name": "vencord-site",
+    "compatibility_date": "2025-01-01"
+}

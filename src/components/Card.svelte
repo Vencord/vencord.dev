@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<script module lang="ts">
     export const enum CardKind {
         Warning = "#f0b232",
         Error = "#ec4144",
