@@ -1,9 +1,9 @@
 ---
 export const prerender = true;
 
-import Layout from "layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
 import { render } from "astro:content";
-import { getSortedFaq } from "scripts/collections";
+import { getSortedFaq } from "@scripts/collections";
 import { marked } from "marked";
 
 const faq = await getSortedFaq();

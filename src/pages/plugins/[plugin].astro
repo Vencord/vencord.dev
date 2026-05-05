@@ -1,10 +1,10 @@
 ---
 import { parse as parseMarkdown } from "marked";
-import { cacheResponseFor, HOURS, MINUTES } from "scripts/cache";
-import Layout from "layouts/Layout.astro";
-import { fetchPluginReadme, fetchPlugins } from "scripts/data";
-import { humanFriendlyJoin } from "scripts/text";
-import { GITHUB_URL } from "scripts/constants";
+import { cacheResponseFor, HOURS, MINUTES } from "@scripts/cache";
+import Layout from "@layouts/Layout.astro";
+import { fetchPluginReadme, fetchPlugins } from "@scripts/data";
+import { humanFriendlyJoin } from "@scripts/text";
+import { GITHUB_URL } from "@scripts/constants";
 
 const pluginName = Astro.params.plugin;
 
@@ -62,9 +62,10 @@ const readmeHtml = processedReadme && parseMarkdown(processedReadme);
 
     <h2 class="h">Installation</h2>
     <p>
-        To enable {p.name}, first <a href="/download">install Vencord</a> if you
-        haven't already done so. Then open the Plugins section in settings, search
-        for {p.name}, and enable it.
+        To enable {p.name}, first <a href="/download">install Vencord</a> if you haven't
+        already done so. Then open the Plugins section in settings, search for {
+            p.name
+        }, and enable it.
     </p>
 </Layout>
 

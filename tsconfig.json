@@ -6,6 +6,11 @@
         // "importsNotUsedAsValues": "error",
         "strictNullChecks": true,
         "types": ["@cloudflare/workers-types"],
-        "baseUrl": "src/"
+        "paths": {
+            "@components/*": ["./src/components/*"],
+            "@scripts/*": ["./src/scripts/*"],
+            "@layouts/*": ["./src/layouts/*"],
+            "@styles/*": ["./src/styles/*"]
+        }
     }
 }

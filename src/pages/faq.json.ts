@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { getSortedFaq } from "scripts/collections";
+import { getSortedFaq } from "@scripts/collections";
 
 export const prerender = true;
 

@@ -2,7 +2,7 @@
     import type { Snippet } from "svelte";
     import { writable } from "svelte/store";
 
-    import { IS_SERVER } from "scripts/constants";
+    import { IS_SERVER } from "@scripts/constants";
 
     interface Props {
         light?: Snippet;
