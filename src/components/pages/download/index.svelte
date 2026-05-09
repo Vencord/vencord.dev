@@ -1,7 +1,5 @@
 <script lang="ts">
-    import type { Snippet } from "svelte";
-    import { writable } from "svelte/store";
-    import { fade } from "svelte/transition";
+    import { onMount, type Snippet } from "svelte";
 
     import { IS_SERVER } from "@scripts/constants";
 
@@ -11,25 +9,36 @@
         linuxTab?: Snippet;
         macTab?: Snippet;
         browserTab?: Snippet;
-        children?: Snippet;
     }
 
     const { title, windowsTab, linuxTab, macTab, browserTab }: Props = $props();
 
-    const options = ["Windows", "Linux", "Mac", "Browser"] as const;
+    const options = $derived([
+        { label: "Windows", render: windowsTab },
+        { label: "Linux", render: linuxTab },
+        { label: "Mac", render: macTab },
+        { label: "Browser", render: browserTab },
+    ] as const);
 
-    const accents: { [option in (typeof options)[number]]: string } = {
+    const accents: { [option in (typeof options)[number]["label"]]: string } = {
         Windows: "Blue",
         Linux: "Green",
         Mac: "Yellow",
         Browser: "Orange",
     };
 
-    const initialValue = IS_SERVER
+    const initialValue: string = IS_SERVER
         ? "Windows"
         : (() => {
+              const hash = location.hash.slice(1);
+              const hashOption = options.find(
+                  o => o.label.toLowerCase() === hash
+              );
+              if (hashOption) return hashOption.label;
+
               const stored = localStorage.platform;
-              if (stored && options.includes(stored)) return stored;
+              if (stored && options.some(o => o.label === stored))
+                  return stored;
 
               const platform = navigator.platform.toLowerCase();
               if (platform.includes("linux")) return "Linux";
@@ -37,57 +46,79 @@
               return "Windows";
           })();
 
-    const selected = writable(initialValue);
-    if (!IS_SERVER) selected.subscribe(v => (localStorage.platform = v));
+    let selected = $state(initialValue);
+    let initialized = false;
+    let isPopstate = false;
+
+    $effect(() => {
+        localStorage.platform = selected;
+
+        const url = `#${selected.toLowerCase()}`;
+        if (!initialized) {
+            history.replaceState(null, "", url);
+            initialized = true;
+        } else if (isPopstate) {
+            isPopstate = false;
+        } else {
+            history.pushState(null, "", url);
+        }
+    });
+
+    onMount(() => {
+        function onNavigate() {
+            const hash = location.hash.slice(1);
+            const match = options.find(o => o.label.toLowerCase() === hash);
+            if (match) {
+                isPopstate = true;
+                selected = match.label;
+            }
+        }
+
+        window.addEventListener("popstate", onNavigate);
+        window.addEventListener("hashchange", onNavigate);
+        return () => {
+            window.removeEventListener("popstate", onNavigate);
+            window.removeEventListener("hashchange", onNavigate);
+        };
+    });
 </script>
 
 <div class="container">
     {@render title?.()}
-    <nav>
-        {#each options as option}
+
+    <div class="downloads">
+        {#each options as { label }}
+            <input
+                id={`${label}-radio`}
+                type="radio"
+                name="os"
+                bind:group={selected}
+                value={label}
+            />
             <label
-                class={$selected === option ? "selected" : ""}
-                style="--accent: var(--accent{accents[option]})"
+                for={`${label}-radio`}
+                style="--accent: var(--accent{accents[label]})"
             >
-                <input
-                    type="radio"
-                    name="os"
-                    bind:group={$selected}
-                    value={option}
-                />
-                {option}
+                {label}
             </label>
         {/each}
-    </nav>
 
-    <section>
-        {#if $selected === "Windows"}
-            <div in:fade={{ duration: 150 }}>
-                {@render windowsTab?.()}
-            </div>
-        {:else if $selected === "Linux"}
-            <div in:fade={{ duration: 150 }}>
-                {@render linuxTab?.()}
-            </div>
-        {:else if $selected === "Mac"}
-            <div in:fade={{ duration: 150 }}>
-                {@render macTab?.()}
-            </div>
-        {:else if $selected === "Browser"}
-            <div in:fade={{ duration: 150 }}>
-                {@render browserTab?.()}
-            </div>
-        {/if}
-    </section>
+        {#each options as { label, render }}
+            <section class="download-section" data-platform={label}>
+                {@render render!()}
+            </section>
+        {/each}
+    </div>
 </div>
 
 <style>
     .container {
         display: flex;
         flex-direction: column;
+        gap: 1em;
     }
 
-    nav {
+    .downloads {
         display: grid;
         gap: 1rem;
         grid-template-columns: repeat(4, 1fr);
@@ -123,7 +154,7 @@
     }
 
     @media screen and (max-width: 400px) {
-        nav {
+        .downloads {
             grid-template-columns: repeat(2, 1fr);
         }
         label {
@@ -131,12 +162,32 @@
         }
     }
 
-    label.selected {
+    input {
+        display: none;
+    }
+
+    input:checked + label {
         background-color: var(--accent);
         color: var(--bg2);
     }
 
-    input {
+    .download-section {
         display: none;
+        grid-column: 1 / -1;
+        opacity: 0;
+        transition:
+            opacity 150ms ease,
+            display 0ms allow-discrete;
+    }
+
+    #Windows-radio:checked ~ .download-section[data-platform="Windows"],
+    #Linux-radio:checked ~ .download-section[data-platform="Linux"],
+    #Mac-radio:checked ~ .download-section[data-platform="Mac"],
+    #Browser-radio:checked ~ .download-section[data-platform="Browser"] {
+        display: block;
+        opacity: 1;
+        @starting-style {
+            opacity: 0;
+        }
     }
 </style>
