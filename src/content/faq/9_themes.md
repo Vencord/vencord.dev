@@ -8,7 +8,7 @@ open the dev tools with `CTRL + Shift + i` (`Cmd + Option + i` on MacOs) and cli
 It will
 - disable custom css (you can turn it back on in Vencord Settings)
 - copy your current theme links to your clipboard as a backup
-- remove all themes
+- remove all themes and css overrides
 
 ```js
 (() => {
@@ -19,5 +19,6 @@ It will
     } catch { }
     Vencord.Settings.themeLinks = []
     Vencord.Settings.enabledThemes = []
+    Vencord.Settings.onlineThemeOverrides = {}
 })()
 ```
