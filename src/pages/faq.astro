@@ -71,9 +71,10 @@ const structuredData = JSON.stringify({
         faq.addEventListener("toggle", () => {
             const openFaqs = faqs.filter(f => f.open);
             if (openFaqs.length === 1) {
-                location.hash = openFaqs[0].dataset.faqTitle!;
+                const faqTitle = openFaqs[0].dataset.faqTitle!;
+                history.replaceState(undefined, "", `/faq#${faqTitle}`);
             } else {
-                location.hash = "";
+                history.replaceState(undefined, "", "/faq");
             }
         });
     }
