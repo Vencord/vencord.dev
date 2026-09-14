@@ -15,6 +15,7 @@ import DownloadTabs from "@components/pages/download/index.svelte";
     description="Download Vencord for Desktop or your favourite Browser"
     breadcrumbs={[["Download", "/download"]]}
 >
+    {/* @ts-expect-error Dumb error */}
     <DownloadTabs client:load>
         <h1 class="p-page-title" slot="title">Download Vencord</h1>
         <WindowsTab slot="windowsTab" />

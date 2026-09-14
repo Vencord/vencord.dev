@@ -125,6 +125,7 @@ if (Astro.url.pathname === "/") {
         }
 
         <script
+            is:inline
             type="application/ld+json"
             set:html={JSON.stringify(structuredData)}
         />
@@ -146,7 +147,7 @@ if (Astro.url.pathname === "/") {
             show the original colors.)
             */
         }
-        <script is:raw>
+        <script is:raw is:inline>
             const theme = localStorage.theme?.toLowerCase();
             const options = ["light", "dark"];
             if (options.includes(theme)) document.body.classList.add(theme);

@@ -17,11 +17,6 @@ const Chromiums = [
 
 <Tab>
     <Fragment slot="header">
-        <p>
-            You can download Vencord from the Chrome Store or use the
-            Userscript.
-        </p>
-
         <div class="buttons">
             <a href={CHROME_WEBSTORE_URL}>
                 <div class="userscript-badge">
@@ -30,8 +25,8 @@ const Chromiums = [
                         aria-hidden="true"
                     />
                     <div class="userscript-text">
-                        <span>Get the</span>
-                        <span>Extension</span>
+                        <p>Get the</p>
+                        <p>Extension</p>
                     </div>
                 </div>
             </a>
@@ -39,8 +34,8 @@ const Chromiums = [
                 <div class="userscript-badge">
                     <img src="/assets/monkey.png" aria-hidden="true" />
                     <div class="userscript-text">
-                        <span>Get the</span>
-                        <span>Userscript</span>
+                        <p>Get the</p>
+                        <p>Userscript</p>
                     </div>
                 </div>
             </a>
@@ -48,28 +43,9 @@ const Chromiums = [
 
         <Card kind={CardKind.Warning}>
             <p>
-                Please note that due to Discord's
-                <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP"
-                    >content security policy</a
-                >, the CSS Editor, custom themes and plugins making use of
-                external scripts will not work with the Userscript.
-            </p>
-        </Card>
-
-        <Card kind={CardKind.Error}>
-            <p>
-                If the extension is ever broken, please use our <a
-                    href="/discord">support channel</a
-                > instead of leaving a negative Review on the Chrome Web Store. We
-                are likely already working on fixing it, or even just waiting for
-                Google to approve the update. Receiving negative reviews for a temporary
-                breakage that we have no control over is very frustrating.
-            </p>
-            <p>
-                Additionally, don't use the support hub on the Chrome Web Store.
-                We will not answer there. Instead, use our <a href="/discord"
-                    >Discord server</a
-                >.
+                Please note that the CSS Editor, custom themes and plugins
+                making use of external scripts will not work with the
+                Userscript.
             </p>
         </Card>
 
@@ -144,6 +120,23 @@ const Chromiums = [
                 </section>
             </div>
         </Card>
+
+        <Card kind={CardKind.Error}>
+            <p>
+                If the extension is ever broken, please use our <a
+                    href="/discord">support channel</a
+                > instead of leaving a negative Review on the Chrome Web Store. We
+                are likely already working on fixing it, or even just waiting for
+                Google to approve the update. Receiving negative reviews for a temporary
+                breakage that we have no control over is very frustrating.
+            </p>
+            <p>
+                Additionally, don't use the support hub on the Chrome Web Store.
+                We will not answer there. Instead, use our <a href="/discord"
+                    >Discord server</a
+                >.
+            </p>
+        </Card>
     </Fragment>
 </Tab>
 
@@ -182,15 +175,15 @@ const Chromiums = [
         height: 90%;
     }
 
-    .userscript-text span {
-        line-height: 1;
+    .userscript-text p {
+        margin: 0;
     }
 
-    .userscript-text span:nth-child(1) {
+    .userscript-text p:nth-child(1) {
         font-size: 1em;
         font-weight: 500;
     }
-    .userscript-text span:nth-child(2) {
+    .userscript-text p:nth-child(2) {
         font-size: 1.2em;
         font-weight: bold;
     }

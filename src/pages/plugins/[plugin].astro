@@ -112,11 +112,15 @@ const readmeHtml = processedReadme && parseMarkdown(processedReadme);
         border-bottom: 1px solid var(--fg0-muted2);
     }
 
+    h1 {
+        word-break: break-all;
+    }
     article :global(h1) {
         margin: 0.67em 0;
         font-weight: 600;
         padding-bottom: 0.3em;
         font-size: 2em;
+        word-break: break-all;
     }
 
     article :global(h2) {
