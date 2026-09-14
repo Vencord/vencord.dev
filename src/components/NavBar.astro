@@ -15,7 +15,11 @@ const page = Astro.url.pathname.split("/")[1];
     <div class="nav-content">
         <div id="logo">
             <a href="/" id="title">
-                <OptimizedImage src="/assets/logo-nav" id="logo-img" alt="Vencord Home" />
+                <OptimizedImage
+                    src="/assets/logo-nav"
+                    id="logo-img"
+                    alt="Vencord Home"
+                />
                 <div id="oneko" aria-hidden="true"></div>
             </a>
         </div>
@@ -124,12 +128,12 @@ const page = Astro.url.pathname.split("/")[1];
         image-rendering: pixelated;
         /* https://raw.githubusercontent.com/adryd325/oneko.js/14bab15a755d0e35cd4ae19c931d96d306f99f42/oneko.gif */
         background-image: url("/assets/oneko.gif");
-        animation: sleep 1s infinite;
+        animation: sleep 1s steps(1) infinite;
         cursor: pointer;
     }
 
     #oneko:hover {
-        animation: 2.5s 1 forwards wakeup;
+        animation: 2.5s 1 steps(1) forwards wakeup;
     }
 
     @media (prefers-reduced-motion) {
