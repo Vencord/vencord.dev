@@ -3,9 +3,8 @@ title: Why is my Discord laggy?
 tags: lag
 ---
 
-The most common cause of lag is poorly written CSS.
+The most common cause of lag are poorly written themes or CSS.
 
-To see if this is the case for you, try temporarily disabling all themes and your QuickCSS.
-
-If that indeed fixes the lagging, you'll have to figure out which theme / part of your QuickCSS is causing the lag.
-Just slowly remove parts of it until it doesn't lag anymore.
+1. In `Settings > Themes`: Disable all your themes. If you have online themes, remove those too.
+2. In `Settings > Vencord`: Disable "Enable Custom CSS"
+3. If the lag is fixed, that means one of your themes or your custom CSS was causing the issue. You can then re-enable them one by one to identify the culprit.

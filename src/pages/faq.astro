@@ -87,43 +87,28 @@ const structuredData = JSON.stringify({
     .questions {
         display: grid;
         gap: 1em;
+        margin-block: 2rem;
     }
 
-    /* This is mostly copy pasted from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#try_it */
     details {
-        background-color: var(--bg3);
-        padding: 1em 1em;
-        border-radius: var(--border-lg);
+        padding-block: 0.5em 1em;
+        border-bottom: 1px solid var(--fg0-muted);
     }
 
     summary {
+        font-size: 1.2rem;
         font-weight: bold;
         cursor: pointer;
     }
 
-    details[open] summary {
-        margin-bottom: 0.7em;
-    }
-
-    .faq-content {
-        background-color: var(--bgCurrentWord);
-        color: var(--grey2);
-        border-radius: var(--border-md);
-        padding: 0.75em;
-    }
-
-    details :global(p) {
-        margin-top: 0;
-    }
-
-    details .faq-content :global(*:last-child) {
-        margin-bottom: 0;
+    ::marker {
+        display: none;
     }
 
     /* style some markdown elements */
 
     .questions :global(code:not(pre > code)) {
-        background-color: var(--bg1);
+        background-color: var(--bg0);
         border-radius: var(--border-xs);
         text-align: center;
         padding: 0 4px;
@@ -132,7 +117,7 @@ const structuredData = JSON.stringify({
 
     .questions :global(.astro-code) {
         padding: 1em;
-        background-color: var(--bg1) !important;
+        background-color: var(--bg0) !important;
         border-radius: var(--border-sm);
     }
 </style>
