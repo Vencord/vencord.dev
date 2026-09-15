@@ -13,7 +13,7 @@ By default you are probably using your ISP's DNS server, who sometimes may be un
 
 We recommend switching to a reliable DNS server like Cloudflare's 1.1.1.1:
 - [Windows](https://developers.cloudflare.com/1.1.1.1/setup/windows/)
-- [macOS](https://developers.cloudflare.com/1.1.1.1/setup/mac/)
+- [macOS](https://developers.cloudflare.com/1.1.1.1/setup/macos/)
 - [Linux](https://developers.cloudflare.com/1.1.1.1/setup/linux/)
 
 ### 2. Check your hosts file
