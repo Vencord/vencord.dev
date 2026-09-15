@@ -5,7 +5,7 @@ const BaseRedirects = {
     "/github": "https://github.com/Vendicated/Vencord",
     "/discord": "https://discord.gg/D9uwnFnqmd",
     "/twitter": "https://x.com/vencordapp",
-    "/support": "https://discord.gg/D9uwnFnqmd",
+    "/x": "https://x.com/vencordapp",
     "/install": "/download",
     "/faq": "/support",
     "/plugins.json":
@@ -15,7 +15,7 @@ const BaseRedirects = {
     "/donate": "https://github.com/sponsors/Vendicated",
     "/click-to-help/vencord": "https://github.com/sponsors/Vendicated",
     "/docs/plugin-requests":
-        "https://github.com/Vencord/plugin-requests/issues/new?template=request.yml",
+        "https://discord.com/channels/1015060230222131221/1539309279519973386",
 };
 
 const VesktopDownloads = version => ({
