@@ -113,14 +113,14 @@ const readmeHtml = processedReadme && parseMarkdown(processedReadme);
     }
 
     h1 {
-        word-break: break-all;
+        overflow-wrap: anywhere;
     }
     article :global(h1) {
         margin: 0.67em 0;
         font-weight: 600;
         padding-bottom: 0.3em;
         font-size: 2em;
-        word-break: break-all;
+        overflow-wrap: anywhere;
     }
 
     article :global(h2) {

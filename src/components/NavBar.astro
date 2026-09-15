@@ -148,6 +148,21 @@ const page = Astro.url.pathname.split("/")[1];
             position: relative;
             flex-direction: column;
         }
+
+        #btns {
+            width: 100%;
+            justify-content: center;
+        }
+
+        ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1em;
+
+            li {
+                text-align: center;
+            }
+        }
     }
 
     @keyframes sleep {

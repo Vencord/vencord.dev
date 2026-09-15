@@ -126,7 +126,7 @@ console.log(structuredData);
 
     h2 {
         font-size: 2.5em;
-        line-height: 2rem;
+        line-height: 2.5rem;
         margin-block: 1em 0.5em;
     }
 
@@ -143,6 +143,7 @@ console.log(structuredData);
 
     details {
         padding-block: 0.5em 1em;
+        min-width: 0;
         border-bottom: 1px solid var(--fg0-muted);
     }
 
@@ -171,12 +172,17 @@ console.log(structuredData);
         text-align: center;
         padding: 0 4px;
         margin: 0 2px;
+        overflow-wrap: anywhere;
     }
 
     .questions :global(.astro-code) {
         padding: 1em;
         background-color: var(--bg0) !important;
         border-radius: var(--border-sm);
+
+        overflow-x: auto;
+        min-width: 0;
+        max-width: 100%;
     }
 
     .questions :global(h3) {
