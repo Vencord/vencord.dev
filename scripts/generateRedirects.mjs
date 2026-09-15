@@ -7,6 +7,7 @@ const BaseRedirects = {
     "/twitter": "https://x.com/vencordapp",
     "/support": "https://discord.gg/D9uwnFnqmd",
     "/install": "/download",
+    "/faq": "/support",
     "/plugins.json":
         "https://raw.githubusercontent.com/Vencord/builds/main/plugins.json",
     "/plugin-readmes.json":

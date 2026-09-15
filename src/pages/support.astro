@@ -1,0 +1,187 @@
+---
+export const prerender = true;
+
+import Layout from "@layouts/Layout.astro";
+import { render } from "astro:content";
+import { getSortedCollection } from "@scripts/collections";
+import { marked } from "marked";
+
+const faq = await getSortedCollection("faq");
+const support = await getSortedCollection("support");
+
+const structuredData = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [faq, support].flatMap(c =>
+        c.map(f => ({
+            "@type": "Question",
+            name: f.data.title,
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: marked.parse(f.body ?? ""),
+            },
+        }))
+    ),
+});
+
+console.log(structuredData);
+---
+
+<Layout
+    title="Support & FAQ"
+    description="Browse support articles and frequently asked questions about Vencord"
+    breadcrumbs={[["Support & FAQ", "/support"]]}
+>
+    <h1 class="p-page-title">Support & FAQ</h1>
+    <p class="p-subtitle">Questions that we're asked often.</p>
+
+    <div class="faq-sections">
+        <section>
+            <h2>Troubleshooting</h2>
+            <div class="questions">
+                {
+                    support.map(async f => {
+                        const { Content } = await render(f);
+                        return (
+                            <details
+                                data-faq-title={f.data.title.replaceAll(
+                                    " ",
+                                    "-"
+                                )}
+                            >
+                                <summary>{f.data.title}</summary>
+
+                                <div class="faq-content">
+                                    <Content />
+                                </div>
+                            </details>
+                        );
+                    })
+                }
+            </div>
+        </section>
+
+        <section>
+            <h2>Frequently Asked Questions</h2>
+            <div class="questions">
+                {
+                    faq.map(async f => {
+                        const { Content } = await render(f);
+                        return (
+                            <details
+                                data-faq-title={f.data.title.replaceAll(
+                                    " ",
+                                    "-"
+                                )}
+                            >
+                                <summary>{f.data.title}</summary>
+
+                                <div class="faq-content">
+                                    <Content />
+                                </div>
+                            </details>
+                        );
+                    })
+                }
+            </div>
+        </section>
+    </div>
+
+    <p>
+        Still lost? Visit our <a href="/discord">support server</a> for more assistance!
+        We're happy to help.
+    </p>
+
+    <script is:inline type="application/ld+json" set:html={structuredData} />
+</Layout>
+
+<script>
+    const faqs = [...document.querySelectorAll("details")];
+
+    const faqTitle = location.hash.slice(1);
+    const faq = faqs.find(f => f.dataset.faqTitle === faqTitle);
+    if (faq) {
+        faq.open = true;
+        faq.scrollIntoView({
+            behavior: "smooth",
+        });
+    }
+
+    for (const faq of faqs) {
+        faq.addEventListener("toggle", () => {
+            const openFaqs = faqs.filter(f => f.open);
+            if (openFaqs.length === 1) {
+                location.hash = openFaqs[0].dataset.faqTitle!;
+            } else {
+                location.hash = "";
+            }
+        });
+    }
+</script>
+
+<style>
+    h1 {
+        color: var(--accentAqua);
+    }
+
+    h2 {
+        font-size: 2.5em;
+        line-height: 2rem;
+        margin-block: 1em 0.5em;
+    }
+
+    .faq-sections {
+        display: grid;
+        gap: 2em;
+        margin-bottom: 3rem;
+    }
+
+    .questions {
+        display: grid;
+        gap: 1em;
+    }
+
+    details {
+        padding-block: 0.5em 1em;
+        border-bottom: 1px solid var(--fg0-muted);
+    }
+
+    details[open] {
+        .faq-content {
+            border-left: 1px solid var(--accentAqua);
+            padding-left: 1em;
+        }
+    }
+
+    summary {
+        font-size: 1.2em;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    ::marker {
+        display: none;
+    }
+
+    /* style some markdown elements */
+
+    .questions :global(code:not(pre > code)) {
+        background-color: var(--bg0);
+        border-radius: var(--border-xs);
+        text-align: center;
+        padding: 0 4px;
+        margin: 0 2px;
+    }
+
+    .questions :global(.astro-code) {
+        padding: 1em;
+        background-color: var(--bg0) !important;
+        border-radius: var(--border-sm);
+    }
+
+    .questions :global(h3) {
+        margin: 1em 0;
+        font-size: 1.2em;
+        line-height: 1.4em;
+    }
+</style>
