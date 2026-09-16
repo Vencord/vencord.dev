@@ -4,7 +4,7 @@ import CodeBlock from "@components/CodeBlock.svelte";
 import Card, { CardKind } from "@components/Card.svelte";
 ---
 
-<Tab>
+<Tab fileNames={["VencordInstallerCli-linux"]}>
     <div slot="header">
         <p class="instruction">
             Open your terminal and run the following command. Then follow the
@@ -14,6 +14,11 @@ import Card, { CardKind } from "@components/Card.svelte";
             code={`sh -c "$(curl -sS ${Astro.url.origin}/install.sh)"`}
             client:load
         />
+
+        <p class="instruction">
+            Alternatively, you can also manually download the installer, make it
+            executable and run it in a terminal.
+        </p>
     </div>
 
     <section slot="footer">
@@ -37,30 +42,30 @@ import Card, { CardKind } from "@components/Card.svelte";
             </p>
         </Card>
     </section>
+
+    <style>
+        h3 {
+            margin: 1em 0 0.5em;
+            font-size: 2em;
+        }
+
+        ul {
+            margin-top: 0;
+            margin-left: 1em;
+            padding: 0;
+        }
+
+        p {
+            margin-bottom: 0.25em;
+        }
+
+        section {
+            width: 100%;
+            margin-top: 1em;
+        }
+
+        .instruction {
+            margin-bottom: 1em;
+        }
+    </style>
 </Tab>
-
-<style>
-    h3 {
-        margin: 1em 0 0.5em;
-        font-size: 2em;
-    }
-
-    ul {
-        margin-top: 0;
-        margin-left: 1em;
-        padding: 0;
-    }
-
-    p {
-        margin-bottom: 0.25em;
-    }
-
-    section {
-        width: 100%;
-        margin-top: 1em;
-    }
-
-    .instruction {
-        margin-bottom: 1em;
-    }
-</style>

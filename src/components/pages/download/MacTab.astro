@@ -1,49 +1,8 @@
 ---
-import Card, { CardKind } from "@components/Card.svelte";
-import Code from "@components/Code.astro";
 import Tab from "./Tab.astro";
 ---
 
-<Tab fileNames={["VencordInstaller.MacOs.zip"]}>
-    <p slot="header">
-        Download the zip, unzip it and run <Code>VencordInstaller.app</Code>! It
-        should list all Discord installs on your System. Pick the one you would
-        like to patch and press Install.
-    </p>
-
-    <Card slot="footer" kind={CardKind.Warning}>
-        <p>
-            If you get a VencordInstaller can't be opened warning, right-click
-            VencordInstaller.app and click open (macOS Sonoma and earlier)
-        </p>
-
-        <p>
-            If you are using macOS Sequoia, or if right-clicking isn't working
-            for you, you can allow the app to run through your System Settings. <a
-                href="https://support.apple.com/102445#openanyway"
-                rel="noopener noreferrer"
-                >Learn more
-            </a>
-        </p>
-
-        <a href="/assets/sequoia-install.jpg" target="_blank">
-            <img
-                class="sequoia-install-img"
-                width="700"
-                height="auto"
-                src="/assets/sequoia-install.jpg"
-                alt="macOS System Settings, showing the Privacy & Security section with a card about VencordInstaller.app."
-            />
-        </a>
-        <p>
-            This warning is entirely harmless and only shows because the app is
-            not signed. Signing it would cost us <a
-                href="https://developer.apple.com/support/compare-memberships/"
-                >99€/year</a
-            >.
-        </p>
-    </Card>
-</Tab>
+<Tab fileNames={["VencordInstaller.dmg"]} />
 
 <style>
     img {
