@@ -24,13 +24,22 @@ curl -sS https://github.com/Vendicated/VencordInstaller/releases/latest/download
 
 chmod +x "$outfile"
 
-for elevate in sudo doas run0 pkexec; do
-	if command -v $elevate >/dev/null; then
-		echo "Elevating with $elevate"
-		$elevate env "XDG_CONFIG_HOME=$XDG_CONFIG_HOME" "SUDO_USER=$(whoami)" "$outfile" "$@"
-		exit 0
-	fi
-done
+echo "Would you like to run the installer as root?"
+echo "Only answer yes if you are installing to the Discord flatpak or getting permission errors."
+printf "Run as root (y/N)? > "
 
-echo "Please install sudo, doas, run0 (systemd), or pkexec (polkit) to continue."
-exit 1
+read -r answer
+
+if [ "$answer" = "yes" ] || [ "$answer" = "Y" ] || [ "$answer" = "y" ]; then
+    for elevate in sudo doas run0 pkexec; do
+        if command -v $elevate >/dev/null; then
+            echo "Elevating with $elevate"
+            $elevate env "XDG_CONFIG_HOME=$XDG_CONFIG_HOME" "SUDO_USER=$(whoami)" "$outfile" "$@"
+            exit 0
+        fi
+    done
+    echo "Please install sudo, doas, run0 (systemd), or pkexec (polkit) to continue."
+    exit 1
+else
+    "$outfile" "$@"
+fi
