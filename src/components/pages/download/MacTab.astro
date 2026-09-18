@@ -1,8 +1,9 @@
 ---
+import { DownloadFileNames } from "@scripts/constants";
 import Tab from "./Tab.astro";
 ---
 
-<Tab fileNames={["VencordInstaller.dmg"]} />
+<Tab fileNames={[DownloadFileNames.macOS]} />
 
 <style>
     img {

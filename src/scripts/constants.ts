@@ -7,7 +7,12 @@ export const SPONSOR_URL = "https://github.com/sponsors/Vendicated";
 
 export const DOWNLOAD_BASE =
     "https://github.com/Vencord/Installer/releases/latest/download/";
-
+export const DownloadFileNames = {
+    linux: "VencordInstallerCli-linux",
+    windows: "VencordInstaller.exe",
+    windowsCli: "VencordInstallerCli.exe",
+    macOS: "VencordInstaller.dmg",
+};
 export const PLUGINS_JSON_URL =
     "https://raw.githubusercontent.com/Vencord/builds/main/plugins.json";
 export const PLUGIN_READMES_JSON_URL =

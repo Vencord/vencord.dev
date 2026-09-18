@@ -2,9 +2,10 @@
 import Tab from "./Tab.astro";
 import CodeBlock from "@components/CodeBlock.svelte";
 import Card, { CardKind } from "@components/Card.svelte";
+import { DownloadFileNames } from "@scripts/constants";
 ---
 
-<Tab fileNames={["VencordInstallerCli-linux"]}>
+<Tab fileNames={[DownloadFileNames.linux]}>
     <div slot="header">
         <p class="instruction">
             Open your terminal and run the following command. Then follow the

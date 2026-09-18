@@ -8,12 +8,73 @@ import LinuxTab from "@components/pages/download/LinuxTab.astro";
 import MacTab from "@components/pages/download/MacTab.astro";
 import WindowsTab from "@components/pages/download/WindowsTab.astro";
 import DownloadTabs from "@components/pages/download/index.svelte";
+import { ButtonStyle, ComponentType } from "discord-api-types/v10";
+import {
+    CHROME_WEBSTORE_URL,
+    DOWNLOAD_BASE,
+    DownloadFileNames,
+} from "@scripts/constants";
+
+const downloads = [
+    {
+        url: DOWNLOAD_BASE + DownloadFileNames.windows,
+        os: "Windows",
+        emojiId: "1550560956004966470",
+    },
+    {
+        url: DOWNLOAD_BASE + DownloadFileNames.macOS,
+        os: "macOS",
+        emojiId: "1550560986266738709",
+    },
+    {
+        url: DOWNLOAD_BASE + DownloadFileNames.linux,
+        os: "Linux",
+        emojiId: "815091849458614272",
+    },
+    {
+        url: CHROME_WEBSTORE_URL,
+        os: "Chrome Web Store",
+        emojiId: "1550562771878420590",
+    },
+];
 ---
 
 <Layout
     title="Download"
     description="Download Vencord for Desktop or your favourite Browser"
     breadcrumbs={[["Download", "/download"]]}
+    component={{
+        type: ComponentType.Container,
+        accent_color: 14446451,
+        components: [
+            {
+                type: ComponentType.TextDisplay,
+                content: `## Download Vencord\nDownload Vencord for Desktop or your favourite Browser!`,
+            },
+            ...downloads.flatMap(({ url, os, emojiId }) => [
+                {
+                    type: ComponentType.Section as const,
+                    components: [
+                        {
+                            type: ComponentType.TextDisplay as const,
+                            content: os,
+                        },
+                    ],
+                    accessory: {
+                        type: ComponentType.Button as const,
+                        style: ButtonStyle.Link as const,
+                        url,
+                        label: "Download",
+                        emoji: {
+                            name: os,
+                            id: emojiId,
+                        },
+                    },
+                },
+                { type: ComponentType.Separator } as const,
+            ]),
+        ],
+    }}
 >
     {/* @ts-expect-error Dumb error */}
     <DownloadTabs client:load>
