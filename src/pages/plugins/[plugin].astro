@@ -1,8 +1,13 @@
 ---
 import { parse as parseMarkdown } from "marked";
 import { cacheResponseFor, HOURS, MINUTES } from "@scripts/cache";
+import { ComponentType, ButtonStyle } from "discord-api-types/v10";
 import Layout from "@layouts/Layout.astro";
-import { fetchPluginReadme, fetchPlugins } from "@scripts/data";
+import {
+    fetchPluginReadme,
+    fetchPlugins,
+    getPluginTraits,
+} from "@scripts/data";
 import { humanFriendlyJoin } from "@scripts/text";
 import { GITHUB_URL } from "@scripts/constants";
 
@@ -23,6 +28,11 @@ const processedReadme = readme?.replace(
     '\n<video controls><source src="$1" type="video/mp4"></video>\n'
 );
 
+const [, imageDescription, image] =
+    readme?.match(/!\[([^\]]*?)\]\((https:[^)]+?)\)/) ?? [];
+
+const pluginTraits = await getPluginTraits(p);
+
 const readmeHtml = processedReadme && parseMarkdown(processedReadme);
 ---
 
@@ -33,6 +43,64 @@ const readmeHtml = processedReadme && parseMarkdown(processedReadme);
         ["Plugins", "/plugins"],
         [p.name, "/plugins/" + pluginName],
     ]}
+    component={{
+        type: ComponentType.Container,
+        accent_color: 14446451,
+        components: [
+            {
+                type: ComponentType.TextDisplay,
+                content: `## ${p.name}\n${p.description}`,
+            },
+            ...(image
+                ? [
+                      {
+                          type: ComponentType.MediaGallery as const,
+                          items: [
+                              {
+                                  media: {
+                                      url: image,
+                                  },
+                                  description:
+                                      imageDescription ?? p.description,
+                              },
+                          ],
+                      },
+                  ]
+                : []),
+            {
+                type: ComponentType.Separator,
+            },
+            {
+                type: ComponentType.TextDisplay,
+                content: [
+                    pluginTraits
+                        .map(t => `\`${t.emoji}\` ${t.name}`)
+                        .join("\n"),
+                    `-# by ${humanFriendlyJoin(p.authors, a => a.name)}`,
+                ].join("\n"),
+            },
+            {
+                type: ComponentType.ActionRow,
+                components: [
+                    {
+                        type: ComponentType.Button,
+                        style: ButtonStyle.Link,
+                        url: new URL(
+                            Astro.url.pathname,
+                            Astro.url.origin
+                        ).toString(),
+                        label: "View Website",
+                    },
+                    {
+                        type: ComponentType.Button,
+                        style: ButtonStyle.Link,
+                        url: `${GITHUB_URL}/tree/main/src/plugins/${p.filePath}`,
+                        label: "View Source Code",
+                    },
+                ],
+            },
+        ],
+    }}
 >
     <div class="header">
         <div>
