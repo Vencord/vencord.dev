@@ -13,6 +13,12 @@ export interface PluginData {
     hasCommands: boolean;
     required: boolean;
     enabledByDefault: boolean;
-    target: "discordDesktop" | "vencordDesktop" | "web" | "dev";
+    target: "desktop" | "discordDesktop" | "web" | "dev";
     filePath: string;
+}
+
+export interface Trait {
+    emoji: string;
+    name: string;
+    shouldShow: boolean;
 }

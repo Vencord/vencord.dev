@@ -10,9 +10,10 @@ export interface Props {
     description: string;
     opengraph?: boolean;
     breadcrumbs?: [name: string, url: string][];
+    components?: any;
 }
 
-const { title, description, opengraph, breadcrumbs } = Astro.props;
+const { title, description, opengraph, breadcrumbs, components } = Astro.props;
 
 const structuredData = [
     // General website information
@@ -121,6 +122,16 @@ if (Astro.url.pathname === "/") {
         {
             title && opengraph !== false && (
                 <meta name="og:site_name" content="Vencord" />
+            )
+        }
+
+        {
+            components && (
+                <script
+                    id="discord:component-embed"
+                    type="application/json"
+                    set:html={JSON.stringify(components, null, 2)}
+                />
             )
         }
 
