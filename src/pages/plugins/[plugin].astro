@@ -30,13 +30,6 @@ const processedReadme = readme?.replace(
 const [, imageDescription, image] =
     readme?.match(/!\[([^\]]*?)\]\((https:[^)]+?)\)/) ?? [];
 
-const processedReadme2 = readme
-    ? readme
-          .split("\n")
-          .filter(line => !/!\[.*?\]\(.*?\)/.test(line))
-          .join("\n")
-    : undefined;
-
 const pluginTraits = await getPluginTraits(p);
 
 const readmeHtml = processedReadme && parseMarkdown(processedReadme);
