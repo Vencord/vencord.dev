@@ -61,7 +61,9 @@ const readmeHtml = processedReadme && parseMarkdown(processedReadme);
                                       url: image,
                                   },
                                   description:
-                                      imageDescription ?? p.description,
+                                      imageDescription ||
+                                      p.description ||
+                                      undefined,
                               },
                           ],
                       },
