@@ -4,16 +4,17 @@ import "@styles/prose.css";
 
 import Footer from "@components/Footer.astro";
 import NavBar from "@components/NavBar.astro";
+import type { APIContainerComponent } from "discord-api-types/v10";
 
 export interface Props {
     title?: string;
     description: string;
     opengraph?: boolean;
     breadcrumbs?: [name: string, url: string][];
-    components?: any;
+    component?: APIContainerComponent;
 }
 
-const { title, description, opengraph, breadcrumbs, components } = Astro.props;
+const { title, description, opengraph, breadcrumbs, component } = Astro.props;
 
 const structuredData = [
     // General website information
@@ -126,11 +127,11 @@ if (Astro.url.pathname === "/") {
         }
 
         {
-            components && (
+            component && (
                 <script
                     id="discord:component-embed"
                     type="application/json"
-                    set:html={JSON.stringify(components, null, 2)}
+                    set:html={JSON.stringify({ component: component }, null, 2)}
                 />
             )
         }

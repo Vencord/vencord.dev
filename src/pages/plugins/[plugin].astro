@@ -1,6 +1,7 @@
 ---
 import { parse as parseMarkdown } from "marked";
 import { cacheResponseFor, HOURS, MINUTES } from "@scripts/cache";
+import { ComponentType, ButtonStyle } from "discord-api-types/v10";
 import Layout from "@layouts/Layout.astro";
 import {
     fetchPluginReadme,
@@ -42,60 +43,63 @@ const readmeHtml = processedReadme && parseMarkdown(processedReadme);
         ["Plugins", "/plugins"],
         [p.name, "/plugins/" + pluginName],
     ]}
-    components={{
-        component: {
-            type: 17,
-            accent_color: 14446451,
-            components: [
-                {
-                    type: 10,
-                    content: `## ${p.name}\n${p.description}`,
-                },
-                ...(image
-                    ? [
-                          {
-                              type: 12,
-                              items: [
-                                  {
-                                      media: {
-                                          url: image,
-                                      },
-                                      description: image,
-                                      altText: imageDescription ?? p.name,
+    component={{
+        type: ComponentType.Container,
+        accent_color: 14446451,
+        components: [
+            {
+                type: ComponentType.TextDisplay,
+                content: `## ${p.name}\n${p.description}`,
+            },
+            ...(image
+                ? [
+                      {
+                          type: ComponentType.MediaGallery as const,
+                          items: [
+                              {
+                                  media: {
+                                      url: image,
                                   },
-                              ],
-                          },
-                      ]
-                    : []),
-                {
-                    type: 14,
-                },
-                {
-                    type: 10,
-                    content: `${pluginTraits.map(t => `\`${t.emoji}\` ${t.name}`).join("\n")}\n\n-# by ${humanFriendlyJoin(p.authors, a => a.name)}`,
-                },
-                {
-                    type: 1,
-                    components: [
-                        {
-                            type: 2,
-                            style: 5,
-                            url: new URL(
-                                Astro.url.pathname,
-                                Astro.url.origin
-                            ).toString(),
-                            label: "View Website",
-                        },
-                        {
-                            type: 2,
-                            style: 5,
-                            url: `${GITHUB_URL}/tree/main/src/plugins/${p.filePath}`,
-                            label: "View Source Code",
-                        },
-                    ],
-                },
-            ],
-        },
+                                  description:
+                                      imageDescription ?? p.description,
+                              },
+                          ],
+                      },
+                  ]
+                : []),
+            {
+                type: ComponentType.Separator,
+            },
+            {
+                type: ComponentType.TextDisplay,
+                content: [
+                    pluginTraits
+                        .map(t => `\`${t.emoji}\` ${t.name}`)
+                        .join("\n"),
+                    `-# by ${humanFriendlyJoin(p.authors, a => a.name)}`,
+                ].join("\n"),
+            },
+            {
+                type: ComponentType.ActionRow,
+                components: [
+                    {
+                        type: ComponentType.Button,
+                        style: ButtonStyle.Link,
+                        url: new URL(
+                            Astro.url.pathname,
+                            Astro.url.origin
+                        ).toString(),
+                        label: "View Website",
+                    },
+                    {
+                        type: ComponentType.Button,
+                        style: ButtonStyle.Link,
+                        url: `${GITHUB_URL}/tree/main/src/plugins/${p.filePath}`,
+                        label: "View Source Code",
+                    },
+                ],
+            },
+        ],
     }}
 >
     <div class="header">

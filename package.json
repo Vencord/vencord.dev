@@ -20,6 +20,7 @@
         "@astrojs/sitemap": "^3.7.4",
         "@astrojs/svelte": "^9.0.1",
         "astro": "^7.3.2",
+        "discord-api-types": "^0.38.55",
         "marked": "^18.0.13",
         "normalize.css": "^8.0.1",
         "svelte": "^5.57.0"
