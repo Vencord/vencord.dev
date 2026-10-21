@@ -75,9 +75,7 @@ const readmeHtml = processedReadme && parseMarkdown(processedReadme);
             {
                 type: ComponentType.TextDisplay,
                 content: [
-                    pluginTraits
-                        .map(t => `\`${t.emoji}\` ${t.name}`)
-                        .join("\n"),
+                    pluginTraits.map(t => `${t.emoji} ${t.name}`).join("\n"),
                     `-# by ${humanFriendlyJoin(p.authors, a => a.name)}`,
                 ].join("\n"),
             },
