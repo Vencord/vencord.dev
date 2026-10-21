@@ -1,7 +1,11 @@
 ---
 import { parse as parseMarkdown } from "marked";
 import { cacheResponseFor, HOURS, MINUTES } from "@scripts/cache";
-import { ComponentType, ButtonStyle } from "discord-api-types/v10";
+import {
+    ComponentType,
+    ButtonStyle,
+    SeparatorSpacingSize,
+} from "discord-api-types/v10";
 import Layout from "@layouts/Layout.astro";
 import {
     fetchPluginReadme,
@@ -71,13 +75,17 @@ const readmeHtml = processedReadme && parseMarkdown(processedReadme);
                 : []),
             {
                 type: ComponentType.Separator,
+                spacing: SeparatorSpacingSize.Large,
             },
             {
                 type: ComponentType.TextDisplay,
-                content: [
-                    pluginTraits.map(t => `${t.emoji} ${t.name}`).join("\n"),
-                    `-# by ${humanFriendlyJoin(p.authors, a => a.name)}`,
-                ].join("\n"),
+                content: pluginTraits
+                    .map(t => `${t.emoji} ${t.name}`)
+                    .join("\n"),
+            },
+            {
+                type: ComponentType.TextDisplay,
+                content: `-# Made by ${humanFriendlyJoin(p.authors, a => a.name)}`,
             },
             {
                 type: ComponentType.ActionRow,
