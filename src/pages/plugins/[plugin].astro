@@ -77,12 +77,16 @@ const readmeHtml = processedReadme && parseMarkdown(processedReadme);
                 type: ComponentType.Separator,
                 spacing: SeparatorSpacingSize.Large,
             },
-            {
-                type: ComponentType.TextDisplay,
-                content: pluginTraits
-                    .map(t => `${t.emoji} ${t.name}`)
-                    .join("\n"),
-            },
+            ...(pluginTraits.length > 0
+                ? [
+                      {
+                          type: ComponentType.TextDisplay as const,
+                          content: pluginTraits
+                              .map(t => `${t.emoji} ${t.name}`)
+                              .join("\n"),
+                      },
+                  ]
+                : []),
             {
                 type: ComponentType.TextDisplay,
                 content: `-# Made by ${humanFriendlyJoin(p.authors, a => a.name)}`,
