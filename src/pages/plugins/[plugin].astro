@@ -32,8 +32,14 @@ const processedReadme = readme?.replace(
     '\n<video controls><source src="$1" type="video/mp4"></video>\n'
 );
 
-const [, imageDescription, image] =
-    readme?.match(/!\[([^\]]*?)\]\((https:[^)]+?)\)/) ?? [];
+const images = readme
+    ?.matchAll(/!\[([^\]]*?)\]\((https:[^)]+?)\)/g)
+    .map(i => ({
+        description: i[1] || undefined,
+        url: i[2],
+    }))
+    .take(10)
+    .toArray();
 
 const pluginTraits = await getPluginTraits(p);
 
@@ -55,21 +61,14 @@ const readmeHtml = processedReadme && parseMarkdown(processedReadme);
                 type: ComponentType.TextDisplay,
                 content: `## ${p.name}\n${p.description}`,
             },
-            ...(image
+            ...(images?.length
                 ? [
                       {
                           type: ComponentType.MediaGallery as const,
-                          items: [
-                              {
-                                  media: {
-                                      url: image,
-                                  },
-                                  description:
-                                      imageDescription ||
-                                      p.description ||
-                                      undefined,
-                              },
-                          ],
+                          items: images.map(({ description, url }) => ({
+                              media: { url },
+                              description,
+                          })),
                       },
                   ]
                 : []),
