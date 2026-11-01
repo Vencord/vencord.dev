@@ -1,4 +1,4 @@
-import { GITHUB_TOKEN } from "astro:env/server";
+import { env } from "cloudflare:workers";
 
 import { SOURCE_CODE } from "./constants";
 
@@ -12,7 +12,7 @@ export type GithubRequestInit = RequestInit & {
 export async function fetchGithubApi(path: string, { cacheTtl, headers, ...init }: GithubRequestInit = {}) {
     const requestHeaders = new Headers(headers);
     requestHeaders.set("User-Agent", SOURCE_CODE);
-    requestHeaders.set("Authorization", `Bearer ${GITHUB_TOKEN}`);
+    requestHeaders.set("Authorization", `Bearer ${env.GITHUB_TOKEN}`);
     if (!requestHeaders.has("Accept")) requestHeaders.set("Accept", "application/vnd.github+json");
 
     const url = new URL(GITHUB_API_BASE_URL);

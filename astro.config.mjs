@@ -9,11 +9,6 @@ const site = "https://vencord.dev";
 // https://astro.build/config
 export default defineConfig({
     site,
-    env: {
-        schema: {
-            GITHUB_TOKEN: envField.string({ context: "server", access: "secret" })
-        }
-    },
     vite: {
         build: {
             sourcemap: true

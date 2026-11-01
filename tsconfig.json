@@ -3,7 +3,6 @@
     "include": ["src/**/*", "./worker-configuration.d.ts"],
     "compilerOptions": {
         "strictNullChecks": true,
-        "types": ["@cloudflare/workers-types"],
         "paths": {
             "@components/*": ["./src/components/*"],
             "@scripts/*": ["./src/scripts/*"],

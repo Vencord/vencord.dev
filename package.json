@@ -21,6 +21,7 @@
         "@astrojs/mdx": "^8.1.2",
         "@astrojs/sitemap": "^3.7.4",
         "@astrojs/svelte": "^9.1.2",
+        "@types/node": "^26.6.6",
         "astro": "^7.4.4",
         "discord-api-types": "^0.38.57",
         "marked": "^18.1.2",
@@ -30,7 +31,6 @@
     "devDependencies": {
         "@astrojs/check": "^0.9.12",
         "@astrojs/compiler-rs": "^0.5.2",
-        "@cloudflare/workers-types": "^5.20261030.1",
         "oxfmt": "^0.75.0",
         "typescript": "^6.0.3",
         "wrangler": "^4.156.0"
