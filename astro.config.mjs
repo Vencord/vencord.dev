@@ -2,12 +2,18 @@ import cloudflare from "@astrojs/cloudflare";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
+
 const site = "https://vencord.dev";
 
 // https://astro.build/config
 export default defineConfig({
     site,
+    env: {
+        schema: {
+            GITHUB_TOKEN: envField.string({ context: "server", access: "secret" })
+        }
+    },
     vite: {
         build: {
             sourcemap: true

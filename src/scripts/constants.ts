@@ -11,8 +11,8 @@ export const DownloadFileNames = {
     windowsCli: "VencordInstallerCli.exe",
     macOS: "VencordInstaller.dmg"
 };
-export const PLUGINS_JSON_URL = "https://raw.githubusercontent.com/Vencord/builds/main/plugins.json";
-export const PLUGIN_READMES_JSON_URL = "https://raw.githubusercontent.com/Vencord/builds/main/plugin-readmes.json";
+export const PLUGINS_JSON_PATH = "repos/Vencord/builds/contents/plugins.json";
+export const PLUGIN_READMES_JSON_PATH = "repos/Vencord/builds/contents/plugin-readmes.json";
 
 export const FIREFOX_WEBSTORE_URL = "https://addons.mozilla.org/en-GB/firefox/addon/vencord-web";
 export const CHROME_WEBSTORE_URL =

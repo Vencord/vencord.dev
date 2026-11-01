@@ -1,18 +1,13 @@
-import { PLUGINS_JSON_URL, PLUGIN_READMES_JSON_URL } from "./constants";
+import { PLUGINS_JSON_PATH, PLUGIN_READMES_JSON_PATH } from "./constants";
+import { fetchGithubFileJson } from "./github";
 import type { PluginData, Trait } from "./types";
 
-export async function fetchPlugins() {
-    const res = await fetch(PLUGINS_JSON_URL);
-    if (!res.ok) throw new Error("Failed to fetch plugins.json: " + res.status);
-
-    return res.json() as Promise<PluginData[]>;
+export function fetchPlugins() {
+    return fetchGithubFileJson<PluginData[]>(PLUGINS_JSON_PATH);
 }
 
-export async function fetchPluginReadmes() {
-    const res = await fetch(PLUGIN_READMES_JSON_URL);
-    if (!res.ok) throw new Error("Failed to fetch plugin-readmes.json: " + res.status);
-
-    return res.json() as Promise<Record<string, string | undefined>>;
+export function fetchPluginReadmes() {
+    return fetchGithubFileJson<Record<string, string | undefined>>(PLUGIN_READMES_JSON_PATH);
 }
 
 export async function getPluginTraits(plugin: PluginData): Promise<Trait[]> {
