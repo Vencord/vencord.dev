@@ -1,8 +1,9 @@
 ---
 import Card, { CardKind } from "@components/Card.svelte";
 import { CHROME_WEBSTORE_URL, USERSCRIPT_URL } from "@scripts/constants";
-import Tab from "./Tab.astro";
 import BrowserLogo from "./BrowserLogo.astro";
+import DownloadActions from "./DownloadActions.astro";
+import Tab from "./Tab.astro";
 
 const Chromiums = [
     "brave",
@@ -15,202 +16,179 @@ const Chromiums = [
 ];
 ---
 
-<Tab>
-    <Fragment slot="header">
-        <div class="buttons">
-            <a href={CHROME_WEBSTORE_URL}>
-                <div class="userscript-badge">
-                    <img
-                        src="/assets/browser-logos/chrome.svg"
-                        aria-hidden="true"
-                    />
-                    <div class="userscript-text">
-                        <p>Get the</p>
-                        <p>Extension</p>
-                    </div>
-                </div>
-            </a>
-            <a href={USERSCRIPT_URL} title="Download Vencord.user.js">
-                <div class="userscript-badge">
-                    <img src="/assets/monkey.png" aria-hidden="true" />
-                    <div class="userscript-text">
-                        <p>Get the</p>
-                        <p>Userscript</p>
-                    </div>
-                </div>
-            </a>
+<Tab title="Browser">
+    <DownloadActions
+        links={[
+            {
+                href: CHROME_WEBSTORE_URL,
+                label: "Add to Chrome",
+                primary: true,
+            },
+            {
+                href: USERSCRIPT_URL,
+                label: "Install Userscript",
+                title: "Download Vencord.user.js",
+            },
+        ]}
+    />
+
+    <Card kind={CardKind.Warning}>
+        <p>
+            The CSS Editor, custom themes and plugins that use external scripts
+            will not work with the Userscript.
+        </p>
+    </Card>
+
+    <section class="browser-guide">
+        <h3>How to install</h3>
+
+        <div class="browser-row">
+            <div class="browser-logos">
+                {Chromiums.map(c => <BrowserLogo browser={c} />)}
+            </div>
+            <div class="browser-info">
+                <h4>Chromium-based browsers</h4>
+                <p>
+                    Install the extension from the{" "}
+                    <a href={CHROME_WEBSTORE_URL}>Chrome Webstore</a>.
+                </p>
+                <p>
+                    Alternatively, install a userscript manager like{" "}
+                    <a
+                        href="https://chromewebstore.google.com/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag"
+                        >Violentmonkey</a
+                    >{" "}
+                    or{" "}
+                    <a
+                        href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo"
+                        >Tampermonkey</a
+                    >. Then open the{" "}
+                    <a href={USERSCRIPT_URL}>Vencord.user.js</a> link and your
+                    userscript manager should prompt you to install it.
+                </p>
+            </div>
         </div>
 
-        <Card kind={CardKind.Warning}>
-            <p>
-                Please note that the CSS Editor, custom themes and plugins
-                making use of external scripts will not work with the
-                Userscript.
-            </p>
-        </Card>
-
-        <Card kind={CardKind.Info}>
-            <h2>How to install</h2>
-
-            <div class="browser-sections">
-                <section>
-                    <div class="browser-logos">
-                        {Chromiums.map(c => <BrowserLogo browser={c} />)}
-                    </div>
-                    <p class="browser-instruction">
-                        Install the extension from the <a
-                            href={CHROME_WEBSTORE_URL}
-                        >
-                            Chrome Webstore
-                        </a>.
-
-                        <br />
-                        <br />
-                        Alternatively, install a Userscript manager like <a
-                            href="https://chromewebstore.google.com/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag"
-                            >Violentmonkey</a
-                        > or <a
-                            href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo"
-                            >Tampermonkey</a
-                        >. Then, open the <a href={USERSCRIPT_URL}
-                            >Vencord.user.js</a
-                        > link and your Userscript manager should automatically prompt
-                        you to install it.
-                    </p>
-                </section>
-
-                <section>
-                    <BrowserLogo browser="firefox" />
-                    <div class="browser-instruction">
-                        <ol>
-                            <li>
-                                Install the Tampermonkey extension <a
-                                    href="https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/"
-                                    >from the Firefox Add-ons store</a
-                                >. (Other Userscript managers like Violentmonkey
-                                are sadly not supported due to a Firefox bug
-                                that only Tampermonkey works around)
-                            </li>
-                            <li>
-                                Open the <a href={USERSCRIPT_URL}
-                                    >Vencord.user.js</a
-                                > link and Tampermonkey should prompt you to install
-                                it
-                            </li>
-                        </ol>
-                        <p>
-                            Unfortunately, publishing to the Mozilla extension
-                            store is a nightmare and forces us to limit
-                            Vencord's features due to their strict guidelines.
-                            Firefox does not let you install third party
-                            extensions unless they are signed (which also
-                            requires store approval). As such, it is no longer
-                            possible for us to offer a Firefox extension.
-                        </p>
-                    </div>
-                </section>
-
-                <section>
-                    <BrowserLogo browser="safari" />
-                    <p class="browser-instruction">
-                        We do not currently support Safari, sorry. Please use a
-                        different Browser if you are interested in using Vencord
-                        Web.
-                    </p>
-                </section>
+        <div class="browser-row">
+            <div class="browser-logos">
+                <BrowserLogo browser="firefox" />
             </div>
-        </Card>
+            <div class="browser-info">
+                <h4>Firefox</h4>
+                <ol>
+                    <li>
+                        Install the Tampermonkey extension{" "}
+                        <a
+                            href="https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/"
+                            >from the Firefox Add-ons store</a
+                        >. (Other Userscript managers like Violentmonkey are
+                        sadly not supported due to a Firefox bug that only
+                        Tampermonkey works around)
+                    </li>
+                    <li>
+                        Open the <a href={USERSCRIPT_URL}>Vencord.user.js</a> link
+                        and Tampermonkey should prompt you to install it
+                    </li>
+                </ol>
+                <p>
+                    Unfortunately, publishing to the Mozilla extension store is
+                    a nightmare and forces us to limit Vencord's features due to
+                    their strict guidelines. Firefox does not let you install
+                    third party extensions unless they are signed (which also
+                    requires store approval). As such, it is no longer possible
+                    for us to offer a Firefox extension.
+                </p>
+            </div>
+        </div>
 
-        <Card kind={CardKind.Error}>
-            <p>
-                If the extension is ever broken, please use our <a
-                    href="/discord">support channel</a
-                > instead of leaving a negative Review on the Chrome Web Store. We
-                are likely already working on fixing it, or even just waiting for
-                Google to approve the update. Receiving negative reviews for a temporary
-                breakage that we have no control over is very frustrating.
-            </p>
-            <p>
-                Additionally, don't use the support hub on the Chrome Web Store.
-                We will not answer there. Instead, use our <a href="/discord"
-                    >Discord server</a
-                >.
-            </p>
-        </Card>
-    </Fragment>
+        <div class="browser-row">
+            <div class="browser-logos">
+                <BrowserLogo browser="safari" />
+            </div>
+            <div class="browser-info">
+                <h4>Safari</h4>
+                <p>
+                    We do not currently support Safari, sorry. Please use a
+                    different browser if you are interested in using Vencord Web.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <Card kind={CardKind.Error}>
+        <p>
+            If the extension is ever broken, please use our{" "}
+            <a href="/discord">support channel</a> instead of leaving a negative
+            review on the Chrome Web Store. We are likely already working on
+            fixing it, or even just waiting for Google to approve the update.
+            Receiving negative reviews for a temporary breakage that we have no
+            control over is very frustrating.
+        </p>
+        <p>
+            Additionally, don't use the support hub on the Chrome Web Store. We
+            will not answer there. Instead, use our{" "}
+            <a href="/discord">Discord server</a>.
+        </p>
+    </Card>
 </Tab>
 
 <style>
-    .buttons {
+    .browser-guide {
         display: flex;
-        justify-content: center;
-        gap: 1rem;
-        padding: 1em;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 1.25rem;
+        margin-top: 1.5rem;
     }
 
-    .buttons a {
-        text-decoration: none;
-        color: black;
-        transition: filter 0.2s ease-in-out;
-    }
-
-    .chrome-badge {
-        border-radius: var(--border-lg);
-    }
-
-    .userscript-badge {
-        height: 58px;
-        width: 180px;
-        padding: 4px 8px;
-        border-radius: var(--border-lg);
-        box-sizing: border-box;
-        display: flex;
-        gap: 12px;
-        align-items: center;
-        background: white;
-    }
-
-    .userscript-badge img {
-        height: 90%;
-    }
-
-    .userscript-text p {
+    h3 {
         margin: 0;
+        font-size: 1.25em;
+        line-height: 1.4;
     }
 
-    .userscript-text p:nth-child(1) {
-        font-size: 1em;
-        font-weight: 500;
-    }
-    .userscript-text p:nth-child(2) {
-        font-size: 1.2em;
-        font-weight: bold;
-    }
-
-    .browser-sections {
+    .browser-row {
         display: grid;
-        gap: 2em;
+        grid-template-columns: 10rem minmax(0, 1fr);
+        gap: 1.25rem;
+        align-items: start;
     }
 
-    h2 {
-        font-size: 1.5em;
-        line-height: 1.5em;
-        margin-block: 0.25em 0.5em;
+    .browser-row + .browser-row {
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--fg0-muted2);
     }
 
     .browser-logos {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5em;
+        gap: 0.5rem;
+        padding-top: 0.1rem;
     }
 
-    .browser-instruction {
-        margin: 0.5em 0;
+    .browser-info h4 {
+        margin: 0 0 0.25rem;
+        font-size: 1em;
+        line-height: 1.4;
+    }
+
+    .browser-info p {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+    }
+
+    .browser-info p:last-child {
+        margin-bottom: 0;
     }
 
     ol {
-        padding: 0 0 0 1em;
-        margin-top: 0;
+        margin: 0 0 0.75rem;
+        padding-left: 1.25rem;
+    }
+
+    @media screen and (max-width: 600px) {
+        .browser-row {
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
     }
 </style>

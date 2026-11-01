@@ -5,44 +5,51 @@
 
     interface Props {
         title?: Snippet;
+        subtitle?: Snippet;
         windowsTab?: Snippet;
         linuxTab?: Snippet;
         macTab?: Snippet;
         browserTab?: Snippet;
     }
 
-    const { title, windowsTab, linuxTab, macTab, browserTab }: Props = $props();
+    const { title, subtitle, windowsTab, linuxTab, macTab, browserTab }: Props =
+        $props();
 
     const options = $derived([
         { label: "Windows", render: windowsTab },
         { label: "Linux", render: linuxTab },
-        { label: "Mac", render: macTab },
+        { label: "macOS", render: macTab },
         { label: "Browser", render: browserTab },
     ] as const);
 
-    const accents: { [option in (typeof options)[number]["label"]]: string } = {
+    const accents = {
         Windows: "Blue",
         Linux: "Green",
-        Mac: "Yellow",
+        macOS: "Yellow",
         Browser: "Orange",
-    };
+    } as const;
+
+    function normalizePlatform(value: string | null | undefined) {
+        if (!value) return undefined;
+
+        const lower = value.toLowerCase();
+        if (lower === "mac") return "macOS";
+
+        return options.find(o => o.label.toLowerCase() === lower)?.label;
+    }
 
     const initialValue: string = IS_SERVER
         ? "Windows"
         : (() => {
-              const hash = location.hash.slice(1);
-              const hashOption = options.find(
-                  o => o.label.toLowerCase() === hash
-              );
-              if (hashOption) return hashOption.label;
+              const hashOption = normalizePlatform(location.hash.slice(1));
+              if (hashOption) return hashOption;
 
-              const stored = localStorage.platform;
-              if (stored && options.some(o => o.label === stored))
-                  return stored;
+              const stored = normalizePlatform(localStorage.platform);
+              if (stored) return stored;
 
               const platform = navigator.platform.toLowerCase();
               if (platform.includes("linux")) return "Linux";
-              if (platform.includes("mac")) return "Mac";
+              if (platform.includes("mac")) return "macOS";
               return "Windows";
           })();
 
@@ -66,11 +73,10 @@
 
     onMount(() => {
         function onNavigate() {
-            const hash = location.hash.slice(1);
-            const match = options.find(o => o.label.toLowerCase() === hash);
+            const match = normalizePlatform(location.hash.slice(1));
             if (match) {
                 isPopstate = true;
-                selected = match.label;
+                selected = match;
             }
         }
 
@@ -84,7 +90,10 @@
 </script>
 
 <div class="container">
-    {@render title?.()}
+    <div class="page-header">
+        {@render title?.()}
+        {@render subtitle?.()}
+    </div>
 
     <div class="downloads">
         {#each options as { label }}
@@ -95,19 +104,27 @@
                 bind:group={selected}
                 value={label}
             />
-            <label
-                for={`${label}-radio`}
-                style="--accent: var(--accent{accents[label]})"
-            >
-                {label}
-            </label>
         {/each}
 
-        {#each options as { label, render }}
-            <section class="download-section" data-platform={label}>
-                {@render render!()}
-            </section>
-        {/each}
+        <div class="platforms">
+            {#each options as { label }}
+                <label
+                    for={`${label}-radio`}
+                    style={`--accent: var(--accent${accents[label]})`}
+                >
+                    <span class="dot" aria-hidden="true"></span>
+                    {label}
+                </label>
+            {/each}
+        </div>
+
+        <div class="sections">
+            {#each options as { label, render }}
+                <section class="download-section" data-platform={label}>
+                    {@render render!()}
+                </section>
+            {/each}
+        </div>
     </div>
 </div>
 
@@ -115,79 +132,165 @@
     .container {
         display: flex;
         flex-direction: column;
-        gap: 1em;
+        gap: 1.5rem;
+        max-width: 1100px;
+    }
+
+    .page-header {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
     }
 
     .downloads {
         display: grid;
-        gap: 1rem;
-        grid-template-columns: repeat(4, 1fr);
-        margin-bottom: 1rem;
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
     }
 
-    section {
-        width: 100%;
-        box-sizing: border-box;
-        background-color: var(--bgCurrentWord);
-        padding: 1rem;
-
-        border-radius: var(--border-xl);
-    }
-
-    label {
-        font-size: 1em;
-        font-weight: var(--fontWeightSemiBold);
-        letter-spacing: 0.02em;
-
-        padding: 1.25em 1.5rem;
-        text-align: center;
-        cursor: pointer;
-        border-radius: var(--border-lg);
-
-        background-color: var(--bg3);
-    }
-
-    @media screen and (max-width: 600px) {
-        label {
-            padding: 0.5em 0.75em;
-        }
-    }
-
-    @media screen and (max-width: 400px) {
-        .downloads {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        label {
-            padding: 1em 0.75em;
-        }
+    .platforms {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
     }
 
     input {
-        display: none;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+        border: 0;
     }
 
-    input:checked + label {
+    label {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+
+        padding: 0.7rem 0.9rem;
+        border-radius: var(--border-md);
+
+        color: var(--grey1);
+        font-weight: var(--fontWeightMedium);
+
+        cursor: pointer;
+        user-select: none;
+        transition: color 150ms ease;
+    }
+
+    label:hover {
+        color: var(--fg0);
+    }
+
+    #Windows-radio:checked ~ .platforms label[for="Windows-radio"],
+    #Linux-radio:checked ~ .platforms label[for="Linux-radio"],
+    #macOS-radio:checked ~ .platforms label[for="macOS-radio"],
+    #Browser-radio:checked ~ .platforms label[for="Browser-radio"] {
+        color: var(--fg1);
+        font-weight: var(--fontWeightSemiBold);
+    }
+
+    #Windows-radio:focus-visible ~ .platforms label[for="Windows-radio"],
+    #Linux-radio:focus-visible ~ .platforms label[for="Linux-radio"],
+    #macOS-radio:focus-visible ~ .platforms label[for="macOS-radio"],
+    #Browser-radio:focus-visible ~ .platforms label[for="Browser-radio"] {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+    }
+
+    .dot {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background-color: var(--grey0);
+        transition: background-color 150ms ease;
+    }
+
+    #Windows-radio:checked ~ .platforms label[for="Windows-radio"] .dot,
+    #Linux-radio:checked ~ .platforms label[for="Linux-radio"] .dot,
+    #macOS-radio:checked ~ .platforms label[for="macOS-radio"] .dot,
+    #Browser-radio:checked ~ .platforms label[for="Browser-radio"] .dot {
         background-color: var(--accent);
-        color: var(--bg2);
+    }
+
+    .sections {
+        min-width: 0;
     }
 
     .download-section {
         display: none;
-        grid-column: 1 / -1;
-        opacity: 0;
-        transition:
-            opacity 150ms ease,
-            display 0ms allow-discrete;
+        min-width: 0;
+
+        padding: 1.5rem;
+
+        background-color: var(--bgCurrentWord);
+        border: 1px solid var(--fg0-muted2);
+        border-radius: var(--border-lg);
+
+        animation: fade-in 150ms ease-out;
     }
 
-    #Windows-radio:checked ~ .download-section[data-platform="Windows"],
-    #Linux-radio:checked ~ .download-section[data-platform="Linux"],
-    #Mac-radio:checked ~ .download-section[data-platform="Mac"],
-    #Browser-radio:checked ~ .download-section[data-platform="Browser"] {
+    #Windows-radio:checked
+        ~ .sections
+        .download-section[data-platform="Windows"],
+    #Linux-radio:checked ~ .sections .download-section[data-platform="Linux"],
+    #macOS-radio:checked ~ .sections .download-section[data-platform="macOS"],
+    #Browser-radio:checked
+        ~ .sections
+        .download-section[data-platform="Browser"] {
         display: block;
-        opacity: 1;
-        @starting-style {
+    }
+
+    @keyframes fade-in {
+        from {
             opacity: 0;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .download-section {
+            animation: none;
+        }
+
+        label,
+        .dot {
+            transition: none;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        .downloads {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .platforms {
+            flex-direction: row;
+            gap: 0.25rem;
+            overflow-x: auto;
+        }
+
+        label {
+            flex: 1;
+            justify-content: center;
+            padding: 0.65rem 0.75rem;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        .platforms {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: visible;
+        }
+
+        .download-section {
+            padding: 1.25rem;
         }
     }
 </style>

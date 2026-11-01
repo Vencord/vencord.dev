@@ -1,0 +1,63 @@
+---
+import LinkButton from "@components/LinkButton.astro";
+
+export interface ActionLink {
+    href: string;
+    label: string;
+    title?: string;
+    primary?: boolean;
+}
+
+export interface Props {
+    links: ActionLink[];
+}
+
+const { links } = Astro.props;
+---
+
+<div class="actions">
+    {
+        links.map(({ href, label, title, primary }) => (
+            <LinkButton
+                href={href}
+                class:list={["action", { primary }]}
+                title={title}
+            >
+                {label}
+            </LinkButton>
+        ))
+    }
+</div>
+
+<style>
+    .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .action {
+        padding: 0.75em 1.5em;
+        font-size: 0.95em;
+    }
+
+    .primary {
+        background-color: var(--accentPurple);
+        color: var(--bgCurrentWord);
+        outline: none;
+    }
+
+    .primary:focus-visible {
+        outline: 2px solid var(--accentBlue);
+    }
+
+    .primary:hover {
+        background-color: rgba(var(--accentPurpleRgb), 0.8);
+    }
+
+    .primary:active {
+        background-color: rgba(var(--accentPurpleRgb), 0.9);
+        outline: none;
+    }
+</style>

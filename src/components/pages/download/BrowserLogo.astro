@@ -3,16 +3,19 @@ export interface Props {
     browser: string;
 }
 
-const { browser } = Astro.props as Props;
+const { browser } = Astro.props;
+
+const browserName = browser
+    .split("-")
+    .map(w => w[0].toUpperCase() + w.slice(1))
+    .join(" ");
 ---
 
 <img
     class="browser-logo"
     src={`/assets/browser-logos/${browser}.svg`}
-    title={browser
-        .split("-")
-        .map(w => w[0].toUpperCase() + w.slice(1))
-        .join(" ")}
+    alt={browserName}
+    title={browserName}
 />
 
 <style>

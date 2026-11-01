@@ -1,48 +1,57 @@
 ---
 import Card, { CardKind } from "@components/Card.svelte";
-import Code from "@components/Code.astro";
+import { DOWNLOAD_BASE, DownloadFileNames } from "@scripts/constants";
+import DownloadActions from "./DownloadActions.astro";
 import Tab from "./Tab.astro";
-import { DownloadFileNames } from "@scripts/constants";
 ---
 
-<Tab fileNames={[DownloadFileNames.windows, DownloadFileNames.windowsCli]}>
-    <div slot="header">
-        <p>
-            Download <Code>VencordInstaller.exe</Code> and run it. It should list
-            all Discord installs on your System. Pick the one you would like to patch
-            and press Install.
-        </p>
-    </div>
+<Tab title="Windows">
+    <DownloadActions
+        links={[
+            {
+                href: DOWNLOAD_BASE + DownloadFileNames.windows,
+                label: "Download for Windows",
+                title: "Download VencordInstaller.exe",
+                primary: true,
+            },
+            {
+                href: DOWNLOAD_BASE + DownloadFileNames.windowsCli,
+                label: "Command-line installer",
+                title: "Download VencordInstallerCli.exe",
+            },
+        ]}
+    />
 
-    <div slot="footer">
-        <p>
-            If the installer does not open for you, download <Code
-                >VencordInstallerCli.exe</Code
-            > instead. Run it and a terminal window should open. Just follow the instructions
-            in the terminal.
-        </p>
+    <p>
+        Run the downloaded installer. It will list all Discord installations on
+        your system. Pick the one you would like to patch and press Install.
+    </p>
 
-        <Card kind={CardKind.Warning}>
-            <p>Do not run the installer as an Administrator!</p>
-            <p>
-                If you get a warning that the app cannot be opened, click "Run
-                Anyways". You may need to click "more info" to see this option.
-            </p>
-            <p>
-                This warning is entirely harmless and only shows because the app
-                is not signed. Signing it would cost us upwards of 300€/year.
-            </p>
-        </Card>
-    </div>
+    <p>
+        If the installer does not open for you, use the command-line installer
+        instead. Run it and a terminal window should open. Just follow the
+        instructions in the terminal.
+    </p>
+
+    <Card kind={CardKind.Warning}>
+        <p>Do not run the installer as an Administrator!</p>
+        <h3>If you get a SmartScreen warning that the app cannot be opened</h3>
+        <p>
+            Click "Run Anyways". You may need to click "more info" to see this
+            option.
+        </p>
+        <p>
+            This warning is entirely harmless and only shows because the app is
+            not signed. Signing it would cost us upwards of 300€/year.
+        </p>
+    </Card>
 </Tab>
 
 <style>
-    code {
-        overflow-wrap: anywhere;
-    }
-
     h3 {
-        margin: 1em 0 0.5em;
-        font-size: 2em;
+        margin: 0;
+        margin-top: 1em;
+        font-size: 1.5em;
+        line-height: initial;
     }
 </style>
