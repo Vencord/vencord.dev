@@ -7,7 +7,9 @@ export interface Props extends HTMLAttributes<"a"> {
 }
 ---
 
-<a {...Astro.props}><slot /></a>
+<a {...Astro.props}>
+    <slot />
+</a>
 
 <style>
     a {

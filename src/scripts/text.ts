@@ -1,11 +1,5 @@
-export function humanFriendlyJoin<T>(
-    elements: T[],
-    mapper: (e: T) => string
-): string;
-export function humanFriendlyJoin(
-    elements: any[],
-    mapper: (e: any) => string = s => s
-): string {
+export function humanFriendlyJoin<T>(elements: T[], mapper: (e: T) => string): string;
+export function humanFriendlyJoin(elements: any[], mapper: (e: any) => string = s => s): string {
     const { length } = elements;
     if (length === 0) return "";
     if (length === 1) return mapper(elements[0]);

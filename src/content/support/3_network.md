@@ -12,6 +12,7 @@ DNS servers help translate domain names (github.com) into IP addresses (140.82.1
 By default you are probably using your ISP's DNS server, who sometimes may be unreliable or deliberately block certain websites like GitHub.
 
 We recommend switching to a reliable DNS server like Cloudflare's 1.1.1.1:
+
 - [Windows](https://developers.cloudflare.com/1.1.1.1/setup/windows/)
 - [macOS](https://developers.cloudflare.com/1.1.1.1/setup/macos/)
 - [Linux](https://developers.cloudflare.com/1.1.1.1/setup/linux/)
@@ -20,6 +21,7 @@ We recommend switching to a reliable DNS server like Cloudflare's 1.1.1.1:
 
 The hosts file contains mappings of IP addresses to hostnames and can be used to override DNS settings for specific domains.
 The file is located at
+
 - Windows: `C:\Windows\System32\drivers\etc\hosts`
 - macOS / Linux: `/etc/hosts`
 
@@ -39,6 +41,7 @@ You can use ProtonVPN for free: https://protonvpn.com/free-vpn
 You have custom SSL certificates installed on your system which are causing this issue. This is usually because you used cracked software or development tools that installed their own certificates.
 
 To resolve this:
+
 1. Press Win + R to open the Run prompt
 2. Type `certmgr.msc` and hit enter to open the Certificate manager
 3. Under Personal > Certificates, delete any certificates that you are sure you won't need anymore. If you are unsure, ask AI or ask for help in our support channel. Deleting the wrong certificates can prevent certain applications from working correctly.

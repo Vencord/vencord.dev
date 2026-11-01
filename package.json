@@ -1,15 +1,17 @@
 {
     "name": "vencord-site",
-    "type": "module",
+    "version": "0.0.1",
     "private": true,
     "license": "AGPL-3.0",
-    "version": "0.0.1",
+    "type": "module",
     "scripts": {
         "dev": "astro dev",
         "start": "astro dev",
         "build": "node scripts/generateRedirects.mjs && astro build",
         "preview": "pnpm run build && wrangler dev",
         "test": "astro check",
+        "fmt": "oxfmt",
+        "fmt:check": "oxfmt --check",
         "astro": "astro",
         "generate-types": "wrangler types",
         "deploy": "pnpm run build && wrangler deploy"
@@ -27,7 +29,9 @@
     },
     "devDependencies": {
         "@astrojs/check": "^0.9.12",
+        "@astrojs/compiler-rs": "^0.5.2",
         "@cloudflare/workers-types": "^5.20261030.1",
+        "oxfmt": "^0.75.0",
         "typescript": "^6.0.3",
         "wrangler": "^4.156.0"
     },

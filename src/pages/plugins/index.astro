@@ -1,8 +1,8 @@
 ---
 export const prerender = true;
 
-import Layout from "@layouts/Layout.astro";
 import PluginsList from "@components/pages/plugins/Plugins.svelte";
+import Layout from "@layouts/Layout.astro";
 import { fetchPlugins } from "@scripts/data";
 
 const plugins = (await fetchPlugins())
@@ -18,8 +18,7 @@ const plugins = (await fetchPlugins())
     <div class="container">
         <h1 class="p-page-title">Plugins</h1>
         <p class="p-subtitle">
-            We have {plugins.length} plugins available for you to use immediately,
-            with more being made every day.
+            We have {plugins.length} plugins available for you to use immediately, with more being made every day.
         </p>
 
         <PluginsList {plugins} client:load />

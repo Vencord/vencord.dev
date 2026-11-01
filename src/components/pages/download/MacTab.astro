@@ -1,6 +1,7 @@
 ---
 import Code from "@components/Code.astro";
 import { DOWNLOAD_BASE, DownloadFileNames } from "@scripts/constants";
+
 import DownloadActions from "./DownloadActions.astro";
 import Tab from "./Tab.astro";
 ---
@@ -12,14 +13,13 @@ import Tab from "./Tab.astro";
                 href: DOWNLOAD_BASE + DownloadFileNames.macOS,
                 label: "Download for macOS",
                 title: "Download VencordInstaller.dmg",
-                primary: true,
-            },
+                primary: true
+            }
         ]}
     />
 
     <p>
-        Open the downloaded disk image and drag{" "}
-        <Code>VencordInstaller.app</Code> into your Applications folder. Then open
-        it and follow the instructions.
+        Open the downloaded disk image and drag <Code>VencordInstaller.app</Code> into your Applications folder. Then
+        open it and follow the instructions.
     </p>
 </Tab>

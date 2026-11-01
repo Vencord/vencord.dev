@@ -1,8 +1,7 @@
 <script lang="ts">
+    import { IS_SERVER } from "@scripts/constants";
     import type { Snippet } from "svelte";
     import { writable } from "svelte/store";
-
-    import { IS_SERVER } from "@scripts/constants";
 
     interface Props {
         light?: Snippet;
@@ -20,8 +19,7 @@
               const stored = localStorage.theme;
               if (stored && options.includes(stored)) return stored;
 
-              if (window.matchMedia("(prefers-color-scheme: light)").matches)
-                  return "Light";
+              if (window.matchMedia("(prefers-color-scheme: light)").matches) return "Light";
               else return "Dark";
           })();
 

@@ -16,17 +16,11 @@ const { links } = Astro.props;
 ---
 
 <div class="actions">
-    {
-        links.map(({ href, label, title, primary }) => (
-            <LinkButton
-                href={href}
-                class:list={["action", { primary }]}
-                title={title}
-            >
-                {label}
-            </LinkButton>
-        ))
-    }
+    {links.map(({ href, label, title, primary }) => (
+        <LinkButton href={href} class:list={["action", { primary }]} title={title}>
+            {label}
+        </LinkButton>
+    ))}
 </div>
 
 <style>

@@ -1,21 +1,13 @@
 ---
 export const prerender = true;
 
-import { parse as parseMarkdown } from "marked";
-import {
-    ComponentType,
-    ButtonStyle,
-    SeparatorSpacingSize,
-} from "discord-api-types/v10";
 import Layout from "@layouts/Layout.astro";
-import {
-    fetchPluginReadmes,
-    fetchPlugins,
-    getPluginTraits,
-} from "@scripts/data";
-import type { PluginData } from "@scripts/types";
-import { humanFriendlyJoin } from "@scripts/text";
 import { GITHUB_URL } from "@scripts/constants";
+import { fetchPluginReadmes, fetchPlugins, getPluginTraits } from "@scripts/data";
+import { humanFriendlyJoin } from "@scripts/text";
+import type { PluginData } from "@scripts/types";
+import { ComponentType, ButtonStyle, SeparatorSpacingSize } from "discord-api-types/v10";
+import { parse as parseMarkdown } from "marked";
 
 interface Props {
     plugin: PluginData;
@@ -23,14 +15,11 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-    const [plugins, readmes] = await Promise.all([
-        fetchPlugins(),
-        fetchPluginReadmes(),
-    ]);
+    const [plugins, readmes] = await Promise.all([fetchPlugins(), fetchPluginReadmes()]);
 
     return plugins.map(plugin => ({
         params: { plugin: plugin.name },
-        props: { plugin, readme: readmes[plugin.name] },
+        props: { plugin, readme: readmes[plugin.name] }
     }));
 }
 
@@ -45,7 +34,7 @@ const images = readme
     ?.matchAll(/!\[([^\]]*?)\]\((https:[^)]+?)\)/g)
     .map(i => ({
         description: i[1] || undefined,
-        url: i[2],
+        url: i[2]
     }))
     .take(10)
     .toArray();
@@ -60,7 +49,7 @@ const readmeHtml = processedReadme && parseMarkdown(processedReadme);
     description={p.description}
     breadcrumbs={[
         ["Plugins", "/plugins"],
-        [p.name, "/plugins/" + p.name],
+        [p.name, "/plugins/" + p.name]
     ]}
     component={{
         type: ComponentType.Container,
@@ -68,7 +57,7 @@ const readmeHtml = processedReadme && parseMarkdown(processedReadme);
         components: [
             {
                 type: ComponentType.TextDisplay,
-                content: `## ${p.name}\n${p.description}`,
+                content: `## ${p.name}\n${p.description}`
             },
             ...(images?.length
                 ? [
@@ -76,28 +65,26 @@ const readmeHtml = processedReadme && parseMarkdown(processedReadme);
                           type: ComponentType.MediaGallery as const,
                           items: images.map(({ description, url }) => ({
                               media: { url },
-                              description,
-                          })),
-                      },
+                              description
+                          }))
+                      }
                   ]
                 : []),
             {
                 type: ComponentType.Separator,
-                spacing: SeparatorSpacingSize.Large,
+                spacing: SeparatorSpacingSize.Large
             },
             ...(pluginTraits.length > 0
                 ? [
                       {
                           type: ComponentType.TextDisplay as const,
-                          content: pluginTraits
-                              .map(t => `${t.emoji} ${t.name}`)
-                              .join("\n"),
-                      },
+                          content: pluginTraits.map(t => `${t.emoji} ${t.name}`).join("\n")
+                      }
                   ]
                 : []),
             {
                 type: ComponentType.TextDisplay,
-                content: `-# Made by ${humanFriendlyJoin(p.authors, a => a.name)}`,
+                content: `-# Made by ${humanFriendlyJoin(p.authors, a => a.name)}`
             },
             {
                 type: ComponentType.ActionRow,
@@ -105,29 +92,24 @@ const readmeHtml = processedReadme && parseMarkdown(processedReadme);
                     {
                         type: ComponentType.Button,
                         style: ButtonStyle.Link,
-                        url: new URL(
-                            Astro.url.pathname,
-                            Astro.url.origin
-                        ).toString(),
-                        label: "View Website",
+                        url: new URL(Astro.url.pathname, Astro.url.origin).toString(),
+                        label: "View Website"
                     },
                     {
                         type: ComponentType.Button,
                         style: ButtonStyle.Link,
                         url: `${GITHUB_URL}/tree/main/src/plugins/${p.filePath}`,
-                        label: "View Source Code",
-                    },
-                ],
-            },
-        ],
+                        label: "View Source Code"
+                    }
+                ]
+            }
+        ]
     }}
 >
     <div class="header">
         <div>
             <h1 class="p-page-title">{p.name}</h1>
-            <p class="p-subtitle">
-                by {humanFriendlyJoin(p.authors, a => a.name)}
-            </p>
+            <p class="p-subtitle">by {humanFriendlyJoin(p.authors, a => a.name)}</p>
         </div>
         <a href={`${GITHUB_URL}/tree/main/src/plugins/${p.filePath}`}>
             <svg viewBox="0 0 496 512">
@@ -140,20 +122,12 @@ const readmeHtml = processedReadme && parseMarkdown(processedReadme);
         </a>
     </div>
 
-    {
-        readmeHtml ? (
-            <article set:html={readmeHtml} />
-        ) : (
-            <p class="desc">{p.description}</p>
-        )
-    }
+    {readmeHtml ? <article set:html={readmeHtml} /> : <p class="desc">{p.description}</p>}
 
     <h2 class="h">Installation</h2>
     <p>
-        To enable {p.name}, first <a href="/download">install Vencord</a> if you haven't
-        already done so. Then open the Plugins section in settings, search for {
-            p.name
-        }, and enable it.
+        To enable {p.name}, first <a href="/download">install Vencord</a> if you haven't already done so. Then open the
+        Plugins section in settings, search for {p.name}, and enable it.
     </p>
 </Layout>
 

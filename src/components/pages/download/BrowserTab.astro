@@ -1,19 +1,12 @@
 ---
 import Card, { CardKind } from "@components/Card.svelte";
 import { CHROME_WEBSTORE_URL, USERSCRIPT_URL } from "@scripts/constants";
+
 import BrowserLogo from "./BrowserLogo.astro";
 import DownloadActions from "./DownloadActions.astro";
 import Tab from "./Tab.astro";
 
-const Chromiums = [
-    "brave",
-    "chrome",
-    "chromium",
-    "edge",
-    "opera",
-    "opera-gx",
-    "vivaldi",
-];
+const Chromiums = ["brave", "chrome", "chromium", "edge", "opera", "opera-gx", "vivaldi"];
 ---
 
 <Tab title="Browser">
@@ -22,21 +15,18 @@ const Chromiums = [
             {
                 href: CHROME_WEBSTORE_URL,
                 label: "Add to Chrome",
-                primary: true,
+                primary: true
             },
             {
                 href: USERSCRIPT_URL,
                 label: "Install Userscript",
-                title: "Download Vencord.user.js",
-            },
+                title: "Download Vencord.user.js"
+            }
         ]}
     />
 
     <Card kind={CardKind.Warning}>
-        <p>
-            The CSS Editor, custom themes and plugins that use external scripts
-            will not work with the Userscript.
-        </p>
+        <p>The CSS Editor, custom themes and plugins that use external scripts will not work with the Userscript.</p>
     </Card>
 
     <section class="browser-guide">
@@ -44,27 +34,26 @@ const Chromiums = [
 
         <div class="browser-row">
             <div class="browser-logos">
-                {Chromiums.map(c => <BrowserLogo browser={c} />)}
+                {Chromiums.map(c => (
+                    <BrowserLogo browser={c} />
+                ))}
             </div>
             <div class="browser-info">
                 <h4>Chromium-based browsers</h4>
                 <p>
-                    Install the extension from the{" "}
-                    <a href={CHROME_WEBSTORE_URL}>Chrome Webstore</a>.
+                    Install the extension from the <a href={CHROME_WEBSTORE_URL}>Chrome Webstore</a>.
                 </p>
                 <p>
                     Alternatively, install a userscript manager like{" "}
-                    <a
-                        href="https://chromewebstore.google.com/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag"
-                        >Violentmonkey</a
-                    >{" "}
+                    <a href="https://chromewebstore.google.com/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag">
+                        Violentmonkey
+                    </a>{" "}
                     or{" "}
-                    <a
-                        href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo"
-                        >Tampermonkey</a
-                    >. Then open the{" "}
-                    <a href={USERSCRIPT_URL}>Vencord.user.js</a> link and your
-                    userscript manager should prompt you to install it.
+                    <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo">
+                        Tampermonkey
+                    </a>
+                    . Then open the <a href={USERSCRIPT_URL}>Vencord.user.js</a> link and your userscript manager should
+                    prompt you to install it.
                 </p>
             </div>
         </div>
@@ -78,25 +67,22 @@ const Chromiums = [
                 <ol>
                     <li>
                         Install the Tampermonkey extension{" "}
-                        <a
-                            href="https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/"
-                            >from the Firefox Add-ons store</a
-                        >. (Other Userscript managers like Violentmonkey are
-                        sadly not supported due to a Firefox bug that only
-                        Tampermonkey works around)
+                        <a href="https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/">
+                            from the Firefox Add-ons store
+                        </a>
+                        . (Other Userscript managers like Violentmonkey are sadly not supported due to a Firefox bug
+                        that only Tampermonkey works around)
                     </li>
                     <li>
-                        Open the <a href={USERSCRIPT_URL}>Vencord.user.js</a> link
-                        and Tampermonkey should prompt you to install it
+                        Open the <a href={USERSCRIPT_URL}>Vencord.user.js</a> link and Tampermonkey should prompt you to
+                        install it
                     </li>
                 </ol>
                 <p>
-                    Unfortunately, publishing to the Mozilla extension store is
-                    a nightmare and forces us to limit Vencord's features due to
-                    their strict guidelines. Firefox does not let you install
-                    third party extensions unless they are signed (which also
-                    requires store approval). As such, it is no longer possible
-                    for us to offer a Firefox extension.
+                    Unfortunately, publishing to the Mozilla extension store is a nightmare and forces us to limit
+                    Vencord's features due to their strict guidelines. Firefox does not let you install third party
+                    extensions unless they are signed (which also requires store approval). As such, it is no longer
+                    possible for us to offer a Firefox extension.
                 </p>
             </div>
         </div>
@@ -108,8 +94,8 @@ const Chromiums = [
             <div class="browser-info">
                 <h4>Safari</h4>
                 <p>
-                    We do not currently support Safari, sorry. Please use a
-                    different browser if you are interested in using Vencord Web.
+                    We do not currently support Safari, sorry. Please use a different browser if you are interested in
+                    using Vencord Web.
                 </p>
             </div>
         </div>
@@ -117,16 +103,13 @@ const Chromiums = [
 
     <Card kind={CardKind.Error}>
         <p>
-            If the extension is ever broken, please use our{" "}
-            <a href="/discord">support channel</a> instead of leaving a negative
-            review on the Chrome Web Store. We are likely already working on
-            fixing it, or even just waiting for Google to approve the update.
-            Receiving negative reviews for a temporary breakage that we have no
+            If the extension is ever broken, please use our <a href="/discord">support channel</a> instead of leaving a
+            negative review on the Chrome Web Store. We are likely already working on fixing it, or even just waiting
+            for Google to approve the update. Receiving negative reviews for a temporary breakage that we have no
             control over is very frustrating.
         </p>
         <p>
-            Additionally, don't use the support hub on the Chrome Web Store. We
-            will not answer there. Instead, use our{" "}
+            Additionally, don't use the support hub on the Chrome Web Store. We will not answer there. Instead, use our{" "}
             <a href="/discord">Discord server</a>.
         </p>
     </Card>

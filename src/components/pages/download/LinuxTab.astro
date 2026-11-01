@@ -2,51 +2,36 @@
 import Card, { CardKind } from "@components/Card.svelte";
 import CodeBlock from "@components/CodeBlock.svelte";
 import { DOWNLOAD_BASE, DownloadFileNames } from "@scripts/constants";
+
 import DownloadActions from "./DownloadActions.astro";
 import Tab from "./Tab.astro";
 ---
 
 <Tab title="Linux">
-    <p>
-        Open your terminal and run the following command. Then follow the
-        instructions in your terminal.
-    </p>
+    <p>Open your terminal and run the following command. Then follow the instructions in your terminal.</p>
 
-    <CodeBlock
-        code={`sh -c "$(curl -sS ${Astro.url.origin}/install.sh)"`}
-        client:load
-    />
+    <CodeBlock code={`sh -c "$(curl -sS ${Astro.url.origin}/install.sh)"`} client:load />
 
-    <p>
-        Alternatively, download the installer, make it executable and run it in
-        a terminal.
-    </p>
+    <p>Alternatively, download the installer, make it executable and run it in a terminal.</p>
 
     <DownloadActions
         links={[
             {
                 href: DOWNLOAD_BASE + DownloadFileNames.linux,
                 label: "Download CLI installer",
-                title: "Download VencordInstallerCli-linux",
-            },
+                title: "Download VencordInstallerCli-linux"
+            }
         ]}
     />
 
     <Card kind={CardKind.Warning}>
-        <p>
-            Discord installed via snap is not supported. Instead, use one of
-            the following:
-        </p>
+        <p>Discord installed via snap is not supported. Instead, use one of the following:</p>
         <ul>
             <li>
-                <a href="https://flathub.org/apps/details/com.discordapp.Discord">
-                    Discord Flatpak
-                </a>
+                <a href="https://flathub.org/apps/details/com.discordapp.Discord">Discord Flatpak</a>
             </li>
             <li>
-                <a href="https://discord.com/download">
-                    Discord's official .deb package
-                </a>
+                <a href="https://discord.com/download">Discord's official .deb package</a>
             </li>
         </ul>
     </Card>

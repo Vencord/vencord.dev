@@ -1,13 +1,7 @@
 ---
 export const prerender = true;
 
-import {
-    Changes,
-    DataRetention,
-    InfoStored,
-    Intro,
-    Usage,
-} from "@components/pages/cloud/privacy/sections.astro";
+import { Changes, DataRetention, InfoStored, Intro, Usage } from "@components/pages/cloud/privacy/sections.astro";
 import Layout from "@layouts/Layout.astro";
 
 const sections = [
@@ -15,7 +9,7 @@ const sections = [
     ["information-stored", "The information we store", InfoStored],
     ["usage", "How we use your information", Usage],
     ["retention", "Data Retention", DataRetention],
-    ["changes", "Changes to this Privacy Policy", Changes],
+    ["changes", "Changes to this Privacy Policy", Changes]
 ] as const;
 ---
 
@@ -24,7 +18,7 @@ const sections = [
     description="Privacy policy regarding Vencord's cloud services"
     breadcrumbs={[
         ["Cloud", "/cloud"],
-        ["Privacy", "/cloud/privacy"],
+        ["Privacy", "/cloud/privacy"]
     ]}
 >
     <h1>Vencord Cloud Privacy Policy</h1>
@@ -32,33 +26,27 @@ const sections = [
 
     <nav>
         <ol>
-            {
-                sections.map(([id, title]) => (
-                    <li>
-                        <a href={`#${id}`}>{title}</a>
-                    </li>
-                ))
-            }
+            {sections.map(([id, title]) => (
+                <li>
+                    <a href={`#${id}`}>{title}</a>
+                </li>
+            ))}
         </ol>
     </nav>
 
-    {
-        sections.map(([id, title, Component]) => (
-            <section id={id}>
-                <a href={`#${id}`}>
-                    <h2 class="title">{title}</h2>
-                </a>
-                <Component />
-            </section>
-        ))
-    }
+    {sections.map(([id, title, Component]) => (
+        <section id={id}>
+            <a href={`#${id}`}>
+                <h2 class="title">{title}</h2>
+            </a>
+            <Component />
+        </section>
+    ))}
 </Layout>
 
 <script>
     function handleHash() {
-        document
-            .querySelectorAll(".jumped")
-            .forEach(el => el.classList.remove("jumped"));
+        document.querySelectorAll(".jumped").forEach(el => el.classList.remove("jumped"));
 
         const { hash } = window.location;
         if (hash) {

@@ -4,8 +4,5 @@ export const HOURS = 60 * MINUTES;
 export const DAYS = 24 * HOURS;
 
 export function cacheResponseFor(res: { headers: Headers }, seconds: number) {
-    res.headers.set(
-        "Cache-Control",
-        `public, max-age=${seconds}, s-maxage=${seconds}`
-    );
+    res.headers.set("Cache-Control", `public, max-age=${seconds}, s-maxage=${seconds}`);
 }

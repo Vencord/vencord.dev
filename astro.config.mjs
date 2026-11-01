@@ -1,8 +1,8 @@
-import { defineConfig } from "astro/config";
+import cloudflare from "@astrojs/cloudflare";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
-import cloudflare from "@astrojs/cloudflare";
+import { defineConfig } from "astro/config";
 const site = "https://vencord.dev";
 
 // https://astro.build/config
@@ -10,21 +10,21 @@ export default defineConfig({
     site,
     vite: {
         build: {
-            sourcemap: true,
-        },
+            sourcemap: true
+        }
     },
     markdown: {
         shikiConfig: {
-            theme: "css-variables",
-        },
+            theme: "css-variables"
+        }
     },
     integrations: [
         mdx(),
         sitemap({
-            customPages: [site + "/discord", site + "/github"],
+            customPages: [site + "/discord", site + "/github"]
         }),
-        svelte(),
+        svelte()
     ],
     output: "server",
-    adapter: cloudflare({ imageService: "compile"}),
+    adapter: cloudflare({ imageService: "compile" })
 });

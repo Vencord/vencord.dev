@@ -1,7 +1,6 @@
 ---
 import "normalize.css";
 import "@styles/prose.css";
-
 import Footer from "@components/Footer.astro";
 import NavBar from "@components/NavBar.astro";
 import type { APIContainerComponent } from "discord-api-types/v10";
@@ -23,7 +22,7 @@ const structuredData = [
         "@type": "WebSite",
         name: "Vencord",
         alternateName: "VC",
-        url: Astro.site,
+        url: Astro.site
     },
     // Application information
     {
@@ -32,13 +31,12 @@ const structuredData = [
         name: "Vencord",
         operatingSystem: "Windows,macOS,Linux",
         applicationCategory: "UtilitiesApplication",
-        browserRequirements:
-            "Requires UserScript or extension support. Requires modern JavaScript support.",
+        browserRequirements: "Requires UserScript or extension support. Requires modern JavaScript support.",
         offers: {
             "@type": "Offer",
-            price: "0",
-        },
-    },
+            price: "0"
+        }
+    }
 ] as any[];
 
 // Should show a nicer path for subpages.
@@ -46,7 +44,7 @@ if (breadcrumbs) {
     const breadcrumbList = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
-        itemListElement: [] as any[],
+        itemListElement: [] as any[]
     };
 
     for (let i = 0; i < breadcrumbs.length; i++) {
@@ -56,7 +54,7 @@ if (breadcrumbs) {
             "@type": "ListItem",
             position: i + 1,
             name: crumb[0],
-            item: new URL(crumb[1], Astro.site).toString(),
+            item: new URL(crumb[1], Astro.site).toString()
         });
     }
 
@@ -69,9 +67,9 @@ if (Astro.url.pathname === "/") {
         "@type": "SearchAction",
         target: {
             "@type": "EntryPoint",
-            urlTemplate: "https://vencord.dev/plugins#{plugin_name}",
+            urlTemplate: "https://vencord.dev/plugins#{plugin_name}"
         },
-        "query-input": "required name=plugin_name",
+        "query-input": "required name=plugin_name"
     };
 }
 ---
@@ -85,80 +83,43 @@ if (Astro.url.pathname === "/") {
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/assets/favicon.png" />
-        <link
-            rel="icon"
-            href="/assets/favicon-dark.png"
-            media="(prefers-color-scheme: dark)"
-        />
+        <link rel="icon" href="/assets/favicon-dark.png" media="(prefers-color-scheme: dark)" />
 
-        <link
-            rel="preload"
-            href="/fonts/Inter.var-subset.woff2"
-            as="font"
-            type="font/woff2"
-            crossorigin
-        />
+        <link rel="preload" href="/fonts/Inter.var-subset.woff2" as="font" type="font/woff2" crossorigin />
 
         <meta name="description" content={description} />
         <meta name="author" content="Vencord Contributors" />
         <meta name="theme-color" content="#dd7878" />
 
-        {
-            opengraph !== false && (
-                <>
-                    <meta name="og:type" content="website" />
-                    <meta name="og:title" content={title ?? "Vencord"} />
-                    <meta name="og:description" content={description} />
-                    <meta name="og:url" content={Astro.url} />
-                    <meta
-                        name="og:image"
-                        content={new URL("/assets/logo.png", Astro.site)}
-                    />
-                </>
-            )
-        }
-        {
-            /* FIXME: Seems to be a bug in Astro because this statement doesn't work in the above block. */
-        }
-        {
-            title && opengraph !== false && (
-                <meta name="og:site_name" content="Vencord" />
-            )
-        }
+        {opengraph !== false && (
+            <>
+                <meta name="og:type" content="website" />
+                <meta name="og:title" content={title ?? "Vencord"} />
+                <meta name="og:description" content={description} />
+                <meta name="og:url" content={Astro.url} />
+                <meta name="og:image" content={new URL("/assets/logo.png", Astro.site)} />
+            </>
+        )}
+        {/* FIXME: Seems to be a bug in Astro because this statement doesn't work in the above block. */}
+        {title && opengraph !== false && <meta name="og:site_name" content="Vencord" />}
 
-        {
-            component && (
-                <script
-                    id="discord:component-embed"
-                    type="application/json"
-                    set:html={JSON.stringify({ component })}
-                />
-            )
-        }
+        {component && (
+            <script id="discord:component-embed" type="application/json" set:html={JSON.stringify({ component })} />
+        )}
 
-        <script
-            is:inline
-            type="application/ld+json"
-            set:html={JSON.stringify(structuredData)}
-        />
-
+        <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
         <link rel="sitemap" href="/sitemap-index.xml" />
         {/* explode darkreader */}
         <meta name="darkreader-lock" />
-        <link
-            rel="canonical"
-            href={new URL(Astro.url.pathname, Astro.site).toString()}
-        />
+        <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).toString()} />
     </head>
 
     <body>
-        {
-            /* Loads theme (this fixes a "flickering" bug
+        {/* Loads theme (this fixes a "flickering" bug
             that occurs when the theme script loads after
             the page content does, causing it to briefly
             show the original colors.)
-            */
-        }
+            */}
         <script is:raw is:inline>
             const theme = localStorage.theme?.toLowerCase();
             const options = ["light", "dark"];

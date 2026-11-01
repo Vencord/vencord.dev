@@ -1,10 +1,10 @@
-import type { APIRoute } from "astro";
 import { getEnv } from "@scripts/env";
+import type { APIRoute } from "astro";
 
 const Repos = {
     installer: "Vencord/Installer",
     vencord: "Vendicated/Vencord",
-    "vencord-desktop": "Vencord/Desktop",
+    "vencord-desktop": "Vencord/Desktop"
 };
 
 export const GET: APIRoute = async ({ params }) => {
@@ -15,38 +15,33 @@ export const GET: APIRoute = async ({ params }) => {
             status: 404,
             headers: {
                 // 1h
-                "Cache-Control": "public, max-age=3600, s-maxage=3600",
-            },
+                "Cache-Control": "public, max-age=3600, s-maxage=3600"
+            }
         });
 
     const env = import.meta.env;
     const GITHUB_TOKEN = getEnv(env, "GITHUB_TOKEN");
 
-    const data = await fetch(
-        `https://api.github.com/repos/${repo}/releases/latest`,
-        {
-            cf: {
-                // https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#rate-limits-for-requests-from-personal-accounts
-                // cache for 5 seconds, so we send at most 60 * 60 / 5 * 3 = 2160 requests per hour, which falls
-                // comfortably within the 5k requests per hour limit
-                cacheTtl: 5,
-                cacheEverything: true,
-            },
-            headers: {
-                Accept: "application/vnd.github+json",
-                Authorization: `Bearer ${GITHUB_TOKEN}`,
-                "User-Agent": "https://github.com/Vencord/Website",
-            },
+    const data = await fetch(`https://api.github.com/repos/${repo}/releases/latest`, {
+        cf: {
+            // https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#rate-limits-for-requests-from-personal-accounts
+            // cache for 5 seconds, so we send at most 60 * 60 / 5 * 3 = 2160 requests per hour, which falls
+            // comfortably within the 5k requests per hour limit
+            cacheTtl: 5,
+            cacheEverything: true
+        },
+        headers: {
+            Accept: "application/vnd.github+json",
+            Authorization: `Bearer ${GITHUB_TOKEN}`,
+            "User-Agent": "https://github.com/Vencord/Website"
         }
-    );
+    });
 
     if (!data.ok) {
-        console.error(
-            `GET ${repo}/releases/latest failed with status ${data.status}`
-        );
+        console.error(`GET ${repo}/releases/latest failed with status ${data.status}`);
 
         return new Response(null, {
-            status: 502,
+            status: 502
         });
     }
 
@@ -54,7 +49,7 @@ export const GET: APIRoute = async ({ params }) => {
         status: 200,
         headers: {
             "Content-Type": "application/json",
-            "Cache-Control": "public, max-age=20, s-maxage=20",
-        },
+            "Cache-Control": "public, max-age=20, s-maxage=20"
+        }
     });
 };

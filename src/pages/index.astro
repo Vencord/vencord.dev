@@ -1,60 +1,51 @@
 ---
 export const prerender = true;
 
-import Layout from "@layouts/Layout.astro";
-
-import LinkButton from "@components/LinkButton.astro";
 import AutoSizeGrid from "@components/AutoSizeGrid.astro";
+import LinkButton from "@components/LinkButton.astro";
 import OptimizedImage from "@components/OptimizedImage.astro";
+import Layout from "@layouts/Layout.astro";
 
 const features = [
     {
         icon: "light-bulb",
         title: "Easy Install",
-        description: "Super easy to install thanks to our graphical installer",
+        description: "Super easy to install thanks to our graphical installer"
     },
     {
         icon: "heart",
         title: "User Friendly",
-        description:
-            "Comes with all plugins preinstalled. Just enable what you like and you're done",
+        description: "Comes with all plugins preinstalled. Just enable what you like and you're done"
     },
     {
         icon: "globe",
         title: "Excellent Browser Support",
-        description: "Works just as well inside your favourite Browser!",
+        description: "Works just as well inside your favourite Browser!"
     },
     {
         icon: "locked",
         title: "Privacy Friendly",
-        description: "Blocks Discord analytics & crash reports out of the box",
+        description: "Blocks Discord analytics & crash reports out of the box"
     },
     {
         icon: "package",
         title: "Maintained Actively",
-        description:
-            "No more broken plugins! Bugs are usually fixed within a day",
+        description: "No more broken plugins! Bugs are usually fixed within a day"
     },
     {
         icon: "hammer-and-wrench",
         title: "Developer Friendly",
-        description:
-            "Flexible and robust plugin system with many APIs empowering you",
-    },
+        description: "Flexible and robust plugin system with many APIs empowering you"
+    }
 ];
 
-if (features.length % 3 !== 0)
-    throw new Error("Feature amount must be multiple of 3");
+if (features.length % 3 !== 0) throw new Error("Feature amount must be multiple of 3");
 ---
 
 <Layout description="Vencord is the cutest modification for Discord">
     <header>
         <section class="tagline">
-            <OptimizedImage
-                id="cute-logo"
-                src="/assets/cute-logo"
-                alt="Vencord cute wordmark"
-            />
+            <OptimizedImage id="cute-logo" src="/assets/cute-logo" alt="Vencord cute wordmark" />
             <h2>The cutest Discord client mod</h2>
         </section>
 
@@ -71,17 +62,15 @@ if (features.length % 3 !== 0)
 
     <!-- Heavily inspired by Vite's homepage https://vitejs.dev/ (or if they changed it, https://archive.ph/o6Lmn) -->
     <section class="features">
-        {
-            features.map(({ icon, title, description }) => (
-                <div class="feature-card">
-                    <div class="feature-icon" aria-hidden="true">
-                        <img src={`/assets/${icon}.png`} alt="" />
-                    </div>
-                    <h3 class="feature-title">{title}</h3>
-                    <p class="feature-desc">{description}</p>
+        {features.map(({ icon, title, description }) => (
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">
+                    <img src={`/assets/${icon}.png`} alt="" />
                 </div>
-            ))
-        }
+                <h3 class="feature-title">{title}</h3>
+                <p class="feature-desc">{description}</p>
+            </div>
+        ))}
     </section>
 </Layout>
 

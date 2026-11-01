@@ -1,18 +1,17 @@
 ---
 import { getLanguageColor } from "@scripts/languageColors";
-import OpenExternalIcon from "./Icons/OpenExternalIcon.astro";
 
+import OpenExternalIcon from "./Icons/OpenExternalIcon.astro";
 import Star from "./Icons/Star.astro";
 
 const {
     name,
     description,
-    data: { language, owner, stars_count, stargazers_count, html_url },
+    data: { language, owner, stars_count, stargazers_count, html_url }
 } = Astro.props;
 
 const starCount = stars_count ?? stargazers_count;
-const stars =
-    starCount > 1000 ? `${(starCount / 1000).toFixed(1)}k` : starCount;
+const stars = starCount > 1000 ? `${(starCount / 1000).toFixed(1)}k` : starCount;
 
 const avatarUrl = new URL(owner.avatar_url);
 avatarUrl.searchParams.set("size", "64");
@@ -32,10 +31,7 @@ avatarUrl.searchParams.set("size", "64");
     <span class="description">{description}</span>
 
     <div class="info">
-        <span
-            class="language"
-            style={`--lang-color: ${getLanguageColor(language)};`}
-        >
+        <span class="language" style={`--lang-color: ${getLanguageColor(language)};`}>
             {language}
         </span>
         <div class="stars">

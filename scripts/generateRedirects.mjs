@@ -8,14 +8,11 @@ const BaseRedirects = {
     "/x": "https://x.com/vencordapp",
     "/install": "/download",
     "/faq": "/support",
-    "/plugins.json":
-        "https://raw.githubusercontent.com/Vencord/builds/main/plugins.json",
-    "/plugin-readmes.json":
-        "https://raw.githubusercontent.com/Vencord/builds/main/plugin-readmes.json",
+    "/plugins.json": "https://raw.githubusercontent.com/Vencord/builds/main/plugins.json",
+    "/plugin-readmes.json": "https://raw.githubusercontent.com/Vencord/builds/main/plugin-readmes.json",
     "/donate": "https://github.com/sponsors/Vendicated",
     "/click-to-help/vencord": "https://github.com/sponsors/Vendicated",
-    "/docs/plugin-requests":
-        "https://discord.com/channels/1015060230222131221/1539309279519973386",
+    "/docs/plugin-requests": "https://discord.com/channels/1015060230222131221/1539309279519973386"
 };
 
 const VesktopDownloads = version => ({
@@ -35,14 +32,12 @@ const VesktopDownloads = version => ({
     "/download/vesktop/arm64/appimage": `https://github.com/Vencord/Vesktop/releases/download/v${version}/Vesktop-${version}-arm64.AppImage`,
     "/download/vesktop/arm64/tar": `https://github.com/Vencord/Vesktop/releases/download/v${version}/vesktop-${version}-arm64.tar.gz`,
     "/download/vesktop/arm64/deb": `https://github.com/Vencord/Vesktop/releases/download/v${version}/vesktop_${version}_arm64.deb`,
-    "/download/vesktop/arm64/rpm": `https://github.com/Vencord/Vesktop/releases/download/v${version}/vesktop-${version}.aarch64.rpm`,
+    "/download/vesktop/arm64/rpm": `https://github.com/Vencord/Vesktop/releases/download/v${version}/vesktop-${version}.aarch64.rpm`
 });
 
 const Redirects = {
     ...BaseRedirects,
-    ...VesktopDownloads(
-        readFileSync("scripts/_latestVesktopVersion.txt", "utf-8").trim()
-    ),
+    ...VesktopDownloads(readFileSync("scripts/_latestVesktopVersion.txt", "utf-8").trim())
 };
 
 const RedirectsString = Object.entries(Redirects)

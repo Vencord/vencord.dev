@@ -2,8 +2,8 @@
 export const prerender = true;
 
 import Layout from "@layouts/Layout.astro";
-import { render } from "astro:content";
 import { getSortedCollection } from "@scripts/collections";
+import { render } from "astro:content";
 import { marked } from "marked";
 
 const faq = await getSortedCollection("faq");
@@ -18,10 +18,10 @@ const structuredData = JSON.stringify({
             name: f.data.title,
             acceptedAnswer: {
                 "@type": "Answer",
-                text: marked.parse(f.body ?? ""),
-            },
+                text: marked.parse(f.body ?? "")
+            }
         }))
-    ),
+    )
 });
 
 console.log(structuredData);
@@ -39,57 +39,42 @@ console.log(structuredData);
         <section>
             <h2>Troubleshooting</h2>
             <div class="questions">
-                {
-                    support.map(async f => {
-                        const { Content } = await render(f);
-                        return (
-                            <details
-                                data-faq-title={f.data.title.replaceAll(
-                                    " ",
-                                    "-"
-                                )}
-                            >
-                                <summary>{f.data.title}</summary>
+                {support.map(async f => {
+                    const { Content } = await render(f);
+                    return (
+                        <details data-faq-title={f.data.title.replaceAll(" ", "-")}>
+                            <summary>{f.data.title}</summary>
 
-                                <div class="faq-content">
-                                    <Content />
-                                </div>
-                            </details>
-                        );
-                    })
-                }
+                            <div class="faq-content">
+                                <Content />
+                            </div>
+                        </details>
+                    );
+                })}
             </div>
         </section>
 
         <section>
             <h2>Frequently Asked Questions</h2>
             <div class="questions">
-                {
-                    faq.map(async f => {
-                        const { Content } = await render(f);
-                        return (
-                            <details
-                                data-faq-title={f.data.title.replaceAll(
-                                    " ",
-                                    "-"
-                                )}
-                            >
-                                <summary>{f.data.title}</summary>
+                {faq.map(async f => {
+                    const { Content } = await render(f);
+                    return (
+                        <details data-faq-title={f.data.title.replaceAll(" ", "-")}>
+                            <summary>{f.data.title}</summary>
 
-                                <div class="faq-content">
-                                    <Content />
-                                </div>
-                            </details>
-                        );
-                    })
-                }
+                            <div class="faq-content">
+                                <Content />
+                            </div>
+                        </details>
+                    );
+                })}
             </div>
         </section>
     </div>
 
     <p>
-        Still lost? Visit our <a href="/discord">support server</a> for more assistance!
-        We're happy to help.
+        Still lost? Visit our <a href="/discord">support server</a> for more assistance! We're happy to help.
     </p>
 
     <script is:inline type="application/ld+json" set:html={structuredData} />
@@ -103,7 +88,7 @@ console.log(structuredData);
     if (faq) {
         faq.open = true;
         faq.scrollIntoView({
-            behavior: "smooth",
+            behavior: "smooth"
         });
     }
 

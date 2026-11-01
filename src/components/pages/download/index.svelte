@@ -1,7 +1,6 @@
 <script lang="ts">
-    import { onMount, type Snippet } from "svelte";
-
     import { IS_SERVER } from "@scripts/constants";
+    import { onMount, type Snippet } from "svelte";
 
     interface Props {
         title?: Snippet;
@@ -12,21 +11,20 @@
         browserTab?: Snippet;
     }
 
-    const { title, subtitle, windowsTab, linuxTab, macTab, browserTab }: Props =
-        $props();
+    const { title, subtitle, windowsTab, linuxTab, macTab, browserTab }: Props = $props();
 
     const options = $derived([
         { label: "Windows", render: windowsTab },
         { label: "Linux", render: linuxTab },
         { label: "macOS", render: macTab },
-        { label: "Browser", render: browserTab },
+        { label: "Browser", render: browserTab }
     ] as const);
 
     const accents = {
         Windows: "Blue",
         Linux: "Green",
         macOS: "Yellow",
-        Browser: "Orange",
+        Browser: "Orange"
     } as const;
 
     function normalizePlatform(value: string | null | undefined) {
@@ -97,21 +95,12 @@
 
     <div class="downloads">
         {#each options as { label }}
-            <input
-                id={`${label}-radio`}
-                type="radio"
-                name="os"
-                bind:group={selected}
-                value={label}
-            />
+            <input id={`${label}-radio`} type="radio" name="os" bind:group={selected} value={label} />
         {/each}
 
         <div class="platforms">
             {#each options as { label }}
-                <label
-                    for={`${label}-radio`}
-                    style={`--accent: var(--accent${accents[label]})`}
-                >
+                <label for={`${label}-radio`} style={`--accent: var(--accent${accents[label]})`}>
                     <span class="dot" aria-hidden="true"></span>
                     {label}
                 </label>
@@ -235,14 +224,10 @@
         animation: fade-in 150ms ease-out;
     }
 
-    #Windows-radio:checked
-        ~ .sections
-        .download-section[data-platform="Windows"],
+    #Windows-radio:checked ~ .sections .download-section[data-platform="Windows"],
     #Linux-radio:checked ~ .sections .download-section[data-platform="Linux"],
     #macOS-radio:checked ~ .sections .download-section[data-platform="macOS"],
-    #Browser-radio:checked
-        ~ .sections
-        .download-section[data-platform="Browser"] {
+    #Browser-radio:checked ~ .sections .download-section[data-platform="Browser"] {
         display: block;
     }
 

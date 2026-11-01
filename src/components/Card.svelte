@@ -4,7 +4,7 @@
         Error = "#ec4144",
         Success = "#2d7c46",
         Info = "#5865f2",
-        Blank = "#aaaaaa",
+        Blank = "#aaaaaa"
     }
 </script>
 
@@ -19,7 +19,7 @@
     <slot />
 </div>
 
-<style define:vars={{ border, background }}>
+<style>
     div {
         width: 100%;
         border: 2px solid var(--border);

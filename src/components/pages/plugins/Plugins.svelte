@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { onMount } from "svelte";
     import type { PluginData } from "@scripts/types";
+    import { onMount } from "svelte";
 
     export let plugins: PluginData[];
 
@@ -8,18 +8,18 @@
         {
             name: "Has Commands",
             state: false,
-            check: (p: PluginData) => p.hasCommands,
+            check: (p: PluginData) => p.hasCommands
         },
         {
             name: "Desktop",
             state: false,
-            check: (p: PluginData) => p.target !== "web",
+            check: (p: PluginData) => p.target !== "web"
         },
         {
             name: "Web",
             state: false,
-            check: (p: PluginData) => p.target === "web",
-        },
+            check: (p: PluginData) => p.target === "web"
+        }
     ];
 
     let filter = "";
@@ -43,28 +43,22 @@
 
         if (p.name.toLowerCase().includes(lowerFilter)) return true;
         if (p.description.toLowerCase().includes(lowerFilter)) return true;
-        if (p.tags.some(t => t.toLowerCase().includes(lowerFilter)))
-            return true;
-        if (p.authors.some(a => a.name.toLowerCase().includes(lowerFilter)))
-            return true;
+        if (p.tags.some(t => t.toLowerCase().includes(lowerFilter))) return true;
+        if (p.authors.some(a => a.name.toLowerCase().includes(lowerFilter))) return true;
         return false;
     });
 
     function highlightMatches(text: string) {
         if (!filter) return text;
 
-        return text.replace(
-            new RegExp(filter, "gi"),
-            match => `<mark>${match}</mark>`
-        );
+        return text.replace(new RegExp(filter, "gi"), match => `<mark>${match}</mark>`);
     }
 
     function overflowTooltips(node: HTMLElement, _: PluginData) {
         const applyTitle = () => {
             const hasOverflow =
                 node.scrollWidth > node.clientWidth ||
-                (!node.classList.contains("author") &&
-                    node.scrollHeight > node.clientHeight);
+                (!node.classList.contains("author") && node.scrollHeight > node.clientHeight);
 
             node.title = hasOverflow ? node.textContent! : "";
         };
@@ -73,7 +67,7 @@
         return {
             update() {
                 applyTitle();
-            },
+            }
         };
     }
 </script>
@@ -98,11 +92,7 @@
                     d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
                 />
             </svg>
-            <input
-                type="text"
-                placeholder="Search by Name, Author or Description..."
-                bind:value={filter}
-            />
+            <input type="text" placeholder="Search by Name, Author or Description..." bind:value={filter} />
         </div>
     </section>
 
@@ -112,25 +102,14 @@
                 <!--
                     <img src={plugin.screenshot || "/assets/screenshot-placeholder.png"} class="plugin-screenshot" />
                 -->
-                <a
-                    class="plugin-content plugin-link"
-                    href={`/plugins/${encodeURIComponent(p.name)}`}
-                >
+                <a class="plugin-content plugin-link" href={`/plugins/${encodeURIComponent(p.name)}`}>
                     <h3 class="p-label-l">
                         {@html highlightMatches(p.name)}
                     </h3>
-                    <span
-                        use:overflowTooltips={p}
-                        class="author ellipsis-overflow"
-                    >
-                        {@html highlightMatches(
-                            p.authors.map(a => a.name).join(", ")
-                        )}
+                    <span use:overflowTooltips={p} class="author ellipsis-overflow">
+                        {@html highlightMatches(p.authors.map(a => a.name).join(", "))}
                     </span>
-                    <p
-                        use:overflowTooltips={p}
-                        class="description ellipsis-overflow"
-                    >
+                    <p use:overflowTooltips={p} class="description ellipsis-overflow">
                         {@html highlightMatches(p.description)}
                     </p>
 

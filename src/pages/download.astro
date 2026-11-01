@@ -1,41 +1,36 @@
 ---
 export const prerender = true;
 
-import Layout from "@layouts/Layout.astro";
-
 import BrowserTab from "@components/pages/download/BrowserTab.astro";
+import DownloadTabs from "@components/pages/download/index.svelte";
 import LinuxTab from "@components/pages/download/LinuxTab.astro";
 import MacTab from "@components/pages/download/MacTab.astro";
 import WindowsTab from "@components/pages/download/WindowsTab.astro";
-import DownloadTabs from "@components/pages/download/index.svelte";
+import Layout from "@layouts/Layout.astro";
+import { CHROME_WEBSTORE_URL, DOWNLOAD_BASE, DownloadFileNames } from "@scripts/constants";
 import { ButtonStyle, ComponentType } from "discord-api-types/v10";
-import {
-    CHROME_WEBSTORE_URL,
-    DOWNLOAD_BASE,
-    DownloadFileNames,
-} from "@scripts/constants";
 
 const downloads = [
     {
         url: DOWNLOAD_BASE + DownloadFileNames.windows,
         os: "Windows",
-        emojiId: "1550565763583180831",
+        emojiId: "1550565763583180831"
     },
     {
         url: DOWNLOAD_BASE + DownloadFileNames.macOS,
         os: "macOS",
-        emojiId: "1550560986266738709",
+        emojiId: "1550560986266738709"
     },
     {
         url: DOWNLOAD_BASE + DownloadFileNames.linux,
         os: "Linux",
-        emojiId: "815091849458614272",
+        emojiId: "815091849458614272"
     },
     {
         url: CHROME_WEBSTORE_URL,
         os: "Chrome Web Store",
-        emojiId: "1550562771878420590",
-    },
+        emojiId: "1550562771878420590"
+    }
 ];
 ---
 
@@ -49,23 +44,21 @@ const downloads = [
         components: [
             {
                 type: ComponentType.TextDisplay,
-                content: `## [Download Vencord](${Astro.url.toString()})\nDownload Vencord for Desktop or your favourite Browser!`,
+                content: `## [Download Vencord](${Astro.url.toString()})\nDownload Vencord for Desktop or your favourite Browser!`
             },
             {
                 type: ComponentType.Separator,
-                divider: false,
+                divider: false
             },
             ...downloads.flatMap(({ url, os, emojiId }, i) => [
-                ...(i === 0
-                    ? []
-                    : [{ type: ComponentType.Separator } as const]),
+                ...(i === 0 ? [] : [{ type: ComponentType.Separator } as const]),
                 {
                     type: ComponentType.Section as const,
                     components: [
                         {
                             type: ComponentType.TextDisplay as const,
-                            content: os,
-                        },
+                            content: os
+                        }
                     ],
                     accessory: {
                         type: ComponentType.Button as const,
@@ -74,17 +67,19 @@ const downloads = [
                         label: "Download",
                         emoji: {
                             name: os,
-                            id: emojiId,
-                        },
-                    },
-                },
-            ]),
-        ],
+                            id: emojiId
+                        }
+                    }
+                }
+            ])
+        ]
     }}
 >
     {/* @ts-expect-error Dumb error */}
     <DownloadTabs client:load>
-        <h1 class="p-page-title" slot="title">Download Vencord</h1>
+        <h1 class="p-page-title" slot="title">
+            Download Vencord
+        </h1>
         <p class="p-subtitle" slot="subtitle">
             Choose your platform to see installation instructions.
         </p>
