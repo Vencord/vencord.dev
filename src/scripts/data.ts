@@ -8,13 +8,12 @@ export async function fetchPlugins() {
     return res.json() as Promise<PluginData[]>;
 }
 
-export async function fetchPluginReadme(plugin: string) {
+export async function fetchPluginReadmes() {
     const res = await fetch(PLUGIN_READMES_JSON_URL);
     if (!res.ok)
         throw new Error("Failed to fetch plugin-readmes.json: " + res.status);
 
-    const readmes = await res.json<any>();
-    return readmes[plugin] as string | undefined;
+    return res.json() as Promise<Record<string, string | undefined>>;
 }
 
 export async function getPluginTraits(plugin: PluginData): Promise<Trait[]> {

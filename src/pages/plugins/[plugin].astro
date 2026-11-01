@@ -1,6 +1,7 @@
 ---
+export const prerender = true;
+
 import { parse as parseMarkdown } from "marked";
-import { cacheResponseFor, HOURS, MINUTES } from "@scripts/cache";
 import {
     ComponentType,
     ButtonStyle,
@@ -8,25 +9,33 @@ import {
 } from "discord-api-types/v10";
 import Layout from "@layouts/Layout.astro";
 import {
-    fetchPluginReadme,
+    fetchPluginReadmes,
     fetchPlugins,
     getPluginTraits,
 } from "@scripts/data";
+import type { PluginData } from "@scripts/types";
 import { humanFriendlyJoin } from "@scripts/text";
 import { GITHUB_URL } from "@scripts/constants";
 
-const pluginName = Astro.params.plugin;
-
-const plugins = await fetchPlugins();
-
-const p = plugins.find(p => p.name === pluginName);
-if (!p) {
-    cacheResponseFor(Astro.response, 5 * MINUTES);
-    return new Response(null, { status: 404 });
-} else {
-    cacheResponseFor(Astro.response, 1 * HOURS);
+interface Props {
+    plugin: PluginData;
+    readme?: string;
 }
-const readme = await fetchPluginReadme(p.name);
+
+export async function getStaticPaths() {
+    const [plugins, readmes] = await Promise.all([
+        fetchPlugins(),
+        fetchPluginReadmes(),
+    ]);
+
+    return plugins.map(plugin => ({
+        params: { plugin: plugin.name },
+        props: { plugin, readme: readmes[plugin.name] },
+    }));
+}
+
+const { plugin: p, readme } = Astro.props;
+
 const processedReadme = readme?.replace(
     new RegExp(String.raw`\n(https://github\.com/\S+/assets/\d+/[\w-]+)`, "g"),
     '\n<video controls><source src="$1" type="video/mp4"></video>\n'
@@ -51,7 +60,7 @@ const readmeHtml = processedReadme && parseMarkdown(processedReadme);
     description={p.description}
     breadcrumbs={[
         ["Plugins", "/plugins"],
-        [p.name, "/plugins/" + pluginName],
+        [p.name, "/plugins/" + p.name],
     ]}
     component={{
         type: ComponentType.Container,
