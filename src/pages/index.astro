@@ -9,49 +9,110 @@ import Layout from "@layouts/Layout.astro";
 const features = [
     {
         icon: "light-bulb",
+        color: "amber",
         title: "Easy Install",
         description: "Super easy to install thanks to our graphical installer"
     },
     {
         icon: "heart",
+        color: "pink",
         title: "User Friendly",
         description: "Comes with all plugins preinstalled. Just enable what you like and you're done"
     },
     {
         icon: "globe",
+        color: "cyan",
         title: "Excellent Browser Support",
         description: "Works just as well inside your favourite Browser!"
     },
     {
         icon: "locked",
+        color: "emerald",
         title: "Privacy Friendly",
         description: "Blocks Discord analytics & crash reports out of the box"
     },
     {
         icon: "package",
+        color: "indigo",
         title: "Maintained Actively",
         description: "No more broken plugins! Bugs are usually fixed within a day"
     },
     {
         icon: "hammer-and-wrench",
+        color: "purple",
         title: "Developer Friendly",
         description: "Flexible and robust plugin system with many APIs empowering you"
     }
 ];
 
 if (features.length % 3 !== 0) throw new Error("Feature amount must be multiple of 3");
+
+// None of these were actually said. See the heading above them.
+const testimonials = [
+    {
+        name: "BetterDiscord",
+        role: "Client mod, est. 2015",
+        initials: "BD",
+        avatar: "linear-gradient(135deg, #3e82e5, #06b6d4)",
+        color: "cyan",
+        quote: "We've been doing this for a decade and honestly? It just works. Please don't tell our users."
+    },
+    {
+        name: "Powercord",
+        role: "Archived client mod",
+        initials: "PC",
+        avatar: "linear-gradient(135deg, #6366f1, #a855f7)",
+        color: "purple",
+        quote: "We would have switched, but we got archived first. 10/10 from beyond the grave."
+    },
+    {
+        name: "Replugged",
+        role: "Powercord's successor",
+        initials: "RP",
+        avatar: "linear-gradient(135deg, #ec4899, #8b5cf6)",
+        color: "pink",
+        quote: "Vencord radically accelerated our velocity while reducing pain points. We are legally required to say this."
+    },
+    {
+        name: "Equicord",
+        role: "Vencord fork",
+        initials: "EQ",
+        avatar: "linear-gradient(135deg, #10b981, #06b6d4)",
+        color: "emerald",
+        quote: "We liked it so much we forked it. Imitation is the sincerest form of synergy."
+    },
+    {
+        name: "Aliucord",
+        role: "Android client mod",
+        initials: "AC",
+        avatar: "linear-gradient(135deg, #f59e0b, #ec4899)",
+        color: "amber",
+        quote: "We can't run it on mobile, so we just look at the screenshots and dream."
+    },
+    {
+        name: "Shelter",
+        role: "Client mod",
+        initials: "SH",
+        avatar: "linear-gradient(135deg, #3b82f6, #6366f1)",
+        color: "indigo",
+        quote: "It's not just a client mod — it's a game-changing paradigm shift that empowers modern Discord users to do more with less."
+    }
+];
 ---
 
 <Layout description="Vencord is the cutest modification for Discord">
-    <header>
+    <header class="slop-center">
         <section class="tagline">
+            <span class="slop-pill slop-pill-shimmer">Free &amp; open source</span>
             <OptimizedImage id="cute-logo" src="/assets/cute-logo" alt="Vencord cute wordmark" />
-            <h2>The cutest Discord client mod</h2>
+            <h1 class="slop-h1">
+                The <span class="slop-text-gradient-animated">cutest</span> Discord client mod
+            </h1>
         </section>
 
         <section class="buttons">
             <AutoSizeGrid>
-                <LinkButton href="/download" class="main-btn">
+                <LinkButton href="/download" primary>
                     Download Vencord
                 </LinkButton>
                 <LinkButton href="/discord">Join our Support Server</LinkButton>
@@ -62,31 +123,55 @@ if (features.length % 3 !== 0) throw new Error("Feature amount must be multiple 
 
     <!-- Heavily inspired by Vite's homepage https://vitejs.dev/ (or if they changed it, https://archive.ph/o6Lmn) -->
     <section class="features">
-        {features.map(({ icon, title, description }) => (
-            <div class="feature-card">
-                <div class="feature-icon" aria-hidden="true">
+        {features.map(({ icon, title, description, color }) => (
+            <div class={`slop-card slop-border-l-${color}`}>
+                <div class={`slop-icon-box slop-icon-${color}`} aria-hidden="true">
                     <img src={`/assets/${icon}.png`} alt="" />
                 </div>
-                <h3 class="feature-title">{title}</h3>
-                <p class="feature-desc">{description}</p>
+                <h3 class="slop-h3">{title}</h3>
+                <p class="slop-muted feature-desc">{description}</p>
             </div>
         ))}
+    </section>
+
+    <section class="testimonials">
+        <h2 class="slop-h2 slop-center">
+            What people are saying
+        </h2>
+        <div class="slop-grid-3">
+            {testimonials.map(({ name, role, initials, avatar, color, quote }) => (
+                <article class={`slop-card slop-testimonial slop-border-l-${color}`}>
+                    <div>
+                        <div class="slop-row-between slop-mb-1">
+                            <span class="slop-stars" aria-label="5 out of 5 stars">
+                                ★★★★★
+                            </span>
+                            <span class="slop-badge slop-badge-emerald">✓ Verified Client Mod</span>
+                        </div>
+                        <p class="slop-quote">“{quote}”</p>
+                    </div>
+                    <div class="slop-author">
+                        <div class="slop-avatar" style={`background:${avatar}`}>
+                            {initials}
+                        </div>
+                        <div>
+                            <div class="slop-author-name">{name}</div>
+                            <div class="slop-author-role">{role}</div>
+                        </div>
+                    </div>
+                </article>
+            ))}
+        </div>
     </section>
 </Layout>
 
 <style>
-    .breakage-card {
-        text-align: center;
-
-        & h3 {
-            margin: 0.5em 0;
-        }
-    }
-
     #cute-logo {
         width: 100%;
         max-width: 500px;
+        margin: 1.5rem 0;
     }
+
     .tagline {
         display: flex;
         flex-direction: column;
@@ -95,51 +180,12 @@ if (features.length % 3 !== 0) throw new Error("Feature amount must be multiple 
     }
 
     section {
-        margin-bottom: 2em;
-    }
-
-    .tagline {
-        margin-bottom: 1em;
-    }
-
-    h1,
-    h2 {
-        line-height: 1 !important;
-        margin: 0.5rem !important;
-        text-align: center;
-    }
-
-    h1 {
-        color: var(--accentPurple);
-    }
-
-    h2 {
-        color: var(--grey1);
-        font-size: 2.25em;
+        margin-bottom: 3em;
     }
 
     .buttons {
         display: flex;
         justify-content: center;
-    }
-
-    .main-btn {
-        background-color: var(--accentPurple);
-        color: var(--bgCurrentWord);
-        outline: none;
-    }
-
-    .main-btn:focus-visible {
-        outline: 2px solid var(--accentBlue);
-    }
-
-    .main-btn:hover {
-        background-color: rgba(var(--accentPurpleRgb), 0.8);
-    }
-
-    .main-btn:active {
-        background-color: rgba(var(--accentPurpleRgb), 0.9);
-        outline: none;
     }
 
     .features {
@@ -160,41 +206,14 @@ if (features.length % 3 !== 0) throw new Error("Feature amount must be multiple 
         }
     }
 
-    .feature-card {
-        background-color: var(--bg4);
-        padding: 16px;
-        border-radius: var(--border-lg);
-
-        transition: 200ms box-shadow cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-
-    .feature-icon {
-        padding: 0.7em;
-        width: 1.5em;
-        height: 1.5em;
-        background-color: var(--bgCurrentWord);
-        border-radius: var(--border-md);
-    }
-
-    .feature-icon img {
-        width: 100%;
-        height: 100%;
+    .slop-icon-box img {
+        width: 1.5rem;
+        height: 1.5rem;
         object-fit: contain;
-    }
-
-    .feature-title {
-        font-size: var(--fg1);
-        line-height: 1rem;
     }
 
     .feature-desc {
         font-size: 0.9em;
-        filter: brightness(90%);
         margin: 0;
-    }
-
-    svg {
-        width: 1.5em;
-        height: 1.5em;
     }
 </style>

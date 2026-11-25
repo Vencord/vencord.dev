@@ -3,54 +3,13 @@ import type { HTMLAttributes } from "astro/types";
 
 export interface Props extends HTMLAttributes<"a"> {
     href: string;
+    primary?: boolean;
     children: any;
 }
+
+const { class: className, primary, ...props } = Astro.props;
 ---
 
-<a {...Astro.props}>
+<a class:list={["slop-btn", "slop-btn-lg", primary ? "slop-btn-primary" : "slop-btn-ghost", className]} {...props}>
     <slot />
 </a>
-
-<style>
-    a {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-
-        text-decoration: none;
-        text-align: center;
-        background-color: var(--bg3);
-        font-weight: var(--fontWeightSemiBold);
-        color: var(--fg0);
-        outline: 2px solid var(--fg0-muted);
-        padding: 0.8em 2em;
-        border-radius: var(--border-md);
-
-        transition: 200ms color ease;
-    }
-
-    a:focus {
-        outline: 2px solid var(--accentPurple);
-    }
-
-    a:hover {
-        background-color: var(--bg5);
-    }
-
-    a:active {
-        outline-color: var(--fg1);
-        outline-width: 2px;
-        background-color: var(--bgCurrentWord);
-    }
-
-    a:disabled {
-        background-color: var(--bgCurrentWord);
-        outline-color: var(--grey0);
-        color: var(--grey0);
-    }
-
-    a::selection {
-        background-color: var(--background-color);
-        color: var(--accent);
-    }
-</style>

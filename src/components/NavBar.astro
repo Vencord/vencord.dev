@@ -11,8 +11,8 @@ const navLinks = {
 const page = Astro.url.pathname.split("/")[1];
 ---
 
-<nav>
-    <div class="nav-content">
+<nav class="slop-navbar">
+    <div class="nav-content slop-navbar-inner">
         <div id="logo">
             <a href="/" id="title">
                 <OptimizedImage src="/assets/logo-nav" id="logo-img" alt="Vencord Home" />
@@ -20,7 +20,7 @@ const page = Astro.url.pathname.split("/")[1];
             </a>
         </div>
         <div id="btns" class="p-label-m">
-            <ul id="right">
+            <ul id="right" class="slop-nav-links">
                 {Object.entries(navLinks).map(([link, [display, color]]) => (
                     <li>
                         <a href={`/${link}`} style={`--accent:var(--${color})`} class:list={{ active: page === link }}>
@@ -35,10 +35,6 @@ const page = Astro.url.pathname.split("/")[1];
 
 <style>
     nav {
-        background-color: var(--bg0);
-
-        position: sticky;
-        top: 0;
         z-index: 999;
     }
 
@@ -61,6 +57,8 @@ const page = Astro.url.pathname.split("/")[1];
     }
 
     ul {
+        /* slopstrap hides nav links on narrow screens, keep them */
+        display: flex;
         list-style-type: none;
         overflow: hidden;
         padding: 0;
@@ -82,13 +80,16 @@ const page = Astro.url.pathname.split("/")[1];
         text-decoration: none;
         text-align: center;
         padding: 0.5em;
-        color: var(--fg0) !important;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--grey1) !important;
         transition: 0.15s ease;
         transition-property: color, text-decoration;
     }
 
     .active {
         color: var(--accent) !important;
+        text-shadow: 0 0 12px var(--accent);
     }
 
     a:not(#title):where(:hover, :focus) {
