@@ -137,6 +137,11 @@ if (Astro.url.pathname === "/") {
 </html>
 
 <script>
+    const redirects = {
+        slop: "https://slop-vencord-site.vendicated.workers.dev",
+        betterdiscord: "https://vencord.doggybootsy.com"
+    };
+    const maxKeywordLength = Math.max(...Object.keys(redirects).map(keyword => keyword.length));
     let recentKeys = "";
 
     document.addEventListener("keydown", event => {
@@ -152,9 +157,16 @@ if (Astro.url.pathname === "/") {
             return;
         }
 
-        recentKeys = (recentKeys + key.toLowerCase()).slice(-4);
-        if (recentKeys === "slop") {
-            location.assign("https://slop-vencord-site.vendicated.workers.dev/");
+        recentKeys = (recentKeys + key.toLowerCase()).slice(-maxKeywordLength);
+        for (const [keyword, origin] of Object.entries(redirects)) {
+            if (recentKeys.endsWith(keyword)) {
+                const url = new URL(origin);
+                url.pathname = location.pathname;
+                url.search = location.search;
+                url.hash = location.hash;
+                location.assign(url);
+                return;
+            }
         }
     });
 </script>
