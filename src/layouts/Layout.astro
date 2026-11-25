@@ -136,6 +136,29 @@ if (Astro.url.pathname === "/") {
     </body>
 </html>
 
+<script>
+    let recentKeys = "";
+
+    document.addEventListener("keydown", event => {
+        const { target, key } = event;
+        if (
+            event.ctrlKey ||
+            event.altKey ||
+            event.metaKey ||
+            key.length !== 1 ||
+            (target instanceof HTMLElement && (target.matches("input, textarea") || target.isContentEditable))
+        ) {
+            recentKeys = "";
+            return;
+        }
+
+        recentKeys = (recentKeys + key.toLowerCase()).slice(-4);
+        if (recentKeys === "slop") {
+            location.assign("https://slop-vencord-site.vendicated.workers.dev/");
+        }
+    });
+</script>
+
 <style>
     :root {
         /* Light Theme */
