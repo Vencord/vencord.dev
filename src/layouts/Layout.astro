@@ -75,7 +75,7 @@ if (Astro.url.pathname === "/") {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-slop-level="3">
     <!-- read if cute :3 -->
     <head>
         <title>{title ? `${title} | Vencord` : "Vencord"}</title>
@@ -86,10 +86,12 @@ if (Astro.url.pathname === "/") {
         <link rel="icon" href="/assets/favicon-dark.png" media="(prefers-color-scheme: dark)" />
 
         <link rel="preload" href="/fonts/Inter.var-subset.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="stylesheet" href="/slopstrap/slopstrap.css" />
+        <script is:inline src="/slopstrap/slopstrap.js" defer></script>
 
         <meta name="description" content={description} />
         <meta name="author" content="Vencord Contributors" />
-        <meta name="theme-color" content="#dd7878" />
+        <meta name="theme-color" content="#030712" />
 
         {opengraph !== false && (
             <>
@@ -114,117 +116,71 @@ if (Astro.url.pathname === "/") {
         <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).toString()} />
     </head>
 
-    <body>
-        {/* Loads theme (this fixes a "flickering" bug
-            that occurs when the theme script loads after
-            the page content does, causing it to briefly
-            show the original colors.)
-            */}
-        <script is:raw is:inline>
-            const theme = localStorage.theme?.toLowerCase();
-            const options = ["light", "dark"];
-            if (options.includes(theme)) document.body.classList.add(theme);
-        </script>
-
-        <NavBar />
-
-        <div>
-            <slot />
+    <body class="slop-body slop-grid-bg">
+        <div class="slop-orb-layer" aria-hidden="true">
+            <div class="slop-orb slop-orb-purple"></div>
+            <div class="slop-orb slop-orb-cyan"></div>
+            <div class="slop-orb slop-orb-pink"></div>
+            <div class="slop-orb slop-orb-emerald"></div>
         </div>
 
-        <Footer />
+        <div class="slop-content-layer">
+            <NavBar />
+
+            <main>
+                <slot />
+            </main>
+
+            <Footer />
+        </div>
     </body>
 </html>
 
 <style>
     :root {
-        /* Light Theme */
-        --light-bg0: #f9f5d7;
-        --light-bg1: #f5edca;
-        --light-bg2: #f2eac7;
-        --light-bg3: #f2e4bc;
-        --light-bg4: #efdfb7;
-        --light-bg5: #ebdbb2;
+        /* Slopstrap palette (dark only) */
+        --bg0: var(--slop-bg-elevated);
+        --bg1: var(--slop-bg);
+        --bg2: rgba(15, 23, 42, 0.5);
+        --bg3: var(--slop-surface);
+        --bg4: var(--slop-surface);
+        --bg5: var(--slop-surface-hover);
 
-        --light-bgDim: #f2eac7;
+        --bgDim: #020617;
 
-        --light-bgCurrentWord: #f2eac7;
+        --bgCurrentWord: var(--slop-glass-strong);
 
-        --light-bgDiffGreen: #e4edc7;
-        --light-bgDiffBlue: #e0e9d3;
-        --light-bgDiffRed: #f8e4c9;
+        --bgDiffGreen: rgba(16, 185, 129, 0.14);
+        --bgDiffBlue: rgba(6, 182, 212, 0.14);
+        --bgDiffRed: rgba(244, 63, 94, 0.14);
 
-        --light-bgVisualYellow: #f9e9bf;
-        --light-bgVisualGreen: #dce5c2;
-        --light-bgVisualBlue: #d8e1cc;
-        --light-bgVisualRed: #f0ddc3;
+        --bgVisualYellow: rgba(245, 158, 11, 0.14);
+        --bgVisualGreen: rgba(16, 185, 129, 0.14);
+        --bgVisualBlue: rgba(99, 102, 241, 0.16);
+        --bgVisualRed: rgba(244, 63, 94, 0.14);
 
-        --light-bgAccentYellow: #a96b2d;
-        --light-bgAccentGreen: #6f8252;
-        --light-bgAccentRed: #ae5858;
+        --bgAccentYellow: var(--slop-amber);
+        --bgAccentGreen: var(--slop-emerald);
+        --bgAccentRed: var(--slop-rose);
 
-        --light-accentRed: #c14a4a;
-        --light-accentOrange: #c35e0a;
-        --light-accentYellow: #b37109;
-        --light-accentGreen: #6c782e;
-        --light-accentAqua: #4b7a5d;
-        --light-accentBlue: #45707a;
-        --light-accentPurple: #945e80;
+        --accentRed: var(--slop-rose);
+        --accentOrange: var(--slop-amber);
+        --accentYellow: #fbbf24;
+        --accentGreen: var(--slop-emerald);
+        --accentAqua: var(--slop-cyan);
+        --accentBlue: #38bdf8;
+        --accentPurple: #c084fc;
 
-        --light-accentPurpleRgb: 148, 94, 128; /* why? */
+        --accentPurpleRgb: 192, 132, 252;
 
-        --light-fg0: #644735;
-        --light-fg0-muted: #64473566;
-        --light-fg0-muted2: #64473525;
-        --light-fg1: #503829;
+        --fg0: #e2e8f0;
+        --fg0-muted: #e2e8f066;
+        --fg0-muted2: #e2e8f025;
+        --fg1: var(--slop-text);
 
-        --light-grey0: #a79a83;
-        --light-grey1: #928374;
-        --light-grey2: #7c6f64;
-
-        /* Dark Theme */
-        --dark-bg0: #1d2021;
-        --dark-bg1: #282828;
-        --dark-bg2: #282828;
-        --dark-bg3: #3c3836;
-        --dark-bg4: #3c3836;
-        --dark-bg5: #504944;
-
-        --dark-bgDim: #141617;
-
-        --dark-bgCurrentWord: #32302f;
-
-        --dark-bgDiffGreen: #32361a;
-        --dark-bgDiffBlue: #0d3138;
-        --dark-bgDiffRed: #3c1f1e;
-
-        --dark-bgVisualYellow: #473c29;
-        --dark-bgVisualGreen: #333e34;
-        --dark-bgVisualBlue: #2e3b3b;
-        --dark-bgVisualRed: #442e2d;
-
-        --dark-bgAccentYellow: #d8a656;
-        --dark-bgAccentGreen: #a8b665;
-        --dark-bgAccentRed: #ea6962;
-
-        --dark-accentRed: #ea6962;
-        --dark-accentOrange: #e78a4f;
-        --dark-accentYellow: #d8a656;
-        --dark-accentGreen: #a8b665;
-        --dark-accentAqua: #89b481;
-        --dark-accentBlue: #7caea3;
-        --dark-accentPurple: #d3869b;
-
-        --dark-accentPurpleRgb: 211, 133, 155;
-
-        --dark-fg0: #d4be98;
-        --dark-fg0-muted: #d4be9866;
-        --dark-fg0-muted2: #d4be9825;
-        --dark-fg1: #ddc7a0;
-
-        --dark-grey0: #7c6f64;
-        --dark-grey1: #918274;
-        --dark-grey2: #a79a83;
+        --grey0: var(--slop-text-dim);
+        --grey1: var(--slop-text-muted);
+        --grey2: #cbd5e1;
 
         /* Astro Code Colors */
 
@@ -241,152 +197,11 @@ if (Astro.url.pathname === "/") {
         --astro-code-token-link: var(--accentBlue);
 
         /* Border Radius */
-        --border-xl: 20px;
-        --border-lg: 16px;
-        --border-md: 12px;
-        --border-sm: 8px;
+        --border-xl: var(--slop-radius-xl);
+        --border-lg: var(--slop-radius-lg);
+        --border-md: var(--slop-radius-md);
+        --border-sm: var(--slop-radius-sm);
         --border-xs: 4px;
-    }
-
-    /* Light class */
-    .light {
-        --bg0: var(--light-bg0);
-        --bg1: var(--light-bg1);
-        --bg2: var(--light-bg2);
-        --bg3: var(--light-bg3);
-        --bg4: var(--light-bg4);
-        --bg5: var(--light-bg5);
-
-        --bgDim: var(--light-bgDim);
-
-        --bgCurrentWord: var(--light-bgCurrentWord);
-
-        --bgDiffGreen: var(--light-bgDiffGreen);
-        --bgDiffBlue: var(--light-bgDiffBlue);
-        --bgDiffRed: var(--light-bgDiffRed);
-
-        --bgVisualYellow: var(--light-bgVisualYellow);
-        --bgVisualGreen: var(--light-bgVisualGreen);
-        --bgVisualBlue: var(--light-bgVisualBlue);
-        --bgVisualRed: var(--light-bgVisualRed);
-
-        --bgAccentYellow: var(--light-bgAccentYellow);
-        --bgAccentGreen: var(--light-bgAccentGreen);
-        --bgAccentRed: var(--light-bgAccentRed);
-
-        --accentRed: var(--light-accentRed);
-        --accentOrange: var(--light-accentOrange);
-        --accentYellow: var(--light-accentYellow);
-        --accentGreen: var(--light-accentGreen);
-        --accentAqua: var(--light-accentAqua);
-        --accentBlue: var(--light-accentBlue);
-        --accentPurple: var(--light-accentPurple);
-
-        --accentPurpleRgb: var(--light-accentPurpleRgb);
-
-        --fg0: var(--light-fg0);
-        --fg0-muted: var(--light-fg0-muted);
-        --fg0-muted2: var(--light-fg0-muted2);
-        --fg1: var(--light-fg1);
-
-        --grey0: var(--light-grey0);
-        --grey1: var(--light-grey1);
-        --grey2: var(--light-grey2);
-    }
-
-    /* Dark class (+ default colors) */
-    .dark,
-    :root {
-        --bg0: var(--dark-bg0);
-        --bg1: var(--dark-bg1);
-        --bg2: var(--dark-bg2);
-        --bg3: var(--dark-bg3);
-        --bg4: var(--dark-bg4);
-        --bg5: var(--dark-bg5);
-
-        --bgDim: var(--dark-bgDim);
-
-        --bgCurrentWord: var(--dark-bgCurrentWord);
-
-        --bgDiffGreen: var(--dark-bgDiffGreen);
-        --bgDiffBlue: var(--dark-bgDiffBlue);
-        --bgDiffRed: var(--dark-bgDiffRed);
-
-        --bgVisualYellow: var(--dark-bgVisualYellow);
-        --bgVisualGreen: var(--dark-bgVisualGreen);
-        --bgVisualBlue: var(--dark-bgVisualBlue);
-        --bgVisualRed: var(--dark-bgVisualRed);
-
-        --bgAccentYellow: var(--dark-bgAccentYellow);
-        --bgAccentGreen: var(--dark-bgAccentGreen);
-        --bgAccentRed: var(--dark-bgAccentRed);
-
-        --accentRed: var(--dark-accentRed);
-        --accentOrange: var(--dark-accentOrange);
-        --accentYellow: var(--dark-accentYellow);
-        --accentGreen: var(--dark-accentGreen);
-        --accentAqua: var(--dark-accentAqua);
-        --accentBlue: var(--dark-accentBlue);
-        --accentPurple: var(--dark-accentPurple);
-
-        --accentPurpleRgb: var(--dark-accentPurpleRgb);
-
-        --fg0: var(--dark-fg0);
-        --fg0-muted: var(--dark-fg0-muted);
-        --fg0-muted2: var(--dark-fg0-muted2);
-        --fg1: var(--dark-fg1);
-
-        --grey0: var(--dark-grey0);
-        --grey1: var(--dark-grey1);
-        --grey2: var(--dark-grey2);
-    }
-
-    /* Light theme (if browser is set to light) */
-    /* (YES IT'S DUPLICATE CODE SHHHHHHHHHHHHH) */
-    @media (prefers-color-scheme: light) {
-        :root {
-            --bg0: var(--light-bg0);
-            --bg1: var(--light-bg1);
-            --bg2: var(--light-bg2);
-            --bg3: var(--light-bg3);
-            --bg4: var(--light-bg4);
-            --bg5: var(--light-bg5);
-
-            --bgDim: var(--light-bgDim);
-
-            --bgCurrentWord: var(--light-bgCurrentWord);
-
-            --bgDiffGreen: var(--light-bgDiffGreen);
-            --bgDiffBlue: var(--light-bgDiffBlue);
-            --bgDiffRed: var(--light-bgDiffRed);
-
-            --bgVisualYellow: var(--light-bgVisualYellow);
-            --bgVisualGreen: var(--light-bgVisualGreen);
-            --bgVisualBlue: var(--light-bgVisualBlue);
-            --bgVisualRed: var(--light-bgVisualRed);
-
-            --bgAccentYellow: var(--light-bgAccentYellow);
-            --bgAccentGreen: var(--light-bgAccentGreen);
-            --bgAccentRed: var(--light-bgAccentRed);
-
-            --accentRed: var(--light-accentRed);
-            --accentOrange: var(--light-accentOrange);
-            --accentYellow: var(--light-accentYellow);
-            --accentGreen: var(--light-accentGreen);
-            --accentAqua: var(--light-accentAqua);
-            --accentBlue: var(--light-accentBlue);
-            --accentPurple: var(--light-accentPurple);
-
-            --accentPurpleRgb: var(--light-accentPurpleRgb);
-
-            --fg0: var(--light-fg0);
-            --fg0-muted: var(--light-fg0-muted);
-            --fg1: var(--light-fg1);
-
-            --grey0: var(--light-grey0);
-            --grey1: var(--light-grey1);
-            --grey2: var(--light-grey2);
-        }
     }
 
     @font-face {
@@ -403,23 +218,23 @@ if (Astro.url.pathname === "/") {
         font-weight: var(--fontWeightRegular);
         line-height: 1.5;
 
-        color-scheme: dark light;
+        color-scheme: dark;
     }
 
     body {
         --horizontal-margin: 20%;
+        color: var(--fg0);
+    }
 
+    .slop-content-layer {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
 
         min-height: 100vh;
-
-        background-color: var(--bg1);
-        color: var(--fg0);
     }
 
-    div {
+    main {
         margin: 2em var(--horizontal-margin);
         height: 100%;
         flex: 1;
@@ -458,10 +273,6 @@ if (Astro.url.pathname === "/") {
         text-align: right;
 
         color: var(--grey0);
-    }
-
-    a {
-        color: var(--accentBlue);
     }
 
     mark {
