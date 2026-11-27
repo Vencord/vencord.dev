@@ -1,0 +1,38 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+export interface Props extends HTMLAttributes<"details"> {
+    summary: string;
+}
+
+const { summary, ...attributes } = Astro.props;
+---
+
+<details {...attributes}>
+    <summary>{summary}</summary>
+    <div class="content">
+        <slot />
+    </div>
+</details>
+
+<style>
+    details {
+        padding-block: 0.5em 1em;
+        min-width: 0;
+    }
+
+    details[open] .content {
+        border-left: 1px solid var(--accentAqua);
+        padding-left: 1em;
+    }
+
+    summary {
+        font-size: 1.2em;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    summary::marker {
+        display: none;
+    }
+</style>

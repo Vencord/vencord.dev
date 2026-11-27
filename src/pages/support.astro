@@ -1,6 +1,7 @@
 ---
 export const prerender = true;
 
+import Details from "@components/Details.astro";
 import Layout from "@layouts/Layout.astro";
 import { getSortedCollection } from "@scripts/collections";
 import { render } from "astro:content";
@@ -42,13 +43,9 @@ console.log(structuredData);
                 {support.map(async f => {
                     const { Content } = await render(f);
                     return (
-                        <details data-faq-title={f.data.title.replaceAll(" ", "-")}>
-                            <summary>{f.data.title}</summary>
-
-                            <div class="faq-content">
-                                <Content />
-                            </div>
-                        </details>
+                        <Details summary={f.data.title} data-faq-title={f.data.title.replaceAll(" ", "-")}>
+                            <Content />
+                        </Details>
                     );
                 })}
             </div>
@@ -60,13 +57,9 @@ console.log(structuredData);
                 {faq.map(async f => {
                     const { Content } = await render(f);
                     return (
-                        <details data-faq-title={f.data.title.replaceAll(" ", "-")}>
-                            <summary>{f.data.title}</summary>
-
-                            <div class="faq-content">
-                                <Content />
-                            </div>
-                        </details>
+                        <Details summary={f.data.title} data-faq-title={f.data.title.replaceAll(" ", "-")}>
+                            <Content />
+                        </Details>
                     );
                 })}
             </div>
@@ -126,27 +119,8 @@ console.log(structuredData);
         gap: 1em;
     }
 
-    details {
-        padding-block: 0.5em 1em;
-        min-width: 0;
+    .questions > :global(details) {
         border-bottom: 1px solid var(--fg0-muted);
-    }
-
-    details[open] {
-        .faq-content {
-            border-left: 1px solid var(--accentAqua);
-            padding-left: 1em;
-        }
-    }
-
-    summary {
-        font-size: 1.2em;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    ::marker {
-        display: none;
     }
 
     /* style some markdown elements */

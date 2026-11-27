@@ -1,6 +1,7 @@
 ---
 import Card, { CardKind } from "@components/Card.svelte";
 import CodeBlock from "@components/CodeBlock.svelte";
+import Details from "@components/Details.astro";
 import { DOWNLOAD_BASE, DownloadFileNames } from "@scripts/constants";
 
 import DownloadActions from "./DownloadActions.astro";
@@ -8,21 +9,55 @@ import Tab from "./Tab.astro";
 ---
 
 <Tab title="Linux">
-    <p>Open your terminal and run the following command. Then follow the instructions in your terminal.</p>
-
-    <CodeBlock code={`sh -c "$(curl -sS ${Astro.url.origin}/install.sh)"`} client:load />
-
-    <p>Alternatively, download the installer, make it executable and run it in a terminal.</p>
-
     <DownloadActions
         links={[
             {
                 href: DOWNLOAD_BASE + DownloadFileNames.linux,
-                label: "Download CLI installer",
+                label: "Download for Linux",
+                title: "Download VencordInstaller-linux",
+                primary: true
+            },
+            {
+                href: DOWNLOAD_BASE + DownloadFileNames.linuxCli,
+                label: "Command-line installer",
                 title: "Download VencordInstallerCli-linux"
             }
         ]}
     />
+
+    <Details summary="How to run the Installer">
+        <p>
+            In your file manager, right-click the downloaded <strong>{DownloadFileNames.linux}</strong> file and choose{" "}
+            <strong>Properties</strong>.
+        </p>
+        <ul>
+            <li>
+                <strong>GNOME:</strong> Turn on <strong>Executable as Program</strong> and close the window.
+            </li>
+            <li>
+                <strong>KDE:</strong> Open the <strong>Permissions</strong> tab, check{" "}
+                <strong>Allow executing file as program</strong>, and click OK.
+            </li>
+        </ul>
+
+        <p>Then double-click the file to launch the Installer.</p>
+    </Details>
+
+    <Details summary="If you run into a permission issue while installing">
+        <p>Run the installer as root</p>
+        <ul>
+            <li>
+                Open a terminal and type <strong>sudo</strong>
+            </li>
+            <li>Press space</li>
+            <li>Drag the Installer from your file manager into the terminal and it should insert the filepath</li>
+            <li>Hit enter and type your user password. The typed input may be invisible, that's normal.</li>
+        </ul>
+    </Details>
+
+    <p>You can also use this one-liner to run the CLI.</p>
+
+    <CodeBlock code={`sh -c "$(curl -sS ${Astro.url.origin}/install.sh)"`} client:load />
 
     <Card kind={CardKind.Warning}>
         <p>Discord installed via snap is not supported. Instead, use one of the following:</p>
